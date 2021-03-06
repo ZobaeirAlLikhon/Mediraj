@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/header">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/layOne"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/headProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="@drawable/profile_grad"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/test" />/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/headName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/overlock"
+                    android:text="Akash Karim"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/headPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/overlock"
+                    android:text="01767-535389"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Profile"
+            android:drawableLeft="@drawable/ic_user"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Task Status"
+            android:drawableLeft="@drawable/ic_charging_circle"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/taskHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/ic_history"
+            android:text="Order History"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/offer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Special Offer"
+            android:drawableLeft="@drawable/ic_discount"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Help"
+            android:drawableLeft="@drawable/ic_information"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Logout"
+            android:drawableLeft="@drawable/ic_logout"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/headerBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/overlock"
+        android:padding="10dp"
+        android:text="Back"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:drawableLeft="@drawable/ic_left"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</RelativeLayout>

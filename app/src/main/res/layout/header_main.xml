@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/white"
+    android:backgroundTint="@color/purple_500">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/navIconImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_menu"/>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toEndOf="@id/navIconImage"
+                    android:background="@color/purple_500"
+                    app:tabIndicatorColor="@color/white"
+                    app:tabMode="fixed"
+                    app:tabTextColor="@color/white"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_search"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"/>
+
+
+        </RelativeLayout>
+
+</com.google.android.material.appbar.AppBarLayout>
