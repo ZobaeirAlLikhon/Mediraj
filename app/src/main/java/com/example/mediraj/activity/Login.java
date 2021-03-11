@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
     private void setTabLayout() {
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Sign Up"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
+       // tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
         final LoginTabAdapter adapter = new LoginTabAdapter(this,getSupportFragmentManager(),
                 tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

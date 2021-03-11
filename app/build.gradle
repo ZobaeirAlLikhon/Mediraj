@@ -65,9 +65,17 @@ dependencies {
 
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 
+    //permission manager
     implementation 'com.karumi:dexter:6.2.2'
 
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+
+    //masking edit text
+    implementation 'com.github.santalu:maskara:1.0.0'
+
+    //graph
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 }
