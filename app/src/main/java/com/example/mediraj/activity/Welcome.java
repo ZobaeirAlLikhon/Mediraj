@@ -12,7 +12,7 @@ import com.example.mediraj.R;
 public class Welcome extends AppCompatActivity {
 
     private int Splash_Screen = 2000;
-    private boolean flag = false;
+    private boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
