@@ -34,22 +34,13 @@
                     android:text="@string/sign_up"
                     android:textSize="30sp" />
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/testCase"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:layout_weight="2"
-                        android:hint="@string/first_name">
+                        android:hint="@string/name">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/firstName"
@@ -60,24 +51,6 @@
                             android:textColor="@color/black" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/testCaseOne"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="2"
-                        android:hint="@string/last_name">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/lastName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/overlock"
-                            android:inputType="textPersonName"
-                            android:textColor="@color/black" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
 
 
                 <com.google.android.material.textfield.TextInputLayout

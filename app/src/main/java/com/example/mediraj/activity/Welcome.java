@@ -12,7 +12,7 @@ import com.example.mediraj.R;
 public class Welcome extends AppCompatActivity {
 
     private int Splash_Screen = 2000;
-    private boolean flag = true;
+    private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +20,8 @@ public class Welcome extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-        //check for login in shared preference or roomdb
-        //if logged in then flag value stay default or change to false
+        //check for login in shared preference or RoomDB
+        //if logged in then set flag value to true or change to false
         //above two for steps for story board if story board is implemented
 
 
