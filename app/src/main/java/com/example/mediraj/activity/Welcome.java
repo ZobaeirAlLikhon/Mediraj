@@ -11,13 +11,14 @@ import com.example.mediraj.R;
 
 public class Welcome extends AppCompatActivity {
 
-    private int Splash_Screen = 2000;
-    private boolean flag = true;
+    private static final int SPLASH_SCREEN = 2000;
+    private  boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_welcome);
+
 
 
         //check for login in shared preference or RoomDB
@@ -27,17 +28,14 @@ public class Welcome extends AppCompatActivity {
 
 
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (flag){
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                }else {
-                    Intent intent = new Intent(getApplicationContext(),Login.class);
-                    startActivity(intent);
-                    finish();
-                }
+        new Handler().postDelayed(() -> {
+            if (flag){
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }else {
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
             }
-        },Splash_Screen);
+        },SPLASH_SCREEN);
     }
 }

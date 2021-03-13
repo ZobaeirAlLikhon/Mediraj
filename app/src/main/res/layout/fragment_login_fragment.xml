@@ -8,7 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -38,21 +39,19 @@
                     android:id="@+id/testCaseSix"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:hint="@string/phone_number">
+                    android:hint="@string/email"
+                    app:startIconDrawable="@drawable/ic_email">
 
-                    <com.santalu.maskara.widget.MaskEditText
-                        android:id="@+id/regPhone"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginEmail"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/overlock"
-                        android:forceHasOverlappingRendering="false"
-                        android:inputType="phone"
-                        android:padding="10dp"
+                        android:inputType="textEmailAddress"
                         android:textColor="@color/black"
-                        app:mask="+88 #####-######"
-                        tools:targetApi="n" />
+                        android:textStyle="bold" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,15 +62,17 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/password"
-                    app:passwordToggleEnabled="true">
+                    app:passwordToggleEnabled="true"
+                    app:startIconDrawable="@drawable/ic_password">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regPass"
+                        android:id="@+id/loginPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/overlock"
                         android:inputType="textPassword"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
