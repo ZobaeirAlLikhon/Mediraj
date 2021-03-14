@@ -44,14 +44,14 @@
                     android:hint="@string/email"
                     app:startIconDrawable="@drawable/ic_email">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/loginEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/overlock"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/overlock"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
