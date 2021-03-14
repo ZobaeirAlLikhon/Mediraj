@@ -4,6 +4,7 @@
     <string name="user_login">User Login</string>
     <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="last_name">Last Name</string>
     <string name="confirm_password">Confirm Password</string>
