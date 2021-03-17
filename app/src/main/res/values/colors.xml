@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="denim">#0091EA</color>
-    <color name="gray">#455A64</color>
+    <color name="gray">#808080</color>
+    <color name="dim_black">#2D333B</color>
 </resources>

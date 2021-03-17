@@ -139,5 +139,6 @@
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:3.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.santalu:maskara:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.smarteist:autoimageslider:1.4.0@aar" level="project" />
   </component>
 </module>
