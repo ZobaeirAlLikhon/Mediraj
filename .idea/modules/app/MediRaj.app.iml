@@ -139,8 +139,12 @@
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:3.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.santalu:maskara:1.0.0@aar" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" name="Gradle: com.airbnb.android:lottie:3.6.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.denzcoskun:ImageSlideshow:0.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.mancj:MaterialSearchBar:0.8.5@aar" level="project" />
+=======
+    <orderEntry type="library" name="Gradle: com.github.smarteist:autoimageslider:1.4.0@aar" level="project" />
+>>>>>>> origin/main
   </component>
 </module>

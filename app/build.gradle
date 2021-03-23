@@ -79,4 +79,8 @@ dependencies {
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 
 
+
+    //image slider
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
+
 }
