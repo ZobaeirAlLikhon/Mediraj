@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:foreground="@drawable/profile_grad"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/test" />/>
+                android:src="@mipmap/test" />
 
             <LinearLayout
                 android:layout_width="match_parent"
