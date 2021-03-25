@@ -31,7 +31,7 @@ public class Service_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_service_fragment, container, false);
-        sliderView = view.findViewById(R.id.imageSlider);
+//        sliderView = view.findViewById(R.id.imageSlider);
 
         return view;
     }
