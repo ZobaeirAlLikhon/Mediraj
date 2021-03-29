@@ -132,7 +132,7 @@ public class SignUp_fragment extends Fragment implements View.OnClickListener {
                 map.put("mobile",phoneET);
                 map.put("email",emailET);
                 map.put("password",passET);
-
+                Log.e("User Data",map.toString());
                 Call<Map<String,String>> call = apiInterface.userSignUp(Constant.api_key,Constant.auth,map);
                 call.enqueue(new Callback<Map<String, String>>() {
                     @Override

@@ -24,7 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f8b7e87-8f00-4837-b2ea-7be24de77d60" name="Default Changelist" comment="">
+    <list default="true" id="4f8b7e87-8f00-4837-b2ea-7be24de77d60" name="Default Changelist" comment="some bug fixing on sign_up_fragment and loader added.">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/ConnectionManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_progress.xml" afterDir="false" />
@@ -287,6 +287,14 @@
       <option name="presentableId" value="Default" />
       <updated>1617041492275</updated>
     </task>
+    <task id="LOCAL-00001" summary="some bug fixing on sign_up_fragment and loader added.">
+      <created>1617049198707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617049198707</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,6 +307,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="some bug fixing on sign_up_fragment and loader added." />
+    <option name="LAST_COMMIT_MESSAGE" value="some bug fixing on sign_up_fragment and loader added." />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617041698455">
@@ -313,25 +325,29 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="790" y="342" width="329" height="437" key="AndroidCreateXmlResourceDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617043097430" />
-    <state width="1878" height="277" key="GridCell.Tab.0.bottom" timestamp="1617047680270">
+    <state width="1878" height="277" key="GridCell.Tab.0.bottom" timestamp="1617049004213">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1617047680270" />
-    <state width="1878" height="277" key="GridCell.Tab.0.center" timestamp="1617047680269">
+    <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1617049004213" />
+    <state width="1878" height="277" key="GridCell.Tab.0.center" timestamp="1617049004212">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1617047680269" />
-    <state width="1878" height="277" key="GridCell.Tab.0.left" timestamp="1617047680269">
+    <state width="1878" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1617049004212" />
+    <state width="1878" height="277" key="GridCell.Tab.0.left" timestamp="1617049004212">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1617047680269" />
-    <state width="1878" height="277" key="GridCell.Tab.0.right" timestamp="1617047680270">
+    <state width="1878" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1617049004212" />
+    <state width="1878" height="277" key="GridCell.Tab.0.right" timestamp="1617049004212">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1617047680270" />
+    <state width="1878" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1617049004212" />
     <state x="543" y="299" width="824" height="515" key="IDE.errors.dialog" timestamp="1617046021218">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="543" y="299" width="824" height="515" key="IDE.errors.dialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617046021218" />
+    <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1617049217789">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1617049217789" />
   </component>
 </project>
