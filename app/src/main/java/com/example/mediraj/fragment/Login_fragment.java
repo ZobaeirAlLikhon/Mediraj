@@ -9,10 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mediraj.R;
+import com.example.mediraj.helper.DataManager;
+import com.google.android.material.button.MaterialButton;
 
 public class Login_fragment extends Fragment {
 
 
+
+    View view;
 
     public Login_fragment() {
         // Required empty public constructor
@@ -23,6 +27,11 @@ public class Login_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_fragment, container, false);
+
+        view = inflater.inflate(R.layout.fragment_login_fragment, container, false);
+
+
+
+        return view;
     }
 }

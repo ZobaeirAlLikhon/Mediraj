@@ -34,6 +34,7 @@
                     android:layout_margin="30dp"
                     android:fontFamily="@font/share_tech"
                     android:text="@string/sign_up"
+                    android:textStyle="bold"
                     android:textSize="30sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -47,8 +48,8 @@
                         android:id="@+id/userName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/overlock"
-                        android:inputType="textPersonName"
+                        android:fontFamily="@font/share_tech"
+                        android:inputType="textPersonName|textCapWords"
                         android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +64,7 @@
                         android:id="@+id/userEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/overlock"
+                        android:fontFamily="@font/share_tech"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +81,7 @@
                         android:id="@+id/userPhone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="@font/overlock"
+                        android:fontFamily="@font/share_tech"
                         android:forceHasOverlappingRendering="false"
                         android:inputType="phone"
                         android:padding="10dp"
@@ -102,7 +103,7 @@
                         android:id="@+id/regPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/overlock"
+                        android:fontFamily="@font/share_tech"
                         android:inputType="textPassword"
                         android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +121,7 @@
                         android:id="@+id/regConPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/overlock"
+                        android:fontFamily="@font/share_tech"
                         android:inputType="textPassword"
                         android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>

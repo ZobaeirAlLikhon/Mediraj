@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MediRaj.iml" filepath="$PROJECT_DIR$/.idea/modules/MediRaj.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MediRaj.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MediRaj.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Mediraj.MediRaj.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Mediraj.MediRaj.app.iml" />
     </modules>
   </component>
 </project>
