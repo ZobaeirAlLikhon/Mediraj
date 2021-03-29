@@ -73,56 +73,49 @@ public class SignUp_fragment extends Fragment {
     }
 
     private void sign_up_con() {
-//        ((Login) getActivity()).changeTab(1);
-//        nameET=user_name.getText().toString().trim();
-//        emailET=email.getText().toString().trim();
-//        phoneET=phone.getText().toString().trim();
-//        passET=password.getText().toString().trim();
-//        con_passET=password_conf.getText().toString().trim();
-//        if(nameET.isEmpty())
-//        {
-//            Toast.makeText(getContext(),"Enter Your Name",Toast.LENGTH_SHORT).show();
-//        }
-//        else if(emailET.isEmpty())
-//        {
-//            Toast.makeText(getContext(),"Enter Your Email",Toast.LENGTH_SHORT).show();
-//        }
-//        else if(phoneET.isEmpty())
-//        {
-//            Toast.makeText(getContext(),"Enter Your Phone",Toast.LENGTH_SHORT).show();
-//        }
-//        else if(passET.isEmpty())
-//        {
-//            Toast.makeText(getContext(),"Enter Your password",Toast.LENGTH_SHORT).show();
-//        }
-//        else if(!con_passET.equals(password.getText().toString().trim())){
-//            Toast.makeText(getContext(),"Password Not matching",Toast.LENGTH_SHORT).show();
-//
-//        }
-//        else{
-////            if(!email.getText().toString().trim().matches(emailPattern))
-////            {
-////                Toast.makeText(getContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
-////            }
-//            apiInterface= APiClient.getClient().create(ApiInterface.class);
-//            Call<Example> call=apiInterface.sign_up_profile(Constant.api_key,Constant.auth,nameET,emailET,phoneET,con_passET);
-//            call.enqueue(new Callback<Example>() {
-//                @Override
-//                public void onResponse(Call<Example> call, Response<Example> response) {
-//                    FragmentManager fm = getFragmentManager();
-//                    FragmentTransaction ft = fm.beginTransaction();
-//                    Login_fragment log_frag = new Login_fragment();
-//                    ft.replace(R.id.viewPager, llf);
-//                    ft.commit();
-//
-//                    Log.e("sign_Up",response.message().toString());
-//                }
-//
-//                @Override
-//                public void onFailure(Call<Example> call, Throwable t) {
-//                    Log.e("sign_Up",t.toString());
-//                }
-//            });
-//        }
+        nameET=user_name.getText().toString().trim();
+        emailET=email.getText().toString().trim();
+        phoneET=phone.getText().toString().trim();
+        passET=password.getText().toString().trim();
+        con_passET=password_conf.getText().toString().trim();
+        if(nameET.isEmpty())
+        {
+            Toast.makeText(getContext(),"Enter Your Name",Toast.LENGTH_SHORT).show();
+        }
+        else if(emailET.isEmpty())
+        {
+            Toast.makeText(getContext(),"Enter Your Email",Toast.LENGTH_SHORT).show();
+        }
+        else if(phoneET.isEmpty())
+        {
+            Toast.makeText(getContext(),"Enter Your Phone",Toast.LENGTH_SHORT).show();
+        }
+        else if(passET.isEmpty())
+        {
+            Toast.makeText(getContext(),"Enter Your password",Toast.LENGTH_SHORT).show();
+        }
+        else if(!con_passET.equals(password.getText().toString().trim())){
+            Toast.makeText(getContext(),"Password Not matching",Toast.LENGTH_SHORT).show();
+
+        }
+        else{
+//            if(!email.getText().toString().trim().matches(emailPattern))
+//            {
+//                Toast.makeText(getContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+//            }
+            apiInterface= APiClient.getClient().create(ApiInterface.class);
+            Call<Example> call=apiInterface.sign_up_profile(Constant.api_key,Constant.auth,nameET,emailET,phoneET,con_passET);
+            call.enqueue(new Callback<Example>() {
+                @Override
+                public void onResponse(Call<Example> call, Response<Example> response) {
+                    Log.e("sign_Up",response.message().toString());
+                }
+
+                @Override
+                public void onFailure(Call<Example> call, Throwable t) {
+                    Log.e("sign_Up",t.toString());
+                }
+            });
+        }
     }
 }
