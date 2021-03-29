@@ -12,7 +12,7 @@ import com.example.mediraj.R;
 public class Welcome extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN = 2000;
-    private  boolean flag = true;
+    private  boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
