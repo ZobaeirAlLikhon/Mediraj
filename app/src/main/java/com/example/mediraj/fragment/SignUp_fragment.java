@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +20,6 @@ import com.example.mediraj.model.Example;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -75,7 +73,6 @@ public class SignUp_fragment extends Fragment {
     }
 
     private void sign_up_con() {
-        TabLayout tabs = sign_up_view.findViewById(R.id.tabLayout);
 //        ((Login) getActivity()).changeTab(1);
 //        nameET=user_name.getText().toString().trim();
 //        emailET=email.getText().toString().trim();
