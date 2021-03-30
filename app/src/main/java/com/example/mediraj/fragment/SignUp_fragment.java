@@ -78,12 +78,6 @@ public class SignUp_fragment extends Fragment implements View.OnClickListener {
         signUpBtn.setOnClickListener(this);
     }
 
-
-    private void input_data() {
-
-
-    }
-
     private void sign_up_con() {
 
         //extract phone number from field
@@ -163,12 +157,12 @@ public class SignUp_fragment extends Fragment implements View.OnClickListener {
                     public void onFailure(Call<Map<String, String>> call, Throwable t) {
                         DataManager.getInstance().hideProgressMessage();
                         Log.e(TAG,t.toString());
-                        Toasty.error(getContext(),"Error Try Again!",Toasty.LENGTH_SHORT).show();
+                        Toasty.error(getContext(),getString(R.string.error_api),Toasty.LENGTH_SHORT).show();
                     }
                 });
 
             }else {
-                Toasty.info(getContext(),"Please Connect to Internet!",Toasty.LENGTH_SHORT).show();
+                Toasty.info(getContext(),getString(R.string.internet_connect_msg),Toasty.LENGTH_SHORT).show();
             }
         }
     }

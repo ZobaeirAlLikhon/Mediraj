@@ -6,19 +6,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import com.example.mediraj.R;
 
 public class Welcome extends AppCompatActivity {
 
-    private static final int SPLASH_SCREEN = 2000;
+    private static final int SPLASH_SCREEN = 3000;
     private  boolean flag = false;
+    private TextView appText;
+    private Animation fade_in,blink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
 
+        initView();
 
 
         //check for login in shared preference or RoomDB
@@ -37,5 +43,10 @@ public class Welcome extends AppCompatActivity {
                 finish();
             }
         },SPLASH_SCREEN);
+    }
+
+    private void initView() {
+        appText = findViewById(R.id.animText);
+        appText.setAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in));
     }
 }

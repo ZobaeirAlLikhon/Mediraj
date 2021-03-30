@@ -25,9 +25,13 @@
                     android:layout_centerHorizontal="true"
                     android:layout_toEndOf="@id/navIconImage"
                     android:background="@color/denim"
-                    app:tabIndicatorColor="@color/purple_700"
+                    app:tabBackground="?attr/selectableItemBackground"
+                    app:tabIndicatorColor="#4CAF50"
+                    app:tabIndicatorHeight="4dp"
                     app:tabMode="fixed"
-                    app:tabTextColor="@color/white"/>
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextAppearance="@style/TabFont"
+                    app:tabTextColor="@color/black"/>
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"

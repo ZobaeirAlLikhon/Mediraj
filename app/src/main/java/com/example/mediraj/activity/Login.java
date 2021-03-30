@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.LoginTabAdapter;
-import com.example.mediraj.adaptar.TabAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 

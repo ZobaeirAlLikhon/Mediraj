@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="10dp"
-        app:SpinKit_Color="#F44336" />
+        app:SpinKit_Color="@color/denim" />
     <TextView
         android:id="@+id/progressText"
         android:layout_width="wrap_content"

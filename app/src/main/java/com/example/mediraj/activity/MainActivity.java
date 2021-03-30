@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.TabAdapter;
+import com.example.mediraj.adaptar.HomeTabAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        tabLayout.addTab(tabLayout.newTab().setText("Services"));
        tabLayout.addTab(tabLayout.newTab().setText("Popular"));
        tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
-       final TabAdapter adapter = new TabAdapter(this,getSupportFragmentManager(),
+       final HomeTabAdapter adapter = new HomeTabAdapter(this,getSupportFragmentManager(),
                tabLayout.getTabCount());
        viewPager.setAdapter(adapter);
        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
