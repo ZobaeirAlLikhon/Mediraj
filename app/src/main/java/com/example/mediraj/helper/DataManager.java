@@ -46,12 +46,12 @@ public class DataManager {
             mDialog.setContentView(R.layout.custom_progress);
             mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             textView = mDialog.findViewById(R.id.progressText);
-            progressBar = mDialog.findViewById(R.id.progress);
+           // progressBar = mDialog.findViewById(R.id.progress);
             textView.setText(msg);
             WindowManager.LayoutParams lp = mDialog.getWindow().getAttributes();
             lp.dimAmount = 0.8f;
-            Sprite foldingCube = new FadingCircle();
-            progressBar.setIndeterminateDrawable(foldingCube);
+            //Sprite foldingCube = new FadingCircle();
+            //progressBar.setIndeterminateDrawable(foldingCube);
             mDialog.getWindow().setAttributes(lp);
             mDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             mDialog.setCancelable(false);

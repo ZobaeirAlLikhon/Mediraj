@@ -24,10 +24,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f8b7e87-8f00-4837-b2ea-7be24de77d60" name="Default Changelist" comment="some bug fixing on sign_up_fragment and loader added.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/blink.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/fade_in.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash_grad.xml" afterDir="false" />
+    <list default="true" id="4f8b7e87-8f00-4837-b2ea-7be24de77d60" name="Default Changelist" comment="some design fixing and login fragment partial">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/out_bubble.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/heartbeat.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -38,23 +37,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MediRaj.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/MediRaj.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/Welcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/TabAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/HomeTabAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/Login_fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/Login_fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/SignUp_fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/SignUp_fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/DataManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_progress.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_progress.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sign_up_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sign_up_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/header_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/header_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +77,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/raw" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/raw" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -180,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617049388604</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some design fixing and login fragment partial">
+      <created>1617138415567</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617138415568</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,7 +199,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="some bug fixing on sign_up_fragment and loader added." />
-    <option name="LAST_COMMIT_MESSAGE" value="some bug fixing on sign_up_fragment and loader added." />
+    <MESSAGE value="some design fixing and login fragment partial" />
+    <option name="LAST_COMMIT_MESSAGE" value="some design fixing and login fragment partial" />
   </component>
   <component name="WindowStateProjectService">
     <state x="768" y="262" width="374" height="590" key="#com.intellij.ide.util.MemberChooser" timestamp="1617136812484">
@@ -212,10 +215,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="553" y="215" width="824" height="491" key="AndroidCreateResourceDirectoryDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617134106553" />
-    <state x="543" y="311" width="824" height="491" key="AndroidCreateResourceFileDialog" timestamp="1617136533183">
+    <state x="543" y="311" width="824" height="491" key="AndroidCreateResourceFileDialog" timestamp="1617220649757">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="543" y="311" width="824" height="491" key="AndroidCreateResourceFileDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617136533183" />
+    <state x="543" y="311" width="824" height="491" key="AndroidCreateResourceFileDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617220649757" />
     <state x="790" y="342" width="329" height="458" key="AndroidCreateXmlResourceDialog" timestamp="1617138278344">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -240,13 +243,13 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="543" y="299" width="824" height="515" key="IDE.errors.dialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617046021218" />
-    <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1617049397581">
+    <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1617138476077">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1617049397581" />
-    <state x="754" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617049339933">
+    <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1617138476077" />
+    <state x="754" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617138492127">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="754" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1617049339933" />
+    <state x="754" y="469" width="411" height="175" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1617138492127" />
   </component>
 </project>

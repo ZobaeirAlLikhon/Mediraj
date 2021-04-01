@@ -78,7 +78,7 @@ public class Login_fragment extends Fragment implements View.OnClickListener {
             logPass.requestFocus();
         } else {
             if (ConnectionManager.connection(getContext())) {
-
+                    DataManager.getInstance().showProgressMessage(getActivity(),"Please Wait...");
                 //1.show progress loader
                 //2.call login api
                 //3.hide loader after response or failure
