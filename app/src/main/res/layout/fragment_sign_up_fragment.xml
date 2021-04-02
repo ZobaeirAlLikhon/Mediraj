@@ -97,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/password"
+                    app:passwordToggleTint="@color/denim"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -115,6 +116,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/confirm_password"
+                    app:boxStrokeColor="@color/denim"
+                    app:passwordToggleTint="@color/denim"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -139,10 +142,10 @@
                     android:text="@string/sign_up"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     app:elevation="5dp"
-                    app:strokeColor="@color/purple_700"
+                    app:strokeColor="@color/denim"
                     app:strokeWidth="2dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

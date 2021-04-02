@@ -12,11 +12,12 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_centerHorizontal="true"
         android:background="@color/denim"
-        android:elevation="5dp"
+        android:elevation="8dp"
         app:tabBackground="?attr/selectableItemBackground"
         app:tabIndicatorColor="#4CAF50"
         app:tabIndicatorHeight="4dp"
         app:tabMode="fixed"
+
         app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/TabFont"
         app:tabTextColor="@color/black" />

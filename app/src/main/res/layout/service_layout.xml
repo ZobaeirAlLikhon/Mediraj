@@ -1,58 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/serviceCard"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
 
     <LinearLayout
-        android:id="@+id/serviceOne"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="731dp"
-        app:cardElevation="10dp"
-        android:elevation="16dp"
-        app:contentPadding="10dp"
-        android:clickable="true"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/doctorIV"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            app:srcCompat="@drawable/ic__appoint"
+            android:contentDescription="@string/category_image" />
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            android:orientation="vertical">
+            android:layout_height="2dp"
+            android:background="@color/gray"/>
 
-            <ImageView
-                android:id="@+id/doctorIV"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/doctorTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Doctor Appoinment"
-                app:layout_constraintEnd_toEndOf="@id/doctorIV"
-                app:layout_constraintStart_toStartOf="@id/doctorIV"
-                app:layout_constraintTop_toBottomOf="@+id/doctorIV"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/doctorTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/share_tech"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

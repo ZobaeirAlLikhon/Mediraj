@@ -67,12 +67,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_user"
             android:drawablePadding="15dp"
             android:fontFamily="@font/overlock"
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="Profile"
-            android:drawableLeft="@drawable/ic_user"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
@@ -81,12 +81,12 @@
             android:id="@+id/request"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_charging_circle"
             android:drawablePadding="15dp"
             android:fontFamily="@font/overlock"
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="Task Status"
-            android:drawableLeft="@drawable/ic_charging_circle"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
@@ -94,24 +94,25 @@
             android:id="@+id/taskHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_history"
             android:drawablePadding="15dp"
             android:fontFamily="@font/overlock"
             android:gravity="center_vertical"
             android:padding="10dp"
-            android:drawableLeft="@drawable/ic_history"
             android:text="Order History"
             android:textColor="@color/black"
             android:textSize="16dp" />
+
         <TextView
             android:id="@+id/offer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_discount"
             android:drawablePadding="15dp"
             android:fontFamily="@font/overlock"
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="Special Offer"
-            android:drawableLeft="@drawable/ic_discount"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
@@ -120,12 +121,12 @@
             android:id="@+id/help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_information"
             android:drawablePadding="15dp"
             android:fontFamily="@font/overlock"
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="Help"
-            android:drawableLeft="@drawable/ic_information"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
@@ -133,27 +134,28 @@
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_logout"
             android:drawablePadding="15dp"
             android:fontFamily="@font/overlock"
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="Logout"
-            android:drawableLeft="@drawable/ic_logout"
             android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
-    <TextView
+
+    <ImageButton
         android:id="@+id/headerBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawablePadding="15dp"
-        android:fontFamily="@font/overlock"
-        android:padding="10dp"
-        android:text="Back"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:drawableLeft="@drawable/ic_left"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:fontFamily="@font/share_tech"
+        android:src="@drawable/ic_left"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        android:layout_margin="15dp"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

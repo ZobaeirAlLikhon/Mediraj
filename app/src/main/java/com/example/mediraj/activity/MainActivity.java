@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alertdialog=new AlertDialog.Builder(this);
-        alertdialog.setTitle("Warning");
-        alertdialog.setMessage("Are you sure you Want to exit?");
-        alertdialog.setPositiveButton("yes", new DialogInterface.OnClickListener(){
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
+        alertDialog.setTitle("Warning");
+        alertDialog.setMessage("Are you sure you Want to exit?");
+        alertDialog.setPositiveButton("yes", new DialogInterface.OnClickListener(){
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        alertdialog.setNegativeButton("No", new DialogInterface.OnClickListener(){
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener(){
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         });
 
-        AlertDialog alert=alertdialog.create();
-        alertdialog.show();
+        AlertDialog alert=alertDialog.create();
+        alertDialog.show();
 
     }
 

@@ -21,4 +21,14 @@
     <string name="internet_connect_msg">Please Connect to Internet</string>
     <string name="please_wait">Please Wait...!</string>
     <string name="error_api">Error Try Again!</string>
+    <string name="category_image">category Image</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="recover_your_password">Enter the email associate with your account and we\'ll send an email with instructions to recover your password.</string>
+    <string name="send_instruction">Send Instruction</string>
+    <string name="recover_password">Recover Password</string>
+    <string name="recover_password_con">We have send an email with a reset code to recover your password.</string>
+    <string name="check_your_email">Check your email</string>
+    <string name="open_your_email">Open Your Email</string>
+    <string name="or_try_another_email_address">Did not receive email? Check your spam,\n or <font color='#0091EA'><b>try another email address</b></font></string>
+
 </resources>

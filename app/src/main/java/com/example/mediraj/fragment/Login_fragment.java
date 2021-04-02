@@ -1,14 +1,17 @@
 package com.example.mediraj.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.mediraj.R;
+import com.example.mediraj.activity.ForgetPass;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.webapi.APiClient;
@@ -24,6 +27,7 @@ public class Login_fragment extends Fragment implements View.OnClickListener {
     View view;
     TextInputEditText logEmail, logPass;
     MaterialButton loginBtn;
+    TextView forgotPass;
     String userEmail, userPass;
     ApiInterface apiInterface;
 
@@ -48,11 +52,13 @@ public class Login_fragment extends Fragment implements View.OnClickListener {
         logEmail = view.findViewById(R.id.loginEmail);
         logPass = view.findViewById(R.id.loginPass);
         loginBtn = view.findViewById(R.id.btnLogin);
+        forgotPass = view.findViewById(R.id.forgotPass);
         //api interface
         apiInterface = APiClient.getClient().create(ApiInterface.class);
 
         //listener for views
         loginBtn.setOnClickListener(this);
+        forgotPass.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +66,9 @@ public class Login_fragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btnLogin:
                 userLogin();
+                break;
+            case R.id.forgotPass:
+                startActivity(new Intent(getContext(), ForgetPass.class));
                 break;
         }
     }

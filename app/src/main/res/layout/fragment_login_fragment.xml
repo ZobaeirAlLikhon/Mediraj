@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/password"
+                    app:passwordToggleTint="@color/denim"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -69,6 +70,17 @@
                         android:fontFamily="@font/share_tech"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/forgotPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/share_tech"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="end"
+                    android:text="@string/forgot_password"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLogin"
@@ -83,10 +95,10 @@
                     android:text="@string/login"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     app:elevation="5dp"
-                    app:strokeColor="@color/purple_700"
+                    app:strokeColor="@color/denim"
                     app:strokeWidth="2dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
