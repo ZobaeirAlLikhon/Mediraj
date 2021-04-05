@@ -15,7 +15,7 @@ import com.example.mediraj.R;
 public class Welcome extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN = 3000;
-    private final boolean flag = true;
+    private final boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class Welcome extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             if (flag){
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
             }else {
-                Intent intent = new Intent(getApplicationContext(),Login.class);
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),Login.class));
                 finish();
             }
         },SPLASH_SCREEN);

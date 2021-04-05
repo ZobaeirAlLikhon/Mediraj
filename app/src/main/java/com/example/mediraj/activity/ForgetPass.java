@@ -33,10 +33,9 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
     RelativeLayout firstLay;
 
     //secondLay
-    AppCompatButton openEmail,submitBtn;
+    AppCompatButton openEmail,resetBtn;
     TextView reEnterEmail;
     RelativeLayout secondLay;
-    EditText resetCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +57,11 @@ public class ForgetPass extends AppCompatActivity implements View.OnClickListene
         openEmail = findViewById(R.id.openEmail);
         reEnterEmail = findViewById(R.id.reEnterMail);
         secondLay = findViewById(R.id.secondLay);
-        resetCode = findViewById(R.id.resetCode);
-        submitBtn = findViewById(R.id.submitBtn);
+        resetBtn = findViewById(R.id.resetBtn);
 
         //setting content on views
         toolbarText.setText(getString(R.string.recover_password));
-        resetCode.getBackground().mutate().setColorFilter(getResources().getColor(R.color.denim), PorterDuff.Mode.SRC_ATOP); //change edit text border color
+//        resetCode.getBackground().mutate().setColorFilter(getResources().getColor(R.color.denim), PorterDuff.Mode.SRC_ATOP); //change edit text border color
         apiInterface = APiClient.getClient().create(ApiInterface.class);
 
         //setting listener

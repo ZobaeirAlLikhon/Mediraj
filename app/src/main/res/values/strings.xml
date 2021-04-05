@@ -30,5 +30,10 @@
     <string name="check_your_email">Check your email</string>
     <string name="open_your_email">Open Your Email</string>
     <string name="or_try_another_email_address">Did not receive email? Check your spam,\n or <font color='#0091EA'><b>try another email address</b></font></string>
+    <string name="reset_password">Reset Password</string>
+    <string name="pressed_reset">If you had received the reset code via email pressed the below button.</string>
+    <string name="reset_code">Reset Code</string>
+    <string name="new_password">Enter New Password</string>
+    <string name="submit">Submit</string>
 
 </resources>

@@ -1,8 +1,10 @@
 package com.example.mediraj.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.example.mediraj.R;
@@ -56,5 +58,32 @@ public class Login extends AppCompatActivity {
     }
     public void changeTab(int position){
         tabLayout.getTabAt(position).select();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialog=new AlertDialog.Builder(this);
+        alertDialog.setTitle("Warning");
+        alertDialog.setMessage("Are you sure you Want to exit?");
+        alertDialog.setPositiveButton("yes", new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finishAffinity();
+            }
+        });
+
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+
+        });
+
+        AlertDialog alert=alertDialog.create();
+        alertDialog.show();
+
     }
 }
