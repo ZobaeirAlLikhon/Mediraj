@@ -15,8 +15,9 @@ import com.example.mediraj.R;
 public class Welcome extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN = 3000;
-    private final boolean flag = false;
-
+    private  boolean flag = true;
+    private TextView appText;
+    private Animation fade_in,blink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,16 +37,16 @@ public class Welcome extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             if (flag){
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
             }else {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
                 finish();
             }
         },SPLASH_SCREEN);
     }
 
     private void initView() {
-        TextView appText = findViewById(R.id.animText);
+        appText = findViewById(R.id.animText);
         appText.setAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in));
     }
 }

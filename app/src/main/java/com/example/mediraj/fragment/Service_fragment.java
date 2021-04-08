@@ -49,7 +49,7 @@ public class Service_fragment extends Fragment {
         titles.add("Doctors appointment");
         titles.add("Doctors appointment");
         titles.add("Doctors appointment");
-        titles.add("Doctors appointment Doctors appointment");
+        titles.add("Doctors appointment");
 
         images.add(R.drawable.ic__appoint);
         images.add(R.drawable.ic__appoint);
@@ -59,6 +59,7 @@ public class Service_fragment extends Fragment {
         images.add(R.drawable.ic__appoint);
         images.add(R.drawable.ic__appoint);
         images.add(R.drawable.ic__appoint);
+
         adapter = new ServiceAdapter(getActivity(),titles,images);
         serviceList.setLayoutManager(new GridLayoutManager(getContext(),2));
         serviceList.setAdapter(adapter);

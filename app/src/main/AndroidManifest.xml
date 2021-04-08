@@ -11,13 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MediRaj">
-        <activity android:name=".activity.ForgetPass"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".activity.Login"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.Welcome"
+        <activity android:name=".activity.Doctors"></activity>
+        <activity
+            android:name=".activity.ForgetPass"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Welcome"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
