@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mediraj.R;
-import com.example.mediraj.activity.Doctors;
+import com.example.mediraj.activity.Doctor_Service;
 
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         holder.gridIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Doctors.class);
+                Intent intent = new Intent(context, Doctor_Service.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
