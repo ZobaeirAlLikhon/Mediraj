@@ -43,13 +43,13 @@ public class Service_fragment extends Fragment {
         images = new ArrayList<>();
 
         titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
-        titles.add("Doctors appointment");
+        titles.add("Diagnostic Service");
+        titles.add("Medicine Service");
+        titles.add("Clinic Service");
+        titles.add("BloodBank Service");
+        titles.add("Home Pathology");
+        titles.add("Sergical Kits");
+        titles.add("Doctor");
 
         images.add(R.drawable.ic__appoint);
         images.add(R.drawable.ic__appoint);
