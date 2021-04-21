@@ -42,7 +42,7 @@ public class Service_fragment extends Fragment {
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-        titles.add("Doctors appointment");
+        titles.add("Doctor appoinment");
         titles.add("Diagnostic Service");
         titles.add("Medicine Service");
         titles.add("Clinic Service");
@@ -51,13 +51,13 @@ public class Service_fragment extends Fragment {
         titles.add("Sergical Kits");
         titles.add("Doctor");
 
+        images.add(R.drawable.doctorapp2);
         images.add(R.drawable.ic__appoint);
-        images.add(R.drawable.ic__appoint);
-        images.add(R.drawable.ic__appoint);
-        images.add(R.drawable.ic__appoint);
-        images.add(R.drawable.ic__appoint);
-        images.add(R.drawable.ic__appoint);
-        images.add(R.drawable.ic__appoint);
+        images.add(R.drawable.medicin);
+        images.add(R.drawable.clinic);
+        images.add(R.drawable.blood);
+        images.add(R.drawable.pathology);
+        images.add(R.drawable.kits);
         images.add(R.drawable.ic__appoint);
 
         adapter = new ServiceAdapter(getActivity(),titles,images);
