@@ -2,6 +2,7 @@ package com.example.mediraj.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,23 +14,28 @@ import androidx.fragment.app.Fragment;
 import com.example.mediraj.R;
 import com.example.mediraj.activity.ForgetPass;
 import com.example.mediraj.helper.ConnectionManager;
+import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
+import com.example.mediraj.model.LogInMessage;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login_fragment extends Fragment implements View.OnClickListener {
 
-
+    ApiInterface apiInterface;
     View view;
     TextInputEditText logEmail, logPass;
     MaterialButton loginBtn;
     TextView forgotPass;
     String userEmail, userPass;
-    ApiInterface apiInterface;
+
 
     public Login_fragment() {
         // Required empty public constructor
@@ -55,7 +61,6 @@ public class Login_fragment extends Fragment implements View.OnClickListener {
         forgotPass = view.findViewById(R.id.forgotPass);
         //api interface
         apiInterface = APiClient.getClient().create(ApiInterface.class);
-
         //listener for views
         loginBtn.setOnClickListener(this);
         forgotPass.setOnClickListener(this);
@@ -90,10 +95,26 @@ public class Login_fragment extends Fragment implements View.OnClickListener {
                     DataManager.getInstance().showProgressMessage(getActivity(),"Please Wait...");
                 //1.show progress loader
                 //2.call login api
+                Call<LogInMessage> call=apiInterface.userLogIn(Constant.api_key,Constant.auth,logEmail.getText().toString(),
+                        logPass.getText().toString());
+                call.enqueue(new Callback<LogInMessage>() {
+                    @Override
+                    public void onResponse(Call<LogInMessage> call, Response<LogInMessage> response) {
+                        Log.e("Log in.........",response.message().toString());
+                        DataManager.getInstance().hideProgressMessage();
+                    }
+
+                    @Override
+                    public void onFailure(Call<LogInMessage> call, Throwable t) {
+                        Log.e("Log in.........Faild",t.toString());
+                        DataManager.getInstance().hideProgressMessage();
+                    }
+                });
                 //3.hide loader after response or failure
                 //4.if get response then write it to shared preference or roomDb
                 //5.show toast message switch to home activity
                 //6.if fail then show error message
+
 
             }else {
                 Toasty.info(getContext(),getString(R.string.internet_connect_msg),Toasty.LENGTH_SHORT).show();

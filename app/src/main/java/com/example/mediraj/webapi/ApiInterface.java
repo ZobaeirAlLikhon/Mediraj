@@ -1,6 +1,9 @@
 package com.example.mediraj.webapi;
 
 
+import com.example.mediraj.model.LogInMessage;
+import com.example.mediraj.model.User;
+
 import java.util.Map;
 
 import retrofit2.Call;
@@ -15,4 +18,10 @@ public interface ApiInterface {
     Call<Map<String,String>> userSignUp(@Field("auth@api_key") String api_key,
                              @Field("Authenticate") String auth,
                              @FieldMap Map<String,String> params);
+    @FormUrlEncoded
+    @POST("user/login")
+    Call<LogInMessage> userLogIn(@Field("auth@api_key") String api_key,
+                                 @Field("Authenticate") String auth,
+                                 @Field("email") String email,
+                                 @Field("password") String password);
 }
