@@ -1,6 +1,7 @@
 package com.example.mediraj.webapi;
 
 
+import com.example.mediraj.model.Department;
 import com.example.mediraj.model.LogInMessage;
 import com.example.mediraj.model.User;
 
@@ -24,4 +25,8 @@ public interface ApiInterface {
                                  @Field("Authenticate") String auth,
                                  @Field("email") String email,
                                  @Field("password") String password);
+    @FormUrlEncoded
+    @POST("department/all")
+    Call<Department> department(@Field("auth@api_key") String api_key,
+                                @Field("Authenticate") String auth);
 }

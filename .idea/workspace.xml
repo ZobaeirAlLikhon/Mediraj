@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -24,28 +27,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54130c3d-29ac-45e5-99fb-86e518789d26" name="Default Changelist" comment="Doctor list a kaj korci">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/Department.java" afterDir="false" />
+    <list default="true" id="54130c3d-29ac-45e5-99fb-86e518789d26" name="Default Changelist" comment="fix some error">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor__service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor__service.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/doctor_service_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/doctor_service_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/Service_fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/Service_fragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/webapi/ApiInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/webapi/ApiInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_Edited_API_25]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -204,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618982294915</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix some error">
+      <created>1619078860103</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619078860103</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,13 +231,14 @@
     <MESSAGE value="some design fixing and login fragment partial" />
     <MESSAGE value="service fragment a kaj korci" />
     <MESSAGE value="Doctor list a kaj korci" />
-    <option name="LAST_COMMIT_MESSAGE" value="Doctor list a kaj korci" />
+    <MESSAGE value="fix some error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix some error" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="580" y="236" key="#Notifications" timestamp="1618982174288">
+    <state x="580" y="236" key="#Notifications" timestamp="1619194365157">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="580" y="236" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1618982174288" />
+    <state x="580" y="236" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1619194365157" />
     <state x="1942" y="194" width="328" height="488" key="#com.intellij.ide.util.MemberChooser" timestamp="1618074221000">
       <screen x="1366" y="0" width="1440" height="870" />
     </state>
@@ -255,29 +263,29 @@
     </state>
     <state x="1959" y="260" width="311" height="379" key="AndroidCreateXmlResourceDialog/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618072467544" />
     <state x="790" y="342" width="329" height="458" key="AndroidCreateXmlResourceDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1617138278344" />
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1619070864111">
+    <state width="1323" height="308" key="GridCell.Tab.0.bottom" timestamp="1619367971647">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1397" height="288" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618080345286" />
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1619070864111" />
+    <state width="1323" height="308" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
     <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1617132130726" />
-    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1619070864111">
+    <state width="1323" height="308" key="GridCell.Tab.0.center" timestamp="1619367971647">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1397" height="288" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618080345286" />
-    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1619070864111" />
+    <state width="1323" height="308" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
     <state width="1878" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1617132130725" />
-    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1619070864110">
+    <state width="1323" height="308" key="GridCell.Tab.0.left" timestamp="1619367971647">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1397" height="288" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618080345286" />
-    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1619070864110" />
+    <state width="1323" height="308" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
     <state width="1878" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1617132130725" />
-    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1619070864111">
+    <state width="1323" height="308" key="GridCell.Tab.0.right" timestamp="1619367971647">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1397" height="288" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618080345286" />
-    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1619070864111" />
+    <state width="1323" height="308" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
     <state width="1878" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1617132130725" />
     <state x="543" y="299" width="824" height="515" key="IDE.errors.dialog" timestamp="1617046021218">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -287,11 +295,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="129" y="55" key="MergeDialog/0.0.1366.738/1366.0.1440.870@0.0.1366.738" timestamp="1617640363244" />
-    <state x="395" y="175" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1618982300578">
+    <state x="395" y="175" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1619078864967">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="1782" y="206" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1617900732923" />
-    <state x="395" y="175" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1618982300578" />
+    <state x="395" y="175" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1619078864967" />
     <state x="555" y="276" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1617138476077" />
     <state x="536" y="310" width="381" height="171" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618982374702">
       <screen x="0" y="0" width="1366" height="738" />

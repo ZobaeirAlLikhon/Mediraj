@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +14,30 @@ import android.view.ViewGroup;
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ServiceAdapter;
 import com.example.mediraj.adaptar.SliderAdapter;
+import com.example.mediraj.helper.Constant;
+import com.example.mediraj.model.Department;
+import com.example.mediraj.webapi.APiClient;
+import com.example.mediraj.webapi.ApiInterface;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Service_fragment extends Fragment {
     RecyclerView serviceList;
     List<String> titles;
     List<Integer> images;
+    List<Department.Datum> getDepartment;
     ServiceAdapter adapter;
 
     private SliderView sliderView;
     private SliderAdapter sliderAdapter;
+    private ApiInterface apiInterface;
     public Service_fragment() {
         // Required empty public constructor
     }
@@ -36,6 +47,22 @@ public class Service_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_service_fragment, container, false);
+//       call api
+        apiInterface= APiClient.getClient().create(ApiInterface.class);
+        Call<Department> call=apiInterface.department(Constant.api_key,Constant.auth);
+        call.enqueue(new Callback<Department>() {
+            @Override
+            public void onResponse(Call<Department> call, Response<Department> response) {
+                getDepartment=response.body().getData();
+
+                Log.e("deptData.......",getDepartment.get(0).getTitle());
+            }
+
+            @Override
+            public void onFailure(Call<Department> call, Throwable t) {
+                Log.e("deptfail.......",t.toString());
+            }
+        });
 //        sliderView = view.findViewById(R.id.imageSlider);
         serviceList = view.findViewById(R.id.servicelist);
 
