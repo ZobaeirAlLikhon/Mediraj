@@ -2,13 +2,12 @@ package com.example.mediraj.adaptar;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.mediraj.fragment.Popular_fragment;
-import com.example.mediraj.fragment.Service_fragment;
+import com.example.mediraj.fragment.PopularFragment;
+import com.example.mediraj.fragment.ServiceFragment;
 
 public class HomeTabAdapter extends FragmentPagerAdapter {
     Context context;
@@ -23,10 +22,10 @@ public class HomeTabAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                Service_fragment service_fragment = new Service_fragment();
+                ServiceFragment service_fragment = new ServiceFragment();
                 return service_fragment;
             case 1:
-                Popular_fragment popular_fragment = new Popular_fragment();
+                PopularFragment popular_fragment = new PopularFragment();
                 return popular_fragment;
             default:
                 return null;

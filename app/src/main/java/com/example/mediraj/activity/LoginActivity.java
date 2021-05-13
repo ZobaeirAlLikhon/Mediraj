@@ -12,7 +12,7 @@ import com.example.mediraj.adaptar.LoginTabAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;

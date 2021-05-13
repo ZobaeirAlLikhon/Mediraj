@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragment.SignUp_fragment">
+    tools:context=".fragment.SignUpFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,16 +40,21 @@
                     android:id="@+id/testCaseSix"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_margin="10dp"
-                    android:hint="@string/email">
+                    android:hint="@string/phone_number">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/share_tech"
-                    android:inputType="textEmailAddress" />
+                    <com.santalu.maskara.widget.MaskEditText
+                        android:id="@+id/userPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/share_tech"
+                        android:forceHasOverlappingRendering="false"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        app:mask="+88 #####-######"
+                        tools:targetApi="n" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,7 +89,6 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLogin"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -94,12 +98,10 @@
                     android:fontFamily="@font/share_tech"
                     android:text="@string/login"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:elevation="5dp"
-                    app:strokeColor="@color/denim"
-                    app:strokeWidth="2dp" />
+                    app:elevation="5dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </ScrollView>

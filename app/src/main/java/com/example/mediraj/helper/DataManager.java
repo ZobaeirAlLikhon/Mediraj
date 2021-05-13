@@ -3,6 +3,7 @@ package com.example.mediraj.helper;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
@@ -10,6 +11,8 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.mediraj.R;
+import com.example.mediraj.model.UserData;
+import com.google.gson.Gson;
 
 
 public class DataManager {
@@ -40,12 +43,9 @@ public class DataManager {
             mDialog.setContentView(R.layout.custom_progress);
             mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             textView = mDialog.findViewById(R.id.progressText);
-           // progressBar = mDialog.findViewById(R.id.progress);
             textView.setText(msg);
             WindowManager.LayoutParams lp = mDialog.getWindow().getAttributes();
             lp.dimAmount = 0.8f;
-            //Sprite foldingCube = new FadingCircle();
-            //progressBar.setIndeterminateDrawable(foldingCube);
             mDialog.getWindow().setAttributes(lp);
             mDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             mDialog.setCancelable(false);
@@ -66,5 +66,10 @@ public class DataManager {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public UserData getUserData(Context context) {
+        UserData userData = new Gson().fromJson(SessionManager.readString(context, Constant.USER_INFO, ""), UserData.class);
+        return userData;
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ForgetPass">
+    tools:context=".activity.ForgetPassActivity">
 
     <include
         android:id="@+id/customToolbar"
@@ -16,8 +16,7 @@
         android:id="@+id/firstLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/customToolbar"
-        android:visibility="gone">
+        android:layout_below="@id/customToolbar">
 
         <TextView
             android:id="@+id/introText"
@@ -27,6 +26,7 @@
             android:layout_margin="20dp"
             android:fontFamily="@font/share_tech"
             android:text="@string/recover_your_password"
+            android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -34,22 +34,26 @@
             android:id="@+id/testCaseSix"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_below="@id/introText"
             android:layout_margin="20dp"
-            android:hint="@string/email">
+            android:hint="@string/phone_number">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/recoverEmail"
+            <com.santalu.maskara.widget.MaskEditText
+                android:id="@+id/userPhone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/share_tech"
-                android:inputType="textEmailAddress" />
+                android:forceHasOverlappingRendering="false"
+                android:inputType="phone"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                app:mask="+88 #####-######"
+                tools:targetApi="n" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/recoverBtn"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/testCaseSix"
@@ -57,238 +61,150 @@
             android:fontFamily="@font/share_tech"
             android:text="@string/send_instruction"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:elevation="5dp"
-            app:strokeColor="@color/denim"
-            app:strokeWidth="2dp" />
+            app:elevation="5dp" />
     </RelativeLayout>
 
     <!--    second layout-->
-
     <RelativeLayout
         android:id="@+id/secondLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/customToolbar"
+        android:layout_margin="20dp"
         android:visibility="gone">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/emailImg"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/send_email" />
-
         <TextView
-            android:id="@+id/desText"
+            android:id="@+id/txtReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/emailImg"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
             android:fontFamily="@font/share_tech"
-            android:text="@string/check_your_email"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/secDesText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/desText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/share_tech"
-            android:text="@string/recover_password_con"
+            android:text="@string/reset_msg"
             android:textAlignment="center"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/openEmail"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/secDesText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/button_back"
-            android:fontFamily="@font/share_tech"
-            android:padding="6dp"
-            android:text="@string/open_your_email"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/reEnterMail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/share_tech"
-            android:text="@string/or_try_another_email_address"
-            android:textAlignment="center"
-            android:textSize="17sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/openEmail"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/share_tech"
-                android:text="@string/pressed_reset"
-                android:textAlignment="center"
-                android:textSize="17sp" />
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/resetBtn"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_back"
-                android:fontFamily="@font/share_tech"
-                android:padding="4dp"
-                android:text="@string/reset_password"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <!--    third layout-->
-    <RelativeLayout
-        android:id="@+id/thirdLay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/customToolbar">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/share_tech"
-            android:layout_margin="10dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:text="Here You Can Reset Your Password"/>
-
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textAlignment="center"
-            android:layout_marginTop="40dp"
-            android:hint="@string/reset_code">
+            android:layout_below="@id/txtReset"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/resetCode"
-                android:fontFamily="@font/share_tech"
-                android:layout_width="match_parent"
-                android:maxLength="4"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/e1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_box"
+                android:layout_margin="10dp"
+                android:textAlignment="center"/>
+            <requestFocus/>
+            <EditText
+                android:id="@+id/e2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_box"
+                android:layout_margin="10dp"
+                android:textAlignment="center"/>
+            <EditText
+                android:id="@+id/e3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_box"
+                android:layout_margin="10dp"
+                android:textAlignment="center"/>
+            <EditText
+                android:id="@+id/e4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_box"
+                android:layout_margin="10dp"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField_one"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="15dp"
-            app:passwordToggleEnabled="true"
             android:layout_below="@id/filledTextField"
-            android:hint="@string/new_password">
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:hint="@string/new_password"
+            app:passwordToggleTint="@color/denim"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/newPass"
-                android:fontFamily="@font/share_tech"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/share_tech" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField_two"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="15dp"
-            app:passwordToggleEnabled="true"
+            android:layout_margin="5dp"
+            android:hint="@string/confirm_password"
             android:layout_below="@id/filledTextField_one"
-            android:hint="@string/confirm_password">
-
+            app:passwordToggleTint="@color/denim"
+            app:passwordToggleEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/newPassCon"
-                android:fontFamily="@font/share_tech"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/share_tech" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:background="@drawable/button_back"
             android:layout_below="@id/filledTextField_two"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/button_back"
             android:fontFamily="@font/share_tech"
-            android:textStyle="bold"
+            android:text="@string/submit"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:text="@string/submit"/>
+            android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/share_tech"
-            android:textSize="17sp"
-            android:layout_gravity="center_horizontal"
-            android:text="Haven't gotten Code?"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/resendBtn"
-            android:layout_width="120dp"
-            android:layout_height="35dp"
-            android:text="Resend Code"
-            android:fontFamily="@font/share_tech"
-            android:textStyle="bold"
-            android:background="@drawable/button_back"
-            android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
-            android:textSize="15sp"/>
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/share_tech"
+                android:text="Haven't gotten Code?"
+                android:textSize="17sp" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resendBtn"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_back"
+                android:fontFamily="@font/share_tech"
+                android:text="Resend Code"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </RelativeLayout>
-
-
 </RelativeLayout>

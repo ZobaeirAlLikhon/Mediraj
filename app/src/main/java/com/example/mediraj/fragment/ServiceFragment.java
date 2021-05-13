@@ -18,6 +18,7 @@ import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Service_fragment extends Fragment {
+public class ServiceFragment extends Fragment {
     RecyclerView serviceList;
     List<String> titles;
     List<Integer> images;
@@ -38,7 +39,7 @@ public class Service_fragment extends Fragment {
     private SliderView sliderView;
     private SliderAdapter sliderAdapter;
     private ApiInterface apiInterface;
-    public Service_fragment() {
+    public ServiceFragment() {
         // Required empty public constructor
     }
 
@@ -46,23 +47,33 @@ public class Service_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_service_fragment, container, false);
+        View view = inflater.inflate(R.layout.service_fragment, container, false);
+
+        ///
+
+        try {
+            String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+            Log.e("token",refreshedToken);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 //       call api
-        apiInterface= APiClient.getClient().create(ApiInterface.class);
-        Call<Department> call=apiInterface.department(Constant.api_key,Constant.auth);
-        call.enqueue(new Callback<Department>() {
-            @Override
-            public void onResponse(Call<Department> call, Response<Department> response) {
-                getDepartment=response.body().getData();
-
-                Log.e("deptData.......",getDepartment.get(0).getTitle());
-            }
-
-            @Override
-            public void onFailure(Call<Department> call, Throwable t) {
-                Log.e("deptfail.......",t.toString());
-            }
-        });
+//        apiInterface= APiClient.getClient().create(ApiInterface.class);
+//        Call<Department> call=apiInterface.department(Constant.AUTH);
+//        call.enqueue(new Callback<Department>() {
+//            @Override
+//            public void onResponse(Call<Department> call, Response<Department> response) {
+//                getDepartment=response.body().getData();
+//
+//                Log.e("deptData.......",getDepartment.get(0).getTitle());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Department> call, Throwable t) {
+//                Log.e("deptfail.......",t.toString());
+//            }
+//        });
 //        sliderView = view.findViewById(R.id.imageSlider);
         serviceList = view.findViewById(R.id.servicelist);
 

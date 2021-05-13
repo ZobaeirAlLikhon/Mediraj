@@ -13,5 +13,6 @@
     <color name="gray">#808080</color>
     <color name="light_green">#009688</color>
     <color name="light_gray">#DADADA</color>
+    <color name="medi_color">#005AFC</color>
 
 </resources>

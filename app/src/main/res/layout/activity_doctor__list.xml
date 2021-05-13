@@ -10,7 +10,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Doctor_List">
+    tools:context=".activity.DoctorListActivity">
 
     <include
         android:id="@+id/include"

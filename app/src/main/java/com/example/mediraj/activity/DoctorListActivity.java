@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.mediraj.R;
 
-public class Doctor_List extends AppCompatActivity {
+public class DoctorListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
