@@ -19,7 +19,7 @@
     <string name="userPhone_error_valid">Please Enter Valid Phone Number</string>
     <string name="userPhone_error_number">Phone Number Start with 0</string>
     <string name="internet_connect_msg">Please Connect to Internet</string>
-    <string name="please_wait">Please Wait...!</string>
+    <string name="please_wait">please Wait...</string>
     <string name="error_api">Error Try Again!</string>
     <string name="category_image">category Image</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
@@ -36,5 +36,15 @@
     <string name="new_password">Enter New Password</string>
     <string name="submit">Submit</string>
     <string name="reset_msg">Please enter the reset code sent to</string>
+    <string name="dummyText">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+        Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.
+        Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
+    <string name="patients">Patients</string>
+    <string name="experience">Experience</string>
+    <string name="about_doctor">About Doctor</string>
+    <string name="working_time">Working Time</string>
+    <string name="address_not_available">User address not available</string>
+    <string name="address_not_gender">not available</string>
+    <string name="address_not_dob">not available</string>
 
 </resources>

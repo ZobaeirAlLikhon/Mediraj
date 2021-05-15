@@ -35,10 +35,10 @@ public class UserData {
         public String email;
         @SerializedName("gender")
         @Expose
-        public Object gender;
+        public String gender;
         @SerializedName("birth_date")
         @Expose
-        public Object birthDate;
+        public String birthDate;
         @SerializedName("avatar")
         @Expose
         public String avatar;
@@ -81,6 +81,9 @@ public class UserData {
         @SerializedName("status")
         @Expose
         public String status;
+        @SerializedName("isLogIn")
+        @Expose
+        public String isLogIn;
         @SerializedName("created_at")
         @Expose
         public String createdAt;

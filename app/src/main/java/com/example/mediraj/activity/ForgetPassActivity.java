@@ -28,7 +28,7 @@ import com.santalu.maskara.widget.MaskEditText;
 import java.util.HashMap;
 import java.util.Map;
 
-import es.dmoral.toasty.Toasty;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -170,7 +170,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         }
 
         if (e1.getText().toString().isEmpty() || e2.getText().toString().isEmpty() || e3.getText().toString().isEmpty() || e4.getText().toString().isEmpty()){
-            Toasty.info(this,"Please Enter OTP Code",Toasty.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please Enter OTP Code",Toast.LENGTH_SHORT).show();
         }else if (newPass.getText().toString().isEmpty()){
             newPass.setError(getString(R.string.userPassword_error));
             newPass.requestFocus();
@@ -185,7 +185,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         else{
             String otp_code =e1.getText().toString()+e2.getText().toString()+e3.getText().toString()+e4.getText().toString();
             if (otp_code.length() !=4){
-                Toasty.info(this,"Please Enter OTP Code",Toasty.LENGTH_SHORT).show();
+                Toast.makeText(this,"Please Enter OTP Code",Toast.LENGTH_SHORT).show();
             }else {
                 DataManager.getInstance().showProgressMessage(this,"Please wait...");
                 Map<String,String> map = new HashMap<>();
@@ -201,11 +201,11 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                         try {
                             UserData userData = response.body();
                             if (userData.response==200){
-                                Toasty.success(getApplicationContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(ForgetPassActivity.this,LoginActivity.class));
                                 finish();
                             }else {
-                                Toasty.error(getApplicationContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -254,12 +254,12 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                             if (userData.response==200){
                                 id = userData.data.id;
                                 otpOne = userData.data.resetCode;
-                                Toasty.success(getApplicationContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
                                 firstLay.setVisibility(View.GONE);
                                 secondLay.setVisibility(View.VISIBLE);
                                 txtReset.setText(getText(R.string.reset_msg)+" "+userPhone.getMasked());
                             }else {
-                                Toasty.error(getApplicationContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

@@ -3,17 +3,17 @@ package com.example.mediraj.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.mediraj.R;
 import com.example.mediraj.activity.ForgetPassActivity;
-import com.example.mediraj.activity.MainActivity;
+import com.example.mediraj.activity.HomeActivity;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
@@ -30,11 +30,10 @@ import com.santalu.maskara.widget.MaskEditText;
 import java.util.HashMap;
 import java.util.Map;
 
-import es.dmoral.toasty.Toasty;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Field;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = LoginFragment.class.getName();
@@ -114,7 +113,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             if (ConnectionManager.connection(getContext())) {
                     userLogin();
             }else {
-                Toasty.info(getContext(),getString(R.string.internet_connect_msg),Toasty.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),getString(R.string.internet_connect_msg),Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -140,11 +139,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                        String dataResponse = new Gson().toJson(response.body());
                        Log.e(TAG,"Login response : "+dataResponse);
                        SessionManager.writeString(getContext(),Constant.USER_INFO,dataResponse);
-                       Toasty.success(getContext(),userData.message,Toasty.LENGTH_SHORT).show();
-                       startActivity(new Intent(getContext(), MainActivity.class));
+                       Toast.makeText(getContext(),userData.message,Toast.LENGTH_SHORT).show();
+                       startActivity(new Intent(getContext(), HomeActivity.class));
                        getActivity().finish();
                    }else {
-                       Toasty.error(getContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                       Toast.makeText(getContext(), userData.message, Toast.LENGTH_SHORT).show();
                    }
 
                } catch (Exception e) {

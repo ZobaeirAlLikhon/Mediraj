@@ -40,7 +40,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-import es.dmoral.toasty.Toasty;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -207,7 +207,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
             if (ConnectionManager.connection(getContext())) {
                 signUp();
             } else {
-                Toasty.info(getContext(), getString(R.string.internet_connect_msg), Toasty.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.internet_connect_msg), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -234,10 +234,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                 try {
                     UserData userData = response.body();
                     if (userData.response==200){
-                        Toasty.success(getContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),userData.message,Toast.LENGTH_SHORT).show();
                         tabLayout.newTab().select();
                     }else {
-                        Toasty.error(getContext(),userData.message,Toasty.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),userData.message,Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

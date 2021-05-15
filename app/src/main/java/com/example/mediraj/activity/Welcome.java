@@ -39,7 +39,7 @@ public class Welcome extends AppCompatActivity {
                     DataManager.getInstance().getUserData(getApplicationContext()).data != null
                     &&
                     DataManager.getInstance().getUserData(getApplicationContext()).data.id != null) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
             } else {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);

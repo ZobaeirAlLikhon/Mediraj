@@ -70,12 +70,4 @@ dependencies {
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 
 
-
-    //image slider
-    implementation 'com.github.smarteist:autoimageslider:1.4.0'
-
-    //custom toast
-    implementation 'com.github.GrenderG:Toasty:1.5.0'
-
-
 }

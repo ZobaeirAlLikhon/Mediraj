@@ -12,9 +12,9 @@
     android:layout_height="match_parent"
     tools:context=".activity.DoctorListActivity">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/header_main" />
+<!--    <include-->
+<!--        android:id="@+id/include"-->
+<!--        layout="@layout/header_main" />-->
 
 
     <TextView

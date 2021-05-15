@@ -14,5 +14,7 @@
     <color name="light_green">#009688</color>
     <color name="light_gray">#DADADA</color>
     <color name="medi_color">#005AFC</color>
+    <color name="battleship_grey">#919ba3</color>
+    <color name="flash_white">#f3f7fa</color>
 
 </resources>

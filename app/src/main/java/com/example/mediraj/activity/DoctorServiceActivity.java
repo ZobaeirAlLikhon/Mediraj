@@ -8,12 +8,11 @@ import android.os.Bundle;
 
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.DocServiceAdapter;
-import com.example.mediraj.adaptar.ServiceAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doctor_Service extends AppCompatActivity {
+public class DoctorServiceActivity extends AppCompatActivity {
     RecyclerView rcv;
     List<String> text;
     List<Integer> image;
@@ -22,7 +21,7 @@ public class Doctor_Service extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor__service);
+        setContentView(R.layout.activity_doctor_service);
         rcv = findViewById(R.id.recycler2);
 
         text = new ArrayList<>();

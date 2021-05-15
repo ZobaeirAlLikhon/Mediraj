@@ -10,7 +10,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Doctor_Service">
+    tools:context=".activity.DoctorServiceActivity">
 
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/background"
+        android:background="@drawable/teal_top_background"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

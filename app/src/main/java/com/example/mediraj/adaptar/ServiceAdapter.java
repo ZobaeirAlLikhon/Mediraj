@@ -1,8 +1,6 @@
 package com.example.mediraj.adaptar;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mediraj.R;
-import com.example.mediraj.activity.Doctor_Service;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHolder> {
+
     Context context;
     List<String> titles;
     List<Integer> images;
@@ -30,29 +30,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
     }
 
     @NonNull
+    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //View view = inflater.inflate(R.layout.service_layout,parent,false);
+    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         return new ViewHolder (LayoutInflater.from(parent.getContext()).inflate(R.layout.service_layout,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.titles.setText(titles.get(position));
-        try {
-            Glide.with(context).load(images.get(position)).into(holder.gridIcon);
-        }catch (Exception exception){
-            Log.e("adapter", exception.toString());
-        }
-        holder.gridIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Doctor_Service.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
-
+    public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
+        holder.titles.setText(titles.get(position));
+        Glide.with(context).load(images.get(position)).into(holder.icon);
     }
 
     @Override
@@ -60,15 +47,13 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         return titles.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titles;
-        ImageView gridIcon;
-
+        ImageView icon;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titles = itemView.findViewById(R.id.doctorTV);
-            gridIcon = itemView.findViewById(R.id.doctorIV);
-
+            titles = itemView.findViewById(R.id.serviceName);
+            icon = itemView.findViewById(R.id.serviceImg);
         }
     }
 }
