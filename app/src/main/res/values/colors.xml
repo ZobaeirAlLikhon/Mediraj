@@ -7,6 +7,7 @@
     <color name="teal_700">#CDDC39</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gold_white">#F7F2F2</color>
     <color name="colorBGshape">#FFC107</color>
     <color name="colorText">#FFFFFF</color>
     <color name="denim">#1FA2F3</color>
@@ -16,5 +17,7 @@
     <color name="medi_color">#005AFC</color>
     <color name="battleship_grey">#919ba3</color>
     <color name="flash_white">#f3f7fa</color>
+    <color name="teal">#008080</color>
+    <color name="lighter">#ef5350</color>
 
 </resources>

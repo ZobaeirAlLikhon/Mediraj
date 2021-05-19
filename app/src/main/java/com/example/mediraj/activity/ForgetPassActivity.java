@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -39,7 +40,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
     TextView toolbarText;
     ImageView toolbarBtn;
     ApiInterface apiInterface;
-    String token,mobile,id,otp="",otpOne;
+    String token,mobile,id,otpOne;
 
     //firstLay
     RelativeLayout firstLay;
@@ -56,12 +57,6 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pass);
-
-        if (getIntent() !=null){
-            otp = getIntent().getStringExtra("otp_code");
-            Toast.makeText(getApplicationContext(),otp,Toast.LENGTH_LONG).show();
-        }
-
         initView();
     }
 
@@ -88,7 +83,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         submitBtn = findViewById(R.id.submitBtn);
         resendBtn = findViewById(R.id.resendBtn);
         //setting content on views
-        toolbarText.setText(getString(R.string.recover_password));
+       // toolbarText.setText(getString(R.string.recover_password));
         apiInterface = APiClient.getClient().create(ApiInterface.class);
 
         //setting listener
@@ -118,12 +113,12 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                         e2.requestFocus();
                         e2.setCursorVisible(true);
                     }
-                    if (e2.length()==2){
+                    if (e2.length()==1){
                         e2.clearFocus();
                         e3.requestFocus();
                         e3.setCursorVisible(true);
                     }
-                    if (e3.length()==3){
+                    if (e3.length()==1){
                         e3.clearFocus();
                         e4.requestFocus();
                         e4.setCursorVisible(true);
@@ -162,12 +157,6 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void resetPassword() {
-        if (!otp.equalsIgnoreCase("")){
-            e1.setText(otp.charAt(0));
-            e2.setText(otp.charAt(1));
-            e3.setText(otp.charAt(2));
-            e4.setText(otp.charAt(3));
-        }
 
         if (e1.getText().toString().isEmpty() || e2.getText().toString().isEmpty() || e3.getText().toString().isEmpty() || e4.getText().toString().isEmpty()){
             Toast.makeText(this,"Please Enter OTP Code",Toast.LENGTH_SHORT).show();
@@ -248,18 +237,16 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                     @Override
                     public void onResponse(Call<UserData> call, Response<UserData> response) {
                         DataManager.getInstance().hideProgressMessage();
-
                         try {
                             UserData userData = response.body();
                             if (userData.response==200){
-                                id = userData.data.id;
-                                otpOne = userData.data.resetCode;
-                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
                                 firstLay.setVisibility(View.GONE);
                                 secondLay.setVisibility(View.VISIBLE);
                                 txtReset.setText(getText(R.string.reset_msg)+" "+userPhone.getMasked());
+                                id = userData.data.id;
+                                otpOne = userData.data.resetCode;
                             }else {
-                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ForgetPassActivity.this,userData.message,Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

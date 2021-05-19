@@ -1,6 +1,7 @@
 package com.example.mediraj.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,9 +21,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity {
 
     private CircleImageView userImg;
-    private TextView userName,userPhone,userEmail,userAddress,userGender,dateOfBirth;
-    ImageView backBtn;
-    MaterialButton editBtn;
+    private TextView userName,userPhone,userEmail,userAddress,userGender,dateOfBirth,toolbarTxt;
+    private ImageView backBtn;
+    private AppCompatButton editBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,10 @@ public class ProfileActivity extends AppCompatActivity {
         userAddress = findViewById(R.id.userAddress);
         userGender = findViewById(R.id.userGender);
         dateOfBirth = findViewById(R.id.userDoB);
-        backBtn = findViewById(R.id.backBtn);
+        backBtn = findViewById(R.id.toolbarBtn);
         editBtn = findViewById(R.id.editBtn);
+        toolbarTxt = findViewById(R.id.toolbarText);
+        toolbarTxt.setText("Profile");
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

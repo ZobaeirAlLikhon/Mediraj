@@ -68,26 +68,26 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             object = new JSONObject(notification);
             body = object.getString("body");
             title = object.getString("title");
-             otp_code= object.getString("otp_code");
+            otp_code= object.getString("otp_code");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-    if (notification_type.equals("OTP Verification")){
-            try {
-                homeIntent = new Intent(this, ForgetPassActivity.class).putExtra("otp_code",otp_code);
-                taskStackBuilder = TaskStackBuilder.create(this);
-                taskStackBuilder.addParentStack(ForgetPassActivity.class);
-                taskStackBuilder.addNextIntent(homeIntent);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
+//    if (notification_type.equals("OTP Verification")){
+//            try {
+//                homeIntent = new Intent(this, ForgetPassActivity.class).putExtra("otp_code",otp_code);
+//                taskStackBuilder = TaskStackBuilder.create(this);
+//                taskStackBuilder.addParentStack(ForgetPassActivity.class);
+//                taskStackBuilder.addNextIntent(homeIntent);
+//            }catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
 
 
 
-        PendingIntent notificationIntent = taskStackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+       // PendingIntent notificationIntent = taskStackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
         final int not_nu = generateRandom();
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -101,8 +101,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setSmallIcon(R.mipmap.mediraj_logo)
                         .setAutoCancel(true)
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setDefaults(Notification.DEFAULT_LIGHTS)
-                        .setContentIntent(notificationIntent);
+                        .setDefaults(Notification.DEFAULT_LIGHTS);
+                       // .setContentIntent(notificationIntent);
 
 
 

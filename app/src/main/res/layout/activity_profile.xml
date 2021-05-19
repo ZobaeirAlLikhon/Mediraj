@@ -4,22 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/flash_white"
     tools:context=".activity.ProfileActivity">
+
+    <include
+        layout="@layout/custom_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <RelativeLayout
         android:id="@+id/proInfoLay"
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/customHeader"
+        android:layout_margin="10dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/profile_back"
-            app:shapeAppearanceOverlay="@style/roundedCornersImageViewOne" />
+            android:src="@drawable/profile_backgorung"
+            app:shapeAppearanceOverlay="@style/roundedCornersImageViewTwo" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userImg"
@@ -29,40 +37,6 @@
             android:src="@drawable/ic_profile"
             app:civ_border_color="@color/white"
             app:civ_border_width="3dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/backBtn"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_margin="20dp"
-                android:layout_weight=".2"
-                android:src="@drawable/left_arrow" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="23dp"
-                android:layout_weight=".6"
-                android:fontFamily="@font/noto_sans"
-                android:gravity="center_horizontal"
-                android:text="Profile"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/placeHolder"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_margin="20dp"
-                android:layout_weight=".2" />
-        </LinearLayout>
 
         <TextView
             android:id="@+id/userName"
@@ -312,19 +286,18 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/editBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/relative_background"
-        app:backgroundTint="@color/white"
+        android:background="@color/battleship_grey"
+        android:elevation="8dp"
         android:text="Edit Profile"
         android:textAllCaps="false"
-        android:textColor="@color/battleship_grey"
-        android:elevation="8dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="8dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

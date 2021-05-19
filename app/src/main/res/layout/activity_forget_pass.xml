@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:fontFamily="@font/share_tech"
+            android:fontFamily="@font/noto_sans"
             android:text="@string/recover_your_password"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -43,7 +43,7 @@
                 android:id="@+id/userPhone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/share_tech"
+                android:fontFamily="@font/noto_sans"
                 android:forceHasOverlappingRendering="false"
                 android:inputType="phone"
                 android:padding="10dp"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/testCaseSix"
             android:layout_margin="20dp"
-            android:fontFamily="@font/share_tech"
+            android:fontFamily="@font/noto_sans"
             android:text="@string/send_instruction"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
-            android:fontFamily="@font/share_tech"
+            android:fontFamily="@font/noto_sans"
             android:text="@string/reset_msg"
             android:textAlignment="center"
             android:textSize="18sp"
@@ -100,31 +100,35 @@
                 android:id="@+id/e1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/edit_box"
                 android:layout_margin="10dp"
-                android:textAlignment="center"/>
-            <requestFocus/>
+                android:background="@drawable/edit_box"
+                android:textAlignment="center" />
+
+            <requestFocus />
+
             <EditText
                 android:id="@+id/e2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/edit_box"
                 android:layout_margin="10dp"
-                android:textAlignment="center"/>
+                android:background="@drawable/edit_box"
+                android:textAlignment="center" />
+
             <EditText
                 android:id="@+id/e3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/edit_box"
                 android:layout_margin="10dp"
-                android:textAlignment="center"/>
+                android:background="@drawable/edit_box"
+                android:textAlignment="center" />
+
             <EditText
                 android:id="@+id/e4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/edit_box"
                 android:layout_margin="10dp"
-                android:textAlignment="center"/>
+                android:background="@drawable/edit_box"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
@@ -137,14 +141,14 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="5dp"
             android:hint="@string/new_password"
-            app:passwordToggleTint="@color/denim"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/newPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/share_tech" />
+                android:imeOptions="actionNext"
+                android:fontFamily="@font/noto_sans" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -152,26 +156,25 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/filledTextField_one"
             android:layout_margin="5dp"
             android:hint="@string/confirm_password"
-            android:layout_below="@id/filledTextField_one"
-            app:passwordToggleTint="@color/denim"
             app:passwordToggleEnabled="true">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/newPassCon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/share_tech" />
+                android:fontFamily="@font/noto_sans" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/filledTextField_two"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/button_back"
-            android:fontFamily="@font/share_tech"
+            android:fontFamily="@font/noto_sans"
             android:text="@string/submit"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -189,18 +192,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/share_tech"
+                android:fontFamily="@font/noto_sans"
                 android:text="Haven't gotten Code?"
                 android:textSize="17sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/resendBtn"
-                android:layout_width="120dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:background="@drawable/button_back"
-                android:fontFamily="@font/share_tech"
+                android:fontFamily="@font/noto_sans"
                 android:text="Resend Code"
                 android:textColor="@color/white"
                 android:textSize="15sp"

@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:backgroundTint="@color/denim"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/share_tech"
                 android:textSize="25sp"
-                android:textColor="@color/white"
+                android:textColor="@color/battleship_grey"
                 android:layout_centerInParent="true"/>
 
             <ImageView
@@ -33,7 +33,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="15dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/left_arrow"/>
+                android:src="@drawable/ic_arrow_left_black_48dp"/>
 
         </RelativeLayout>
 

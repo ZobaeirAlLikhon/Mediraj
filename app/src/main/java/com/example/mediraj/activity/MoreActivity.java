@@ -116,7 +116,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
                 userEmail.setText(DataManager.getInstance().getUserData(this).data.email);
             }
 
-            if (DataManager.getInstance().getUserData(this).data.avatar !=null){
+            if (DataManager.getInstance().getUserData(getApplicationContext()).data.avatar !=null){
                 Glide.with(this)
                         .load(Constant.USER_AVATAR_URL+DataManager.getInstance().getUserData(this).data.avatar)
                         .apply(new RequestOptions().placeholder(R.drawable.ic_profile))

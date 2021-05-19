@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,18 +24,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeActivity extends AppCompatActivity {
-
+public class HomeActivity extends AppCompatActivity implements ServiceAdapter.ServiceInterface {
+    public static final String TAG = HomeActivity.class.getName();
     private ImageView bannerImg;
     private RecyclerView ser_rec;
     List<String> titles;
     List<Integer> images;
     ServiceAdapter serviceAdapter;
+    ServiceAdapter.ServiceInterface serviceInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        serviceInterface = this;
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -90,9 +94,16 @@ public class HomeActivity extends AppCompatActivity {
         ser_rec = findViewById(R.id.sec_rec);
         ser_rec.setOverScrollMode(View.OVER_SCROLL_NEVER);
         ser_rec.setLayoutManager(new GridLayoutManager(this,2));
-        serviceAdapter = new ServiceAdapter(this,titles,images);
+        serviceAdapter = new ServiceAdapter(this,titles,images,serviceInterface);
         ser_rec.setAdapter(serviceAdapter);
     }
 
 
+    @Override
+    public void onClickInterface(String serName) {
+        Log.e(TAG,serName);
+        if (serName.equalsIgnoreCase("Doctor")){
+
+        }
+    }
 }

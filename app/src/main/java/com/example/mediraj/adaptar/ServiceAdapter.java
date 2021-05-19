@@ -20,13 +20,15 @@ import java.util.List;
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHolder> {
 
     Context context;
-    List<String> titles;
+    List<String> serviceName;
     List<Integer> images;
+    ServiceInterface serviceInterface;
 
-    public ServiceAdapter(Context context, List<String> titles, List<Integer> images) {
+    public ServiceAdapter(Context context, List<String> serviceName, List<Integer> images, ServiceInterface serviceInterface) {
         this.context = context;
-        this.titles = titles;
+        this.serviceName = serviceName;
         this.images = images;
+        this.serviceInterface = serviceInterface;
     }
 
     @NonNull
@@ -38,13 +40,13 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
-        holder.titles.setText(titles.get(position));
+        holder.titles.setText(serviceName.get(position));
         Glide.with(context).load(images.get(position)).into(holder.icon);
     }
 
     @Override
     public int getItemCount() {
-        return titles.size();
+        return serviceName.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -54,6 +56,17 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
             super(itemView);
             titles = itemView.findViewById(R.id.serviceName);
             icon = itemView.findViewById(R.id.serviceImg);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    serviceInterface.onClickInterface(serviceName.get(getAdapterPosition()));
+                }
+            });
         }
+    }
+
+    public interface ServiceInterface{
+        void onClickInterface(String serName);
     }
 }
