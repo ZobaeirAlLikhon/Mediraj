@@ -4,11 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".activity.ForgetPassActivity">
 
-    <include
-        android:id="@+id/customToolbar"
-        layout="@layout/custom_toolbar" />
+<!--    <include-->
+<!--        layout="@layout/custom_toolbar" />-->
+
+    <ImageView
+        android:id="@+id/toolbarBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_left" />
 
 
     <!--    first layout-->
@@ -16,7 +23,7 @@
         android:id="@+id/firstLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/customToolbar">
+        android:layout_below="@id/toolbarBtn">
 
         <TextView
             android:id="@+id/introText"
@@ -25,6 +32,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
             android:fontFamily="@font/noto_sans"
+            android:textColor="@color/white"
             android:text="@string/recover_your_password"
             android:textAlignment="center"
             android:textSize="15sp"
@@ -32,24 +40,24 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/testCaseSix"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@id/introText"
             android:layout_margin="20dp"
+            app:endIconMode="clear_text"
             android:hint="@string/phone_number">
 
             <com.santalu.maskara.widget.MaskEditText
                 android:id="@+id/userPhone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 android:fontFamily="@font/noto_sans"
                 android:forceHasOverlappingRendering="false"
                 android:inputType="phone"
-                android:padding="10dp"
                 android:textColor="@color/black"
                 app:mask="+88 #####-######"
-                tools:targetApi="n" />
+                tools:targetApi="n"  />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -62,6 +70,7 @@
             android:text="@string/send_instruction"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:padding="11dp"
             android:textSize="18sp"
             android:textStyle="bold"
             app:elevation="5dp" />
@@ -72,7 +81,7 @@
         android:id="@+id/secondLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/customToolbar"
+        android:layout_below="@id/toolbarBtn"
         android:layout_margin="20dp"
         android:visibility="gone">
 
@@ -86,6 +95,7 @@
             android:text="@string/reset_msg"
             android:textAlignment="center"
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -134,7 +144,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField_one"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/filledTextField"
@@ -148,12 +157,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
+                android:background="@color/white"
                 android:fontFamily="@font/noto_sans" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField_two"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/filledTextField_one"
@@ -165,6 +174,7 @@
                 android:id="@+id/newPassCon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:fontFamily="@font/noto_sans" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,6 +187,7 @@
             android:fontFamily="@font/noto_sans"
             android:text="@string/submit"
             android:textAllCaps="false"
+            android:padding="11dp"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -194,6 +205,7 @@
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/noto_sans"
                 android:text="Haven't gotten Code?"
+                android:textColor="@color/battleship_grey"
                 android:textSize="17sp" />
 
             <com.google.android.material.button.MaterialButton
@@ -204,6 +216,7 @@
                 android:layout_margin="10dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="Resend Code"
+                android:padding="11dp"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />

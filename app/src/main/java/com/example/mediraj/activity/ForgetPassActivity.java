@@ -37,8 +37,8 @@ import retrofit2.Response;
 public class ForgetPassActivity extends AppCompatActivity implements View.OnClickListener {
 
     //common
-    TextView toolbarText;
-    ImageView toolbarBtn;
+
+    ImageView backBtn;
     ApiInterface apiInterface;
     String token,mobile,id,otpOne;
 
@@ -62,9 +62,8 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
 
     private void initView() {
 
-       //toolbar
-        toolbarText = findViewById(R.id.toolbarText);
-        toolbarBtn = findViewById(R.id.toolbarBtn);
+
+        backBtn = findViewById(R.id.toolbarBtn);
 
         //first
         firstLay = findViewById(R.id.firstLay);
@@ -87,7 +86,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         apiInterface = APiClient.getClient().create(ApiInterface.class);
 
         //setting listener
-        toolbarBtn.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
         //listener on first lay
         recoverBtn.setOnClickListener(this);
         //listener on second lay

@@ -9,282 +9,286 @@
 
     <include
         layout="@layout/custom_toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <RelativeLayout
-        android:id="@+id/proInfoLay"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/customHeader"
-        android:layout_margin="10dp">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:scrollbarThumbVertical="@null"
+        app:layout_constraintBottom_toTopOf="@id/editBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customHeader">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/profile_backgorung"
-            app:shapeAppearanceOverlay="@style/roundedCornersImageViewTwo" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userImg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_profile"
-            app:civ_border_color="@color/white"
-            app:civ_border_width="3dp" />
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/userImg"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/noto_sans"
-            android:text="Akash Karim"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/proInfoLay"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
 
-    <RelativeLayout
-        android:id="@+id/phoneLay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/relative_background"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/proInfoLay">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profile_backgorung"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageViewTwo" />
 
-        <!--                phone         -->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImg"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_profile"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="3dp" />
 
-        <TextView
-            android:id="@+id/phoneTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/noto_sans"
-            android:text="Phone Number"
-            android:textColor="@color/battleship_grey"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/userImg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="Akash Karim"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/phoneTxt"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            </RelativeLayout>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_phone" />
-
-            <TextView
-                android:id="@id/userPhone"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/phoneLay"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/noto_sans"
-                android:text="01767535372"
-                android:textColor="@color/battleship_grey"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/relative_background"
+                android:padding="5dp">
 
-    </RelativeLayout>
+                <!--                phone         -->
 
-    <RelativeLayout
-        android:id="@+id/emailLay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/relative_background"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneLay">
+                <TextView
+                    android:id="@+id/phoneTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="Phone Number"
+                    android:textColor="@color/battleship_grey"
+                    android:textStyle="bold" />
 
-        <!--                email       -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/phoneTxt"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/emailTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/noto_sans"
-            android:text="Email Address"
-            android:textColor="@color/battleship_grey"
-            android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_phone" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/emailTxt"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+                    <TextView
+                        android:id="@id/userPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="01767535372"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="16sp" />
+                </LinearLayout>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_email" />
+            </RelativeLayout>
 
-            <TextView
-                android:id="@id/userEmail"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/emailLay"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/noto_sans"
-                android:text="Johny.ice10@gmail.com"
-                android:textColor="@color/battleship_grey"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/relative_background"
+                android:padding="5dp">
 
-    </RelativeLayout>
+                <!--                email       -->
 
-    <RelativeLayout
-        android:id="@+id/addressLay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/relative_background"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailLay">
+                <TextView
+                    android:id="@+id/emailTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="Email Address"
+                    android:textColor="@color/battleship_grey"
+                    android:textStyle="bold" />
 
-        <!--                address       -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/emailTxt"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/addressTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/noto_sans"
-            android:text="Address"
-            android:textColor="@color/battleship_grey"
-            android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_email" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/addressTxt"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+                    <TextView
+                        android:id="@id/userEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="Johny.ice10@gmail.com"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="16sp" />
+                </LinearLayout>
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_address" />
+            </RelativeLayout>
 
-            <TextView
-                android:id="@+id/userAddress"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/addressLay"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/noto_sans"
-                android:text="Dewanpara,Shyampur,Rajshahi"
-                android:textColor="@color/battleship_grey"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/relative_background"
+                android:padding="5dp">
 
-    </RelativeLayout>
+                <!--                address       -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/relative_background"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:weightSum="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addressLay">
+                <TextView
+                    android:id="@+id/addressTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:text="Address"
+                    android:textColor="@color/battleship_grey"
+                    android:textStyle="bold" />
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/addressTxt"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_address" />
+
+                    <TextView
+                        android:id="@+id/userAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="Dewanpara,Shyampur,Rajshahi"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/relative_background"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="Gender"
-                    android:textColor="@color/battleship_grey"
-                    android:textStyle="bold" />
+                    android:layout_weight=".5">
 
-                <TextView
-                    android:id="@+id/userGender"
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="Gender"
+                            android:textColor="@color/battleship_grey"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/userGender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="Male"
+                            android:textColor="@color/battleship_grey" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="Male"
-                    android:textColor="@color/battleship_grey" />
+                    android:layout_weight=".5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="Date of Birth"
+                            android:textColor="@color/battleship_grey"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/userDoB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="10-05-1994"
+                            android:textColor="@color/battleship_grey" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5">
+    </ScrollView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="Date of Birth"
-                    android:textColor="@color/battleship_grey"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/userDoB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="10-05-1994"
-                    android:textColor="@color/battleship_grey" />
-            </LinearLayout>
-        </RelativeLayout>
-
-    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/editBtn"

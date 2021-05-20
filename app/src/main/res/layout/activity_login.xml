@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/img_back"
     tools:context=".activity.LoginActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <!--        <com.google.android.material.card.MaterialCardView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center_vertical"-->
-        <!--            android:layout_marginStart="10dp"-->
-        <!--            android:layout_marginEnd="10dp"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:padding="10dp"-->
-        <!--            app:cardCornerRadius="10dp"-->
-        <!--            app:cardElevation="1dp">-->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32999998">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,20 +28,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="@string/user_login"
+                android:textColor="@color/denim"
                 android:textSize="30sp"
-                android:textColor="@color/white"
                 android:textStyle="bold" />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/testCaseSix"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
-                app:boxStrokeColor="#EDEFEE"
-                android:hint="@string/phone_number">
+                android:hint="@string/phone_number"
+                app:endIconMode="clear_text"
+                app:boxStrokeColor="@color/white">
 
                 <com.santalu.maskara.widget.MaskEditText
                     android:id="@+id/userPhone"
@@ -69,8 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="@string/password"
-                app:boxStrokeColor="#EDEFEE"
                 android:imeOptions="actionNext"
+                app:boxStrokeColor="@color/white"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -78,8 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:fontFamily="@font/noto_sans"
-                    android:inputType="textPassword" />
+                    android:fontFamily="@font/noto_sans" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -90,7 +87,7 @@
                 android:layout_margin="10dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="@string/forgot_password"
-                android:textColor="@color/white"
+                android:textColor="@color/denim"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -100,16 +97,13 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:backgroundTint="@color/purple_700"
-                app:strokeColor="@color/purple_700"
-                app:strokeWidth="0dp"
                 android:fontFamily="@font/noto_sans"
-                android:padding="11dp"
+
                 android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:elevation="5dp" />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -133,6 +127,8 @@
                     android:fontFamily="@font/noto_sans"
                     android:gravity="center_horizontal"
                     android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/denim"
                     android:text="OR" />
 
                 <View
@@ -145,22 +141,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signUpBtn"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="#FFB400"
-                android:fontFamily="@font/noto_sans"
-                android:padding="11dp"
-                android:text="@string/sign_up"
                 android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F44336"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/sign_up"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:elevation="5dp"
-                app:strokeColor="#FFB400" />
+                android:textStyle="bold" />
         </LinearLayout>
-        <!--        </com.google.android.material.card.MaterialCardView>-->
     </ScrollView>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
