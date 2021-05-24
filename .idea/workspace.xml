@@ -30,19 +30,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54130c3d-29ac-45e5-99fb-86e518789d26" name="Default Changelist" comment="fix profile layout scroll view">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_pass.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_pass.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54130c3d-29ac-45e5-99fb-86e518789d26" name="Default Changelist" comment="fix profile layout scroll view" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/home/johny/.android/avd/Pixel_2_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/home/johny/.android/avd/Pixel_3_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -263,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621545007610</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix profile layout scroll view">
+      <created>1621652934565</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621652934565</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,12 +368,12 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1621124953680" />
-    <state x="407" y="204" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1621545011139">
+    <state x="407" y="204" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1621652939324">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1782" y="206" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1617900732923" />
     <state x="395" y="175" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1619078864967" />
-    <state x="407" y="204" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1621545011139" />
+    <state x="407" y="204" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1621652939324" />
     <state x="732" y="333" width="446" height="447" key="chooseDestDirectoryDialog" timestamp="1621441492872">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
