@@ -108,6 +108,9 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         }else if (serName.equalsIgnoreCase("Clinic Service")){
             Intent intent = new Intent(HomeActivity.this,ClinicService.class);
             startActivity(intent);
+        }else if (serName.equalsIgnoreCase("BloodBank Service")){
+            Intent intent = new Intent(HomeActivity.this,BloodbankService.class);
+            startActivity(intent);
         }
     }
 }
