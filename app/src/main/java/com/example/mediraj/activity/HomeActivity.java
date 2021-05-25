@@ -102,8 +102,12 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
     @Override
     public void onClickInterface(String serName) {
         Log.e(TAG,serName);
-        if (serName.equalsIgnoreCase("Doctor")){
-
+        if (serName.equalsIgnoreCase("Medicine Service")){
+            Intent intent = new Intent(HomeActivity.this,MedicineService.class);
+            startActivity(intent);
+        }else if (serName.equalsIgnoreCase("Clinic Service")){
+            Intent intent = new Intent(HomeActivity.this,ClinicService.class);
+            startActivity(intent);
         }
     }
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    app:cardElevation="15dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/cart_name"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center|left"
+            android:text="Service Name"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/cart_name">
+            <TextView
+                android:id="@+id/cart_Quanity"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/cart_name"
+                android:layout_alignStart="@+id/cart_name"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/overlock"
+                android:text="Quanity"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+            <ImageView
+                android:id="@+id/btnminus"
+                android:src="@drawable/ic_baseline_indeterminate"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/start_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_gravity="center"
+                android:text="1"
+                android:textSize="20sp"/>
+            <ImageView
+                android:id="@+id/btnplus"
+                android:src="@drawable/ic_baseline_add_box"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/cart_Price"
+            android:layout_width="203dp"
+            android:layout_height="32dp"
+            android:layout_below="@+id/linear"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/overlock"
+            android:gravity="center|left"
+            android:text="Price"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
