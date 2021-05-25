@@ -71,7 +71,7 @@
             android:text="Add To Cart"
             android:backgroundTint="@color/light_green"
             android:layout_toEndOf="@+id/TV_bloodprice"
-            android:elevation="10dp" />
+            android:elevation="10dp"/>
 
 
     </RelativeLayout>
