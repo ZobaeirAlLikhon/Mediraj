@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701020374413",
+    "project_id": "mediraj-bb71d",
+    "storage_bucket": "mediraj-bb71d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701020374413:android:849a0d7dc46e2716d4e9c4",
+        "android_client_info": {
+          "package_name": "com.example.mediraj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701020374413-0ts2a5eh04altok0vch16vjmd6mf203q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATJ8mXNwWCXD4aTTNMHvy3KKY86caB-d8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701020374413-0ts2a5eh04altok0vch16vjmd6mf203q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
