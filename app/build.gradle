@@ -66,8 +66,11 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.6.1'
     //slider-
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
-
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
+
+    //Elegant button
+    //implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
 
 
 
