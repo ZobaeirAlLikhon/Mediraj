@@ -1,6 +1,7 @@
 package com.example.mediraj.webapi;
 
 
+import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.model.UserData;
 
@@ -62,4 +63,11 @@ public interface ApiInterface {
     //department list
     @GET("departments")
     Call<Department> department(@Header("Authorization") String auth);
+
+
+    //clinical_services
+    @FormUrlEncoded
+    @POST("checkoutClinicalServiceRequests")
+    Call<ClinicalModel> clinicalServices(@Header("Authorization") String auth,@Field("user_id") String id);
+
 }

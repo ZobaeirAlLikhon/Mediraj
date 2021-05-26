@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
-    app:cardElevation="10dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="4dp"
+    app:cardElevation="2dp"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
@@ -50,9 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_chekupname"
-            android:layout_marginStart="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="17dp"
-            android:layout_toEndOf="@+id/cirIM_dia"
             android:text="Price 2000"
             android:textSize="20sp" />
 
@@ -62,23 +64,22 @@
             android:layout_height="41dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="70dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
-            android:layout_toEndOf="@+id/Tv_clinicname"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/circle_button"
             android:elevation="5dp"
             android:src="@drawable/ic_baseline_love" />
 
 
         <Button
+            android:id="@+id/addToCart_btn"
             android:layout_width="100dp"
             android:layout_height="42dp"
             android:layout_below="@+id/Tv_chekupname"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="53dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="33dp"
+            android:layout_marginEnd="5dp"
             android:layout_toEndOf="@+id/TV_clincprice"
             android:backgroundTint="@color/light_green"
             android:elevation="10dp"
