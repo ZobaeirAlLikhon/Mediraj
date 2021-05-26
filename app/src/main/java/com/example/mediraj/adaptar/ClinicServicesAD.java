@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -50,7 +51,7 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
         CircleImageView circleImageView;
         TextView clinic_name,check_up_purpose,net_amount;
-        ImageButton loveReact;
+        ImageView loveReact;
         Button addToCart;
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
