@@ -11,5 +11,6 @@ public class Constant {
 
 
     public static final String USER_INFO = "data";
+    public static final String USER_ID = "1";
 
 }
