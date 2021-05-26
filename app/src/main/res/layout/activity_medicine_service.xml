@@ -51,7 +51,7 @@
                 android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/mrlogo" />
 
             <TextView
                 android:id="@+id/camera_btn"

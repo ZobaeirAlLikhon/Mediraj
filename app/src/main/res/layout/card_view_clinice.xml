@@ -31,16 +31,27 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/cirIM_dia"
-            android:text="OT List"
+            android:text="Clinic Name"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Tv_chekupname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Tv_clinicname"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/cirIM_dia"
+            android:text="Puspose of Chekup"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/TV_clincprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Tv_clinicname"
+            android:layout_below="@+id/Tv_chekupname"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:layout_toEndOf="@+id/cirIM_dia"
             android:text="Price 2000"
             android:textSize="20sp" />
@@ -51,7 +62,7 @@
             android:layout_height="41dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="115dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
             android:layout_toEndOf="@+id/Tv_clinicname"
@@ -63,15 +74,16 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="42dp"
-            android:layout_below="@+id/btn_img"
+            android:layout_below="@+id/Tv_chekupname"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="8dp"
-            android:text="Add To Cart"
-            android:backgroundTint="@color/light_green"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="33dp"
             android:layout_toEndOf="@+id/TV_clincprice"
-            android:elevation="10dp" />
+            android:backgroundTint="@color/light_green"
+            android:elevation="10dp"
+            android:text="Add To Cart"
+            android:textSize="10sp" />
 
 
     </RelativeLayout>
