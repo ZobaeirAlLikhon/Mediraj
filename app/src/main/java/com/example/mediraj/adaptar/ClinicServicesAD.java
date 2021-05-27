@@ -1,6 +1,7 @@
 package com.example.mediraj.adaptar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
+import com.example.mediraj.activity.ClinicBookingActivity;
+import com.example.mediraj.activity.ClinicService;
 import com.example.mediraj.model.ClinicalModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -58,9 +61,11 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
             circleImageView=itemView.findViewById(R.id.cirIM_dia);
             clinic_name=itemView.findViewById(R.id.Tv_clinicname);
             check_up_purpose=itemView.findViewById(R.id.Tv_chekupname);
-            net_amount=itemView.findViewById(R.id.TV_clincprice);
+           // net_amount=itemView.findViewById(R.id.TV_clincprice);
             loveReact=itemView.findViewById(R.id.btn_img);
             addToCart=itemView.findViewById(R.id.addToCart_btn);
+
+
 
         }
     }

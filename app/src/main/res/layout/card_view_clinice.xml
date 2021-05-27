@@ -55,15 +55,15 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Tv_clinicname"
                     android:layout_toEndOf="@+id/cirIM_dia"
-                    android:text="Puspose of Chekup"
+                    android:text="Adress         "
                     android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/TV_clincprice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Price 2000"
-                    android:textSize="15sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/TV_clincprice"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Price 2000"-->
+<!--                    android:textSize="15sp" />-->
             </LinearLayout>
 
             <LinearLayout
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/light_green"
-                    android:text="Add To Cart"
+                    android:text="Book"
                     android:textSize="11sp" />
 
             </LinearLayout>
