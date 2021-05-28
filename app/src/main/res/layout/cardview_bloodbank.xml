@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
-    app:cardElevation="10dp"
+    android:layout_margin="5dp"
+    app:cardElevation="2dp"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
@@ -14,67 +14,81 @@
         android:background="@color/colorText"
         android:padding="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/cirIM_dia"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="5dp"
-            android:foregroundGravity="center"
-            android:src="@drawable/ic_baseline_people" />
-
-        <TextView
-            android:id="@+id/Tv_bloodname"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/mainLay"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/cirIM_dia"
-            android:text="Blood Name"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/TV_bloodprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Tv_bloodname"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/cirIM_dia"
-            android:text="Price 2000"
-            android:textSize="20sp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cirIM_dia"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/user" />
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btn_img"
-            android:layout_width="48dp"
-            android:layout_height="41dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
-            android:layout_toEndOf="@+id/Tv_bloodname"
-            android:background="@drawable/circle_button"
-            android:elevation="5dp"
-            android:src="@drawable/ic_baseline_love" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/bloodname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Blood Name"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/bloodprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="price         "
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:layout_marginStart="3dp"
+                android:gravity="end">
+
+                <ImageView
+                    android:id="@+id/btn_bloodimg"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_love" />
+                <Button
+                    android:id="@+id/addToCart_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/light_green"
+                    android:text="Add to cart"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="42dp"
-            android:layout_below="@+id/btn_img"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="10dp"
-            android:text="Add To Cart"
-            android:backgroundTint="@color/light_green"
-            android:layout_toEndOf="@+id/TV_bloodprice"
-            android:elevation="10dp"/>
-
-
+        </LinearLayout>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

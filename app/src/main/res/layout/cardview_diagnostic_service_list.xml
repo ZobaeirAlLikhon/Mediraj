@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="15dp"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="10dp">
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,71 +14,84 @@
         android:background="@color/colorText"
         android:padding="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/cirIM_dia"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="5dp"
-            android:foregroundGravity="center"
-            android:src="@drawable/ic_baseline_people" />
-
-        <TextView
-            android:id="@+id/Tv_test"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/mainLay"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/cirIM_dia"
-            android:text="Test Name"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-        <TextView
-            android:id="@+id/TV_testprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Tv_test"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/cirIM_dia"
-            android:text="Price 2000"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
 
-        <ImageButton
-            android:id="@+id/btn_img"
-            android:layout_width="48dp"
-            android:layout_height="41dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="83dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
-            android:layout_toEndOf="@+id/Tv_test"
-            android:background="@drawable/circle_button"
-            android:elevation="5dp"
-            android:src="@drawable/ic_baseline_love" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cirIM_dia"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/user" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp"
+                android:layout_gravity="center_vertical">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="42dp"
-            android:layout_below="@+id/btn_img"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="8dp"
-            android:text="Add To Cart"
-            android:backgroundTint="@color/light_green"
-            android:layout_toEndOf="@+id/TV_testprice"
-            android:elevation="10dp" />
+                <TextView
+                    android:id="@+id/diagonstic_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:text="Diagnostic service Name"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/diagonstic_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:text="Price $100 "
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:layout_marginStart="3dp"
+                android:gravity="end">
+
+                <ImageView
+                    android:id="@+id/diagonstic_love"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_love" />
+                <Button
+                    android:id="@+id/addToCart_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/light_green"
+                    android:text="add to cart"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </RelativeLayout>
-
-
-
-
 
 
 </androidx.cardview.widget.CardView>

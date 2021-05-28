@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activity.AppoinmentInformation"
     android:background="@color/off_white">
 
     <include
@@ -29,22 +29,7 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
-            <!--            <TextView-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text="Patient information:"-->
-            <!--                android:textSize="15sp" />-->
 
-            <!--            <com.airbnb.lottie.LottieAnimationView-->
-            <!--                android:id="@+id/forAnim"-->
-            <!--                android:layout_width="120dp"-->
-            <!--                android:layout_height="120dp"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:layout_marginTop="20dp"-->
-            <!--                app:lottie_autoPlay="true"-->
-            <!--                app:lottie_fileName="clinical_service.jason"-->
-            <!--                app:lottie_loop="true"-->
-            <!--                tools:ignore="MissingClass,MissingConstraints" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -52,7 +37,6 @@
                 android:layout_margin="10dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="3dp">
-
 
 
                 <LinearLayout
@@ -63,7 +47,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Patient information:"
+                        android:text="Appoinment information:"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
@@ -203,7 +187,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Clinic information:"
+                        android:text="Doctor information:"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
@@ -271,5 +255,6 @@
 
         </LinearLayout>
     </ScrollView>
+
 
 </RelativeLayout>
