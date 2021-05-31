@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.AllDiagonosticModel;
+import com.example.mediraj.model.AllPathologyModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,6 +31,7 @@ public class Get_diagonesticServicesAD extends RecyclerView.Adapter<Get_diagones
         this.context = context;
         this.allDiagonosticModels = allDiagonosticModels;
     }
+
 
     @NonNull
     @NotNull
