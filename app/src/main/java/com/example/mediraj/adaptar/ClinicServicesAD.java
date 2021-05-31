@@ -13,9 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.mediraj.R;
 import com.example.mediraj.activity.ClinicBookingActivity;
 import com.example.mediraj.activity.ClinicService;
+import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.ClinicalModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +44,16 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ClinicServicesAD.MyViewHolder holder, int position) {
-        holder.clinic_name.setText(clinicalModelList.get(position).getClinicTitle());
+        holder.clinic_name.setText(clinicalModelList.get(position).getTitle());
+        holder.address.setText(clinicalModelList.get(position).getAddress());
+        Glide.with(context).load(Constant.Clinic_AVATAR_URL+clinicalModelList.get(position).getLogo()).into(holder.circleImageView);
+        holder.booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,ClinicBookingActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -53,17 +64,16 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         CircleImageView circleImageView;
-        TextView clinic_name,check_up_purpose,net_amount;
+        TextView clinic_name,address;
         ImageView loveReact;
-        Button addToCart;
+        Button booking;
         public MyViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             circleImageView=itemView.findViewById(R.id.cirIM_dia);
             clinic_name=itemView.findViewById(R.id.Tv_clinicname);
-            check_up_purpose=itemView.findViewById(R.id.Tv_chekupname);
-           // net_amount=itemView.findViewById(R.id.TV_clincprice);
+            address=itemView.findViewById(R.id.Tv_chekupname);
             loveReact=itemView.findViewById(R.id.btn_img);
-            addToCart=itemView.findViewById(R.id.addToCart_btn);
+            booking=itemView.findViewById(R.id.addToCart_btn);
 
 
 

@@ -41,7 +41,7 @@ public class ClinicService extends AppCompatActivity {
 
     private void recyclar_view() {
         apiInterface = APiClient.getClient().create(ApiInterface.class);
-        Call<ClinicalModel> clinical_services_call = apiInterface.clinicalServices(Constant.AUTH,Constant.USER_ID);
+        Call<ClinicalModel> clinical_services_call = apiInterface.clinicalServices(Constant.AUTH);
         clinical_services_call.enqueue(new Callback<ClinicalModel>() {
             @Override
             public void onResponse(Call<ClinicalModel> call, Response<ClinicalModel> response) {
@@ -49,7 +49,6 @@ public class ClinicService extends AppCompatActivity {
                 clinicServicesAD=new ClinicServicesAD(getApplicationContext(),clinicalModelList);
                 recyclerView.setAdapter(clinicServicesAD);
                 Log.e("clinicalServices:----",clinicalModelList.toString());
-
             }
 
             @Override
@@ -57,8 +56,5 @@ public class ClinicService extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }

@@ -67,9 +67,8 @@ public interface ApiInterface {
 
 
     //clinical_services
-    @FormUrlEncoded
-    @POST("checkoutClinicalServiceRequests")
-    Call<ClinicalModel> clinicalServices(@Header("Authorization") String auth,@Field("user_id") String id);
+    @GET("clinic/all")
+    Call<ClinicalModel> clinicalServices(@Header("Authorization") String auth);
 
     //get all diagonstic Services
     @GET("diagnostic/all")

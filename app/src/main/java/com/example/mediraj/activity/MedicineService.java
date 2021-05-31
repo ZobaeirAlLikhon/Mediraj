@@ -29,7 +29,7 @@ public class MedicineService extends AppCompatActivity {
 
     private MaterialButton send_btn, call_btn;
     private TextView camera_btn;
-    private TextInputLayout textInputLayout, textInputLayout1, textInputLayout2;
+    private TextInputLayout textInputLayout,textInputLayout1,textInputLayout2;
     private ImageView imageView;
     private static final int CAMERA_REQUEST = 1888;
 

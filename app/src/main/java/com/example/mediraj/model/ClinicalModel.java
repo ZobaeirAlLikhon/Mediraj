@@ -58,66 +58,36 @@ public class ClinicalModel {
         @SerializedName("id")
         @Expose
         private Integer id;
-        @SerializedName("user_id")
+        @SerializedName("title")
         @Expose
-        private Integer userId;
-        @SerializedName("contact_name")
+        private String title;
+        @SerializedName("logo")
         @Expose
-        private String contactName;
-        @SerializedName("contact_mobile")
+        private String logo;
+        @SerializedName("address")
         @Expose
-        private String contactMobile;
-        @SerializedName("contact_address")
+        private String address;
+        @SerializedName("mobile")
         @Expose
-        private String contactAddress;
-        @SerializedName("clinic_title")
+        private String mobile;
+        @SerializedName("email")
         @Expose
-        private String clinicTitle;
-        @SerializedName("clinic_address")
+        private String email;
+        @SerializedName("ambulance_no")
         @Expose
-        private String clinicAddress;
-        @SerializedName("clinic_purpose")
+        private String ambulanceNo;
+        @SerializedName("emergency_no")
         @Expose
-        private String clinicPurpose;
-        @SerializedName("order_status")
+        private String emergencyNo;
+        @SerializedName("status")
         @Expose
-        private String orderStatus;
-        @SerializedName("confirmed_date")
-        @Expose
-        private String confirmedDate;
-        @SerializedName("cancelled_date")
-        @Expose
-        private Object cancelledDate;
-        @SerializedName("cancelled_reason")
-        @Expose
-        private Object cancelledReason;
-        @SerializedName("completed_date")
-        @Expose
-        private String completedDate;
-        @SerializedName("net_amount")
-        @Expose
-        private Integer netAmount;
-        @SerializedName("vat_amount")
-        @Expose
-        private Integer vatAmount;
-        @SerializedName("service_charge")
-        @Expose
-        private Integer serviceCharge;
-        @SerializedName("misc_cost_amount")
-        @Expose
-        private Integer miscCostAmount;
-        @SerializedName("misc_cost_details")
-        @Expose
-        private Object miscCostDetails;
-        @SerializedName("total_amount")
-        @Expose
-        private Integer totalAmount;
+        private String status;
         @SerializedName("rating")
         @Expose
-        private Integer rating;
+        private Object rating;
         @SerializedName("review")
         @Expose
-        private String review;
+        private Object review;
         @SerializedName("dates")
         @Expose
         private String dates;
@@ -133,6 +103,9 @@ public class ClinicalModel {
         @SerializedName("updated_at")
         @Expose
         private String updatedAt;
+        @SerializedName("is_checked")
+        @Expose
+        private String isChecked;
 
         public Integer getId() {
             return id;
@@ -142,163 +115,83 @@ public class ClinicalModel {
             this.id = id;
         }
 
-        public Integer getUserId() {
-            return userId;
+        public String getTitle() {
+            return title;
         }
 
-        public void setUserId(Integer userId) {
-            this.userId = userId;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
-        public String getContactName() {
-            return contactName;
+        public String getLogo() {
+            return logo;
         }
 
-        public void setContactName(String contactName) {
-            this.contactName = contactName;
+        public void setLogo(String logo) {
+            this.logo = logo;
         }
 
-        public String getContactMobile() {
-            return contactMobile;
+        public String getAddress() {
+            return address;
         }
 
-        public void setContactMobile(String contactMobile) {
-            this.contactMobile = contactMobile;
+        public void setAddress(String address) {
+            this.address = address;
         }
 
-        public String getContactAddress() {
-            return contactAddress;
+        public String getMobile() {
+            return mobile;
         }
 
-        public void setContactAddress(String contactAddress) {
-            this.contactAddress = contactAddress;
+        public void setMobile(String mobile) {
+            this.mobile = mobile;
         }
 
-        public String getClinicTitle() {
-            return clinicTitle;
+        public String getEmail() {
+            return email;
         }
 
-        public void setClinicTitle(String clinicTitle) {
-            this.clinicTitle = clinicTitle;
+        public void setEmail(String email) {
+            this.email = email;
         }
 
-        public String getClinicAddress() {
-            return clinicAddress;
+        public String getAmbulanceNo() {
+            return ambulanceNo;
         }
 
-        public void setClinicAddress(String clinicAddress) {
-            this.clinicAddress = clinicAddress;
+        public void setAmbulanceNo(String ambulanceNo) {
+            this.ambulanceNo = ambulanceNo;
         }
 
-        public String getClinicPurpose() {
-            return clinicPurpose;
+        public String getEmergencyNo() {
+            return emergencyNo;
         }
 
-        public void setClinicPurpose(String clinicPurpose) {
-            this.clinicPurpose = clinicPurpose;
+        public void setEmergencyNo(String emergencyNo) {
+            this.emergencyNo = emergencyNo;
         }
 
-        public String getOrderStatus() {
-            return orderStatus;
+        public String getStatus() {
+            return status;
         }
 
-        public void setOrderStatus(String orderStatus) {
-            this.orderStatus = orderStatus;
+        public void setStatus(String status) {
+            this.status = status;
         }
 
-        public String getConfirmedDate() {
-            return confirmedDate;
-        }
-
-        public void setConfirmedDate(String confirmedDate) {
-            this.confirmedDate = confirmedDate;
-        }
-
-        public Object getCancelledDate() {
-            return cancelledDate;
-        }
-
-        public void setCancelledDate(Object cancelledDate) {
-            this.cancelledDate = cancelledDate;
-        }
-
-        public Object getCancelledReason() {
-            return cancelledReason;
-        }
-
-        public void setCancelledReason(Object cancelledReason) {
-            this.cancelledReason = cancelledReason;
-        }
-
-        public String getCompletedDate() {
-            return completedDate;
-        }
-
-        public void setCompletedDate(String completedDate) {
-            this.completedDate = completedDate;
-        }
-
-        public Integer getNetAmount() {
-            return netAmount;
-        }
-
-        public void setNetAmount(Integer netAmount) {
-            this.netAmount = netAmount;
-        }
-
-        public Integer getVatAmount() {
-            return vatAmount;
-        }
-
-        public void setVatAmount(Integer vatAmount) {
-            this.vatAmount = vatAmount;
-        }
-
-        public Integer getServiceCharge() {
-            return serviceCharge;
-        }
-
-        public void setServiceCharge(Integer serviceCharge) {
-            this.serviceCharge = serviceCharge;
-        }
-
-        public Integer getMiscCostAmount() {
-            return miscCostAmount;
-        }
-
-        public void setMiscCostAmount(Integer miscCostAmount) {
-            this.miscCostAmount = miscCostAmount;
-        }
-
-        public Object getMiscCostDetails() {
-            return miscCostDetails;
-        }
-
-        public void setMiscCostDetails(Object miscCostDetails) {
-            this.miscCostDetails = miscCostDetails;
-        }
-
-        public Integer getTotalAmount() {
-            return totalAmount;
-        }
-
-        public void setTotalAmount(Integer totalAmount) {
-            this.totalAmount = totalAmount;
-        }
-
-        public Integer getRating() {
+        public Object getRating() {
             return rating;
         }
 
-        public void setRating(Integer rating) {
+        public void setRating(Object rating) {
             this.rating = rating;
         }
 
-        public String getReview() {
+        public Object getReview() {
             return review;
         }
 
-        public void setReview(String review) {
+        public void setReview(Object review) {
             this.review = review;
         }
 
@@ -340,6 +233,14 @@ public class ClinicalModel {
 
         public void setUpdatedAt(String updatedAt) {
             this.updatedAt = updatedAt;
+        }
+
+        public String getIsChecked() {
+            return isChecked;
+        }
+
+        public void setIsChecked(String isChecked) {
+            this.isChecked = isChecked;
         }
 
     }
