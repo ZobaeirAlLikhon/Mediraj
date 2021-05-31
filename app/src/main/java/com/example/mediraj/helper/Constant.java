@@ -8,6 +8,7 @@ public class Constant {
     public static final String DOCTOR_AVATAR_URL = "http://10.0.2.2/www.mediraj.com/public/uploads/doctors/";
     public static final String DEPARTMENT_AVATAR_URL = "http://10.0.2.2/www.mediraj.com/public/uploads/department/";
     public static final String Diagonestic_AVATAR_URL = "http://10.0.2.2/www.mediraj.com/public/uploads/diagnostic/";
+    public static final String Pathology_AVATAR_URL = "http://10.0.2.2/www.mediraj.com/public/uploads/pathology/";
     public static final String Clinic_AVATAR_URL = "http://10.0.2.2/www.mediraj.com/public/uploads/clinic/";
 
 
