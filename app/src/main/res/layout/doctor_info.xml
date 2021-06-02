@@ -19,7 +19,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/customHeader">
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="80dp"
