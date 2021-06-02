@@ -44,7 +44,7 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
     public void onBindViewHolder(@NonNull @NotNull ClinicServicesAD.MyViewHolder holder, int position) {
         holder.clinic_name.setText(clinicalModelList.get(position).getTitle());
         holder.address.setText(clinicalModelList.get(position).getAddress());
-        Glide.with(context).load(Constant.CLINIC_AVATAR_URL +clinicalModelList.get(position).getLogo()).into(holder.circleImageView);
+        Glide.with(context).load(Constant.Clinic_AVATAR_URL +clinicalModelList.get(position).getLogo()).into(holder.circleImageView);
         holder.booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +52,7 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
                 intent.putExtra("hospital_name",clinicalModelList.get(position).getTitle());
                 intent.putExtra("hospital_address",clinicalModelList.get(position).getAddress());
                 intent.putExtra("clinic_ID",clinicalModelList.get(position).getId());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

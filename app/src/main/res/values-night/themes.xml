@@ -16,8 +16,8 @@
     </style>
 
     <style name="TabFont" parent="Widget.MaterialComponents.TabLayout">
-        <item name="android:fontFamily">@font/share_tech</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
         <item name="textAllCaps">false</item>
     </style>

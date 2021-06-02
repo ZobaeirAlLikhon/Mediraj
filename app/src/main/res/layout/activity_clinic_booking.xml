@@ -55,7 +55,6 @@
                         android:layout_marginEnd="12dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/patientname"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -66,7 +65,7 @@
                         app:errorEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/patientname1"
+                            android:id="@+id/patientName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
@@ -78,7 +77,6 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/patientcontact"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -89,7 +87,7 @@
                         app:errorEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/patientcontact1"
+                            android:id="@+id/patientContact"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
@@ -103,7 +101,6 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/patientaddress"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,7 +111,7 @@
                         app:errorEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/patientaddress1"
+                            android:id="@+id/patientAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
@@ -127,7 +124,6 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/cpurpose"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -138,7 +134,7 @@
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/cpurpose1"
+                            android:id="@+id/purpose"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"

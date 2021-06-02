@@ -25,7 +25,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
-public class MedicineService extends AppCompatActivity {
+public class MedicineService extends AppCompatActivity implements View.OnClickListener {
 
     private MaterialButton send_btn, call_btn;
     private TextView camera_btn;
@@ -37,21 +37,10 @@ public class MedicineService extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine_service);
+        
+        initView();
 
-        //initialize button with id
-        send_btn = findViewById(R.id.sendbtnmed);
-        call_btn = findViewById(R.id.callbtnmed);
 
-        //camera text initialization
-        camera_btn = findViewById(R.id.camera_btn);
-
-        //Material TextInputlayout initialization
-        textInputLayout = findViewById(R.id.medbox);
-        textInputLayout1 = findViewById(R.id.mc_useraddress);
-        textInputLayout2 = findViewById(R.id.mc_phone);
-
-        //initialize image view
-        imageView = findViewById(R.id.imgpres);
 
         //call_btn
         call_btn.setOnClickListener(v -> {
@@ -79,6 +68,26 @@ public class MedicineService extends AppCompatActivity {
 
     }
 
+    private void initView() {
+        //initialize button with id
+        send_btn = findViewById(R.id.sendbtnmed);
+        call_btn = findViewById(R.id.callbtnmed);
+
+        //camera text initialization
+        camera_btn = findViewById(R.id.camera_btn);
+
+        //Material TextInputlayout initialization
+        textInputLayout = findViewById(R.id.medbox);
+        textInputLayout1 = findViewById(R.id.mc_useraddress);
+        textInputLayout2 = findViewById(R.id.mc_phone);
+
+        //initialize image view
+        imageView = findViewById(R.id.imgpres);
+
+        camera_btn.setOnClickListener(this);
+        call_btn.setOnClickListener(this);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -88,6 +97,11 @@ public class MedicineService extends AppCompatActivity {
 
 
         }
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }
