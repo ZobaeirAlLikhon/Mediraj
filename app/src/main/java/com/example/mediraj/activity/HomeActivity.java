@@ -73,7 +73,7 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         titles.add("Clinic Service");
         titles.add("BloodBank Service");
         titles.add("Home Pathology");
-        titles.add("Sergical Kits");
+        titles.add("Surgical Kits");
         titles.add("Doctor");
 
         images.add(R.drawable.doctorapp2);
@@ -111,8 +111,8 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         }else if (serName.equalsIgnoreCase("Diagnostic Service")){
             Intent intent = new Intent(HomeActivity.this,DiagnosticActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Doctor")){
-            Intent intent = new Intent(HomeActivity.this,AppoinmentInformation.class);
+        }else if (serName.equalsIgnoreCase("Surgical Kits")){
+            Intent intent = new Intent(HomeActivity.this,SurgicalActivity.class);
             startActivity(intent);
         }else if (serName.equalsIgnoreCase("Home Pathology")){
             Intent intent = new Intent(HomeActivity.this,HomePathologyActivity.class);

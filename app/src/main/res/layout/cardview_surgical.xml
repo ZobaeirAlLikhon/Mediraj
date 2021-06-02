@@ -29,7 +29,7 @@
                 android:layout_gravity="center_vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/cirimg_pathology"
+                    android:id="@+id/cirIM_surgical"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
@@ -45,19 +45,19 @@
                 android:layout_gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/pathology_name"
+                    android:id="@+id/surgical_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/cirimg_pathology"
-                    android:text="Pathology Name"
+                    android:layout_toEndOf="@+id/cirIM_surgical"
+                    android:text="Surgical Name"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/pathology_price"
+                    android:id="@+id/surgical_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Tv_clinicname"
-                    android:layout_toEndOf="@+id/cirimg_pathology"
+                    android:layout_toEndOf="@+id/cirIM_surgical"
                     android:text="Price $100 "
                     android:textSize="15sp" />
 
@@ -72,14 +72,14 @@
                 android:gravity="end">
 
                 <ImageView
-                    android:id="@+id/pathology_love"
+                    android:id="@+id/surgical_love"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="end"
                     android:padding="5dp"
                     android:src="@drawable/ic_baseline_love" />
                 <Button
-                    android:id="@+id/pathology_Cart_btn"
+                    android:id="@+id/surgical_Cart_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/light_green"
@@ -89,6 +89,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
 
     </RelativeLayout>
 
