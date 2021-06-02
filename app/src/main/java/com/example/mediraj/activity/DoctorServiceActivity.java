@@ -36,14 +36,14 @@ public class DoctorServiceActivity extends AppCompatActivity {
         text.add("Doctors appointment");
         text.add("Doctors appointment");
 
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
-        image.add(R.drawable.ic__appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
+        image.add(R.drawable.ic_appoint);
 
         rcv.setLayoutManager(new GridLayoutManager(getApplication(),2));
         adapter = new  DocServiceAdapter(getApplication(),text,image);
