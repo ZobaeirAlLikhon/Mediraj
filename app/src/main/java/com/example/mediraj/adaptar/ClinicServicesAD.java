@@ -50,7 +50,8 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
         holder.booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context,ClinicBookingActivity.class);
+                Intent intent = new Intent(context, ClinicBookingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

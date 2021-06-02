@@ -1,10 +1,8 @@
 package com.example.mediraj.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +14,6 @@ import android.widget.ImageView;
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ServiceAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -80,13 +77,13 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         titles.add("Doctor");
 
         images.add(R.drawable.doctorapp2);
-        images.add(R.drawable.ic__appoint);
+        images.add(R.drawable.ic_appoint);
         images.add(R.drawable.medicin);
         images.add(R.drawable.clinic);
         images.add(R.drawable.blood);
         images.add(R.drawable.pathology);
         images.add(R.drawable.kits);
-        images.add(R.drawable.ic__appoint);
+        images.add(R.drawable.ic_appoint);
 
 
         //initialize views

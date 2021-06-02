@@ -4,17 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ClinicServicesAD;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.ClinicalModel;
-import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 
@@ -29,17 +28,35 @@ public class ClinicService extends AppCompatActivity {
     List<ClinicalModel.Datum> clinicalModelList;
     RecyclerView recyclerView;
     ClinicServicesAD clinicServicesAD;
+    ImageView toolbarBtn;
+    TextView toolbarTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clinic_service);
-        recyclerView=findViewById(R.id.recy_view_clinic);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ClinicService.this,LinearLayoutManager.VERTICAL,false));
-        recyclar_view();
+
+        initView();
+        recyclerView();
 
     }
 
-    private void recyclar_view() {
+    private void initView() {
+        setContentView(R.layout.activity_clinic_service);
+        recyclerView=findViewById(R.id.recy_view_clinic);
+        recyclerView.setLayoutManager(new LinearLayoutManager(ClinicService.this,LinearLayoutManager.VERTICAL,false));
+        toolbarBtn = findViewById(R.id.toolbarBtn);
+        toolbarTxt = findViewById(R.id.toolbarText);
+        toolbarTxt.setText("Clinic Services");
+
+        toolbarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                overridePendingTransition(0,0);
+                finish();
+            }
+        });
+    }
+
+    private void recyclerView() {
         apiInterface = APiClient.getClient().create(ApiInterface.class);
         Call<ClinicalModel> clinical_services_call = apiInterface.clinicalServices(Constant.AUTH);
         clinical_services_call.enqueue(new Callback<ClinicalModel>() {

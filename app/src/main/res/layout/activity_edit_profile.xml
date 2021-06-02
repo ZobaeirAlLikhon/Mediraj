@@ -20,7 +20,7 @@
         android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/customHeader">
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="match_parent"

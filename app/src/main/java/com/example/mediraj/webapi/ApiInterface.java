@@ -26,36 +26,36 @@ public interface ApiInterface {
 
     //sign up
     @FormUrlEncoded
-    @POST("userRegistration")
+    @POST("user/registration")
     Call<UserData> userSignUp(@Header("Authorization") String auth,
                               @FieldMap Map<String,String> params);
     //Login
     @FormUrlEncoded
-    @POST("userLogin")
+    @POST("user/login")
     Call<UserData> userLogIn(@Header("Authorization") String auth,
                                  @FieldMap Map<String,String> params);
 
     //forgot password
     @FormUrlEncoded
-    @POST("forgotPassword")
+    @POST("user/forgot-password")
     Call<UserData> forgotPass(@Header("Authorization") String auth,
                               @Field("mobile") String mobile,
                               @Field("token") String token);
 
     //reset password
     @FormUrlEncoded
-    @POST("resetPassword")
+    @POST("user/reset-password")
     Call<UserData> resetPass(@Header("Authorization") String auth,
                              @FieldMap Map<String,String> params);
 
     //logout
     @FormUrlEncoded
-    @POST("userLogOut")
+    @POST("user/logout")
     Call<Map<String,String>> userLogout(@Header("Authorization") String auth,@Field("id") String userId);
 
     //update profile
     @Multipart
-    @POST("userUpdateProfile")
+    @POST("user/update-profile")
     Call<UserData> updateProfile(@Header("Authorization") String auth,
                                  @PartMap Map<String,RequestBody> params,
                                  @Part MultipartBody.Part file);
