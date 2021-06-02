@@ -1,6 +1,7 @@
 package com.example.mediraj.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,15 +9,19 @@ import android.view.MenuItem;
 
 import com.example.mediraj.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import org.jetbrains.annotations.NotNull;
 
 public class HistoryActivity extends AppCompatActivity {
-
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        initView();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.history);
@@ -43,5 +48,10 @@ public class HistoryActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void initView() {
+        viewPager = findViewById(R.id.viewpager);
+        tabLayout = findViewById(R.id.tabs);
     }
 }

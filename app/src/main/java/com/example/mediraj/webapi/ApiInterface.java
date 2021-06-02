@@ -96,4 +96,9 @@ public interface ApiInterface {
     @GET("surgical/all")
     Call<AllSurgicalModel> allSurgicalServices(@Header("Authorization") String auth);
 
+    //api for notification status
+    //get all Surgical
+    @FormUrlEncoded
+    @POST("user/notification")
+    Call<UserData> notificationStatus(@Header("Authorization") String auth,@Field("id") String userId);
 }

@@ -26,12 +26,12 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clinic Service"
-                android:icon="@mipmap/clinic"/>
+                android:text="Diagnostic"
+                android:icon="@mipmap/diagnostic"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pathology Service"
+                android:text="Pathology"
                 android:icon="@mipmap/pathology"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"

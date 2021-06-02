@@ -3,35 +3,46 @@ package com.example.mediraj.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.mediraj.BuildConfig;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.helper.SessionManager;
+import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MoreActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MoreActivity.class.getName();
     private BottomNavigationView bottomNavigationView;
-    private TextView userName, userPhone, userEmail;
+    private TextView userName, userPhone, userEmail,appVersion;
     private CircleImageView userImg;
     private LinearLayout profileLay,offerLay,promoLay,logoutLay,devTeam,emergencyLay,aboutLay;
     private ApiInterface apiInterface;
+    private SwitchCompat toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,12 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         //DataManager.getInstance().showProgressMessage(this,"please wait...");
         initView();
         setUserData();
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                notificationOffOn(DataManager.getInstance().getUserData(MoreActivity.this).data.id);
+            }
+        });
     }
 
 
@@ -84,6 +101,10 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         emergencyLay = findViewById(R.id.emergencyLay);
         devTeam = findViewById(R.id.devTeam);
         logoutLay = findViewById(R.id.logoutLay);
+        toggle = findViewById(R.id.toggle);
+        appVersion = findViewById(R.id.appVersion);
+
+        appVersion.setText("Version "+ BuildConfig.VERSION_NAME);
         //lister part
         profileLay.setOnClickListener(this);
         offerLay.setOnClickListener(this);
@@ -122,6 +143,12 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
                         .apply(new RequestOptions().placeholder(R.drawable.ic_profile))
                         .centerCrop()
                         .into(userImg);
+            }
+
+            if (DataManager.getInstance().getUserData(getApplicationContext()).data.notification.equalsIgnoreCase("on")){
+                toggle.setChecked(true);
+            }else {
+                toggle.setChecked(false);
             }
 
         }
@@ -175,4 +202,40 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog alert11 = alertDialog.create();
         alert11.show();
     }
+
+    private void notificationOffOn(String id) {
+        DataManager.getInstance().showProgressMessage(MoreActivity.this, getString(R.string.please_wait));
+        Call<UserData> notiStatusCall = apiInterface.notificationStatus(Constant.AUTH, id);
+        notiStatusCall.enqueue(new Callback<UserData>() {
+            @Override
+            public void onResponse(Call<UserData> call, Response<UserData> response) {
+                DataManager.getInstance().hideProgressMessage();
+                try {
+                    UserData data = response.body();
+                    if (data.response == 200) {
+                        String dataResponse = new Gson().toJson(response.body());
+                        Log.e(TAG,"Login response : "+dataResponse);
+                        SessionManager.writeString(MoreActivity.this,Constant.USER_INFO,dataResponse);
+                        Toast.makeText(getApplicationContext(), data.message, Toast.LENGTH_SHORT).show();
+
+                    } else if (data.response.equals("0")) {
+                        Toast.makeText(MoreActivity.this, data.message, Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserData> call, Throwable t) {
+                call.cancel();
+                DataManager.getInstance().hideProgressMessage();
+            }
+
+        });
+
+    }
+
 }

@@ -70,6 +70,11 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         userPhone = findViewById(R.id.userPhone);
         recoverBtn = findViewById(R.id.recoverBtn);
         token = FirebaseInstanceId.getInstance().getToken();
+        try {
+            Log.e("data",token);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //second
         secondLay = findViewById(R.id.secondLay);
         txtReset = findViewById(R.id.txtReset);

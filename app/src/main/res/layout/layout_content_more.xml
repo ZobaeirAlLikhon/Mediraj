@@ -100,7 +100,6 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/accountTxt"
                     android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -119,6 +118,37 @@
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileLay"
+                    android:layout_margin="10dp"
+                    android:weightSum="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_notification" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="Special Offer"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="16sp" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/toggle"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical|end"
+                        android:checked="true" />
                 </LinearLayout>
 
             </RelativeLayout>
