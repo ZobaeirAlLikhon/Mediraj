@@ -3,7 +3,7 @@ package com.example.mediraj.webapi;
 
 import com.example.mediraj.model.AllDiagonosticModel;
 import com.example.mediraj.model.AllPathologyModel;
-import com.example.mediraj.model.Clinic_add_booking;
+import com.example.mediraj.model.AllSurgicalModel;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.model.UserData;
@@ -72,25 +72,17 @@ public interface ApiInterface {
     @GET("clinic/all")
     Call<ClinicalModel> clinicalServices(@Header("Authorization") String auth);
 
-    @FormUrlEncoded
-    @POST("clinic/add-booking")
-    Call<Clinic_add_booking> clinicBooking(@Header("Authorization") String auth,
-                                           @Field("clinic_id") String clinic_id,
-                                           @Field("user_id") String user_id,
-                                           @Field("name") String name,
-                                           @Field("mobile") String mobile,
-                                           @Field("address") String address,
-                                           @Field("purpose") String purpose
-
-                                           );
-
-
     //get all diagonstic Services
     @GET("diagnostic/all")
     Call<AllDiagonosticModel> allDiagonsticServices(@Header("Authorization") String auth);
 
+
     //get all Homepathology
     @GET("pathology/all")
     Call<AllPathologyModel> allPathologyServices(@Header("Authorization") String auth);
+
+    //get all Surgical
+    @GET("surgical/all")
+    Call<AllSurgicalModel> allSurgicalServices(@Header("Authorization") String auth);
 
 }
