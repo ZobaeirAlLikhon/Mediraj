@@ -73,6 +73,7 @@ public class ClinicBookingActivity extends AppCompatActivity implements View.OnC
         switch (v.getId()){
             case R.id.clinic_confirm_btn:
                 validateData();
+                break;
         }
     }
 
