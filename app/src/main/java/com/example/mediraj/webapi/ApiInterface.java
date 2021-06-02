@@ -74,15 +74,13 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("clinic/add-booking")
-    Call<Clinic_add_booking> clinicBooking(@Header("Authorization") String auth,
-                                           @Field("clinic_id") String clinic_id,
-                                           @Field("user_id") String user_id,
-                                           @Field("name") String name,
-                                           @Field("mobile") String mobile,
-                                           @Field("address") String address,
-                                           @Field("purpose") String purpose
-
-                                           );
+    Call<Clinic_add_booking> clinicBooking(@Header("Authorization") String auth, @FieldMap Map<String,String> params);
+//    @Field("clinic_id") String clinic_id,
+//    @Field("user_id") String user_id,
+//    @Field("name") String name,
+//    @Field("mobile") String mobile,
+//    @Field("address") String address,
+//    @Field("purpose") String purpose
 
 
     //get all diagonstic Services
