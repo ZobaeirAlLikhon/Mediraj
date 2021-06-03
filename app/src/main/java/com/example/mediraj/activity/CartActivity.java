@@ -2,16 +2,13 @@ package com.example.mediraj.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TableLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.PageAdapter;
+import com.example.mediraj.adaptar.CartPageAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -60,12 +57,8 @@ public class CartActivity extends AppCompatActivity {
     private void initView() {
         viewPager = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.tabs);
-//        tabLayout.addTab(tabLayout.newTab().setText("Clinic"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Pathology"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Surgical"));
-//        setupTabIcons();
 
-        PageAdapter pagerAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),this);
+        CartPageAdapter pagerAdapter = new CartPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount(),this);
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

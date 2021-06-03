@@ -10,44 +10,56 @@
         android:id="@+id/cardTab"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            app:tabMode="scrollable"
-            app:tabTextAppearance="@style/TabFont"
-            app:tabIconTint="@null"
+            android:background="#206723"
             app:tabGravity="fill"
-            app:tabSelectedTextColor="@color/black">
+            app:tabIconTint="@null"
+            app:tabIndicatorAnimationDuration="300"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorColor="@color/white"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/TabFont"
+            app:tabTextColor="@color/battleship_grey">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Doctor Appointment" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Diagnostic Service" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medicine Service" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Clinic Service" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blood Bank" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Surgical Kits" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,8 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardTab"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardTab" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

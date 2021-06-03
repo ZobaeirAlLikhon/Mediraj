@@ -10,11 +10,11 @@ import com.example.mediraj.fragment.ClinicFragment;
 import com.example.mediraj.fragment.PathologyFragment;
 import com.example.mediraj.fragment.SurgicalFragment;
 
-public class PageAdapter extends FragmentPagerAdapter {
+public class CartPageAdapter extends FragmentPagerAdapter {
     private int noOfTabs;
     private Context context;
 
-    public PageAdapter(FragmentManager fm, int noOfTabs, Context context) {
+    public CartPageAdapter(FragmentManager fm, int noOfTabs, Context context) {
         super(fm);
         this.noOfTabs = noOfTabs;
         this.context = context;
