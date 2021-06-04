@@ -1,6 +1,8 @@
 package com.example.mediraj.webapi;
 
 import com.example.mediraj.helper.Constant;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

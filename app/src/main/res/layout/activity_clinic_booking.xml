@@ -86,7 +86,7 @@
                         app:endIconMode="clear_text"
                         app:errorEnabled="false">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <com.santalu.maskara.widget.MaskEditText
                             android:id="@+id/patientContact"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -95,6 +95,7 @@
                             android:imeOptions="actionNext"
                             android:inputType="text|phone"
                             android:maxLines="1"
+                            app:mask="+88 #####-######"
                             tools:ignore="Autofill" />
 
                     </com.google.android.material.textfield.TextInputLayout>
