@@ -47,7 +47,7 @@ public class SurgicalActivity extends AppCompatActivity {
                 allSurgicalModel=response.body().getData();
                 adapter=new Get_SurgicalAD(getApplicationContext(),allSurgicalModel);
                 recyclerView.setAdapter(adapter);
-                Log.e("getAllDia..",String.valueOf(allSurgicalModel));
+                Log.e("getAllDia..",allSurgicalModel.get(0).getTitle());
 
             }
 

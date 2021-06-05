@@ -33,7 +33,6 @@
         <activity android:name=".activity.MoreActivity" />
         <activity android:name=".activity.HistoryActivity" />
         <activity android:name=".activity.CartActivity" />
-        <activity android:name=".activity.DoctorServiceActivity" />
         <activity
             android:name=".activity.ForgetPassActivity"
             android:screenOrientation="portrait" />

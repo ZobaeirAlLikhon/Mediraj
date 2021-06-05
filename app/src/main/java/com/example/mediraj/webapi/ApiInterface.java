@@ -1,6 +1,7 @@
 package com.example.mediraj.webapi;
 
 
+import com.example.mediraj.model.AllDepartmentModel;
 import com.example.mediraj.model.AllDiagonosticModel;
 import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllSurgicalModel;
@@ -101,4 +102,10 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("user/notification")
     Call<UserData> notificationStatus(@Header("Authorization") String auth,@Field("id") String userId);
+
+    //get all Department
+    @GET("department/all")
+    Call<AllDepartmentModel> allDepartmentServices(@Header("Authorization") String auth);
+
+
 }
