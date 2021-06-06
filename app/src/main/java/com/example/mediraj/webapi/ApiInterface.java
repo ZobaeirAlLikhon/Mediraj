@@ -5,6 +5,7 @@ import com.example.mediraj.model.AllDepartmentModel;
 import com.example.mediraj.model.AllDiagonosticModel;
 import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllSurgicalModel;
+import com.example.mediraj.model.AllbloodModel;
 import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
@@ -107,6 +108,10 @@ public interface ApiInterface {
     //get all Department
     @GET("department/all")
     Call<AllDepartmentModel> allDepartmentServices(@Header("Authorization") String auth);
+
+    //get all Blood
+    @GET("blood-group/all")
+    Call<AllbloodModel> allBloodServices(@Header("Authorization") String auth);
 
 
 }
