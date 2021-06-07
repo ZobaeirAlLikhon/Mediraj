@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mediraj.R;
+import com.example.mediraj.helper.DataManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -32,6 +33,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     private TextInputLayout textInputLayout,textInputLayout1,textInputLayout2;
     private ImageView imageView;
     private static final int CAMERA_REQUEST = 1888;
+    String name,mobile,address,medicine,user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,12 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_medicine_service);
         
         initView();
-
-
+        send_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                send_data();
+            }
+        });
 
         //call_btn
         call_btn.setOnClickListener(v -> {
@@ -68,11 +74,18 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    private void send_data() {
+        user_id= DataManager.getInstance().getUserData(this).data.id;
+        name=DataManager.getInstance().getUserData(this).data.name;
+        address=textInputLayout1.getEditText().getText().toString();
+        mobile=textInputLayout2.getEditText().getText().toString();
+
+    }
+
     private void initView() {
         //initialize button with id
         send_btn = findViewById(R.id.sendbtnmed);
         call_btn = findViewById(R.id.callbtnmed);
-
         //camera text initialization
         camera_btn = findViewById(R.id.camera_btn);
 
@@ -80,12 +93,18 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         textInputLayout = findViewById(R.id.medbox);
         textInputLayout1 = findViewById(R.id.mc_useraddress);
         textInputLayout2 = findViewById(R.id.mc_phone);
+        setUserData();
 
         //initialize image view
         imageView = findViewById(R.id.imgpres);
 
         camera_btn.setOnClickListener(this);
         call_btn.setOnClickListener(this);
+    }
+
+    private void setUserData() {
+        textInputLayout1.getEditText().setText(DataManager.getInstance().getUserData(this).data.address);
+        textInputLayout2.getEditText().setText(DataManager.getInstance().getUserData(this).data.mobile);
     }
 
     @Override

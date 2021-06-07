@@ -6,6 +6,7 @@ import com.example.mediraj.model.AllDiagonosticModel;
 import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllSurgicalModel;
 import com.example.mediraj.model.AllbloodModel;
+import com.example.mediraj.model.BloodBooking_Model;
 import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
@@ -79,12 +81,6 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("clinic/add-booking")
     Call<Clinic_add_booking> clinicBooking(@Header("Authorization") String auth, @FieldMap Map<String,String> params);
-//    @Field("clinic_id") String clinic_id,
-//    @Field("user_id") String user_id,
-//    @Field("name") String name,
-//    @Field("mobile") String mobile,
-//    @Field("address") String address,
-//    @Field("purpose") String purpose
 
 
     //get all diagonstic Services
@@ -112,6 +108,18 @@ public interface ApiInterface {
     //get all Blood
     @GET("blood-group/all")
     Call<AllbloodModel> allBloodServices(@Header("Authorization") String auth);
+
+    @FormUrlEncoded
+    @POST("blood-group/add-booking")
+    Call<BloodBooking_Model> blood_booking(@Header("Authorization") String auth, @FieldMap Map<String,String> params);
+
+    //MedicineServices
+    @Multipart
+    @POST("user/update-profile")
+    Call<ResponseBody> medicine_services(@Header("Authorization") String auth,
+                                     @PartMap Map<String,RequestBody> params,
+                                     @Part MultipartBody.Part file);
+
 
 
 }

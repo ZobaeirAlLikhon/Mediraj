@@ -46,6 +46,7 @@ public class Get_BloodAD extends RecyclerView.Adapter<Get_BloodAD.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, BloodBookingctivity.class);
+                intent.putExtra("groupID",allBloodModels.get(position).getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
