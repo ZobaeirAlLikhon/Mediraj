@@ -89,12 +89,10 @@
                     app:errorEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
-
+                        android:id="@+id/medbox1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
-
-
                         android:imeOptions="actionNext"
                         android:inputType="text|textCapWords|textMultiLine"
                         tools:ignore="Autofill" />
@@ -113,7 +111,7 @@
                     app:errorEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
-
+                        android:id="@+id/mc_useraddress1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
@@ -136,7 +134,7 @@
                     app:errorEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
-
+                        android:id="@+id/mc_phone1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
