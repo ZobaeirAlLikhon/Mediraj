@@ -16,7 +16,7 @@
             android:id="@+id/circleview_doctor"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:src="@drawable/ic_appoint"
+            android:src="@drawable/ic_user"
             />
 
         <TextView

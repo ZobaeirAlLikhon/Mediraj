@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MediRaj"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SurgicalActivity"></activity>
+        <activity android:name=".activity.CheckoutInformation"></activity>
+        <activity android:name=".activity.SurgicalActivity" />
         <activity android:name=".activity.HomePathologyActivity" />
         <activity android:name=".activity.BloodBookingctivity" />
         <activity android:name=".activity.DiagnosticActivity" />
