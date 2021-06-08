@@ -38,7 +38,7 @@ import retrofit2.Response;
 public class MoreActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MoreActivity.class.getName();
     private BottomNavigationView bottomNavigationView;
-    private TextView userName, userPhone, userEmail,appVersion;
+    private TextView userName, userPhone, userEmail,appVersion,emergency;
     private CircleImageView userImg;
     private LinearLayout profileLay,offerLay,promoLay,logoutLay,devTeam,emergencyLay,aboutLay;
     private ApiInterface apiInterface;
@@ -103,6 +103,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         logoutLay = findViewById(R.id.logoutLay);
         toggle = findViewById(R.id.toggle);
         appVersion = findViewById(R.id.appVersion);
+        emergency = findViewById(R.id.emer_call);
 
         appVersion.setText("Version "+ BuildConfig.VERSION_NAME);
         //lister part
@@ -113,6 +114,14 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         devTeam.setOnClickListener(this);
         emergencyLay.setOnClickListener(this);
         aboutLay.setOnClickListener(this);
+
+        emergencyLay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MoreActivity.this,EmergencyNumberActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //api interface initialization
         apiInterface = APiClient.getClient().create(ApiInterface.class);
@@ -237,5 +246,6 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         });
 
     }
+
 
 }
