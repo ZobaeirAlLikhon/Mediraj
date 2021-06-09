@@ -10,20 +10,38 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mediraj.R;
+import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
+import com.example.mediraj.model.MedicinRequestModel;
+import com.example.mediraj.webapi.APiClient;
+import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
 public class MedicineService extends AppCompatActivity implements View.OnClickListener {
@@ -33,7 +51,10 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     private TextInputLayout textInputLayout,textInputLayout1,textInputLayout2;
     private ImageView imageView;
     private static final int CAMERA_REQUEST = 1888;
-    String name,mobile,address,medicine,user_id;
+    String name,mobile,address,medicine,user_id,picturePath;
+    Bitmap photoBitmap;
+    ApiInterface apiInterface;
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,10 +96,34 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     }
 
     private void send_data() {
+        apiInterface= APiClient.getClient().create(ApiInterface.class);
         user_id= DataManager.getInstance().getUserData(this).data.id;
         name=DataManager.getInstance().getUserData(this).data.name;
         address=textInputLayout1.getEditText().getText().toString();
         mobile=textInputLayout2.getEditText().getText().toString();
+        String medicine=textInputLayout.getEditText().getText().toString();
+        Map<String,RequestBody> map=new HashMap<>();
+        map.put("user_id",RequestBody.create(user_id,MediaType.parse("text/plain")));
+        map.put("name",RequestBody.create(name,MediaType.parse("text/plain")));
+        map.put("mobile",RequestBody.create(mobile,MediaType.parse("text/plain")));
+        map.put("mobile",RequestBody.create(address,MediaType.parse("text/plain")));
+        map.put("medicine",RequestBody.create(medicine,MediaType.parse("text/plain")));
+
+        File file=new File(picturePath);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("avatar", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+        Call<MedicinRequestModel> medicinRequestModelCall= apiInterface.medicine_services(Constant.AUTH,map,filePart);
+        medicinRequestModelCall.enqueue(new Callback<MedicinRequestModel>() {
+            @Override
+            public void onResponse(Call<MedicinRequestModel> call, Response<MedicinRequestModel> response) {
+                Log.e("Success.......",response.body().getMessage());
+            }
+
+            @Override
+            public void onFailure(Call<MedicinRequestModel> call, Throwable t) {
+                Log.e("Faild.......",t.toString());
+
+            }
+        });
 
     }
 
@@ -111,8 +156,16 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
+            photoBitmap = (Bitmap) data.getExtras().get("data");
+
+            uri=getImageUri(MedicineService.this,photoBitmap);
+            picturePath=getRealPathFromURI(uri);
+            Log.e("imageUri:---------",uri.toString());
+            Log.e("imagePath:---------",picturePath);
+
+
+            imageView.setImageBitmap(photoBitmap);
+
 
 
         }
@@ -123,4 +176,27 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
 
     }
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
+    public String getRealPathFromURI(Uri uri) {
+        String path = "";
+        if (getContentResolver() != null) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            if (cursor != null) {
+                cursor.moveToFirst();
+                int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                path = cursor.getString(idx);
+                cursor.close();
+            }
+        }
+        return path;
+    }
+
+
+
 }
