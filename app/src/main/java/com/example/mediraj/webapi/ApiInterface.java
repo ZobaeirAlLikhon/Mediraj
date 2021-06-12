@@ -10,6 +10,7 @@ import com.example.mediraj.model.BloodBooking_Model;
 import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
+import com.example.mediraj.model.MedicinRequestModel;
 import com.example.mediraj.model.UserData;
 
 import java.util.Map;
@@ -115,10 +116,10 @@ public interface ApiInterface {
 
     //MedicineServices
     @Multipart
-    @POST("user/update-profile")
-    Call<ResponseBody> medicine_services(@Header("Authorization") String auth,
-                                     @PartMap Map<String,RequestBody> params,
-                                     @Part MultipartBody.Part file);
+    @POST("medicine/add-request")
+    Call<MedicinRequestModel> medicine_services(@Header("Authorization") String auth,
+                                                @PartMap Map<String,RequestBody> params,
+                                                @Part MultipartBody.Part file);
 
 
 
