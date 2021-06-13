@@ -101,17 +101,23 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         name=DataManager.getInstance().getUserData(this).data.name;
         address=textInputLayout1.getEditText().getText().toString();
         mobile=textInputLayout2.getEditText().getText().toString();
+        Log.e("mobile",mobile);
         String medicine=textInputLayout.getEditText().getText().toString();
         Map<String,RequestBody> map=new HashMap<>();
         map.put("user_id",RequestBody.create(user_id,MediaType.parse("text/plain")));
         map.put("name",RequestBody.create(name,MediaType.parse("text/plain")));
-        map.put("mobile",RequestBody.create(mobile,MediaType.parse("text/plain")));
-        map.put("mobile",RequestBody.create(address,MediaType.parse("text/plain")));
+        map.put("mobile",RequestBody.create(textInputLayout2.getEditText().getText().toString(),MediaType.parse("text/plain")));
+        map.put("address",RequestBody.create(address,MediaType.parse("text/plain")));
         map.put("medicine",RequestBody.create(medicine,MediaType.parse("text/plain")));
 
         File file=new File(picturePath);
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("avatar", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
-        Call<MedicinRequestModel> medicinRequestModelCall= apiInterface.medicine_services(Constant.AUTH,map,filePart);
+        Log.e("picture path",picturePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("image", file.getName(), requestBody);
+
+//        MultipartBody.Part filePart = MultipartBody.Part.createFormData("prescription", file.getName(), RequestBody.create(file,MediaType.parse("image/*")));
+        Call<MedicinRequestModel> medicinRequestModelCall= apiInterface.medicine_services(Constant.AUTH,map,body);
         medicinRequestModelCall.enqueue(new Callback<MedicinRequestModel>() {
             @Override
             public void onResponse(Call<MedicinRequestModel> call, Response<MedicinRequestModel> response) {
@@ -149,7 +155,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
     private void setUserData() {
         textInputLayout1.getEditText().setText(DataManager.getInstance().getUserData(this).data.address);
-        textInputLayout2.getEditText().setText(DataManager.getInstance().getUserData(this).data.mobile);
+        textInputLayout2.getEditText().setText("+88 "+DataManager.getInstance().getUserData(this).data.mobile.substring(0,5)+"-"+DataManager.getInstance().getUserData(this).data.mobile.substring(5));
     }
 
     @Override
