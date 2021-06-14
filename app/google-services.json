@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "701020374413",
-    "project_id": "mediraj-bb71d",
-    "storage_bucket": "mediraj-bb71d.appspot.com"
+    "project_number": "685794110040",
+    "project_id": "mediraj-afd5c",
+    "storage_bucket": "mediraj-afd5c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:701020374413:android:849a0d7dc46e2716d4e9c4",
+        "mobilesdk_app_id": "1:685794110040:android:5eb4cb92f85074d2c5b82d",
         "android_client_info": {
           "package_name": "com.example.mediraj"
         }
       },
       "oauth_client": [
         {
-          "client_id": "701020374413-0ts2a5eh04altok0vch16vjmd6mf203q.apps.googleusercontent.com",
+          "client_id": "685794110040-jkva978clu92omooqkgp98rr66ra97it.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyATJ8mXNwWCXD4aTTNMHvy3KKY86caB-d8"
+          "current_key": "AIzaSyDXS4aAy08ED2qXyhqnwcG_lbFLkl6hh2I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "701020374413-0ts2a5eh04altok0vch16vjmd6mf203q.apps.googleusercontent.com",
+              "client_id": "685794110040-jkva978clu92omooqkgp98rr66ra97it.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

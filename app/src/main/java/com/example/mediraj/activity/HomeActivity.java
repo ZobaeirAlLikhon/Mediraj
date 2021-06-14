@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         images.add(R.drawable.doctorapp2);
         images.add(R.drawable.ic_appoint);
         images.add(R.drawable.medicin);
-        images.add(R.drawable.clinic);
+        images.add(R.drawable.clinic1);
         images.add(R.drawable.blood);
         images.add(R.drawable.pathology);
         images.add(R.drawable.kits);
@@ -119,6 +119,9 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
             startActivity(intent);
         }else if (serName.equalsIgnoreCase("Doctor appoinment")){
             Intent intent = new Intent(HomeActivity.this,DoctorListActivity.class);
+            startActivity(intent);
+        }else if (serName.equalsIgnoreCase("Doctor")){
+            Intent intent = new Intent(HomeActivity.this,Emergency_DoctorActivity.class);
             startActivity(intent);
         }
     }

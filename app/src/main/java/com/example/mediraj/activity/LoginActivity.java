@@ -1,5 +1,6 @@
 package com.example.mediraj.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +20,12 @@ import com.example.mediraj.helper.SessionManager;
 import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.santalu.maskara.widget.MaskEditText;
 
@@ -66,7 +70,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         forgotPass.setOnClickListener(this);
         signBtn.setOnClickListener(this);
 
-        token = FirebaseInstanceId.getInstance().getToken();
+        //token = FirebaseInstanceId.getInstance().getToken();
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()) {
+                    try {
+                        token = task.getResult();
+                        Log.e("device token",token);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+
     }
 
     @Override
