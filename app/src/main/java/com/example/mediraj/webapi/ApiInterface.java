@@ -119,7 +119,8 @@ public interface ApiInterface {
     @POST("medicine/add-request")
     Call<MedicinRequestModel> medicine_services(@Header("Authorization") String auth,
                                                 @PartMap Map<String,RequestBody> params,
-                                                @Part MultipartBody.Part file);
+                                                @Part MultipartBody.Part prescription
+    );
 
 
 
