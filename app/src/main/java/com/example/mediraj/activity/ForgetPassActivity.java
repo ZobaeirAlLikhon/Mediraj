@@ -1,5 +1,6 @@
 package com.example.mediraj.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
@@ -21,9 +22,11 @@ import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.santalu.maskara.widget.MaskEditText;
 
 import java.util.HashMap;
@@ -69,12 +72,22 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         firstLay = findViewById(R.id.firstLay);
         userPhone = findViewById(R.id.userPhone);
         recoverBtn = findViewById(R.id.recoverBtn);
-        token = FirebaseInstanceId.getInstance().getToken();
-        try {
-            Log.e("data",token);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()) {
+                    try {
+                        token = task.getResult();
+                        Log.e("device token", token);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+
         //second
         secondLay = findViewById(R.id.secondLay);
         txtReset = findViewById(R.id.txtReset);

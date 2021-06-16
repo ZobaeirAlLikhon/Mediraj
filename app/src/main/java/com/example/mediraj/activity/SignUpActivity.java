@@ -25,12 +25,13 @@ import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.santalu.maskara.widget.MaskEditText;
 
 import java.util.HashMap;
@@ -79,11 +80,20 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         loginBtn.setOnClickListener(this);
         //get values of predefine variable
         device_name = Build.MODEL;
-        try {
-            device_token = FirebaseInstanceId.getInstance().getToken();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (task.isSuccessful()) {
+                    try {
+                        device_token = task.getResult();
+                        Log.e("device token", device_token);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
 
         //check location permission
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -96,14 +106,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnSignUp:
-                userValidation();
-                break;
-            case R.id.loginBtn:
-                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
-                finish();
-                break;
+        int id = v.getId();
+        if (id == R.id.btnSignUp) {
+            userValidation();
+        } else if (id == R.id.loginBtn) {
+            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+            finish();
         }
     }
 
@@ -112,9 +120,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         //again check location
 
         //extract phone number from field
-        if (!phone.getMasked().equals("")) {
-            String raw_phone = phone.getMasked().split(" ")[1];
-            mobile = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+        try {
+            if (!phone.getMasked().equals("")) {
+                String raw_phone = phone.getMasked().split(" ")[1];
+                mobile = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -254,6 +266,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case MY_PERMISSION_CONSTANT: {
                 if (grantResults.length > 0) {

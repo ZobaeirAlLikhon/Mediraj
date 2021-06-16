@@ -54,7 +54,7 @@
                     android:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    android:id="@+id/camera_btn"
+                    android:id="@+id/cameraBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -89,7 +89,7 @@
                     app:errorEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/medbox1"
+                        android:id="@+id/medName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
@@ -99,28 +99,44 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/mc_useraddress"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="12dp"
-                    app:endIconMode="clear_text"
-                    app:errorEnabled="false">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/mc_useraddress1"
-                        android:layout_width="match_parent"
+                    android:weightSum="1"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/mc_useraddress"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_weight=".9"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_sans"
-                        android:hint="Enter Your Address"
-                        android:imeOptions="actionNext"
-                        android:inputType="text|textCapWords|textMultiLine"
-                        tools:ignore="Autofill" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="false">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/userLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="Enter Your Address"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|textCapWords|textMultiLine"
+                            tools:ignore="Autofill" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/fetchAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_weight=".1"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_address" />
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/mc_phone"
@@ -133,14 +149,15 @@
                     app:endIconMode="clear_text"
                     app:errorEnabled="false">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/mc_phone1"
+                    <com.santalu.maskara.widget.MaskEditText
+                        android:id="@+id/userCell"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
                         android:hint="Enter Your Phone Number"
                         android:imeOptions="actionNext"
-                        android:inputType="text|textCapWords|textMultiLine"
+                        android:inputType="phone"
+                        app:mask="+88 #####-######"
                         tools:ignore="Autofill" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -156,7 +173,7 @@
                     android:weightSum="2">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/sendbtnmed"
+                        android:id="@+id/sendBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
@@ -167,7 +184,7 @@
                         android:text="send now" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/callbtnmed"
+                        android:id="@+id/callBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
