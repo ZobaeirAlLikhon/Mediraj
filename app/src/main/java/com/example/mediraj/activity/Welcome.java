@@ -15,9 +15,8 @@ import com.example.mediraj.helper.DataManager;
 
 public class Welcome extends AppCompatActivity {
 
-    private static final int SPLASH_SCREEN = 3000;
+    private static final int SPLASH_SCREEN = 2000;
     private TextView appText;
-    private Animation fade_in, blink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
