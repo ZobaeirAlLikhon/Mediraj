@@ -1,4 +1,4 @@
-package com.example.mediraj.fragment;
+package com.example.mediraj.fragment.cart;
 
 import android.os.Bundle;
 
@@ -10,13 +10,13 @@ import android.view.ViewGroup;
 
 import com.example.mediraj.R;
 
-public class PathologyFragment extends Fragment {
 
+public class SurgicalFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pathology, container, false);
+        return inflater.inflate(R.layout.fragment_surgical, container, false);
     }
 }

@@ -22,7 +22,7 @@
             app:tabBackground="@color/tab_selector"
             app:tabGravity="fill"
             app:tabIconTint="@null"
-            app:tabRippleColor="@color/colorAccent"
+            app:tabRippleColor="@color/battleship_grey"
             app:tabIndicatorAnimationDuration="300"
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorColor="@color/white"

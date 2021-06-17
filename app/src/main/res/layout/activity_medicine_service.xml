@@ -42,7 +42,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="Medicine Here"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/purple_200"
                     android:textSize="24sp"
                     android:textStyle="bold" />
                 <ImageView

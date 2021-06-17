@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class AllDiagonosticModel {
+public class AllDiagnosticModel {
 
     @SerializedName("message")
     @Expose
@@ -53,7 +53,6 @@ public class AllDiagonosticModel {
     }
 
 
-
     public class Datum {
 
         @SerializedName("id")
@@ -80,6 +79,9 @@ public class AllDiagonosticModel {
         @SerializedName("updated_at")
         @Expose
         private String updatedAt;
+        @SerializedName("is_checked")
+        @Expose
+        private boolean isChecked;
 
         public Integer getId() {
             return id;
@@ -143,6 +145,14 @@ public class AllDiagonosticModel {
 
         public void setUpdatedAt(String updatedAt) {
             this.updatedAt = updatedAt;
+        }
+
+        public boolean isChecked() {
+            return isChecked;
+        }
+
+        public void setChecked(boolean checked) {
+            isChecked = checked;
         }
 
     }

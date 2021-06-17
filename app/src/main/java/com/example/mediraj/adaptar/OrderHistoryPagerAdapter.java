@@ -7,16 +7,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.mediraj.fragment.BloodBankFragment;
-import com.example.mediraj.fragment.ClinicFragment;
-import com.example.mediraj.fragment.ClinicOrderFragment;
-import com.example.mediraj.fragment.DiagnosticFragment;
-import com.example.mediraj.fragment.DoctorFragment;
-import com.example.mediraj.fragment.MedicineFragment;
-import com.example.mediraj.fragment.PathologyFragment;
-import com.example.mediraj.fragment.PathologyOrderFragment;
-import com.example.mediraj.fragment.SurgicalFragment;
-import com.example.mediraj.fragment.SurgicalOrderFragment;
+import com.example.mediraj.fragment.order.BloodBankFragment;
+import com.example.mediraj.fragment.order.ClinicOrderFragment;
+import com.example.mediraj.fragment.order.DiagnosticOrderFragment;
+import com.example.mediraj.fragment.order.DoctorFragment;
+import com.example.mediraj.fragment.order.MedicineFragment;
+import com.example.mediraj.fragment.order.PathologyOrderFragment;
+import com.example.mediraj.fragment.order.SurgicalOrderFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -39,8 +36,8 @@ public class OrderHistoryPagerAdapter extends FragmentPagerAdapter {
                 DoctorFragment doctorFragment = new DoctorFragment();
                 return doctorFragment;
             case 1:
-                DiagnosticFragment diagnosticFragment = new DiagnosticFragment();
-                return diagnosticFragment;
+                DiagnosticOrderFragment diagnosticOrderFragment = new DiagnosticOrderFragment();
+                return diagnosticOrderFragment;
             case 2:
                 MedicineFragment medicineFragment = new MedicineFragment();
                 return medicineFragment;

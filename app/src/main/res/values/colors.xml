@@ -24,5 +24,6 @@
     <color name="tomato">#ef5350</color>
     <color name="off_white">#F5F5F5</color>
     <color name="cream">#FFFDD0</color>
+    <color name="tabColor">#206723</color>
 
 </resources>

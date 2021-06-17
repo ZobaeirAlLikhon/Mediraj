@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.mediraj.fragment.ClinicFragment;
-import com.example.mediraj.fragment.PathologyFragment;
-import com.example.mediraj.fragment.SurgicalFragment;
+import com.example.mediraj.fragment.cart.DiagnosticFragment;
+import com.example.mediraj.fragment.cart.PathologyFragment;
+import com.example.mediraj.fragment.cart.SurgicalFragment;
 
 public class CartPageAdapter extends FragmentPagerAdapter {
     private int noOfTabs;
@@ -24,8 +24,8 @@ public class CartPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                ClinicFragment clinicFragment = new ClinicFragment();
-                return clinicFragment;
+                DiagnosticFragment diagnosticFragment = new DiagnosticFragment();
+                return diagnosticFragment;
             case 1:
                 PathologyFragment pathologyFragment = new PathologyFragment();
                 return pathologyFragment;
