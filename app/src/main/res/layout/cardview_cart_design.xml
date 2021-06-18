@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
+    android:layout_margin="5dp"
     app:cardCornerRadius="8dp">
 
     <RelativeLayout
@@ -27,21 +28,25 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ptitle"
+                    android:id="@+id/pTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="Product Title"
+                    android:fontFamily="@font/noto_sans"
+                    android:textStyle="bold"
                     android:textColor="@color/purple_200"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/pdetails"
+                    android:id="@+id/pDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Tv_clinicname"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="Product Details"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/noto_sans"
                     android:textSize="15sp" />
 
                 <TextView
@@ -51,6 +56,7 @@
                     android:layout_below="@+id/Tv_clinicname"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="$ 100"
+                    android:fontFamily="@font/noto_sans"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -67,11 +73,10 @@
 
                 <ImageView
                     android:id="@+id/btnminus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_baseline_indeterminate" />
-
                 <TextView
                     android:id="@+id/start_quantity"
                     android:layout_width="wrap_content"
@@ -79,17 +84,16 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    android:fontFamily="@font/noto_sans"
                     android:text="100"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
-
                 <ImageView
                     android:id="@+id/btnplus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_baseline_add_box" />
-
-
             </LinearLayout>
 
         </LinearLayout>
