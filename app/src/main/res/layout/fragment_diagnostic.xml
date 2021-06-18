@@ -3,10 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.cart.DiagnosticFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never" />
 
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/noto_sans"
+        android:text="@string/no_data_found"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:textStyle="bold" />
 
-
+<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    android:id="@+id/checkoutBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:shapeAppearanceOverlay="@style/fab_3_rounded"
+    android:layout_centerHorizontal="true"
+    android:background="@null"
+    app:backgroundTint="@color/tabColor"
+    android:text="Checkout"
+    android:textColor="@color/white"
+    android:drawableLeft="@drawable/ic_baseline_check_24"
+    android:fontFamily="@font/noto_sans"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="25dp"/>
 
 </RelativeLayout>

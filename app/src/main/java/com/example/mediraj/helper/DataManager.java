@@ -8,8 +8,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.location.Address;
-import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -19,19 +17,20 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.example.mediraj.R;
 import com.example.mediraj.model.UserData;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 
 public class DataManager {
 
     private static final DataManager ourInstance = new DataManager();
+    private static Snackbar snackbar = null;
 
     public static DataManager getInstance() {
         return ourInstance;
@@ -45,7 +44,7 @@ public class DataManager {
     ProgressBar progressBar;
     TextView textView;
 
-    public void showProgressMessage(Activity activity, String msg){
+    public void showProgressMessage(Activity activity, String msg) {
 
         try {
             if (isProgressDialogRunning) {
@@ -65,13 +64,13 @@ public class DataManager {
             mDialog.setCancelable(false);
             mDialog.setCanceledOnTouchOutside(false);
             mDialog.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    public void hideProgressMessage(){
+    public void hideProgressMessage() {
         isProgressDialogRunning = true;
         try {
             if (mDialog != null) {
@@ -82,10 +81,12 @@ public class DataManager {
         }
     }
 
+
     public UserData getUserData(Context context) {
         UserData userData = new Gson().fromJson(SessionManager.readString(context, Constant.USER_INFO, ""), UserData.class);
         return userData;
     }
+
 
     public static String convertDateToString(long l) {
         String str = "";
@@ -94,8 +95,6 @@ public class DataManager {
         str = dateFormat.format(date);
         return str;
     }
-
-
 
 
     //get real image path

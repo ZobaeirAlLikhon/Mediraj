@@ -23,5 +23,5 @@ public interface DiagnosticServiceDao {
     abstract void deleteById(int itemId);
 
     @Query("UPDATE diagnosticservice SET item_qty =:quantity ,item_subtotal=:total WHERE id =:id")
-    int updateUser(int id,int quantity,int total);
+    void updateUser(int id,int quantity,int total);
 }

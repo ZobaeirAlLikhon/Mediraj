@@ -7,13 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.DiagnosticServicesAdapter;
+import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.localdb.AppDatabase;
@@ -49,8 +48,15 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         apiInterface = APiClient.getClient().create(ApiInterface.class);
         db = AppDatabase.getDbInstance(this);
         onDiagnosticClick = this;
+
         initView();
-        recyclerView();
+
+        if (ConnectionManager.connection(this)){
+               recyclerView();
+        }else {
+            Toast.makeText(this,getString(R.string.error),Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void initView() {
@@ -81,6 +87,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
                     dataList.clear();
                     if (allDiagnosticModel.getResponse() == 200) {
                         noData.setVisibility(View.GONE);
+                        fab.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.VISIBLE);
                         dataList.addAll(allDiagnosticModel.getData());
                         adapter = new DiagnosticServicesAdapter(getApplicationContext(), allDiagnosticModel.getData(),onDiagnosticClick);
@@ -88,6 +95,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
                     } else {
                         recyclerView.setVisibility(View.GONE);
                         noData.setVisibility(View.VISIBLE);
+                        fab.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -99,7 +107,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             public void onFailure(Call<AllDiagnosticModel> call, Throwable t) {
                 DataManager.getInstance().hideProgressMessage();
                 call.cancel();
-                Log.e(TAG + " error", t.toString());
             }
         });
 
@@ -143,4 +150,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         }
 
     }
+
+
 }
