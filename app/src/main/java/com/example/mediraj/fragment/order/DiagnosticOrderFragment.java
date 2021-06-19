@@ -1,4 +1,4 @@
-package com.example.mediraj.fragment;
+package com.example.mediraj.fragment.order;
 
 import android.os.Bundle;
 
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.mediraj.R;
 
 
-public class ClinicFragment extends Fragment {
+public class DiagnosticOrderFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

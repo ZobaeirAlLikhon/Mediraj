@@ -9,9 +9,7 @@ import android.util.Log;
 
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.Get_BloodAD;
-import com.example.mediraj.adaptar.Get_pathologyAD;
 import com.example.mediraj.helper.Constant;
-import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllbloodModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
+    android:layout_margin="5dp"
     app:cardCornerRadius="8dp">
 
     <RelativeLayout
@@ -23,27 +22,31 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="12dp"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
+                android:layout_weight=".5"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ptitle"
+                    android:id="@+id/pTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="Product Title"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/noto_sans"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple_200"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/pdetails"
+                    android:id="@+id/pDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Tv_clinicname"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="Product Details"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/noto_sans"
                     android:textSize="15sp" />
 
                 <TextView
@@ -53,43 +56,44 @@
                     android:layout_below="@+id/Tv_clinicname"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="$ 100"
-                    android:textStyle="bold"
-                    android:textSize="15sp" />
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:layout_marginEnd="12dp"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:gravity="end">
+                android:layout_marginEnd="12dp"
+                android:layout_weight=".5"
+                android:gravity="end"
+                android:orientation="horizontal">
 
                 <ImageView
-                android:id="@+id/btnminus"
-                android:src="@drawable/ic_baseline_indeterminate"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                    android:id="@+id/btnminus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_indeterminate" />
                 <TextView
                     android:id="@+id/start_quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_gravity="center"
+                    android:fontFamily="@font/noto_sans"
                     android:text="100"
-                    android:textSize="20sp"/>
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
                 <ImageView
                     android:id="@+id/btnplus"
-                    android:src="@drawable/ic_baseline_add_box"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
+                    android:src="@drawable/ic_baseline_add_box" />
             </LinearLayout>
 
         </LinearLayout>

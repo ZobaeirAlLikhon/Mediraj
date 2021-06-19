@@ -2,6 +2,7 @@ package com.example.mediraj.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +24,8 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-
-
         initView();
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.cart);
@@ -78,27 +78,27 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-//        try {
-//            Intent intent = getIntent();
-//            if (intent !=null) {
-//                String tab = getIntent().getStringExtra("index");
-//                Log.e("TabNumberFriendList",tab);
-//                switchToTab(tab);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Intent intent = getIntent();
+            if (intent !=null) {
+                String tab = getIntent().getStringExtra("index");
+                Log.e("TabNumberFriendList",tab);
+                switchToTab(tab);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-//    public void switchToTab(String tab){
-//        if(tab.equals("2")){
-//            viewPager.setCurrentItem(0);
-//        }else if(tab.equals("3")){
-//            viewPager.setCurrentItem(1);
-//        }else if(tab.equals("4")){
-//            viewPager.setCurrentItem(2);
-//        }
-//    }
+    public void switchToTab(String tab){
+        if(tab.equals("1")){
+            viewPager.setCurrentItem(0);
+        }else if(tab.equals("2")){
+            viewPager.setCurrentItem(1);
+        }else if(tab.equals("3")){
+            viewPager.setCurrentItem(2);
+        }
+    }
 
 
 

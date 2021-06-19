@@ -1,6 +1,7 @@
 package com.example.mediraj.activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -28,6 +29,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -57,8 +62,11 @@ import com.google.gson.Gson;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -97,7 +105,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private FusedLocationProviderClient fusedLocationProviderClient;
     private String str_image_path = "",userGender;
     private static final String TAG = EditProfileActivity.class.getName();
-    private static final String IMAGE_DIRECTORY_NAME = "/mediraj/Images/";
     private static final int MY_PERMISSION_CONSTANT = 105;
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
@@ -105,6 +112,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private Uri uri;
     private ApiInterface apiInterface;
     private ImageView fetchAddress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,39 +163,32 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.toolbarBtn:
-                finish();
-                break;
-            case R.id.userDob:
-                datePicker();
-                break;
-            case R.id.profilePhoto:
-                choosePicture();
-                break;
-            case R.id.saveBtn:
-                validation();
-                break;
-            case R.id.fetchAddress:
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    checkPermissionForLocation();
-                } else {
-                    getLocation();
-                }
-                break;
+        int id = v.getId();
+        if (id == R.id.toolbarBtn) {
+            finish();
+        } else if (id == R.id.userDob) {
+            datePicker();
+        } else if (id == R.id.profilePhoto) {
+            choosePicture();
+        } else if (id == R.id.saveBtn) {
+            validation();
+        } else if (id == R.id.fetchAddress) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                checkPermissionForLocation();
+            } else {
+                getLocation();
+            }
         }
     }
 
     private void validation() {
-        switch (genderGroup.getCheckedRadioButtonId()) {
-            case R.id.checkMale:
-                userGender = "Male";
-                break;
-            case R.id.checkFemale:
-                userGender = "Female";
-                break;
-            case R.id.checkOther:
-                userGender = "Other";
+        int checkedRadioButtonId = genderGroup.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == R.id.checkMale) {
+            userGender = "Male";
+        } else if (checkedRadioButtonId == R.id.checkFemale) {
+            userGender = "Female";
+        } else if (checkedRadioButtonId == R.id.checkOther) {
+            userGender = "Other";
         }
 
 
@@ -210,7 +211,8 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         if (!str_image_path.equalsIgnoreCase("")) {
             File file = new File(str_image_path);
             filePart = MultipartBody.Part.createFormData("avatar", file.getName(), RequestBody.create(file, MediaType.parse("image/*")));
-        } else {
+        }
+        else {
             RequestBody attachmentEmpty = RequestBody.create("", MediaType.parse("text/plain"));
             filePart = MultipartBody.Part.createFormData("avatar", "image", attachmentEmpty);
         }
@@ -236,7 +238,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         if (!edt_date.getText().toString().isEmpty()) {
             RequestBody birthDay = RequestBody.create(edt_date.getText().toString(), MediaType.parse("text/plain"));
-            mapData.put("birth_date", birthDay);
+            mapData.put("dob", birthDay);
         }
 
         if (userGender != null ) {
@@ -365,16 +367,21 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     //photo related section
     private void choosePicture() {
         Dexter.withContext(this)
-                .withPermissions(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .withListener(new MultiplePermissionsListener() {
+                .withPermission(Manifest.permission.CAMERA)
+                .withListener(new PermissionListener() {
                     @Override
-                    public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
+                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                         showImageSelection();
                     }
 
                     @Override
-                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
-                        Toast.makeText(EditProfileActivity.this, "Need Permission to Work!", Toast.LENGTH_SHORT).show();
+                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+                        Toast.makeText(getApplicationContext(), "Need Permission to Work!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                        permissionToken.continuePermissionRequest();
                     }
                 }).check();
     }
@@ -421,32 +428,37 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private void openGallery() {
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(Intent.createChooser(intent, "Select a Image"), SELECT_FILE);
     }
 
     private void openCamera() throws IOException {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         output = createImageFile();
-        if (output != null) {
-            uri = FileProvider.getUriForFile(EditProfileActivity.this,
-                    BuildConfig.APPLICATION_ID + ".provider",
-                    output);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-            startActivityForResult(intent, REQUEST_CAMERA);
-        }
+        uri = FileProvider.getUriForFile(EditProfileActivity.this,
+                BuildConfig.APPLICATION_ID + ".provider",
+                output);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+        startActivityForResult(intent, REQUEST_CAMERA);
     }
 
     private File createImageFile() throws IOException {
-        String timeStamp = DataManager.convertDateToString(Calendar.getInstance().getTimeInMillis());
-        String imageFileName = "IMG_" + timeStamp;
-        File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), IMAGE_DIRECTORY_NAME);
-        if (!storageDir.exists()) {
-            storageDir.mkdirs();
-            Log.e("error", "unable to create" + storageDir.toString());
+        String imageFileName = "cachedImage";
+
+        File image = null;
+        try {
+            image = File.createTempFile(
+                    imageFileName,  /* prefix */
+                    ".jpg",         /* suffix */
+                    getCacheDir()      /* directory */
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("error",e.toString());
         }
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         // Save a file: path for use with ACTION_VIEW intents
+        Log.e("data test",image.exists()+" ");
         str_image_path = image.getAbsolutePath();
         return image;
     }
@@ -457,25 +469,18 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_CAMERA) {
-                Log.e(TAG, "camera activityResult : " + str_image_path);
+                Log.e("camera activityResult", str_image_path);
                 openCropImageActivity(str_image_path);
             } else if (requestCode == SELECT_FILE) {
-                str_image_path = DataManager.getPathFromUri(this, data.getData());
-                Log.e(TAG, "gallery : " + str_image_path);
-                //CropImage.activity(data.getData()).start(this);
-                openCropImageActivity(str_image_path);
+                CropImage.activity(data.getData()).start(this);
             } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
-                if (resultCode == RESULT_OK) {
-                    str_image_path = DataManager.getPathFromUri(this, result.getUri());
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                    Bitmap bitmap = BitmapFactory.decodeFile(str_image_path, options);
-                    userImg.setImageBitmap(bitmap);
-                    Log.e("cropped", str_image_path);
-                } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                    Exception error = result.getError();
-                }
+                str_image_path = DataManager.getPathFromUri(this, result.getUri());
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap bitmap = BitmapFactory.decodeFile(str_image_path, options);
+                userImg.setImageBitmap(bitmap);
+                Log.e("cropped", str_image_path);
             }
         }
     }
@@ -550,19 +555,18 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSION_CONSTANT: {
-                if (grantResults.length > 0) {
-                    boolean fine_location = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    boolean coarse_location = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                    if (fine_location && coarse_location) {
-                        getLocation();
-                    } else {
-                        Toast.makeText(EditProfileActivity.this, " permission needed to work.", Toast.LENGTH_SHORT).show();
-                    }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_PERMISSION_CONSTANT) {
+            if (grantResults.length > 0) {
+                boolean fine_location = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean coarse_location = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                if (fine_location && coarse_location) {
+                    getLocation();
                 } else {
                     Toast.makeText(EditProfileActivity.this, " permission needed to work.", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                Toast.makeText(EditProfileActivity.this, " permission needed to work.", Toast.LENGTH_SHORT).show();
             }
         }
     }

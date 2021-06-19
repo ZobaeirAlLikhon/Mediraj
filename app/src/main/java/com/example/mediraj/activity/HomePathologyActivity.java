@@ -8,10 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.Get_diagonesticServicesAD;
-import com.example.mediraj.adaptar.Get_pathologyAD;
+import com.example.mediraj.adaptar.HomePathologyAdapter;
 import com.example.mediraj.helper.Constant;
-import com.example.mediraj.model.AllDiagonosticModel;
 import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
@@ -27,7 +25,7 @@ public class HomePathologyActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     RecyclerView recyclerView;
     List<AllPathologyModel.Datum> allPathologyModel;
-    Get_pathologyAD adapter;
+    HomePathologyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class HomePathologyActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<AllPathologyModel> call, Response<AllPathologyModel> response) {
                 allPathologyModel=response.body().getData();
-                adapter=new Get_pathologyAD(getApplicationContext(),allPathologyModel);
+                adapter=new HomePathologyAdapter(getApplicationContext(),allPathologyModel);
                 recyclerView.setAdapter(adapter);
                 Log.e("getAllDia",String.valueOf(allPathologyModel));
             }
