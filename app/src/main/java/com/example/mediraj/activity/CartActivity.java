@@ -82,8 +82,10 @@ public class CartActivity extends AppCompatActivity {
             Intent intent = getIntent();
             if (intent !=null) {
                 String tab = getIntent().getStringExtra("index");
-                Log.e("TabNumberFriendList",tab);
-                switchToTab(tab);
+                if (tab!=null){
+                    switchToTab(tab);
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,7 +93,9 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void switchToTab(String tab){
-        if(tab.equals("1")){
+        if (tab.equals("")){
+            Log.e("no data","no data found");
+        } else if(tab.equals("1")){
             viewPager.setCurrentItem(0);
         }else if(tab.equals("2")){
             viewPager.setCurrentItem(1);

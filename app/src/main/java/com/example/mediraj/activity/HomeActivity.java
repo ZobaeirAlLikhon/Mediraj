@@ -93,8 +93,11 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         ser_rec = findViewById(R.id.sec_rec);
         ser_rec.setOverScrollMode(View.OVER_SCROLL_NEVER);
         ser_rec.setLayoutManager(new GridLayoutManager(this,2));
+        ser_rec.setHasFixedSize(true);
         serviceAdapter = new ServiceAdapter(this,titles,images,serviceInterface);
         ser_rec.setAdapter(serviceAdapter);
+
+
     }
 
 

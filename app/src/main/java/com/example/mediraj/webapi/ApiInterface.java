@@ -7,17 +7,20 @@ import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllSurgicalModel;
 import com.example.mediraj.model.AllbloodModel;
 import com.example.mediraj.model.BloodBooking_Model;
+import com.example.mediraj.model.CheckoutResModel;
 import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.model.MedicinRequestModel;
 import com.example.mediraj.model.UserData;
+import com.example.mediraj.model.checkout.CheckoutModel;
 
 import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -120,6 +123,10 @@ public interface ApiInterface {
                                                 @Part MultipartBody.Part file
     );
 
+    //api for checkout
+    @POST("surgical/checkout")
+    Call<CheckoutResModel> sendCheckoutProductData(@Header("Authorization") String auth,
+                                                   @Body CheckoutModel checkoutModel);
 
 
 }
