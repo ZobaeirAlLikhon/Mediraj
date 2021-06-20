@@ -56,6 +56,7 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
 
         holder.diagnostic_name.setText(allDiagnosticModels.get(position).getTitle());
         holder.diagnostic_price.setText(context.getString(R.string.moneySymbol)+" "+String.valueOf(allDiagnosticModels.get(position).getPrice()));
+
         Glide.with(context)
                 .load(Constant.Diagonestic_AVATAR_URL +allDiagnosticModels.get(position).getLogo())
                 .apply(new RequestOptions().placeholder(R.drawable.ic_stethoscope))

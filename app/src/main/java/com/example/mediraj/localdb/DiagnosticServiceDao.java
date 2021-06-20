@@ -5,6 +5,9 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.mediraj.model.checkout.Checkout;
+import com.example.mediraj.model.checkout.CheckoutModel;
+
 import java.util.List;
 
 @Dao
@@ -16,12 +19,16 @@ public interface DiagnosticServiceDao {
     @Insert()
     void insertInfo(DiagnosticService diagnosticService);
 
-    @Delete
-    void deleteInfo(DiagnosticService diagnosticService);
+    @Query("DELETE FROM diagnosticservice")
+    abstract void deleteAllData();
 
     @Query("DELETE FROM diagnosticservice WHERE item_id = :itemId")
     abstract void deleteById(int itemId);
 
     @Query("UPDATE diagnosticservice SET item_qty =:quantity ,item_subtotal=:total WHERE id =:id")
     void updateUser(int id,int quantity,int total);
+
+    @Query("SELECT item_id,item_unit,item_qty,item_price,item_subtotal FROM diagnosticService")
+    List<Checkout> getCheckoutData();
+
 }

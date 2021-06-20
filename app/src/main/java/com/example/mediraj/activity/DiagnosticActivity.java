@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.DiagnosticServicesAdapter;
 import com.example.mediraj.helper.ConnectionManager;
@@ -51,11 +53,12 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
         initView();
 
-        if (ConnectionManager.connection(this)){
-               recyclerView();
-        }else {
-            Toast.makeText(this,getString(R.string.error),Toast.LENGTH_SHORT).show();
+        if (ConnectionManager.connection(this)) {
+            recyclerView();
+        } else {
+            Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT).show();
         }
+
 
     }
 
@@ -63,14 +66,9 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         ivBack = findViewById(R.id.toolbarBtn);
         toolBarTxt = findViewById(R.id.toolbarText);
         toolBarTxt.setText(getString(R.string.ds));
-
         noData = findViewById(R.id.noData);
-
         recyclerView = findViewById(R.id.recy_view_diagnostic);
-        recyclerView.setLayoutManager(new LinearLayoutManager(DiagnosticActivity.this, LinearLayoutManager.VERTICAL, false));
-
         fab = findViewById(R.id.goToCart);
-
         ivBack.setOnClickListener(this);
         fab.setOnClickListener(this);
     }
@@ -90,7 +88,8 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
                         fab.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.VISIBLE);
                         dataList.addAll(allDiagnosticModel.getData());
-                        adapter = new DiagnosticServicesAdapter(getApplicationContext(), allDiagnosticModel.getData(),onDiagnosticClick);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(DiagnosticActivity.this, LinearLayoutManager.VERTICAL, false));
+                        adapter = new DiagnosticServicesAdapter(getApplicationContext(), allDiagnosticModel.getData(), onDiagnosticClick);
                         recyclerView.setAdapter(adapter);
                     } else {
                         recyclerView.setVisibility(View.GONE);
@@ -120,10 +119,10 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         if (id == R.id.toolbarBtn) {
             finish();
             overridePendingTransition(0, 0);
-        }else if (id==R.id.goToCart){
-            startActivity(new Intent(this,CartActivity.class).putExtra("index","1"));
+        } else if (id == R.id.goToCart) {
+            startActivity(new Intent(this, CartActivity.class).putExtra("index", "1"));
             finish();
-            overridePendingTransition(0,0);
+            overridePendingTransition(0, 0);
         }
 
     }
@@ -131,8 +130,8 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void sendOrDeleteData(int position, String opType) {
 
-        if (opType !=null && opType.equalsIgnoreCase("add")){
-            Log.e(TAG+" Data",position+" "+opType+" "+"Yes");
+        if (opType != null && opType.equalsIgnoreCase("add")) {
+            Log.e(TAG + " Data", position + " " + opType + " " + "Yes");
             DiagnosticService diagnosticService = new DiagnosticService();
             diagnosticService.setItem_id(dataList.get(position).getId());
             diagnosticService.setItem_title(dataList.get(position).getTitle());
@@ -141,15 +140,17 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             diagnosticService.setItem_price(dataList.get(position).getPrice());
             diagnosticService.setItem_subtotal(dataList.get(position).getPrice());
             db.diagnosticServiceDao().insertInfo(diagnosticService);
-            Toast.makeText(this,getString(R.string.addtocart),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.addtocart), Toast.LENGTH_SHORT).show();
 
-        }else if (opType!=null && opType.equalsIgnoreCase("delete")){
-            Log.e(TAG+" Data",position+" "+opType+" "+"Delete");
+        } else if (opType != null && opType.equalsIgnoreCase("delete")) {
+            Log.e(TAG + " Data", position + " " + opType + " " + "Delete");
             db.diagnosticServiceDao().deleteById(dataList.get(position).getId());
-            Toast.makeText(this,getString(R.string.removecart),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.removecart), Toast.LENGTH_SHORT).show();
         }
 
     }
+
+
 
 
 }
