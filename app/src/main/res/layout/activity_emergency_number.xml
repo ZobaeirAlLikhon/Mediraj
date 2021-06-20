@@ -26,11 +26,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/fire_num"
+                android:id="@+id/emer_num"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fire Service &amp; Civil Defence Station Rajshahi"
-                android:textSize="18sp"
+                android:text="Rajshahi Emegency Contact"
+                android:textSize="24sp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/noto_sans"
                 android:layout_marginStart="12dp"/>
@@ -42,18 +42,28 @@
                 android:layout_margin="10dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp"
-                android:layout_below="@id/fire_num">
+                android:layout_below="@id/emer_num">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
+                    <TextView
+                        android:id="@+id/fire_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fire Service Station Rajshahi"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/noto_sans"
+                        android:layout_marginStart="3dp"/>
 
                     <LinearLayout
                         android:id="@+id/mainLay_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:layout_below="@id/fire_num"
                         android:weightSum="1">
 
 
@@ -61,7 +71,7 @@
                             android:paddingStart="5dp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight=".8"
+                            android:layout_weight=".7"
                             android:orientation="vertical"
                             android:layout_gravity="center_vertical">
 
@@ -72,14 +82,15 @@
                                 android:drawableStart="@drawable/ic_baseline_call"
                                 android:drawablePadding="5dp"
                                 android:text="01730-336655"
-                                android:textSize="20sp" />
+                                android:textColor="@color/black"
+                                android:textSize="22sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight=".2"
+                            android:layout_weight=".3"
                             android:gravity="end"
                             android:orientation="vertical">
 
@@ -89,7 +100,83 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
                                 android:textColor="@color/black"
-                                android:backgroundTint="@color/teal"
+                                android:backgroundTint="@color/teal_200"
+                                android:text="Call"
+                                android:padding="5dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                android:layout_below="@id/card_one">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+                    <TextView
+                        android:id="@+id/police_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rajshahi Metropolitan Police Headquarters"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/noto_sans"
+                        android:layout_marginStart="3dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/mainLay_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/police_num"
+                        android:weightSum="1">
+
+
+                        <LinearLayout
+                            android:paddingStart="5dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/police_contact"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/ic_baseline_call"
+                                android:drawablePadding="5dp"
+                                android:text="01320-063998"
+                                android:textColor="@color/black"
+                                android:textSize="22sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btn_police"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:textColor="@color/black"
+                                android:backgroundTint="@color/teal_200"
                                 android:text="Call"
                                 android:padding="5dp" />
                         </LinearLayout>
