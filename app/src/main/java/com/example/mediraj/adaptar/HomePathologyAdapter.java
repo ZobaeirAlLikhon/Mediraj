@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.AllPathologyModel;
@@ -41,7 +42,10 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
     public void onBindViewHolder(@NonNull @NotNull HomePathologyAdapter.MyViewHoldr holder, int position) {
         holder.pathology_name.setText(allPathologyModels.get(position).getTitle());
         holder.pathology_price.setText(String.valueOf(allPathologyModels.get(position).getPrice()));
-        Glide.with(context).load(Constant.Pathology_AVATAR_URL +allPathologyModels.get(position).getLogo()).into(holder.circleImageView);
+        Glide.with(context).load(Constant.Pathology_AVATAR_URL +allPathologyModels.get(position).getLogo())
+                .apply(new RequestOptions().placeholder(R.drawable.ic_pathology_1))
+                .fitCenter()
+                .into(holder.circleImageView);
 
     }
 

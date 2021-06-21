@@ -76,7 +76,6 @@
                     android:textSize="20sp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/medbox"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -105,7 +104,6 @@
                     android:weightSum="1"
                     android:orientation="horizontal">
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/mc_useraddress"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_weight=".9"
@@ -139,7 +137,6 @@
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/mc_phone"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

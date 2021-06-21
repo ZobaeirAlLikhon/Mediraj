@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.AllSurgicalModel;
@@ -43,7 +44,9 @@ public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHo
     public void onBindViewHolder(@NonNull @NotNull Get_SurgicalAD.MyViewHolder holder, int position) {
         holder.surgical_name.setText(allSurgicalModels.get(position).getTitle());
         holder.surgical_price.setText(String.valueOf(allSurgicalModels.get(position).getPrice()));
-        Glide.with(context).load(Constant.SURGICAL_AVATAR_URL +allSurgicalModels.get(position).getLogo()).into(holder.cirIM_surgical);
+        Glide.with(context).load(Constant.SURGICAL_AVATAR_URL +allSurgicalModels.get(position).getLogo())
+                .apply(new RequestOptions().placeholder(R.drawable.ic_surgical1))
+                .into(holder.cirIM_surgical);
 
     }
 

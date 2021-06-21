@@ -59,7 +59,7 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
 
         Glide.with(context)
                 .load(Constant.Diagonestic_AVATAR_URL +allDiagnosticModels.get(position).getLogo())
-                .apply(new RequestOptions().placeholder(R.drawable.ic_stethoscope))
+                .apply(new RequestOptions().placeholder(R.drawable.ic_diagonistic))
                 .into(holder.circleImageView);
 
     }
