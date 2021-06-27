@@ -79,7 +79,7 @@ public class AllSurgicalModel {
         private String updatedAt;
         @SerializedName("is_checked")
         @Expose
-        private String isChecked;
+        private boolean isChecked;
 
         public Integer getId() {
             return id;
@@ -145,13 +145,14 @@ public class AllSurgicalModel {
             this.updatedAt = updatedAt;
         }
 
-        public String getIsChecked() {
+        public boolean getIsChecked() {
             return isChecked;
         }
 
-        public void setIsChecked(String isChecked) {
+        public void setIsChecked(boolean isChecked) {
             this.isChecked = isChecked;
         }
+
 
     }
 }

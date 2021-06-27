@@ -23,6 +23,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/cardview_home_pathology"
         app:layout_constraintTop_toBottomOf="@+id/include3"/>
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/noto_sans"
+        android:text="@string/no_data_found"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/goToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@null"
+        app:backgroundTint="@color/tabColor"
+        app:elevation="5dp"
+        app:fabSize="mini"
+        app:tint="@null"
+        android:src="@drawable/ic_shopping_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

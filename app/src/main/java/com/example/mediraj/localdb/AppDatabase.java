@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {DiagnosticService.class}, version = 1, exportSchema = false)
+@Database(entities = {DiagnosticService.class,PathologyServices.class,SurgicalService.class}, version =2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase INSTANCE;
@@ -23,4 +23,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public abstract DiagnosticServiceDao diagnosticServiceDao();
+    public abstract PathologyServicesDao pathologyServicesDao();
+    public abstract SurgicalServiceDao surgicalServiceDao();
+
 }
