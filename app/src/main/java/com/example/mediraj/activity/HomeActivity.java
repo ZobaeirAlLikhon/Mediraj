@@ -69,23 +69,23 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-        titles.add("Doctor appoinment");
+        titles.add("Doctor appointment");
         titles.add("Diagnostic Service");
         titles.add("Medicine Service");
         titles.add("Clinic Service");
         titles.add("BloodBank Service");
         titles.add("Home Pathology");
-        titles.add("Surgical Kits");
-        titles.add("Doctor");
+        titles.add("Medical Device");
+        titles.add("Online Doctor");
 
-        images.add(R.drawable.doctorapp2);
-        images.add(R.drawable.ic_appoint);
-        images.add(R.drawable.medicin);
-        images.add(R.drawable.clinic);
-        images.add(R.drawable.blood);
-        images.add(R.drawable.pathology);
-        images.add(R.drawable.kits);
-        images.add(R.drawable.ic_appoint);
+        images.add(R.drawable.ic_doctor1);
+        images.add(R.drawable.ic_diagonistic);
+        images.add(R.drawable.ic_capsule);
+        images.add(R.drawable.ic_patient);
+        images.add(R.drawable.ic_blood_bank);
+        images.add(R.drawable.ic_pathology_1);
+        images.add(R.drawable.ic_surgical1);
+        images.add(R.drawable.ic_doctor);
 
 
         //initialize views
@@ -116,14 +116,17 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         }else if (serName.equalsIgnoreCase("Diagnostic Service")){
             Intent intent = new Intent(HomeActivity.this,DiagnosticActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Surgical Kits")){
+        }else if (serName.equalsIgnoreCase("Medical Device")){
             Intent intent = new Intent(HomeActivity.this,SurgicalActivity.class);
             startActivity(intent);
         }else if (serName.equalsIgnoreCase("Home Pathology")){
             Intent intent = new Intent(HomeActivity.this,HomePathologyActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Doctor appoinment")){
+        }else if (serName.equalsIgnoreCase("Doctor appointment")){
             Intent intent = new Intent(HomeActivity.this,DoctorListActivity.class);
+            startActivity(intent);
+        }else if (serName.equalsIgnoreCase("Online Doctor")){
+            Intent intent = new Intent(HomeActivity.this,Emergency_DoctorActivity.class);
             startActivity(intent);
         }
     }

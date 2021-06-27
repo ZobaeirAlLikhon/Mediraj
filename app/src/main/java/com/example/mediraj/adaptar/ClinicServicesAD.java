@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
 import com.example.mediraj.activity.ClinicBookingActivity;
 import com.example.mediraj.helper.Constant;
@@ -44,7 +45,9 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
     public void onBindViewHolder(@NonNull @NotNull ClinicServicesAD.MyViewHolder holder, int position) {
         holder.clinic_name.setText(clinicalModelList.get(position).getTitle());
         holder.address.setText(clinicalModelList.get(position).getAddress());
-        Glide.with(context).load(Constant.Clinic_AVATAR_URL +clinicalModelList.get(position).getLogo()).into(holder.circleImageView);
+        Glide.with(context).load(Constant.Clinic_AVATAR_URL +clinicalModelList.get(position).getLogo())
+                .apply(new RequestOptions().placeholder(R.drawable.ic_patient))
+                .into(holder.circleImageView);
         holder.booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -27,17 +27,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Diagnostic"
-                android:icon="@mipmap/diagnostic"/>
+                android:icon="@drawable/ic_diagonistic"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pathology"
-                android:icon="@mipmap/pathology"/>
+                android:icon="@drawable/ic_pathology_1"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Surgical Kits"
-                android:icon="@mipmap/surgical" />
+                android:icon="@drawable/ic_surgical1" />
 
 
         </com.google.android.material.tabs.TabLayout>

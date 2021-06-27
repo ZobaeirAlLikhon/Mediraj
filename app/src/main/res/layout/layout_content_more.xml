@@ -279,6 +279,7 @@
                         android:src="@drawable/ic_hours" />
 
                     <TextView
+                        android:id="@+id/emer_call"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"

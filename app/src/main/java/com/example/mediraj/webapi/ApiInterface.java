@@ -3,6 +3,7 @@ package com.example.mediraj.webapi;
 
 import com.example.mediraj.model.AllDepartmentModel;
 import com.example.mediraj.model.AllDiagnosticModel;
+import com.example.mediraj.model.AllDoctorList;
 import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllSurgicalModel;
 import com.example.mediraj.model.AllbloodModel;
@@ -106,6 +107,10 @@ public interface ApiInterface {
     //get all Department
     @GET("department/all")
     Call<AllDepartmentModel> allDepartmentServices(@Header("Authorization") String auth);
+
+    //get all Doctor
+    @GET("doctor/all")
+    Call<AllDoctorList> allDoctorServices(@Header("Authorization") String auth);
 
     //get all Blood
     @GET("blood-group/all")
