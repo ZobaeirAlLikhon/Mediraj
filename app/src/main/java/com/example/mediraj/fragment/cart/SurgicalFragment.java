@@ -13,6 +13,9 @@ import com.example.mediraj.R;
 
 public class SurgicalFragment extends Fragment {
 
+    public SurgicalFragment() {
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

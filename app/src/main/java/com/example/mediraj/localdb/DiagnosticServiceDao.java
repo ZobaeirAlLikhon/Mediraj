@@ -22,13 +22,16 @@ public interface DiagnosticServiceDao {
     @Query("DELETE FROM diagnosticservice")
     abstract void deleteAllData();
 
-    @Query("DELETE FROM diagnosticservice WHERE item_id = :itemId")
-    abstract void deleteById(int itemId);
+    @Query("DELETE FROM diagnosticservice WHERE item_id = :item_id")
+    abstract void deleteById(int item_id);
 
     @Query("UPDATE diagnosticservice SET item_qty =:quantity ,item_subtotal=:total WHERE id =:id")
     void updateUser(int id,int quantity,int total);
 
     @Query("SELECT item_id,item_unit,item_qty,item_price,item_subtotal FROM diagnosticService")
     List<Checkout> getCheckoutData();
+
+    @Query("delete from diagnosticservice where id in (:idList)")
+    void deleteDataInTimestamp(List<Long> idList);
 
 }

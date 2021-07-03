@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHolder> {
 
-    private static final int MARGIN = 25;
+    private static final int MARGIN = 30;
     Context context;
     List<String> serviceName;
     List<Integer> images;

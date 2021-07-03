@@ -58,5 +58,6 @@
     <string name="removecart">Remove from cart</string>
     <string name="network_failure">Please Connect to internet</string>
     <string name="error">Failed to connect, connect to internet!</string>
+    <string name="doctorlist">Doctor List</string>
 
 </resources>

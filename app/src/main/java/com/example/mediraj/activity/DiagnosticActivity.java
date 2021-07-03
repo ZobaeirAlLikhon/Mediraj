@@ -24,6 +24,8 @@ import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,12 +38,13 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     RecyclerView recyclerView;
     DiagnosticServicesAdapter adapter;
     ImageView ivBack;
-    TextView toolBarTxt, noData;
+    TextView toolBarTxt, noData,itemCount;
     List<AllDiagnosticModel.Datum> dataList = new ArrayList<>();
     public static final String TAG = DiagnosticActivity.class.getName();
     DiagnosticServicesAdapter.OnDiagnosticClick onDiagnosticClick;
     AppDatabase db;
     FloatingActionButton fab;
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         noData = findViewById(R.id.noData);
         recyclerView = findViewById(R.id.recy_view_diagnostic);
         fab = findViewById(R.id.goToCart);
+        itemCount = findViewById(R.id.itemCount);
         ivBack.setOnClickListener(this);
         fab.setOnClickListener(this);
     }
@@ -78,11 +82,12 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         Call<AllDiagnosticModel> getDigServices = apiInterface.allDiagonsticServices(Constant.AUTH);
         getDigServices.enqueue(new Callback<AllDiagnosticModel>() {
             @Override
-            public void onResponse(Call<AllDiagnosticModel> call, Response<AllDiagnosticModel> response) {
+            public void onResponse(@NotNull Call<AllDiagnosticModel> call, @NotNull Response<AllDiagnosticModel> response) {
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     AllDiagnosticModel allDiagnosticModel = response.body();
                     dataList.clear();
+                    assert allDiagnosticModel != null;
                     if (allDiagnosticModel.getResponse() == 200) {
                         noData.setVisibility(View.GONE);
                         fab.setVisibility(View.VISIBLE);
@@ -103,7 +108,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             }
 
             @Override
-            public void onFailure(Call<AllDiagnosticModel> call, Throwable t) {
+            public void onFailure(@NotNull Call<AllDiagnosticModel> call, @NotNull Throwable t) {
                 DataManager.getInstance().hideProgressMessage();
                 call.cancel();
             }
@@ -141,11 +146,19 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             diagnosticService.setItem_subtotal(dataList.get(position).getPrice());
             db.diagnosticServiceDao().insertInfo(diagnosticService);
             Toast.makeText(this, getString(R.string.addtocart), Toast.LENGTH_SHORT).show();
-
+            count +=1;
         } else if (opType != null && opType.equalsIgnoreCase("delete")) {
             Log.e(TAG + " Data", position + " " + opType + " " + "Delete");
             db.diagnosticServiceDao().deleteById(dataList.get(position).getId());
+            count -=1;
             Toast.makeText(this, getString(R.string.removecart), Toast.LENGTH_SHORT).show();
+        }
+
+        if (count<=0){
+            itemCount.setVisibility(View.GONE);
+        }else {
+            itemCount.setVisibility(View.VISIBLE);
+            itemCount.setText(count+"");
         }
 
     }

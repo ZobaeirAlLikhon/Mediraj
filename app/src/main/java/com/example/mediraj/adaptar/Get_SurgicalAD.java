@@ -45,6 +45,7 @@ public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHo
         holder.surgical_name.setText(allSurgicalModels.get(position).getTitle());
         holder.surgical_price.setText(String.valueOf(allSurgicalModels.get(position).getPrice()));
         Glide.with(context).load(Constant.SURGICAL_AVATAR_URL +allSurgicalModels.get(position).getLogo())
+                .centerCrop()
                 .apply(new RequestOptions().placeholder(R.drawable.ic_surgical1))
                 .into(holder.cirIM_surgical);
 

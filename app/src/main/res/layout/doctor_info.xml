@@ -27,8 +27,8 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/rectangle"
             android:scaleType="fitXY"
-            android:src="@mipmap/test"
-            app:shapeAppearanceOverlay="@style/roundedCornersImageView" />
+            android:src="@mipmap/test"/>
+<!--            app:shapeAppearanceOverlay="@style/roundedCornersImageView" />-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -137,9 +137,10 @@
                     android:foregroundTint="#48B3A9"
                     android:padding="5dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_badge"
                     app:civ_border_color="@color/white"
-                    app:civ_border_width="2dp" />
+                    app:civ_border_width="2dp"/>
+<!--                    android:src="@drawable/ic_badge"-->
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"

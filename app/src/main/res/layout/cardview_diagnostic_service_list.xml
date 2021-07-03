@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -23,14 +22,14 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight=".2"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
+                android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/cirIM_dia"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:src="@drawable/user" />
             </LinearLayout>
@@ -38,10 +37,10 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="6dp"
-                android:layout_gravity="center_vertical">
+                android:layout_weight=".5"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/diagonstic_name"
@@ -65,10 +64,10 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".3"
-                android:orientation="vertical"
                 android:layout_marginStart="3dp"
-                android:gravity="end">
+                android:layout_weight=".3"
+                android:gravity="end"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/diagonstic_love"
@@ -77,22 +76,14 @@
                     android:layout_gravity="end"
                     android:padding="5dp"
                     android:src="@drawable/ic_baseline_love" />
+
                 <Button
                     android:id="@+id/addToCart_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light_green"
+                    android:backgroundTint="@color/tabColor"
                     android:text="add to cart"
                     android:textSize="10sp" />
-
-                <ImageView
-                    android:id="@+id/cartAdded"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="end"
-                    android:padding="5dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_check" />
 
             </LinearLayout>
 

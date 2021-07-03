@@ -17,5 +17,6 @@
     <color name="primaryColor">#206723</color>
     <color name="off_white">#F5F5F5</color>
     <color name="tabColor">#206723</color>
+    <color name="yellow">#FFC107</color>
 
 </resources>

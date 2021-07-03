@@ -68,7 +68,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                         for (int i = 0; i < oldDataList.size(); i++) {
                             price = price + oldDataList.get(i).getItem_subtotal();
                         }
-                        Log.e("price", price + " * " + oldDataList.size());
+                        Log.e("price", price + " * " + oldDataList.size() +" * "+newDataList.size());
                     }
 
                 }

@@ -23,12 +23,14 @@ public class DfAdapter extends RecyclerView.Adapter<DfAdapter.ViewHolder> {
 
     Context context;
     List<DiagnosticService> dataList;
+    dfItemClick dfItemClick;
     AppDatabase db;
     int productQuantity;
 
-    public DfAdapter(Context context, List<DiagnosticService> dataList) {
+    public DfAdapter(Context context, List<DiagnosticService> dataList, DfAdapter.dfItemClick dfItemClick) {
         this.context = context;
         this.dataList = dataList;
+        this.dfItemClick = dfItemClick;
     }
 
     @NonNull
@@ -55,7 +57,7 @@ public class DfAdapter extends RecyclerView.Adapter<DfAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView title, detail, price, quantity;
-        ImageView plus, minus;
+        ImageView plus, minus,deleteItem;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -66,6 +68,7 @@ public class DfAdapter extends RecyclerView.Adapter<DfAdapter.ViewHolder> {
             quantity = itemView.findViewById(R.id.start_quantity);
             plus = itemView.findViewById(R.id.btnplus);
             minus = itemView.findViewById(R.id.btnminus);
+            deleteItem = itemView.findViewById(R.id.deleteItem);
 
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,7 +100,23 @@ public class DfAdapter extends RecyclerView.Adapter<DfAdapter.ViewHolder> {
                 }
             });
 
+            deleteItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    db.diagnosticServiceDao().deleteById(dataList.get(getAdapterPosition()).getId());
+                    int pos = getAdapterPosition();
+                    dataList.remove(pos);
+                    notifyItemRemoved(pos);
+                    notifyItemRangeChanged(pos,dataList.size());
+                    dfItemClick.sendListSize(dataList.size());
+                }
+            });
+
         }
+    }
+
+    public interface dfItemClick{
+        void sendListSize(int size);
     }
 }
 

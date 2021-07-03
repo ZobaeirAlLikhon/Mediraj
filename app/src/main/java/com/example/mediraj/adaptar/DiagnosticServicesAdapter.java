@@ -1,6 +1,7 @@
 package com.example.mediraj.adaptar;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,30 +36,29 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
     }
 
 
-
     @NonNull
     @NotNull
     @Override
     public MyViewHoldr onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new DiagnosticServicesAdapter.MyViewHoldr(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_diagnostic_service_list,parent,false));
+        return new DiagnosticServicesAdapter.MyViewHoldr(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_diagnostic_service_list, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyViewHoldr holder, int position) {
 
         if (allDiagnosticModels.get(position).isChecked()){
-            holder.cartAdded.setVisibility(View.VISIBLE);
-            holder.addToCart_btn.setVisibility(View.GONE);
+            holder.addToCart_btn.setText("cart added");
+            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
-            holder.addToCart_btn.setVisibility(View.VISIBLE);
-            holder.cartAdded.setVisibility(View.GONE);
+            holder.addToCart_btn.setText("add to cart");
+            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
         }
 
         holder.diagnostic_name.setText(allDiagnosticModels.get(position).getTitle());
-        holder.diagnostic_price.setText(context.getString(R.string.moneySymbol)+" "+String.valueOf(allDiagnosticModels.get(position).getPrice()));
+        holder.diagnostic_price.setText(context.getString(R.string.moneySymbol) + " " + String.valueOf(allDiagnosticModels.get(position).getPrice()));
 
         Glide.with(context)
-                .load(Constant.Diagonestic_AVATAR_URL +allDiagnosticModels.get(position).getLogo())
+                .load(Constant.Diagonestic_AVATAR_URL + allDiagnosticModels.get(position).getLogo())
                 .apply(new RequestOptions().placeholder(R.drawable.ic_diagonistic))
                 .into(holder.circleImageView);
 
@@ -71,48 +71,40 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
 
     public class MyViewHoldr extends RecyclerView.ViewHolder {
         CircleImageView circleImageView;
-        TextView diagnostic_name,diagnostic_price;
+        TextView diagnostic_name, diagnostic_price;
         Button addToCart_btn;
-        ImageView diagnostic_love,cartAdded;
+        ImageView diagnostic_love;
+
         public MyViewHoldr(@NonNull @NotNull View itemView) {
             super(itemView);
-            circleImageView=itemView.findViewById(R.id.cirIM_dia);
-            diagnostic_name=itemView.findViewById(R.id.diagonstic_name);
-            diagnostic_price=itemView.findViewById(R.id.diagonstic_price);
-            addToCart_btn=itemView.findViewById(R.id.addToCart_btn);
-            diagnostic_love=itemView.findViewById(R.id.diagonstic_love);
-            cartAdded = itemView.findViewById(R.id.cartAdded);
+            circleImageView = itemView.findViewById(R.id.cirIM_dia);
+            diagnostic_name = itemView.findViewById(R.id.diagonstic_name);
+            diagnostic_price = itemView.findViewById(R.id.diagonstic_price);
+            addToCart_btn = itemView.findViewById(R.id.addToCart_btn);
+            diagnostic_love = itemView.findViewById(R.id.diagonstic_love);
 
 
             //on click listener on addToCartBtn
             addToCart_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!allDiagnosticModels.get(getAdapterPosition()).isChecked()){
+                    if (!allDiagnosticModels.get(getAdapterPosition()).isChecked()) {
                         allDiagnosticModels.get(getAdapterPosition()).setChecked(true);
-                        onDiagnosticClick.sendOrDeleteData(getAdapterPosition(),"add");
-                        notifyDataSetChanged();
-                    }
-
-                }
-            });
-
-            //on click listener on cartAdded
-            cartAdded.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (allDiagnosticModels.get(getAdapterPosition()).isChecked()){
+                        onDiagnosticClick.sendOrDeleteData(getAdapterPosition(), "add");
+                    } else {
                         allDiagnosticModels.get(getAdapterPosition()).setChecked(false);
-                        onDiagnosticClick.sendOrDeleteData(getAdapterPosition(),"delete");
-                        notifyDataSetChanged();
+                        onDiagnosticClick.sendOrDeleteData(getAdapterPosition(), "delete");
+
                     }
+                    notifyDataSetChanged();
                 }
             });
+
         }
     }
 
     //interface to some data manipulation
-    public interface OnDiagnosticClick{
-        void sendOrDeleteData(int position,String opType);
+    public interface OnDiagnosticClick {
+        void sendOrDeleteData(int position, String opType);
     }
 }

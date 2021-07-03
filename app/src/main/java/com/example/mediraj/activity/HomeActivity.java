@@ -135,8 +135,8 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
     public void onBackPressed() {
        // super.onBackPressed();
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setMessage("Are you sure you want to Exit");
-        alertDialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+        alertDialog.setMessage("Are you sure you want to exit?");
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

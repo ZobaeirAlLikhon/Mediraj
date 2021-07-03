@@ -8,17 +8,23 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
-        android:padding="10dp"
         app:cardCornerRadius="8dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/deleteItem"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_remove"
+                android:layout_alignParentEnd="true"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:weightSum="1">
 
                 <LinearLayout
@@ -26,14 +32,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="12dp"
-                    android:layout_weight=".5"
+                    android:layout_weight=".7"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/pTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/cirIM_dia"
                         android:fontFamily="@font/noto_sans"
                         android:text="Product Title"
                         android:textColor="@color/purple_200"
@@ -44,8 +49,6 @@
                         android:id="@+id/pDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/Tv_clinicname"
-                        android:layout_toEndOf="@+id/cirIM_dia"
                         android:fontFamily="@font/noto_sans"
                         android:text="Product Details"
                         android:textSize="15sp"
@@ -55,8 +58,6 @@
                         android:id="@+id/product_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/Tv_clinicname"
-                        android:layout_toEndOf="@+id/cirIM_dia"
                         android:fontFamily="@font/noto_sans"
                         android:text="$ 100"
                         android:textSize="15sp"
@@ -67,10 +68,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_weight=".5"
-                    android:gravity="end"
+                    android:layout_weight=".3"
+                    android:layout_gravity="bottom|end"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -78,6 +77,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
+                        android:elevation="8dp"
                         android:src="@drawable/ic_baseline_indeterminate" />
 
                     <TextView
@@ -97,15 +97,17 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
+                        android:elevation="8dp"
                         android:src="@drawable/ic_baseline_add_box" />
                 </LinearLayout>
 
             </LinearLayout>
 
+
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 
 </RelativeLayout>

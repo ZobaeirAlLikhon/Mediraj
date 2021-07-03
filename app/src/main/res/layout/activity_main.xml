@@ -7,26 +7,39 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.HomeActivity">
 
-    <ImageView
-        android:id="@+id/bannerImg"
-        android:layout_width="320dp"
-        android:layout_height="180dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/user"
-        android:scaleType="fitXY" />
 
-    <TextView
-        android:id="@+id/introTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bannerImg"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/share_tech"
-        android:text="Services"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgHolder"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_height="200dp">
+        <ImageView
+            android:id="@+id/bannerImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/user"
+            android:scaleType="fitXY" />
+    </androidx.cardview.widget.CardView>
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/introTxt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/bannerImg"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:fontFamily="@font/share_tech"-->
+<!--        android:text="Services"-->
+<!--        android:textSize="25dp"-->
+<!--        android:visibility="invisible"-->
+<!--        android:textStyle="bold" />-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -46,7 +59,7 @@
         android:id="@+id/sec_rec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/introTxt"
+        android:layout_below="@id/imgHolder"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="60dp" />
 
