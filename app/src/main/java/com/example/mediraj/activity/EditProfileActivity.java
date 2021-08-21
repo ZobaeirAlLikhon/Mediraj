@@ -214,7 +214,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         }
         else {
             RequestBody attachmentEmpty = RequestBody.create("", MediaType.parse("text/plain"));
-            filePart = MultipartBody.Part.createFormData("avatar", "image", attachmentEmpty);
+            filePart = MultipartBody.Part.createFormData("attachment", "", attachmentEmpty);
         }
 
         Map<String, RequestBody> mapData = new HashMap<>();
@@ -249,16 +249,17 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         Call<UserData> profileUpdateCall = apiInterface.updateProfile(Constant.AUTH,mapData,filePart);
         profileUpdateCall.enqueue(new Callback<UserData>() {
             @Override
-            public void onResponse(Call<UserData> call, Response<UserData> response) {
+            public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     UserData userData = response.body();
+                    assert userData != null;
                     if (userData.response==200){
                         String dataResponse = new Gson().toJson(response.body());
                         Log.e("MapMap", "EDIT PROFILE RESPONSE" + dataResponse);
                         SessionManager.writeString(EditProfileActivity.this, Constant.USER_INFO, dataResponse);
                         Toast.makeText(EditProfileActivity.this, userData.message, Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(EditProfileActivity.this,ProfileActivity.class));
+                       // startActivity(new Intent(EditProfileActivity.this,ProfileActivity.class));
                         finish();
                     }else {
                         Toast.makeText(EditProfileActivity.this, userData.message, Toast.LENGTH_SHORT).show();
@@ -269,7 +270,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             }
 
             @Override
-            public void onFailure(Call<UserData> call, Throwable t) {
+            public void onFailure(@NonNull Call<UserData> call, @NonNull Throwable t) {
                 call.cancel();
                 DataManager.getInstance().hideProgressMessage();
             }
@@ -596,5 +597,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         return strAdd;
     }
 
-
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
+        startActivity(new Intent(this, MoreActivity.class));
+        overridePendingTransition(0, 0);
+        finish();
+    }
 }

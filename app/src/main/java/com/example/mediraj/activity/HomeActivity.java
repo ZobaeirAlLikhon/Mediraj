@@ -7,15 +7,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ServiceAdapter;
+import com.example.mediraj.adaptar.imageslider.ImageSliderAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +31,6 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements ServiceAdapter.ServiceInterface {
     public static final String TAG = HomeActivity.class.getName();
-    private ImageView bannerImg;
     private RecyclerView ser_rec;
     List<String> titles;
     List<Integer> images;
@@ -37,6 +42,8 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        imageLoader();
+
         serviceInterface = this;
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -44,23 +51,18 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.home:
-                        return true;
-                    case R.id.cart:
-                        startActivity(new Intent(getApplicationContext(),CartActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.history:
-                        startActivity(new Intent(getApplicationContext(),HistoryActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.more:
-                        startActivity(new Intent(getApplicationContext(),MoreActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
+                int itemId = item.getItemId();
+                if (itemId == R.id.home) {
+                    return true;
+                } else if (itemId == R.id.cart) {
+                    startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if (itemId == R.id.more) {
+                    startActivity(new Intent(getApplicationContext(), MoreActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
                 }
-
                 return false;
             }
         });
@@ -89,7 +91,6 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
 
 
         //initialize views
-        bannerImg = findViewById(R.id.bannerImg);
         ser_rec = findViewById(R.id.sec_rec);
         ser_rec.setOverScrollMode(View.OVER_SCROLL_NEVER);
         ser_rec.setLayoutManager(new GridLayoutManager(this,2));
@@ -152,5 +153,23 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         });
         AlertDialog alert11 = alertDialog.create();
         alert11.show();
+    }
+
+    //section for image slider api call
+
+    private void imageLoader(){
+        String [] img = {"https://cdn.pixabay.com/photo/2018/03/11/12/14/raindrops-3216607_960_720.jpg","https://www.dafont.com/img/illustration/r/a/rainy_day_4.png"};
+
+        SliderView sliderView = findViewById(R.id.imageSlider);
+        sliderView.setSliderAdapter(new ImageSliderAdapter(this,img));
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        sliderView.setIndicatorSelectedColor(Color.WHITE);
+        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.startAutoCycle();
+
+
     }
 }

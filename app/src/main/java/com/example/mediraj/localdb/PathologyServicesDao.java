@@ -17,8 +17,8 @@ public interface PathologyServicesDao {
     Void insertInfo(PathologyServices pathologyServices);
     @Query("DELETE FROM pathology")
     abstract void deleteAllDataPath();
-    @Query("DELETE FROM pathology WHERE item_id = :itemId")
-    abstract void deleteByIdPath(int itemId);
+    @Query("DELETE FROM pathology WHERE id = :id")
+    abstract void deleteByIdPath(int id);
 
     @Query("UPDATE pathology SET item_qty =:quantity ,item_subtotal=:total WHERE id =:id")
     void updateUserPath(int id,int quantity,int total);

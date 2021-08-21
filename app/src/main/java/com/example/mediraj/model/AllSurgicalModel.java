@@ -9,48 +9,17 @@ public class AllSurgicalModel {
 
     @SerializedName("message")
     @Expose
-    private String message;
+    public String message;
     @SerializedName("response")
     @Expose
-    private Integer response;
+    public Integer response;
     @SerializedName("status")
     @Expose
-    private String status;
+    public String status;
     @SerializedName("data")
     @Expose
-    private List<Datum> data = null;
+    public List<Datum> data = null;
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Integer getResponse() {
-        return response;
-    }
-
-    public void setResponse(Integer response) {
-        this.response = response;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public List<Datum> getData() {
-        return data;
-    }
-
-    public void setData(List<Datum> data) {
-        this.data = data;
-    }
     public class Datum {
 
         @SerializedName("id")
@@ -152,7 +121,6 @@ public class AllSurgicalModel {
         public void setIsChecked(boolean isChecked) {
             this.isChecked = isChecked;
         }
-
 
     }
 }

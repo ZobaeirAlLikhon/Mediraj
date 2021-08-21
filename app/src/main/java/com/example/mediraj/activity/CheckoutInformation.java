@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -70,6 +71,10 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                         }
                         Log.e("price", price + " * " + oldDataList.size() +" * "+newDataList.size());
                     }
+
+                }else if (databaseRef.equals("2")){
+
+                }else if (databaseRef.equals("3")){
 
                 }
 
@@ -146,7 +151,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
         Call<CheckoutResModel> call = apiInterface.sendCheckoutProductData(Constant.AUTH,checkoutModel);
         call.enqueue(new Callback<CheckoutResModel>() {
             @Override
-            public void onResponse(Call<CheckoutResModel> call, Response<CheckoutResModel> response) {
+            public void onResponse(@NonNull Call<CheckoutResModel> call, @NonNull Response<CheckoutResModel> response) {
                 try {
                     DataManager.getInstance().hideProgressMessage();
                     CheckoutResModel checkoutResModel = response.body();
@@ -160,7 +165,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
             }
 
             @Override
-            public void onFailure(Call<CheckoutResModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<CheckoutResModel> call, @NonNull Throwable t) {
                 DataManager.getInstance().hideProgressMessage();
                 call.cancel();
 

@@ -59,7 +59,6 @@
                         android:layout_marginStart="3dp"/>
 
                     <LinearLayout
-                        android:id="@+id/mainLay_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -112,7 +111,6 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -135,7 +133,6 @@
                         android:layout_marginStart="3dp"/>
 
                     <LinearLayout
-                        android:id="@+id/mainLay_two"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -152,7 +149,6 @@
                             android:layout_gravity="center_vertical">
 
                             <TextView
-                                android:id="@+id/police_contact"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableStart="@drawable/ic_baseline_call"
@@ -171,7 +167,6 @@
                             android:orientation="vertical">
 
                             <Button
-                                android:id="@+id/btn_police"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,14 +23,14 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_weight=".2"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/cirIM_dia"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:src="@drawable/user" />
             </LinearLayout>
@@ -37,10 +38,10 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="6dp"
                 android:layout_weight=".5"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginStart="6dp"
+                android:layout_gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/diagonstic_name"
@@ -48,7 +49,8 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:text="Diagnostic service Name"
-                    android:textSize="18sp" />
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/diagonstic_price"
@@ -56,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/Tv_clinicname"
                     android:layout_toEndOf="@+id/cirIM_dia"
-                    android:text="Price $100 "
+                    android:fontFamily="@font/noto_sans"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -64,10 +66,10 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
                 android:layout_weight=".3"
-                android:gravity="end"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginStart="3dp"
+                android:gravity="end">
 
                 <ImageView
                     android:id="@+id/diagonstic_love"
@@ -75,15 +77,26 @@
                     android:layout_height="35dp"
                     android:layout_gravity="end"
                     android:padding="5dp"
+                    android:visibility="invisible"
                     android:src="@drawable/ic_baseline_love" />
-
                 <Button
                     android:id="@+id/addToCart_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/tabColor"
+                    android:backgroundTint="@color/light_green"
                     android:text="add to cart"
+                    android:fontFamily="@font/noto_sans"
+                    android:textStyle="bold"
                     android:textSize="10sp" />
+
+                <ImageView
+                    android:id="@+id/cartAdded"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_check" />
 
             </LinearLayout>
 

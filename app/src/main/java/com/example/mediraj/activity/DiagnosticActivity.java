@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +45,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     DiagnosticServicesAdapter.OnDiagnosticClick onDiagnosticClick;
     AppDatabase db;
     FloatingActionButton fab;
+    FrameLayout frameLayout;
     int count = 0;
 
     @Override
@@ -73,8 +75,12 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
         recyclerView = findViewById(R.id.recy_view_diagnostic);
         fab = findViewById(R.id.goToCart);
         itemCount = findViewById(R.id.itemCount);
+        frameLayout = findViewById(R.id.frameLay);
         ivBack.setOnClickListener(this);
         fab.setOnClickListener(this);
+
+        frameLayout.setVisibility(View.GONE);
+
     }
 
     private void recyclerView() {
@@ -90,7 +96,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
                     assert allDiagnosticModel != null;
                     if (allDiagnosticModel.getResponse() == 200) {
                         noData.setVisibility(View.GONE);
-                        fab.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.VISIBLE);
                         dataList.addAll(allDiagnosticModel.getData());
                         recyclerView.setLayoutManager(new LinearLayoutManager(DiagnosticActivity.this, LinearLayoutManager.VERTICAL, false));
@@ -99,7 +104,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
                     } else {
                         recyclerView.setVisibility(View.GONE);
                         noData.setVisibility(View.VISIBLE);
-                        fab.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -136,7 +140,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     public void sendOrDeleteData(int position, String opType) {
 
         if (opType != null && opType.equalsIgnoreCase("add")) {
-            Log.e(TAG + " Data", position + " " + opType + " " + "Yes");
             DiagnosticService diagnosticService = new DiagnosticService();
             diagnosticService.setItem_id(dataList.get(position).getId());
             diagnosticService.setItem_title(dataList.get(position).getTitle());
@@ -148,15 +151,16 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             Toast.makeText(this, getString(R.string.addtocart), Toast.LENGTH_SHORT).show();
             count +=1;
         } else if (opType != null && opType.equalsIgnoreCase("delete")) {
-            Log.e(TAG + " Data", position + " " + opType + " " + "Delete");
             db.diagnosticServiceDao().deleteById(dataList.get(position).getId());
             count -=1;
             Toast.makeText(this, getString(R.string.removecart), Toast.LENGTH_SHORT).show();
         }
 
-        if (count<=0){
+        if (count==0){
+            frameLayout.setVisibility(View.GONE);
             itemCount.setVisibility(View.GONE);
         }else {
+            frameLayout.setVisibility(View.VISIBLE);
             itemCount.setVisibility(View.VISIBLE);
             itemCount.setText(count+"");
         }

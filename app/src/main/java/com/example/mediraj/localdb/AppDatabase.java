@@ -6,17 +6,19 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {DiagnosticService.class,PathologyServices.class,SurgicalService.class}, version =2, exportSchema = false)
+@Database(entities = {DiagnosticService.class,PathologyServices.class,SurgicalService.class}, version =4, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase INSTANCE;
 
     public static AppDatabase getDbInstance(Context context) {
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"mediraj_db")
+            synchronized (AppDatabase.class){
+                INSTANCE = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class,"mediraj_db")
                         .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()
                         .build();
+            }
         }
 
         return INSTANCE;

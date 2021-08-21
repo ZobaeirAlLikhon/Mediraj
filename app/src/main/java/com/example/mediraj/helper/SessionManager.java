@@ -49,6 +49,7 @@ public class SessionManager {
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     Map<String,String> data = response.body();
+                    assert data != null;
                     if (data.get("response").equals("200")) {
                         getEditor(context).clear().commit();
                         if (context instanceof Activity) {

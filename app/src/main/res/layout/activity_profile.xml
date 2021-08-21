@@ -29,7 +29,6 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/proInfoLay"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
 
@@ -64,7 +63,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/phoneLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -112,7 +110,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/emailLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -160,7 +157,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/addressLay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

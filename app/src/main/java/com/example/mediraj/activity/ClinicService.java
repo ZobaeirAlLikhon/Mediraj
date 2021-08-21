@@ -35,7 +35,7 @@ public class ClinicService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         initView();
-        recyclerView();
+       // recyclerView();
 
     }
 
@@ -65,7 +65,7 @@ public class ClinicService extends AppCompatActivity {
                 clinicalModelList=response.body().getData();
                 clinicServicesAD=new ClinicServicesAD(getApplicationContext(),clinicalModelList);
                 recyclerView.setAdapter(clinicServicesAD);
-                Log.e("clinicalServices:----",clinicalModelList.toString());
+               // Log.e("clinicalServices:----",clinicalModelList.toString());
             }
 
             @Override

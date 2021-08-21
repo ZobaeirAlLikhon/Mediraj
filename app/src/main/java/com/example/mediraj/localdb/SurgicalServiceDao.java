@@ -16,8 +16,8 @@ public interface SurgicalServiceDao {
     Void insertInfo(SurgicalService surgicalService);
     @Query("DELETE FROM surgical_services")
     abstract void deleteAllData_surgical();
-    @Query("DELETE FROM surgical_services WHERE item_id = :itemId")
-    abstract void deleteById_Surgical(int itemId);
+    @Query("DELETE FROM surgical_services WHERE id = :id")
+    abstract void deleteById_Surgical(int id);
 
     @Query("UPDATE surgical_services SET item_qty =:quantity ,item_subtotal=:total WHERE id =:id")
     void updateUser_surgical(int id,int quantity,int total);

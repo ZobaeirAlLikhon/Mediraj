@@ -64,12 +64,28 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     //Lottie-Animation
     implementation 'com.airbnb.android:lottie:3.6.1'
-    //slider-
-    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 
     //Elegant button
     //implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
+    //room db
+    implementation "androidx.room:room-runtime:2.3.0"
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:2.3.0"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:2.3.0"
+
+    // optional - Test helpers
+    testImplementation  "androidx.room:room-testing:2.3.0"
+
+
+    //image slider
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
+
 
 
 

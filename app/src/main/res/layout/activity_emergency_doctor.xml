@@ -7,7 +7,6 @@
     tools:context=".activity.Emergency_DoctorActivity">
 
     <LinearLayout
-        android:id="@+id/emergency"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center">
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView"
             android:layout_width="300dp"
             android:layout_height="170dp"
             app:lottie_autoPlay="true"

@@ -37,20 +37,41 @@
         android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"/>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/goToCart"
+    <FrameLayout
+        android:id="@+id/frameLay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@null"
-        app:backgroundTint="@color/tabColor"
-        app:elevation="5dp"
-        app:fabSize="mini"
-        app:tint="@null"
-        android:src="@drawable/ic_shopping_cart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/goToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@null"
+            app:backgroundTint="@color/tabColor"
+            app:fabSize="mini"
+            app:tint="@null"
+            android:elevation="5dp"
+            android:src="@drawable/ic_shopping_cart"
+            android:contentDescription="@string/addtocart" />
+
+        <TextView
+            android:id="@+id/itemCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/red_circle"
+            android:elevation="7dp"
+            android:fontFamily="@font/noto_sans"
+            android:gravity="center"
+            android:layout_gravity="end"
+            android:visibility="gone"
+            android:textColor="@color/white" />
+
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

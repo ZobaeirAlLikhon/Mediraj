@@ -22,8 +22,8 @@ public interface DiagnosticServiceDao {
     @Query("DELETE FROM diagnosticservice")
     abstract void deleteAllData();
 
-    @Query("DELETE FROM diagnosticservice WHERE item_id = :item_id")
-    abstract void deleteById(int item_id);
+    @Query("DELETE FROM diagnosticservice WHERE id = :id")
+    abstract void deleteById(int id);
 
     @Query("UPDATE diagnosticservice SET item_qty =:quantity ,item_subtotal=:total WHERE id =:id")
     void updateUser(int id,int quantity,int total);

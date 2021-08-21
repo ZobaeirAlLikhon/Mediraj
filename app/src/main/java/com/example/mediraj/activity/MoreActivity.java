@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -68,24 +69,16 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.cart:
-                        startActivity(new Intent(getApplicationContext(), CartActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.history:
-                        startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.more:
-                        return true;
-                }
-
-                return false;
+                int itemId = item.getItemId();
+                if (itemId == R.id.home) {
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if (itemId == R.id.cart) {
+                    startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else return itemId == R.id.more;
             }
         });
 
@@ -115,13 +108,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         emergencyLay.setOnClickListener(this);
         aboutLay.setOnClickListener(this);
 
-        emergencyLay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MoreActivity.this,EmergencyNumberActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         //api interface initialization
         apiInterface = APiClient.getClient().create(ApiInterface.class);
@@ -165,29 +152,19 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.profileLay:
-                startActivity(new Intent(this,ProfileActivity.class));
-                overridePendingTransition(0,0);
-                break;
-            case R.id.offerLay:
-                //go to offer page
-                break;
-            case R.id.promoLay:
-                //go to promo page
-                break;
-            case R.id.aboutLay:
-                //go to about us page
-                break;
-            case R.id.emergencyLay:
-                //go to caller
-                break;
-            case R.id.devTeam:
-                //go to dev team
-                break;
-            case R.id.logoutLay:
-                alertLogout();
-                break;
+        int id = v.getId();
+        if (id == R.id.profileLay) {
+            startActivity(new Intent(this, ProfileActivity.class));
+            overridePendingTransition(0, 0);
+        } else if (id == R.id.offerLay) {//go to offer page
+        } else if (id == R.id.promoLay) {//go to promo page
+        } else if (id == R.id.aboutLay) {//go to about us page
+        } else if (id == R.id.emergencyLay) {
+            Intent intent = new Intent(MoreActivity.this,EmergencyNumberActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.devTeam) {//go to dev team
+        } else if (id == R.id.logoutLay) {
+            alertLogout();
         }
     }
 
@@ -247,5 +224,16 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        int seletedItemId = bottomNavigationView.getSelectedItemId();
+        if (R.id.home != seletedItemId) {
+            bottomNavigationView.setSelectedItemId(R.id.home);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
 
 }

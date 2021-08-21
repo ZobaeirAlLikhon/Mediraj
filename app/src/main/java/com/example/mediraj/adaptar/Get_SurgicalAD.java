@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.AllSurgicalModel;
@@ -44,15 +45,18 @@ public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull @NotNull Get_SurgicalAD.MyViewHolder holder, int position) {
         if (allSurgicalModels.get(position).getIsChecked()){
-            holder.cartAdded.setVisibility(View.VISIBLE);
-            holder.addToCart_btn.setVisibility(View.GONE);
+            holder.addToCart_btn.setText("cart added");
+            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
-            holder.addToCart_btn.setVisibility(View.VISIBLE);
-            holder.cartAdded.setVisibility(View.GONE);
+            holder.addToCart_btn.setText("add to cart");
+            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
         }
         holder.surgical_name.setText(allSurgicalModels.get(position).getTitle());
         holder.surgical_price.setText(String.valueOf(allSurgicalModels.get(position).getPrice()));
-        Glide.with(context).load(Constant.SURGICAL_AVATAR_URL +allSurgicalModels.get(position).getLogo()).into(holder.circleImageView);
+        Glide.with(context)
+                .load(Constant.SURGICAL_AVATAR_URL +allSurgicalModels.get(position).getLogo())
+                .apply(new RequestOptions().placeholder(R.drawable.ic_surgical1))
+                .into(holder.circleImageView);
 
     }
 
@@ -76,28 +80,19 @@ public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHo
             diagnostic_love=itemView.findViewById(R.id.diagonstic_love);
             cartAdded = itemView.findViewById(R.id.cartAdded);
 
-            //on click listener on addToCartBtn
+
             addToCart_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!allSurgicalModels.get(getAdapterPosition()).getIsChecked()){
+                    if (!allSurgicalModels.get(getAdapterPosition()).getIsChecked()) {
                         allSurgicalModels.get(getAdapterPosition()).setIsChecked(true);
-                        onSurgicalClick.sendOrDeleteData_surgical(getAdapterPosition(),"add");
-                        notifyDataSetChanged();
-                    }
-
-                }
-            });
-
-            //on click listener on cartAdded
-            cartAdded.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (allSurgicalModels.get(getAdapterPosition()).getIsChecked()){
+                        onSurgicalClick.sendOrDeleteData_surgical(getAdapterPosition(), "add");
+                    } else {
                         allSurgicalModels.get(getAdapterPosition()).setIsChecked(false);
-                        onSurgicalClick.sendOrDeleteData_surgical(getAdapterPosition(),"delete");
-                        notifyDataSetChanged();
+                        onSurgicalClick.sendOrDeleteData_surgical(getAdapterPosition(), "delete");
+
                     }
+                    notifyDataSetChanged();
                 }
             });
 

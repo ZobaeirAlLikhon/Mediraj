@@ -1,8 +1,10 @@
 package com.example.mediraj.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +19,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class CartActivity extends AppCompatActivity {
 
-    private TabLayout tabLayout;
+    private  TabLayout tabLayout;
     private ViewPager viewPager;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +30,22 @@ public class CartActivity extends AppCompatActivity {
         initView();
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.cart);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.cart:
-                        return true;
-                    case R.id.history:
-                        startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.more:
-                        startActivity(new Intent(getApplicationContext(), MoreActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                int itemId = item.getItemId();
+                if (itemId == R.id.home) {
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if (itemId == R.id.cart) {
+                    return true;
+                } else if (itemId == R.id.more) {
+                    startActivity(new Intent(getApplicationContext(), MoreActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
                 }
 
                 return false;
@@ -93,17 +92,33 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void switchToTab(String tab){
-        if (tab.equals("")){
-            Log.e("no data","no data found");
-        } else if(tab.equals("1")){
-            viewPager.setCurrentItem(0);
-        }else if(tab.equals("2")){
-            viewPager.setCurrentItem(1);
-        }else if(tab.equals("3")){
-            viewPager.setCurrentItem(2);
+        switch (tab) {
+            case "":
+                Log.e("no data", "no data found");
+                break;
+            case "1":
+                viewPager.setCurrentItem(0);
+                break;
+            case "2":
+                viewPager.setCurrentItem(1);
+                break;
+            case "3":
+                viewPager.setCurrentItem(2);
+                break;
         }
     }
 
+
+    @Override
+    public void onBackPressed() {
+        int seletedItemId = bottomNavigationView.getSelectedItemId();
+        if (R.id.home != seletedItemId) {
+           bottomNavigationView.setSelectedItemId(R.id.home);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
 
 
 }

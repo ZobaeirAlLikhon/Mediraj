@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.AllPathologyModel;
@@ -43,42 +44,19 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
     @Override
     public void onBindViewHolder(@NonNull @NotNull HomePathologyAdapter.MyViewHoldr holder, int position) {
         if (allPathologyModels.get(position).isChecked()){
-            holder.cartAdded.setVisibility(View.VISIBLE);
-            holder.pathology_Cart_btn.setVisibility(View.GONE);
+            holder.pathology_Cart_btn.setText("cart added");
+            holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
-            holder.pathology_Cart_btn.setVisibility(View.VISIBLE);
-            holder.cartAdded.setVisibility(View.GONE);
+            holder.pathology_Cart_btn.setText("add to cart");
+            holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
         }
 
         holder.pathology_name.setText(allPathologyModels.get(position).getTitle());
         holder.pathology_price.setText(String.valueOf(allPathologyModels.get(position).getPrice()));
-        Glide.with(context).load(Constant.Pathology_AVATAR_URL +allPathologyModels.get(position).getLogo()).into(holder.circleImageView);
-        //add to cart button on click
-        holder.pathology_Cart_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               if(!allPathologyModels.get(holder.getAdapterPosition()).isChecked())
-               {
-                   allPathologyModels.get(holder.getAdapterPosition()).setChecked(true);
-                   pathologyClickInterface.sendOrDelete(holder.getAdapterPosition(),"add");
-                   notifyDataSetChanged();
-
-               }
-            }
-        });
-        holder.cartAdded.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(allPathologyModels.get(holder.getAdapterPosition()).isChecked())
-                {
-                    allPathologyModels.get(holder.getAdapterPosition()).setChecked(false);
-                    pathologyClickInterface.sendOrDelete(holder.getAdapterPosition(),"delete");
-                    notifyDataSetChanged();
-
-                }
-            }
-        });
-
+        Glide.with(context)
+                .load(Constant.Pathology_AVATAR_URL +allPathologyModels.get(position).getLogo())
+                .apply(new RequestOptions().placeholder(R.drawable.ic_pathology_1))
+                .into(holder.circleImageView);
     }
 
     @Override
@@ -100,6 +78,23 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
             pathology_Cart_btn=itemView.findViewById(R.id.addToCart_btn);
             cartAdded=itemview.findViewById(R.id.cartAdded);
             pathology_love=itemView.findViewById(R.id.diagonstic_love);
+
+            //on click listener on addToCartBtn
+            pathology_Cart_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!allPathologyModels.get(getAdapterPosition()).isChecked()) {
+                        allPathologyModels.get(getAdapterPosition()).setChecked(true);
+                        pathologyClickInterface.sendOrDelete(getAdapterPosition(), "add");
+                    } else {
+                        allPathologyModels.get(getAdapterPosition()).setChecked(false);
+                        pathologyClickInterface.sendOrDelete(getAdapterPosition(), "delete");
+
+                    }
+                    notifyDataSetChanged();
+                }
+            });
+
 
         }
     }

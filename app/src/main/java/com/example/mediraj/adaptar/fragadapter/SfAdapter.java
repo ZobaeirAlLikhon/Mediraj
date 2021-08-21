@@ -22,12 +22,14 @@ import java.util.List;
 public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
     Context context;
     List<SurgicalService> dataList;
+    SfItemClick sfItemClick;
     AppDatabase db;
     int productQuantity;
 
-    public SfAdapter(Context context, List<SurgicalService> dataList) {
+    public SfAdapter(Context context, List<SurgicalService> dataList, SfItemClick sfItemClick) {
         this.context = context;
         this.dataList = dataList;
+        this.sfItemClick = sfItemClick;
     }
 
     @NonNull
@@ -54,7 +56,7 @@ public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title, detail, price, quantity;
-        ImageView plus, minus;
+        ImageView plus, minus,delete;
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.pTitle);
@@ -63,6 +65,7 @@ public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
             quantity = itemView.findViewById(R.id.start_quantity);
             plus = itemView.findViewById(R.id.btnplus);
             minus = itemView.findViewById(R.id.btnminus);
+            delete = itemView.findViewById(R.id.deleteItem);
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -92,6 +95,22 @@ public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
                     notifyDataSetChanged();
                 }
             });
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    db.surgicalServiceDao().deleteById_Surgical(dataList.get(getAdapterPosition()).getId());
+                    int pos = getAdapterPosition();
+                    dataList.remove(pos);
+                    notifyItemRemoved(pos);
+                    notifyItemRangeChanged(pos,dataList.size());
+                    sfItemClick.senDataSize(dataList.size());
+                }
+            });
         }
+    }
+
+    public interface SfItemClick{
+        void senDataSize(int size);
     }
 }

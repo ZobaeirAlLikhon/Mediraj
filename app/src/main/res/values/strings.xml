@@ -6,7 +6,6 @@
     <string name="phone_number">Phone Number</string>
     <string name="email">Email</string>
     <string name="name">Full Name</string>
-    <string name="last_name">Last Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
@@ -20,44 +19,28 @@
     <string name="userPhone_error_number">Phone Number Start with 0</string>
     <string name="internet_connect_msg">Please Connect to Internet</string>
     <string name="please_wait">please Wait...</string>
-    <string name="error_api">Error Try Again!</string>
     <string name="category_image">category Image</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="recover_your_password">Enter the phone number associate with your account and we\'ll send an OTP code to your phone number.</string>
     <string name="send_instruction">Send Reset Code</string>
-    <string name="recover_password">Recover Password</string>
-    <string name="recover_password_con">We have send an email with a reset code to recover your password.</string>
-    <string name="check_your_email">Check your email</string>
-    <string name="open_your_email">Open Your Email</string>
-    <string name="or_try_another_email_address">Did not receive email? Check your spam,\n or <font color='#0091EA'><b>try another email address</b></font></string>
-    <string name="reset_password">Reset Password</string>
-    <string name="pressed_reset">If you had received the reset code via email pressed the below button.</string>
-    <string name="reset_code">Reset Code</string>
     <string name="new_password">Enter New Password</string>
     <string name="submit">Submit</string>
     <string name="reset_msg">Please enter the reset code sent to</string>
-    <string name="dummyText">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
-        Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy.
-        Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
-    <string name="patients">Patients</string>
-    <string name="experience">Experience</string>
-    <string name="about_doctor">About Doctor</string>
-    <string name="working_time">Working Time</string>
     <string name="address_not_available">User address not available</string>
     <string name="address_not_gender">not available</string>
     <string name="address_not_dob">not available</string>
     <string name="address">Address</string>
     <string name="dob">Date of Birth</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="medi_service">Medicine Service</string>
     <string name="ds">Diagnostic Service</string>
     <string name="no_data_found">No Data Found</string>
     <string name="moneySymbol">\u09F3</string>
     <string name="addtocart">Added to cart</string>
     <string name="removecart">Remove from cart</string>
-    <string name="network_failure">Please Connect to internet</string>
     <string name="error">Failed to connect, connect to internet!</string>
     <string name="doctorlist">Doctor List</string>
+    <string name="hp">Home Pathology</string>
+    <string name="md">Medical Device</string>
 
 </resources>

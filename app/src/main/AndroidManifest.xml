@@ -34,7 +34,6 @@
         <activity android:name=".activity.EditProfileActivity" />
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.MoreActivity" />
-        <activity android:name=".activity.HistoryActivity" />
         <activity android:name=".activity.CartActivity" />
         <activity android:name=".activity.DoctorListActivity" />
         <activity

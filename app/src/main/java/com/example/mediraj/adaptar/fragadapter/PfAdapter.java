@@ -21,12 +21,14 @@ import java.util.List;
 public class PfAdapter extends RecyclerView.Adapter<PfAdapter.ViewHolder> {
     Context context;
     List<PathologyServices> dataList;
+    PfItemClick pfItemClick;
     AppDatabase db;
     int productQuantity;
 
-    public PfAdapter(Context context, List<PathologyServices> dataList) {
+    public PfAdapter(Context context, List<PathologyServices> dataList, PfItemClick pfItemClick) {
         this.context = context;
         this.dataList = dataList;
+        this.pfItemClick = pfItemClick;
     }
 
     @NonNull
@@ -53,7 +55,7 @@ public class PfAdapter extends RecyclerView.Adapter<PfAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title, detail, price, quantity;
-        ImageView plus, minus;
+        ImageView plus, minus,delete;
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.pTitle);
@@ -62,6 +64,8 @@ public class PfAdapter extends RecyclerView.Adapter<PfAdapter.ViewHolder> {
             quantity = itemView.findViewById(R.id.start_quantity);
             plus = itemView.findViewById(R.id.btnplus);
             minus = itemView.findViewById(R.id.btnminus);
+            delete = itemView.findViewById(R.id.deleteItem);
+
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -91,6 +95,23 @@ public class PfAdapter extends RecyclerView.Adapter<PfAdapter.ViewHolder> {
                     notifyDataSetChanged();
                 }
             });
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    db.pathologyServicesDao().deleteByIdPath(dataList.get(getAdapterPosition()).getId());
+                    int pos = getAdapterPosition();
+                    dataList.remove(pos);
+                    notifyItemRemoved(pos);
+                    notifyItemRangeChanged(pos,dataList.size());
+                    pfItemClick.senDataSize(dataList.size());
+                }
+            });
         }
     }
+
+    public interface PfItemClick{
+        void senDataSize(int size);
+    }
+
 }
