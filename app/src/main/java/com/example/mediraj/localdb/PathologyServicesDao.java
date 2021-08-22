@@ -25,4 +25,7 @@ public interface PathologyServicesDao {
 
     @Query("SELECT item_id,item_unit,item_qty,item_price,item_subtotal FROM pathology")
     List<Checkout> getCheckoutDataPath();
+
+    @Query("delete from pathology where id in (:idList)")
+    void deleteByIdList(List<Long> idList);
 }

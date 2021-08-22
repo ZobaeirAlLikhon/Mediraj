@@ -18,7 +18,7 @@
     <string name="userPhone_error_valid">Please Enter Valid Phone Number</string>
     <string name="userPhone_error_number">Phone Number Start with 0</string>
     <string name="internet_connect_msg">Please Connect to Internet</string>
-    <string name="please_wait">please Wait...</string>
+    <string name="please_wait">please Wait&#8230;</string>
     <string name="category_image">category Image</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="recover_your_password">Enter the phone number associate with your account and we\'ll send an OTP code to your phone number.</string>
@@ -42,5 +42,24 @@
     <string name="doctorlist">Doctor List</string>
     <string name="hp">Home Pathology</string>
     <string name="md">Medical Device</string>
+    <string name="order">Checkout</string>
+    <string name="please_enter_your_address">Please Enter Your Address</string>
+    <string name="confirm_order">Confirm order</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="total_price">Total Price</string>
+    <string name="order_price">Order price</string>
+    <string name="order_items">Order items</string>
+    <string name="order_item">Order Item</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="alert_logout">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="order_con_msg">Are you confirming your order?</string>
+    <string name="rajshahi_police">Rajshahi Metropolitan Police Headquarters</string>
+    <string name="fire_service">Fire Service Station Rajshahi</string>
+    <string name="emegency_contact">Rajshahi Emegency Contact</string>
 
 </resources>

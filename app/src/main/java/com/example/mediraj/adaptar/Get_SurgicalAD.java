@@ -52,7 +52,7 @@ public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHo
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
         }
         holder.surgical_name.setText(allSurgicalModels.get(position).getTitle());
-        holder.surgical_price.setText(String.valueOf(allSurgicalModels.get(position).getPrice()));
+        holder.surgical_price.setText(context.getString(R.string.moneySymbol)+" "+String.valueOf(allSurgicalModels.get(position).getPrice()));
         Glide.with(context)
                 .load(Constant.SURGICAL_AVATAR_URL +allSurgicalModels.get(position).getLogo())
                 .apply(new RequestOptions().placeholder(R.drawable.ic_surgical1))

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
@@ -171,15 +172,15 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
 
     public void alertLogout() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MoreActivity.this);
-        alertDialog.setTitle("Are you sure you want to logout ?");
-        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alertDialog.setTitle(R.string.alert_logout);
+        alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 SessionManager.logout(MoreActivity.this, apiInterface);
             }
         });
-        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -194,17 +195,15 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         Call<UserData> notiStatusCall = apiInterface.notificationStatus(Constant.AUTH, id);
         notiStatusCall.enqueue(new Callback<UserData>() {
             @Override
-            public void onResponse(Call<UserData> call, Response<UserData> response) {
+            public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     UserData data = response.body();
+                    assert data != null;
                     if (data.response == 200) {
-                        String dataResponse = new Gson().toJson(response.body());
-                        Log.e(TAG,"Login response : "+dataResponse);
-                        SessionManager.writeString(MoreActivity.this,Constant.USER_INFO,dataResponse);
                         Toast.makeText(getApplicationContext(), data.message, Toast.LENGTH_SHORT).show();
 
-                    } else if (data.response.equals("0")) {
+                    } else{
                         Toast.makeText(MoreActivity.this, data.message, Toast.LENGTH_SHORT).show();
                     }
 
@@ -215,7 +214,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onFailure(Call<UserData> call, Throwable t) {
+            public void onFailure(@NonNull Call<UserData> call, @NonNull Throwable t) {
                 call.cancel();
                 DataManager.getInstance().hideProgressMessage();
             }
@@ -227,8 +226,8 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        int seletedItemId = bottomNavigationView.getSelectedItemId();
-        if (R.id.home != seletedItemId) {
+        int selectedItemId = bottomNavigationView.getSelectedItemId();
+        if (R.id.home != selectedItemId) {
             bottomNavigationView.setSelectedItemId(R.id.home);
         }
         else {

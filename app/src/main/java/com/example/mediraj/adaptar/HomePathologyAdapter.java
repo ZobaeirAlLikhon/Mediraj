@@ -52,7 +52,7 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
         }
 
         holder.pathology_name.setText(allPathologyModels.get(position).getTitle());
-        holder.pathology_price.setText(String.valueOf(allPathologyModels.get(position).getPrice()));
+        holder.pathology_price.setText(context.getString(R.string.moneySymbol)+" "+String.valueOf(allPathologyModels.get(position).getPrice()));
         Glide.with(context)
                 .load(Constant.Pathology_AVATAR_URL +allPathologyModels.get(position).getLogo())
                 .apply(new RequestOptions().placeholder(R.drawable.ic_pathology_1))

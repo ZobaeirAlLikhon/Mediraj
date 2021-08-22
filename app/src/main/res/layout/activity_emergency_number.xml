@@ -29,11 +29,12 @@
                 android:id="@+id/emer_num"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rajshahi Emegency Contact"
-                android:textSize="24sp"
-                android:textColor="@color/black"
                 android:fontFamily="@font/noto_sans"
-                android:layout_marginStart="12dp"/>
+                android:text="@string/emegency_contact"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="22sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_one"
@@ -48,15 +49,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
+
                     <TextView
                         android:id="@+id/fire_num"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fire Service Station Rajshahi"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/noto_sans"
-                        android:layout_marginStart="3dp"/>
+                        android:text="@string/fire_service"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -98,8 +101,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
-                                android:textColor="@color/black"
-                                android:backgroundTint="@color/teal_200"
+                                android:textColor="@color/white"
+                                android:backgroundTint="@color/primaryColor"
                                 android:text="Call"
                                 android:padding="5dp" />
                         </LinearLayout>
@@ -122,15 +125,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp">
+
                     <TextView
                         android:id="@+id/police_num"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Rajshahi Metropolitan Police Headquarters"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
+                        android:layout_marginStart="3dp"
                         android:fontFamily="@font/noto_sans"
-                        android:layout_marginStart="3dp"/>
+                        android:text="@string/rajshahi_police"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -170,8 +175,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
-                                android:textColor="@color/black"
-                                android:backgroundTint="@color/teal_200"
+                                android:textColor="@color/white"
+                                android:backgroundTint="@color/primaryColor"
                                 android:text="Call"
                                 android:padding="5dp" />
                         </LinearLayout>

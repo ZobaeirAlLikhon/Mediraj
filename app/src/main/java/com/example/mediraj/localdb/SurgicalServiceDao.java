@@ -24,4 +24,7 @@ public interface SurgicalServiceDao {
 
     @Query("SELECT item_id,item_unit,item_qty,item_price,item_subtotal FROM surgical_services")
     List<Checkout> getCheckoutData_surgical();
+
+    @Query("delete from surgical_services where id in (:idList)")
+    void deleteByIdList(List<Long> idList);
 }

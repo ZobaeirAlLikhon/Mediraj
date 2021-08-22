@@ -13,6 +13,7 @@ import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.model.MedicinRequestModel;
+import com.example.mediraj.model.ProductConfirmation;
 import com.example.mediraj.model.UserData;
 import com.example.mediraj.model.checkout.CheckoutModel;
 
@@ -125,13 +126,20 @@ public interface ApiInterface {
     @POST("medicine/add-request")
     Call<MedicinRequestModel> medicine_services(@Header("Authorization") String auth,
                                                 @PartMap Map<String,RequestBody> params,
-                                                @Part MultipartBody.Part file
-    );
+                                                @Part MultipartBody.Part file);
 
     //api for checkout
-    @POST("surgical/checkout")
-    Call<CheckoutResModel> sendCheckoutProductData(@Header("Authorization") String auth,
+    @POST("diagnostic/checkout")
+    Call<ProductConfirmation> sendCheckoutDiagnostic(@Header("Authorization") String auth,
+                                                     @Body CheckoutModel checkoutModel);
+
+    @POST("pathology/checkout")
+    Call<ProductConfirmation> sendCheckoutPathology(@Header("Authorization") String auth,
                                                    @Body CheckoutModel checkoutModel);
+
+    @POST("surgical/checkout")
+    Call<ProductConfirmation> sendCheckoutSurgical(@Header("Authorization") String auth,
+                                                 @Body CheckoutModel checkoutModel);
 
 
 }

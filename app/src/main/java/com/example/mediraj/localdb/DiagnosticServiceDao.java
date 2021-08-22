@@ -32,6 +32,6 @@ public interface DiagnosticServiceDao {
     List<Checkout> getCheckoutData();
 
     @Query("delete from diagnosticservice where id in (:idList)")
-    void deleteDataInTimestamp(List<Long> idList);
+    void deleteByIdList(List<Long> idList);
 
 }

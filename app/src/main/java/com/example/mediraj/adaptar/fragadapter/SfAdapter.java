@@ -78,7 +78,7 @@ public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
                         productQuantity -= 1;
                         dataList.get(getAdapterPosition()).setItem_qty(String.valueOf(productQuantity));
                         dataList.get(getAdapterPosition()).setItem_subtotal(productQuantity * dataList.get(getAdapterPosition()).getItem_price());
-                        db.pathologyServicesDao().updateUserPath(dataList.get(getAdapterPosition()).getId(),productQuantity,productQuantity * dataList.get(getAdapterPosition()).getItem_price());
+                        db.surgicalServiceDao().updateUser_surgical(dataList.get(getAdapterPosition()).getId(),productQuantity,productQuantity * dataList.get(getAdapterPosition()).getItem_price());
                     }
                     notifyDataSetChanged();
                 }
@@ -91,7 +91,7 @@ public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
                     productQuantity += 1;
                     dataList.get(getAdapterPosition()).setItem_qty(String.valueOf(productQuantity));
                     dataList.get(getAdapterPosition()).setItem_subtotal(productQuantity * dataList.get(getAdapterPosition()).getItem_price());
-                    db.pathologyServicesDao().updateUserPath(dataList.get(getAdapterPosition()).getId(),productQuantity,productQuantity * dataList.get(getAdapterPosition()).getItem_price());
+                    db.surgicalServiceDao().updateUser_surgical(dataList.get(getAdapterPosition()).getId(),productQuantity,productQuantity * dataList.get(getAdapterPosition()).getItem_price());
                     notifyDataSetChanged();
                 }
             });

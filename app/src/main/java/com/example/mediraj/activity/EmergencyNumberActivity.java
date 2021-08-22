@@ -14,7 +14,6 @@ import com.google.android.material.button.MaterialButton;
 public class EmergencyNumberActivity extends AppCompatActivity {
 
     private TextView fire;
-
     private Button btnfire;
 
     @Override
