@@ -41,30 +41,41 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Medicine Here"
-                    android:textColor="@color/purple_200"
+                    android:text="@string/medicine"
+                    android:textColor="@color/battleship_grey"
                     android:textSize="24sp"
                     android:textStyle="bold" />
-                <ImageView
-                    android:id="@+id/imgpres"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:src="@mipmap/ic_launcher"/>
 
-                <TextView
+
+                <androidx.cardview.widget.CardView
                     android:id="@+id/cameraBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:drawableLeft="@drawable/ic_baseline_camera"
-                    android:drawablePadding="2dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:padding="2dp"
-                    android:text="upload Prescription"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:layout_width="240dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="#fafafa"
+                    android:layout_gravity="center_horizontal"
+                    app:cardCornerRadius="10dp">
+
+                    <TextView
+                        android:id="@+id/imgAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upload_prescription"
+                        android:drawablePadding="2dp"
+                        android:textSize="16sp"
+                        android:textColor="@color/battleship_grey"
+                        android:fontFamily="@font/noto_sans"
+                        android:layout_gravity="center"
+                        app:drawableLeftCompat="@drawable/ic_baseline_camera" />
+
+                    <ImageView
+                        android:id="@+id/imgpres"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"
+                        android:contentDescription="@string/upload_prescription" />
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,8 +83,10 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/noto_sans"
-                    android:text="OR"
-                    android:textSize="20sp"/>
+                    android:text="@string/or"
+                    android:textColor="@color/battleship_grey"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -82,7 +95,7 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="12dp"
-                    android:hint="Medicine Name(optional)"
+                    android:hint="@string/medicine_name_optional"
                     app:helperText="Suggest: Tab: Ace Plus -500mg (4 pcs)"
                     app:endIconMode="clear_text"
                     app:errorEnabled="false">
@@ -119,7 +132,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Enter Your Address"
+                            android:hint="@string/address"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -133,7 +146,8 @@
                         android:layout_gravity="center"
                         android:layout_weight=".1"
                         android:padding="5dp"
-                        android:src="@drawable/ic_address" />
+                        android:src="@drawable/ic_address"
+                        android:contentDescription="@string/address" />
                 </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -151,7 +165,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
-                        android:hint="Enter Your Phone Number"
+                        android:hint="@string/phone_number"
                         android:imeOptions="actionNext"
                         android:inputType="phone"
                         app:mask="+88 #####-######"
@@ -173,22 +187,22 @@
                         android:id="@+id/sendBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/primaryColor"
                         android:drawableLeft="@drawable/ic_baseline_send"
                         android:drawablePadding="2dp"
-                        android:text="send now" />
+                        android:text="@string/send_now" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/callBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/primaryColor"
-                        android:drawableLeft="@drawable/ic_baseline_call"
-                        android:text="call now" />
+                        android:drawableLeft="@drawable/ic_phone_24"
+                        android:text="@string/call_now" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

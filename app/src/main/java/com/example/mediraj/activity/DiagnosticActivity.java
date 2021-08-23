@@ -2,7 +2,6 @@ package com.example.mediraj.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -127,11 +126,9 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
         if (id == R.id.toolbarBtn) {
             finish();
-            overridePendingTransition(0, 0);
         } else if (id == R.id.goToCart) {
             startActivity(new Intent(this, CartActivity.class).putExtra("index", "1"));
             finish();
-            overridePendingTransition(0, 0);
         }
 
     }

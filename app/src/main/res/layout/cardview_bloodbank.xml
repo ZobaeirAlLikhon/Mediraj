@@ -28,9 +28,9 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/cirIM_blood"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/bloodbank" />
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_blood_drop" />
             </LinearLayout>
 
             <LinearLayout
@@ -47,8 +47,10 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:layout_marginStart="2dp"
+                    android:fontFamily="@font/noto_sans"
+                    android:textColor="@color/battleship_grey"
                     android:text="Blood Name"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
 <!--                <TextView-->
 <!--                    android:id="@+id/bloodprice"-->
@@ -75,14 +77,16 @@
                     android:layout_height="35dp"
                     android:layout_gravity="end"
                     android:padding="5dp"
+                    android:visibility="invisible"
                     android:src="@drawable/ic_baseline_love" />
                 <Button
                     android:id="@+id/request_btn_blood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light_green"
+                    android:backgroundTint="@color/primaryColor"
+                    android:fontFamily="@font/noto_sans"
                     android:text="Request"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

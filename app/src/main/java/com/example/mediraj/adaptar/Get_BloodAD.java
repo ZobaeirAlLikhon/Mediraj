@@ -42,17 +42,6 @@ public class Get_BloodAD extends RecyclerView.Adapter<Get_BloodAD.MyViewHolder> 
     public void onBindViewHolder(@NonNull @NotNull Get_BloodAD.MyViewHolder holder, int position) {
         holder.bloodname.setText(allBloodModels.get(position).getTitle());
 
-        holder.request_btn_blood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, BloodBookingctivity.class);
-                intent.putExtra("groupID",allBloodModels.get(position).getId());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
-
-
     }
 
     @Override
@@ -73,6 +62,16 @@ public class Get_BloodAD extends RecyclerView.Adapter<Get_BloodAD.MyViewHolder> 
             bloodname=itemView.findViewById(R.id.bloodname);
             request_btn_blood=itemView.findViewById(R.id.request_btn_blood);
             blood_love=itemView.findViewById(R.id.blood_love);
+
+            request_btn_blood.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, BloodBookingctivity.class);
+                    intent.putExtra("groupID", allBloodModels.get(getAdapterPosition()).getId());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

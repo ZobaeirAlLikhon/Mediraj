@@ -27,6 +27,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -46,7 +47,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -80,7 +80,8 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     private static final int MY_PERMISSION_CONSTANT =3 ;
     private static final String TAG = MedicineService.class.getName();
     private MaterialButton send_btn, call_btn;
-    private TextView camera_btn,toolbarTxt;
+    private TextView toolbarTxt,uploadText;
+    private CardView camera_btn;
     private TextInputEditText medName, userLocation;
     private MaskEditText userCell;
     private ImageView imageView,fetchAddress,ivBack;
@@ -116,7 +117,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         //initialize image view
         imageView = findViewById(R.id.imgpres);
         fetchAddress = findViewById(R.id.fetchAddress);
-
+        uploadText = findViewById(R.id.imgAdd);
         ivBack = findViewById(R.id.toolbarBtn);
         toolbarTxt = findViewById(R.id.toolbarText);
 
@@ -169,7 +170,6 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             }
         }else if (id==R.id.toolbarBtn){
             finish();
-            overridePendingTransition(0,0);
         }
 
     }
@@ -233,15 +233,15 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         Call<MedicinRequestModel> medCall = apiInterface.medicine_services(Constant.AUTH, map, filePart);
         medCall.enqueue(new Callback<MedicinRequestModel>() {
             @Override
-            public void onResponse(Call<MedicinRequestModel> call, Response<MedicinRequestModel> response) {
+            public void onResponse(@NonNull Call<MedicinRequestModel> call, @NonNull Response<MedicinRequestModel> response) {
                 DataManager.getInstance().hideProgressMessage();
-                Log.e("Success.......", response.body().getMessage());
+                //TODO go to history page
             }
 
             @Override
-            public void onFailure(Call<MedicinRequestModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<MedicinRequestModel> call, @NonNull Throwable t) {
                 DataManager.getInstance().hideProgressMessage();
-                Log.e("Failed.......", t.toString());
+                call.cancel();
             }
         });
 
@@ -362,6 +362,8 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 Bitmap bitmap = BitmapFactory.decodeFile(str_image_path, options);
+                uploadText.setVisibility(View.GONE);
+                imageView.setVisibility(View.VISIBLE);
                 imageView.setImageBitmap(bitmap);
                 Log.e("cropped", str_image_path);
             }
@@ -471,7 +473,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
                 strAdd = strReturnedAddress.toString();
                 Log.w(TAG,"My Current loction address"+strReturnedAddress.toString());
             } else {
-                Log.w(TAG,"My Current loction address "+"No Address returned!");
+                Log.w(TAG,"My Current location address "+"No Address returned!");
 
             }
         } catch (Exception e) {

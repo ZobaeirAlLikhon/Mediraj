@@ -36,7 +36,7 @@ public class GetDepartmentAD extends RecyclerView.Adapter<GetDepartmentAD.MyView
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull GetDepartmentAD.MyViewHolder holder, int position) {
-        holder.depart_name.setText(allDepartmentModel.get(position).getTitle());
+        holder.depart_name.setText(allDepartmentModel.get(position).title);
 
     }
 

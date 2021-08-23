@@ -1,9 +1,5 @@
 package com.example.mediraj.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mediraj.R;
 import com.example.mediraj.helper.ConnectionManager;
@@ -115,16 +115,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnLogin:
-                validation();
-                break;
-            case R.id.forgotPass:
-                startActivity(new Intent(this, ForgetPassActivity.class));
-                break;
-            case R.id.signUpBtn:
-                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
-                break;
+        int id = v.getId();
+        if (id == R.id.btnLogin) {
+            validation();
+        } else if (id == R.id.forgotPass) {
+            startActivity(new Intent(this, ForgetPassActivity.class));
+        } else if (id == R.id.signUpBtn) {
+            startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
         }
     }
 
@@ -169,11 +166,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Call<UserData> loginCall = apiInterface.userLogIn(Constant.AUTH,map);
         loginCall.enqueue(new Callback<UserData>() {
             @Override
-            public void onResponse(Call<UserData> call, Response<UserData> response) {
+            public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
                 DataManager.getInstance().hideProgressMessage();
 
                 try {
                     UserData userData = response.body();
+                    assert userData != null;
                     if (userData.response==200){
                         String dataResponse = new Gson().toJson(response.body());
                         Log.e(TAG,"Login response : "+dataResponse);
@@ -191,7 +189,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
 
             @Override
-            public void onFailure(Call<UserData> call, Throwable t) {
+            public void onFailure(@NonNull Call<UserData> call, @NonNull Throwable t) {
                 call.cancel();
                 DataManager.getInstance().hideProgressMessage();
             }

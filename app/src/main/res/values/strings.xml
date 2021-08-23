@@ -61,5 +61,20 @@
     <string name="rajshahi_police">Rajshahi Metropolitan Police Headquarters</string>
     <string name="fire_service">Fire Service Station Rajshahi</string>
     <string name="emegency_contact">Rajshahi Emegency Contact</string>
+    <string name="bb">BloodBank</string>
+    <string name="confirm_request">Confirm Request</string>
+    <string name="contact">Contact</string>
+    <string name="user_name">Name</string>
+    <string name="br">Blood Request</string>
+    <string name="search">Search&#8230;</string>
+    <string name="descripsation">Descripsation</string>
+    <string name="doctor_name">Doctor Name</string>
+    <string name="place">Place</string>
+    <string name="medicine">Medicine</string>
+    <string name="upload_prescription">upload Prescription</string>
+    <string name="or">OR</string>
+    <string name="medicine_name_optional">Medicine Name(optional)</string>
+    <string name="send_now">send now</string>
+    <string name="call_now">call now</string>
 
 </resources>

@@ -47,12 +47,13 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:textColor="@color/battleship_grey"
                         android:layout_marginStart="12dp"
                         android:layout_marginBottom="6dp"
                         android:layout_marginEnd="12dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout
-
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -67,7 +68,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Name"
+                            android:hint="@string/user_name"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -91,7 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Contact"
+                            android:hint="@string/contact"
                             android:imeOptions="actionNext"
                             android:inputType="text|phone"
                             app:mask="+88 #####-######"
@@ -117,10 +118,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Address"
+                            android:hint="@string/address"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
-                            tools:ignore="Autofill" />
+                            tools:ignore="Autofill"
+                            android:layout_marginBottom="15dp"/>
 
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -142,7 +144,7 @@
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/primaryColor"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="10dp"
                 app:cardElevation="2dp">
 
                 <TextView
@@ -151,7 +153,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/noto_sans"
                     android:padding="8dp"
-                    android:text="Confirm Request"
+                    android:text="@string/confirm_request"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/white"
                     android:textColorHighlight="@color/white"

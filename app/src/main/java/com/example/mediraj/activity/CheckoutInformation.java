@@ -13,18 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.room.Query;
 
 import com.example.mediraj.R;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
-import com.example.mediraj.helper.SessionManager;
 import com.example.mediraj.localdb.AppDatabase;
 import com.example.mediraj.localdb.DiagnosticService;
 import com.example.mediraj.localdb.PathologyServices;
 import com.example.mediraj.localdb.SurgicalService;
-import com.example.mediraj.model.CheckoutResModel;
 import com.example.mediraj.model.ProductConfirmation;
 import com.example.mediraj.model.checkout.Checkout;
 import com.example.mediraj.model.checkout.CheckoutModel;
@@ -244,7 +241,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                     if (productConfirmation.response==200){
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.diagnosticServiceDao().deleteByIdList(productId);
-                        //go home page
+                        //TODO go to history page show product tracking
                     }else{
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                     }
@@ -283,7 +280,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                     if (productConfirmation.response==200){
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.pathologyServicesDao().deleteByIdList(productId);
-                        //go home page
+                        //TODO go to history page show product tracking
                     }else {
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                     }
@@ -320,7 +317,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                     if (productConfirmation.response==200){
                          Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.surgicalServiceDao().deleteByIdList(productId);
-                        //go home page
+                        //TODO go to history page show product tracking
                     }else{
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                     }

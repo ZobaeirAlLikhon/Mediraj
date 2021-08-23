@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
+import com.example.mediraj.helper.Constant;
 import com.example.mediraj.model.AllDoctorList;
-import com.example.mediraj.model.AllPathologyModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,11 +25,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class DoctorListAD extends RecyclerView.Adapter<DoctorListAD.MyViewHolder> {
 
     Context context;
-    List<AllDoctorList.Datum> allDoctorlistModels;
+    List<AllDoctorList.Datum> allDoctorListModels;
+    OnDocListClick onDocListClick;
 
-    public DoctorListAD(Context context, List<AllDoctorList.Datum> allDoctorlistModels) {
+    public DoctorListAD(Context context, List<AllDoctorList.Datum> allDoctorListModels, OnDocListClick onDocListClick) {
         this.context = context;
-        this.allDoctorlistModels = allDoctorlistModels;
+        this.allDoctorListModels = allDoctorListModels;
+        this.onDocListClick = onDocListClick;
     }
 
     @NonNull
@@ -38,24 +43,46 @@ public class DoctorListAD extends RecyclerView.Adapter<DoctorListAD.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {
-        holder.docNameTV.setText(allDoctorlistModels.get(position).getFullName());
-        holder.descriptionTV.setText(String.valueOf(allDoctorlistModels.get(position).getAboutDoctor()));
+
+
+        String workPlace = allDoctorListModels.get(position).getDesignation()+", "+ allDoctorListModels.get(position).getOrganization();
+        holder.docNameTV.setText(allDoctorListModels.get(position).getFullName());
+        holder.descriptionTV.setText(String.valueOf(allDoctorListModels.get(position).getDegree()));
+        holder.place.setText(workPlace);
+        Glide.with(context)
+                .load(Constant.DOCTOR_AVATAR_URL+ allDoctorListModels.get(position).getAvatar())
+                .apply(new RequestOptions().placeholder(R.drawable.ic_profile))
+                .into(holder.doctorImg);
 
     }
 
     @Override
-    public int getItemCount() { return allDoctorlistModels.size(); }
+    public int getItemCount() { return allDoctorListModels.size(); }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView circleview_doctor;
-        TextView docNameTV,descriptionTV;
+        CircleImageView doctorImg;
+        TextView docNameTV,descriptionTV,place;
+        AppCompatButton detailBtn;
         public MyViewHolder( View itemView) {
             super(itemView);
 
-            circleview_doctor=itemView.findViewById(R.id.circleview_doctor);
+            doctorImg =itemView.findViewById(R.id.circleview_doctor);
             docNameTV=itemView.findViewById(R.id.docNameTV);
             descriptionTV=itemView.findViewById(R.id.descriptionTV);
+            place = itemView.findViewById(R.id.place);
+            detailBtn = itemView.findViewById(R.id.detailBtn);
+
+            detailBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onDocListClick.sendData(allDoctorListModels.get(getAdapterPosition()).getId());
+                }
+            });
 
         }
+    }
+
+    public interface OnDocListClick{
+        void sendData(int id);
     }
 }

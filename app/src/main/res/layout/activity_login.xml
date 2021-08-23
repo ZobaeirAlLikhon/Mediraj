@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:fontFamily="@font/noto_sans"
-                    android:inputType="textPassword"/>
+                    android:inputType="numberPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

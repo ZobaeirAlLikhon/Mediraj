@@ -1,22 +1,21 @@
 package com.example.mediraj.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mediraj.R;
-import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.model.UserData;
@@ -31,7 +30,6 @@ import com.santalu.maskara.widget.MaskEditText;
 
 import java.util.HashMap;
 import java.util.Map;
-
 
 import retrofit2.Call;
 import retrofit2.Callback;

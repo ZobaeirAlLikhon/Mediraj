@@ -107,7 +107,7 @@ public interface ApiInterface {
 
     //get all Department
     @GET("department/all")
-    Call<AllDepartmentModel> allDepartmentServices(@Header("Authorization") String auth);
+    Call<AllDepartmentModel> allDepartment(@Header("Authorization") String auth);
 
     //get all Doctor
     @GET("doctor/all")

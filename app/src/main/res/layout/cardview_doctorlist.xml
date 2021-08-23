@@ -1,51 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     android:layout_margin="10dp"
-    app:cardElevation="5dp"
-    app:cardCornerRadius="3dp">
+    app:cardCornerRadius="3dp"
+    app:cardElevation="5dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleview_doctor"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_user"
-            />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_profile" />
 
-        <TextView
-            android:id="@+id/docNameTV"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="docName"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_toRightOf="@id/circleview_doctor"
+            android:layout_centerVertical="true"
             android:layout_toEndOf="@id/circleview_doctor"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"/>
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/descriptionTV"
+            <TextView
+                android:id="@+id/docNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/doctor_name"
+                android:textColor="@color/battleship_grey"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descriptionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/docNameTV"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/descripsation"
+                android:textColor="@color/battleship_grey"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/docNameTV"
+                android:fontFamily="@font/noto_sans"
+                android:text="@string/place"
+                android:textColor="@color/battleship_grey"
+                android:textSize="13dp" />
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/detailBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descripsation"
-            android:textSize="15sp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_toRightOf="@id/circleview_doctor"
-            android:layout_toEndOf="@id/circleview_doctor"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/docNameTV"/>
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/primaryColor"
+            android:fontFamily="@font/noto_sans"
+            android:text="Detail"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

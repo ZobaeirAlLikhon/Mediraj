@@ -3,8 +3,6 @@ package com.example.mediraj.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -28,7 +26,6 @@ import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -156,7 +153,6 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         if (id == R.id.profileLay) {
             startActivity(new Intent(this, ProfileActivity.class));
-            overridePendingTransition(0, 0);
         } else if (id == R.id.offerLay) {//go to offer page
         } else if (id == R.id.promoLay) {//go to promo page
         } else if (id == R.id.aboutLay) {//go to about us page

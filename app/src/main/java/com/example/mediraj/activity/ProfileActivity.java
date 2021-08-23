@@ -1,20 +1,19 @@
 package com.example.mediraj.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
-import com.google.android.material.button.MaterialButton;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
