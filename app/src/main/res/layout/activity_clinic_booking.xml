@@ -46,11 +46,13 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Patient information:"
+                        android:text="@string/patient_information"
                         android:textSize="20sp"
                         android:textStyle="bold"
+                        android:fontFamily="@font/noto_sans"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/battleship_grey"
                         android:layout_marginBottom="6dp"
                         android:layout_marginEnd="12dp"/>
 
@@ -69,7 +71,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Name"
+                            android:hint="@string/name"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -91,7 +93,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Contact"
+                            android:hint="@string/contact"
                             android:imeOptions="actionNext"
                             android:inputType="text|phone"
                             android:maxLines="1"
@@ -116,7 +118,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Address"
+                            android:hint="@string/address"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -139,7 +141,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="Purpose of clinic booking"
+                            android:hint="@string/purpose_of_clinic_booking"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -152,9 +154,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="N:B: You can also change patient information such as name, contact and address"
+                            android:text="@string/clinic_discreation"
                             android:textSize="15sp"
-                            android:paddingLeft="5dp"
+                            android:paddingStart="5dp"
                             android:textColor="@color/battleship_grey_melange"
                             android:layout_marginStart="13dp"
                             android:layout_marginEnd="13dp"
@@ -184,7 +186,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Clinic information:"
+                        android:text="@string/clinic_information"
+                        android:fontFamily="@font/noto_sans"
+                        android:textColor="@color/battleship_grey"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_marginTop="10dp"
@@ -195,28 +199,29 @@
                     <TextView
                         android:id="@+id/ctitle"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="12dp"
                         android:gravity="start|center"
                         android:maxLines="10"
-                        android:text="Rajshahi medical Collage Hospital"
+                        android:fontFamily="@font/noto_sans"
                         android:textColor="#f123"
                         android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/caddress"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
                         android:layout_marginStart="12dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginEnd="12dp"
                         android:maxLines="10"
-                        android:text="Laximipur-6203, Rajshahi"
+                        android:fontFamily="@font/noto_sans"
                         android:textColor="#f123"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
 
                 </LinearLayout>
@@ -243,7 +248,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/noto_sans"
                     android:padding="8dp"
-                    android:text="Confirm Booking"
+                    android:text="@string/confirm_booking"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/white"
                     android:textColorHighlight="@color/white"

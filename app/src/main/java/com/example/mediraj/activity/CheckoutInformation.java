@@ -1,17 +1,26 @@
 package com.example.mediraj.activity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
 import com.example.mediraj.R;
@@ -29,6 +38,7 @@ import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.santalu.maskara.widget.MaskEditText;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -241,7 +251,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                     if (productConfirmation.response==200){
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.diagnosticServiceDao().deleteByIdList(productId);
-                        //TODO go to history page show product tracking
+                        confirmAlert(CheckoutInformation.this,productConfirmation.data.order.orderNo );
                     }else{
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                     }
@@ -280,7 +290,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                     if (productConfirmation.response==200){
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.pathologyServicesDao().deleteByIdList(productId);
-                        //TODO go to history page show product tracking
+                        confirmAlert(CheckoutInformation.this,productConfirmation.data.order.orderNo );
                     }else {
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                     }
@@ -317,7 +327,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                     if (productConfirmation.response==200){
                          Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.surgicalServiceDao().deleteByIdList(productId);
-                        //TODO go to history page show product tracking
+                        confirmAlert(CheckoutInformation.this,productConfirmation.data.order.orderNo );
                     }else{
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                     }
@@ -422,6 +432,37 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
         });
         AlertDialog alert11 = alertDialog.create();
         alert11.show();
+    }
+
+
+    public void confirmAlert(Activity activity,String ordreId){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().getAttributes().windowAnimations = android.R.style.Widget_Material_ListPopupWindow;
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.order_confirm_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        Window window = dialog.getWindow();
+        lp.copyFrom(window.getAttributes());
+        //This makes the dialog take up the full width
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
+        AppCompatButton homeBtn = dialog.findViewById(R.id.backtoHome);
+        TextView orderNo = dialog.findViewById(R.id.orderNo);
+        orderNo.setText("Your order no. "+ordreId);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                dialog.dismiss();
+                activity.startActivity(new Intent(activity.getApplicationContext(),HomeActivity.class));
+                activity.finish();
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 
 }

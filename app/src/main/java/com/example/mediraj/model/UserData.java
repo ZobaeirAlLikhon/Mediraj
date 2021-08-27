@@ -20,7 +20,7 @@ public class UserData {
     @Expose
     public Data data;
 
-    public class Data {
+    public static class Data {
         @SerializedName("id")
         @Expose
         public String id;

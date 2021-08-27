@@ -15,9 +15,9 @@ import java.util.List;
 
 public class ImageSliderAdapter extends SliderViewAdapter<ImageSliderAdapter.ImageAdapterVH> {
     private Context context;
-    private String [] img;
+    private int [] img;
 
-    public ImageSliderAdapter(Context context, String[] img) {
+    public ImageSliderAdapter(Context context, int[] img) {
         this.context = context;
         this.img = img;
     }

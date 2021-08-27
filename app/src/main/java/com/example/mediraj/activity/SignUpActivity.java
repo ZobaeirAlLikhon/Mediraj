@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     TextInputEditText userName, email, password, passwordCon;
     MaskEditText phone;
     MaterialButton signUpBtn, loginBtn;
-    String mobile, device_name, device_token;
+    String mobile=null, device_name, device_token;
     Double userLat=null, userLong=null;
     ApiInterface apiInterface;
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -117,13 +117,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private void userValidation() {
-        //again check location
-
         //extract phone number from field
         try {
-            if (!phone.getMasked().equals("")) {
+            if (!phone.getText().toString().equals("") && phone.getText().length()==16) {
                 String raw_phone = phone.getMasked().split(" ")[1];
                 mobile = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+            }else {
+                phone.setError(getString(R.string.userPhone_error_valid));
+                phone.requestFocus();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,10 +141,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
             email.setError(getString(R.string.userEmail_error_valid));
             email.requestFocus();
-        } else if (phone.getMasked().isEmpty()) {
+        } else if (phone.getText().toString().isEmpty()) {
             phone.setError(getString(R.string.userPhone_error));
             phone.requestFocus();
-        } else if (mobile.length() != 11) {
+        }else if (mobile==null){
+            phone.setError(getString(R.string.userPhone_error_valid));
+            phone.requestFocus();
+        }
+        else if (mobile.length() != 11) {
             phone.setError(getString(R.string.userPhone_error_valid));
             phone.requestFocus();
         } else if (!mobile.startsWith("0")) {
@@ -169,7 +174,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         DataManager.getInstance().showProgressMessage(this, getString(R.string.please_wait));
         Map<String, String> map = new HashMap<>();
         map.put("name", userName.getText().toString().trim());
-        map.put("mobile", phone.getMasked());
+        map.put("mobile", phone.getText().toString());
         map.put("email", email.getText().toString());
         map.put("password", password.getText().toString());
         map.put("device_name", device_name);
@@ -182,10 +187,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         Call<UserData> signUpCall = apiInterface.userSignUp(Constant.AUTH, map);
         signUpCall.enqueue(new Callback<UserData>() {
             @Override
-            public void onResponse(Call<UserData> call, Response<UserData> response) {
+            public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     UserData userData = response.body();
+                    assert userData != null;
                     if (userData.response == 200) {
                         Toast.makeText(SignUpActivity.this, userData.message, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
@@ -199,7 +205,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
 
             @Override
-            public void onFailure(Call<UserData> call, Throwable t) {
+            public void onFailure(@NonNull Call<UserData> call, @NonNull Throwable t) {
                 call.cancel();
                 DataManager.getInstance().hideProgressMessage();
             }
@@ -265,21 +271,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case MY_PERMISSION_CONSTANT: {
-                if (grantResults.length > 0) {
-                    boolean fine_location = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    boolean coarse_location = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                    if (fine_location && coarse_location) {
-                        getLocation();
-                    } else {
-                        Toast.makeText(SignUpActivity.this, " permission needed to work.", Toast.LENGTH_SHORT).show();
-                    }
+        if (requestCode == MY_PERMISSION_CONSTANT) {
+            if (grantResults.length > 0) {
+                boolean fine_location = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean coarse_location = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                if (fine_location && coarse_location) {
+                    getLocation();
                 } else {
                     Toast.makeText(SignUpActivity.this, " permission needed to work.", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                Toast.makeText(SignUpActivity.this, " permission needed to work.", Toast.LENGTH_SHORT).show();
             }
         }
     }

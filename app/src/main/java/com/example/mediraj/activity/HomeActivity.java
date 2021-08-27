@@ -125,7 +125,7 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
             Intent intent = new Intent(HomeActivity.this,DoctorListActivity.class);
             startActivity(intent);
         }else if (serName.equalsIgnoreCase("Online Doctor")){
-            Intent intent = new Intent(HomeActivity.this,Emergency_DoctorActivity.class);
+            Intent intent = new Intent(HomeActivity.this, EmergencyDoctorActivity.class);
             startActivity(intent);
         }
     }
@@ -156,7 +156,7 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
     //section for image slider api call
 
     private void imageLoader(){
-        String [] img = {"https://cdn.pixabay.com/photo/2018/03/11/12/14/raindrops-3216607_960_720.jpg","https://www.dafont.com/img/illustration/r/a/rainy_day_4.png"};
+        int [] img = {R.drawable.mediraj,R.drawable.mediraj_one,R.drawable.mediraj_two};
 
         SliderView sliderView = findViewById(R.id.imageSlider);
         sliderView.setSliderAdapter(new ImageSliderAdapter(this,img));

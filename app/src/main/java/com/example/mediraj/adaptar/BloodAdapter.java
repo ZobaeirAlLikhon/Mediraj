@@ -22,11 +22,11 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Get_BloodAD extends RecyclerView.Adapter<Get_BloodAD.MyViewHolder> {
+public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.MyViewHolder> {
     Context context;
     List<AllbloodModel.Datum> allBloodModels;
 
-    public Get_BloodAD(Context context, List<AllbloodModel.Datum> allbloodModel) {
+    public BloodAdapter(Context context, List<AllbloodModel.Datum> allbloodModel) {
         this.context = context;
         this.allBloodModels = allbloodModel;
     }
@@ -34,12 +34,12 @@ public class Get_BloodAD extends RecyclerView.Adapter<Get_BloodAD.MyViewHolder> 
     @NonNull
     @NotNull
     @Override
-    public Get_BloodAD.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new Get_BloodAD.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_bloodbank,parent,false));
+    public BloodAdapter.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        return new BloodAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_bloodbank,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull Get_BloodAD.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull BloodAdapter.MyViewHolder holder, int position) {
         holder.bloodname.setText(allBloodModels.get(position).getTitle());
 
     }

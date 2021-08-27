@@ -1,45 +1,53 @@
 package com.example.mediraj.activity;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.DoctorListAD;
+import com.example.mediraj.adaptar.DoctorListAdapter;
 import com.example.mediraj.adaptar.GetDepartmentAD;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
+import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.model.AllDepartmentModel;
-import com.example.mediraj.model.AllDoctorList;
+import com.example.mediraj.model.SingleDepartment;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 
-import java.util.List;
+import org.w3c.dom.Text;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DoctorListActivity extends AppCompatActivity implements View.OnClickListener, DoctorListAD.OnDocListClick {
+public class DoctorListActivity extends AppCompatActivity implements View.OnClickListener, GetDepartmentAD.DoctorInterface {
 
     ApiInterface apiInterface;
     RecyclerView recyclerView,recyclerViewDoctor;
     AllDepartmentModel allDepartmentModel;
-    List<AllDoctorList.Datum> allDoctorlistModel;
     GetDepartmentAD adapter;
-    DoctorListAD adapterDoctor;
+    DoctorListAdapter adapterDoctor;
     ImageView ivBack;
-    TextView toolbarTxt;
-    DoctorListAD.OnDocListClick onDocListClick;
-
+    TextView toolbarTxt,noData;
+    GetDepartmentAD.DoctorInterface doctorInterface;
+    //TextView search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,41 +55,32 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
         initView();
 
         if (ConnectionManager.connection(this)){
-            recyclar_view();
-            recyclardoc_view();
+            recyclerView();
         }else{
             Toast.makeText(this, R.string.internet_connect_msg, Toast.LENGTH_SHORT).show();
         }
-
-
-
-
-
-
-
-
 
     }
 
     private void initView() {
         apiInterface = APiClient.getClient().create(ApiInterface.class);
-        onDocListClick = this;
+        doctorInterface = this;
         ivBack = findViewById(R.id.toolbarBtn);
         toolbarTxt = findViewById(R.id.toolbarText);
+        noData = findViewById(R.id.noData);
         toolbarTxt.setText(R.string.doctorlist);
         recyclerViewDoctor=findViewById(R.id.recy_view_doc_vertical);
-        recyclerViewDoctor.setLayoutManager(new LinearLayoutManager(DoctorListActivity.this,LinearLayoutManager.VERTICAL,false));
         recyclerView=findViewById(R.id.recy_view_depart_horizontal);
-        recyclerView.setLayoutManager(new LinearLayoutManager(DoctorListActivity.this,LinearLayoutManager.HORIZONTAL,false));
+       // search = findViewById(R.id.searchDoc);
 
 
         ivBack.setOnClickListener(this);
+       // search.setOnClickListener(this);
     }
 
 
     //DepartmentList
-
-    private void recyclar_view() {
+    private void recyclerView() {
         Call<AllDepartmentModel> call = apiInterface.allDepartment(Constant.AUTH);
         call.enqueue(new Callback<AllDepartmentModel>() {
             @Override
@@ -89,8 +88,16 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
 
                 try {
                     allDepartmentModel = response.body();
-                    adapter = new GetDepartmentAD(DoctorListActivity.this, allDepartmentModel.data);
-                    recyclerView.setAdapter(adapter);
+                    assert allDepartmentModel != null;
+                    if (allDepartmentModel.response==200){
+                        recyclerView.setLayoutManager(new LinearLayoutManager(DoctorListActivity.this,LinearLayoutManager.HORIZONTAL,false));
+                        adapter = new GetDepartmentAD(DoctorListActivity.this, allDepartmentModel.data,doctorInterface);
+                        recyclerView.setAdapter(adapter);
+                        singleDeptDoctor(1);
+                    }else {
+                        Toast.makeText(DoctorListActivity.this, allDepartmentModel.message, Toast.LENGTH_SHORT).show();
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -99,44 +106,55 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onFailure(@NonNull Call<AllDepartmentModel> call, @NonNull Throwable t) {
-
-            }
-        });
-
-//        Call<AllDepartmentModel> getDigServices=apiInterface.allDepartment(Constant.AUTH);
-//        getDigServices.enqueue(new Callback<AllDepartmentModel>() {
-//            @Override
-//            public void onResponse(@NonNull Call<AllDepartmentModel> call, @NonNull Response<AllDepartmentModel> response) {
-//                allDepartmentModel=response.body();
-//                adapter=new GetDepartmentAD(getApplicationContext(),allDepartmentModel.data);
-//                recyclerView.setAdapter(adapter);
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull Call<AllDepartmentModel> call, @NonNull Throwable t) {
-//                call.cancel();
-//            }
-//        });
-    }
-    //DoctorList
-
-    private void recyclardoc_view() {
-        Call<AllDoctorList> getDigServices=apiInterface.allDoctorServices(Constant.AUTH);
-        getDigServices.enqueue(new Callback<AllDoctorList>() {
-            @Override
-            public void onResponse(@NonNull Call<AllDoctorList> call, @NonNull Response<AllDoctorList> response) {
-                assert response.body() != null;
-                allDoctorlistModel=response.body().getData();
-                adapterDoctor=new DoctorListAD(getApplicationContext(),allDoctorlistModel,onDocListClick);
-                recyclerViewDoctor.setAdapter(adapterDoctor);
-                Log.e("getAllDia",String.valueOf(allDoctorlistModel));
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<AllDoctorList> call, @NonNull Throwable t) {
                 call.cancel();
             }
         });
+
+    }
+    //department wise  Doctor list
+    private void singleDeptDoctor(int id){
+        DataManager.getInstance().showProgressMessage(this,getString(R.string.please_wait));
+        Call<SingleDepartment> call = apiInterface.getDoctorByDept(Constant.AUTH,id);
+        call.enqueue(new Callback<SingleDepartment>() {
+            @Override
+            public void onResponse(@NonNull Call<SingleDepartment> call, @NonNull Response<SingleDepartment> response) {
+                DataManager.getInstance().hideProgressMessage();
+
+                try {
+                    SingleDepartment singleDepartment = response.body();
+                    assert singleDepartment != null;
+                    if (singleDepartment.response==200){
+                        if (singleDepartment.data.doctors ==null){
+                            recyclerViewDoctor.setVisibility(View.GONE);
+                            noData.setVisibility(View.VISIBLE);
+                        }else if (singleDepartment.data.doctors.size() !=0){
+                            noData.setVisibility(View.GONE);
+                            recyclerViewDoctor.setVisibility(View.VISIBLE);
+                            recyclerViewDoctor.setLayoutManager(new LinearLayoutManager(DoctorListActivity.this,LinearLayoutManager.VERTICAL,false));
+                            adapterDoctor = new DoctorListAdapter(DoctorListActivity.this, singleDepartment.data.doctors);
+                            recyclerViewDoctor.setAdapter(adapterDoctor);
+                        }else {
+                            recyclerViewDoctor.setVisibility(View.GONE);
+                            noData.setVisibility(View.VISIBLE);
+                        }
+
+                    }else{
+                        recyclerViewDoctor.setVisibility(View.GONE);
+                        noData.setVisibility(View.VISIBLE);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<SingleDepartment> call, @NonNull Throwable t) {
+                DataManager.getInstance().hideProgressMessage();
+                call.cancel();
+            }
+        });
+
     }
 
     @Override
@@ -145,10 +163,17 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
         if (id==R.id.toolbarBtn){
             finish();
         }
+//        else if (id==R.id.searchDoc) {
+//            //go to search activity or fragment
+//        }
     }
 
+
     @Override
-    public void sendData(int id) {
-        Log.e("doctor id",id+" ");
+    public void sendDeptId(int deptId) {
+        singleDeptDoctor(deptId);
     }
+
+
+
 }

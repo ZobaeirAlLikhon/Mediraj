@@ -44,7 +44,15 @@ public class AllDepartmentModel {
         public String updatedAt;
         @SerializedName("isChecked")
         @Expose
-        public String isChecked;
+        private boolean isChecked;
+
+        public boolean getIsChecked() {
+            return isChecked;
+        }
+
+        public void setIsChecked(boolean isChecked) {
+            this.isChecked = isChecked;
+        }
     }
 
 }

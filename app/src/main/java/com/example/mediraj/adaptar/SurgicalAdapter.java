@@ -23,13 +23,13 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHolder> {
+public class SurgicalAdapter extends RecyclerView.Adapter<SurgicalAdapter.MyViewHolder> {
 
     Context context;
     List<AllSurgicalModel.Datum> allSurgicalModels;
     OnSurgicalClick onSurgicalClick;
 
-    public Get_SurgicalAD(Context context, List<AllSurgicalModel.Datum> allSurgicalModels, OnSurgicalClick onSurgicalClick) {
+    public SurgicalAdapter(Context context, List<AllSurgicalModel.Datum> allSurgicalModels, OnSurgicalClick onSurgicalClick) {
         this.context = context;
         this.allSurgicalModels = allSurgicalModels;
         this.onSurgicalClick = onSurgicalClick;
@@ -38,12 +38,12 @@ public class Get_SurgicalAD extends RecyclerView.Adapter<Get_SurgicalAD.MyViewHo
     @NonNull
     @NotNull
     @Override
-    public Get_SurgicalAD.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new Get_SurgicalAD.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_diagnostic_service_list,parent,false));
+    public SurgicalAdapter.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        return new SurgicalAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_diagnostic_service_list,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull Get_SurgicalAD.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull SurgicalAdapter.MyViewHolder holder, int position) {
         if (allSurgicalModels.get(position).getIsChecked()){
             holder.addToCart_btn.setText("cart added");
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));

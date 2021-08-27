@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mediraj.R;
+import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.model.UserData;
@@ -41,7 +42,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
 
     ImageView backBtn;
     ApiInterface apiInterface;
-    String token,mobile,id,otpOne;
+    String token, mobile = null, id, otpOne;
 
     //firstLay
     RelativeLayout firstLay;
@@ -51,9 +52,10 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
     //second
     RelativeLayout secondLay;
     TextView txtReset;
-    EditText e1,e2,e3,e4;
-    TextInputEditText newPass,newPassCon;
-    MaterialButton submitBtn,resendBtn;
+    EditText e1, e2, e3, e4;
+    TextInputEditText newPass, newPassCon;
+    MaterialButton submitBtn, resendBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +100,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
         submitBtn = findViewById(R.id.submitBtn);
         resendBtn = findViewById(R.id.resendBtn);
         //setting content on views
-       // toolbarText.setText(getString(R.string.recover_password));
+        // toolbarText.setText(getString(R.string.recover_password));
         apiInterface = APiClient.getClient().create(ApiInterface.class);
 
         //setting listener
@@ -122,23 +124,23 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.length() > 0){
-                    if (e1.length()==1){
+                if (s.length() > 0) {
+                    if (e1.length() == 1) {
                         e1.clearFocus();
                         e2.requestFocus();
                         e2.setCursorVisible(true);
                     }
-                    if (e2.length()==1){
+                    if (e2.length() == 1) {
                         e2.clearFocus();
                         e3.requestFocus();
                         e3.setCursorVisible(true);
                     }
-                    if (e3.length()==1){
+                    if (e3.length() == 1) {
                         e3.clearFocus();
                         e4.requestFocus();
                         e4.setCursorVisible(true);
                     }
-                    if (e4.length()==1){
+                    if (e4.length() == 1) {
                         e4.clearFocus();
                         newPass.requestFocus();
                     }
@@ -154,62 +156,66 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.toolbarBtn:
-                finish();
-                break;
-            case R.id.recoverBtn:
+        int vId = v.getId();
+        if (vId == R.id.toolbarBtn) {
+            finish();
+        } else if (vId == R.id.recoverBtn) {
+            if (ConnectionManager.connection(this)) {
                 validation();
-                break;
-            case R.id.submitBtn:
+            } else {
+                Toast.makeText(ForgetPassActivity.this, R.string.internet_connect_msg, Toast.LENGTH_SHORT).show();
+            }
+
+        } else if (vId == R.id.submitBtn) {
+            if (ConnectionManager.connection(this)) {
                 resetPassword();
-                break;
-            case R.id.resendBtn:
-                secondLay.setVisibility(View.GONE);
-                firstLay.setVisibility(View.VISIBLE);
-                break;
+            } else {
+                Toast.makeText(ForgetPassActivity.this, R.string.internet_connect_msg, Toast.LENGTH_SHORT).show();
+            }
+        } else if (vId == R.id.resendBtn) {
+            secondLay.setVisibility(View.GONE);
+            firstLay.setVisibility(View.VISIBLE);
         }
     }
 
     private void resetPassword() {
 
-        if (e1.getText().toString().isEmpty() || e2.getText().toString().isEmpty() || e3.getText().toString().isEmpty() || e4.getText().toString().isEmpty()){
-            Toast.makeText(this,"Please Enter OTP Code",Toast.LENGTH_SHORT).show();
-        }else if (newPass.getText().toString().isEmpty()){
+        if (e1.getText().toString().isEmpty() || e2.getText().toString().isEmpty() || e3.getText().toString().isEmpty() || e4.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please Enter OTP Code", Toast.LENGTH_SHORT).show();
+        } else if (newPass.getText().toString().isEmpty()) {
             newPass.setError(getString(R.string.userPassword_error));
             newPass.requestFocus();
-        }else if (newPassCon.getText().toString().isEmpty()){
+        } else if (newPassCon.getText().toString().isEmpty()) {
             newPassCon.setError("Please Enter Confirm Password");
             newPassCon.requestFocus();
-        }
-        else if (!newPassCon.getText().toString().equals(newPass.getText().toString())){
+        } else if (!newPassCon.getText().toString().equals(newPass.getText().toString())) {
             newPassCon.setError(getString(R.string.userPassword_con_error));
             newPassCon.requestFocus();
-        }
-        else{
-            String otp_code =e1.getText().toString()+e2.getText().toString()+e3.getText().toString()+e4.getText().toString();
-            if (otp_code.length() !=4){
-                Toast.makeText(this,"Please Enter OTP Code",Toast.LENGTH_SHORT).show();
-            }else {
-                DataManager.getInstance().showProgressMessage(this,"Please wait...");
-                Map<String,String> map = new HashMap<>();
-                map.put("id",id);
-                map.put("otp",otp_code);
-                map.put("password",newPass.getText().toString());
+        } else {
+            String otp_code = e1.getText().toString() + e2.getText().toString() + e3.getText().toString() + e4.getText().toString();
+            if (otp_code.length() != 4) {
+                Toast.makeText(this, "Please Enter OTP Code", Toast.LENGTH_SHORT).show();
+            } else {
+                DataManager.getInstance().showProgressMessage(this, "Please wait...");
+                Map<String, String> map = new HashMap<>();
+                map.put("id", id);
+                map.put("otp", otp_code);
+                map.put("password", newPass.getText().toString());
 
-                Call<UserData> resetCall = apiInterface.resetPass(Constant.AUTH,map);
+                Call<UserData> resetCall = apiInterface.resetPass(Constant.AUTH, map);
                 resetCall.enqueue(new Callback<UserData>() {
                     @Override
-                    public void onResponse(Call<UserData> call, Response<UserData> response) {
+                    public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
                         DataManager.getInstance().hideProgressMessage();
                         try {
                             UserData userData = response.body();
-                            if (userData.response==200){
-                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(ForgetPassActivity.this,LoginActivity.class));
+                            assert userData != null;
+                            if (userData.response == 200) {
+                                Toast.makeText(getApplicationContext(), userData.message, Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(ForgetPassActivity.this, LoginActivity.class));
                                 finish();
-                            }else {
-                                Toast.makeText(getApplicationContext(),userData.message,Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), userData.message, Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -217,7 +223,7 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                     }
 
                     @Override
-                    public void onFailure(Call<UserData> call, Throwable t) {
+                    public void onFailure(@NonNull Call<UserData> call, @NonNull Throwable t) {
                         call.cancel();
                         DataManager.getInstance().hideProgressMessage();
                     }
@@ -230,50 +236,60 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
     private void validation() {
 
         //phone number validation
-        if (!userPhone.getMasked().isEmpty()){
-            String raw_phone = userPhone.getMasked().split(" ")[1];
-            mobile = raw_phone.split("-")[0]+raw_phone.split("-")[1];
-        }
-
-            if (userPhone.getMasked().isEmpty()){
-                userPhone.setError(getString(R.string.userPhone_error));
-                userPhone.requestFocus();
-            }else if (mobile.length() !=11){
+        try {
+            if (!userPhone.getText().toString().isEmpty() && userPhone.getText().length() == 16) {
+                String raw_phone = userPhone.getMasked().split(" ")[1];
+                mobile = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+            } else {
                 userPhone.setError(getString(R.string.userPhone_error_valid));
                 userPhone.requestFocus();
-            }else if (!mobile.startsWith("0")){
-                userPhone.setError(getString(R.string.userPhone_error_number));
-                userPhone.requestFocus();
             }
-            else {
-                DataManager.getInstance().showProgressMessage(ForgetPassActivity.this,"Please Wait...");
-                Call<UserData> forgotCall = apiInterface.forgotPass(Constant.AUTH,userPhone.getMasked(),token);
-                forgotCall.enqueue(new Callback<UserData>() {
-                    @Override
-                    public void onResponse(Call<UserData> call, Response<UserData> response) {
-                        DataManager.getInstance().hideProgressMessage();
-                        try {
-                            UserData userData = response.body();
-                            if (userData.response==200){
-                                firstLay.setVisibility(View.GONE);
-                                secondLay.setVisibility(View.VISIBLE);
-                                txtReset.setText(getText(R.string.reset_msg)+" "+userPhone.getMasked());
-                                id = userData.data.id;
-                                otpOne = userData.data.resetCode;
-                            }else {
-                                Toast.makeText(ForgetPassActivity.this,userData.message,Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-                    @Override
-                    public void onFailure(Call<UserData> call, Throwable t) {
-                        call.cancel();
-                        DataManager.getInstance().hideProgressMessage();
+        if (userPhone.getText().toString().isEmpty()) {
+            userPhone.setError(getString(R.string.userPhone_error));
+            userPhone.requestFocus();
+        } else if (mobile == null) {
+            userPhone.setError(getString(R.string.userPhone_error_valid));
+            userPhone.requestFocus();
+        } else if (mobile.length() != 11) {
+            userPhone.setError(getString(R.string.userPhone_error_valid));
+            userPhone.requestFocus();
+        } else if (!mobile.startsWith("0")) {
+            userPhone.setError(getString(R.string.userPhone_error_number));
+            userPhone.requestFocus();
+        } else {
+            DataManager.getInstance().showProgressMessage(ForgetPassActivity.this, "Please Wait...");
+            Call<UserData> forgotCall = apiInterface.forgotPass(Constant.AUTH, userPhone.getMasked(), token);
+            forgotCall.enqueue(new Callback<UserData>() {
+                @Override
+                public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
+                    DataManager.getInstance().hideProgressMessage();
+                    try {
+                        UserData userData = response.body();
+                        assert userData != null;
+                        if (userData.response == 200) {
+                            firstLay.setVisibility(View.GONE);
+                            secondLay.setVisibility(View.VISIBLE);
+                            txtReset.setText(getText(R.string.reset_msg) + " " + userPhone.getText().toString());
+                            id = userData.data.id;
+                            otpOne = userData.data.resetCode;
+                        } else {
+                            Toast.makeText(ForgetPassActivity.this, userData.message, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                });
-            }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<UserData> call, @NonNull Throwable t) {
+                    call.cancel();
+                    DataManager.getInstance().hideProgressMessage();
+                }
+            });
         }
     }
+}

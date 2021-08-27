@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.Get_BloodAD;
+import com.example.mediraj.adaptar.BloodAdapter;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
@@ -30,7 +30,7 @@ public class BloodbankService extends AppCompatActivity implements View.OnClickL
     ApiInterface apiInterface;
     RecyclerView recyclerView;
     AllbloodModel allBloodModel;
-    Get_BloodAD adapter;
+    BloodAdapter adapter;
     TextView toolbarText,noData;
     ImageView toolbarBtn;
 
@@ -76,7 +76,7 @@ public class BloodbankService extends AppCompatActivity implements View.OnClickL
                     if (allBloodModel.getResponse()==200){
                         recyclerView.setVisibility(View.VISIBLE);
                         noData.setVisibility(View.GONE);
-                        adapter=new Get_BloodAD(getApplicationContext(), allBloodModel.getData());
+                        adapter=new BloodAdapter(getApplicationContext(), allBloodModel.getData());
                         recyclerView.setAdapter(adapter);
                     }else{
                         recyclerView.setVisibility(View.GONE);

@@ -8,12 +8,14 @@ import com.example.mediraj.model.AllPathologyModel;
 import com.example.mediraj.model.AllSurgicalModel;
 import com.example.mediraj.model.AllbloodModel;
 import com.example.mediraj.model.BloodBooking_Model;
-import com.example.mediraj.model.CheckoutResModel;
 import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
+import com.example.mediraj.model.DoctorBookingModel;
 import com.example.mediraj.model.MedicinRequestModel;
 import com.example.mediraj.model.ProductConfirmation;
+import com.example.mediraj.model.SingleDepartment;
+import com.example.mediraj.model.SingleDoctor;
 import com.example.mediraj.model.UserData;
 import com.example.mediraj.model.checkout.CheckoutModel;
 
@@ -141,5 +143,20 @@ public interface ApiInterface {
     Call<ProductConfirmation> sendCheckoutSurgical(@Header("Authorization") String auth,
                                                  @Body CheckoutModel checkoutModel);
 
+    //
+    @FormUrlEncoded
+    @POST("department/single")
+    Call<SingleDepartment> getDoctorByDept(@Header("Authorization") String auth,
+                                           @Field("id") int deptId);
+
+    @FormUrlEncoded
+    @POST("doctor/single")
+    Call<SingleDoctor> getSingleDoctorInfo(@Header("Authorization") String auth,
+                                           @Field("id") String deptId,
+                                           @Field("user") String userId);
+
+    @FormUrlEncoded
+    @POST("appointment/create")
+    Call<DoctorBookingModel> doctorBooking(@Header("Authorization") String auth,@FieldMap Map<String,String> params);
 
 }

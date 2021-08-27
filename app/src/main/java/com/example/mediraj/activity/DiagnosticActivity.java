@@ -121,9 +121,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-
         int id = v.getId();
-
         if (id == R.id.toolbarBtn) {
             finish();
         } else if (id == R.id.goToCart) {

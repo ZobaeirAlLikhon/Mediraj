@@ -25,11 +25,11 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyViewHolder> {
+public class ClinicServicesAdapter extends RecyclerView.Adapter<ClinicServicesAdapter.MyViewHolder> {
     Context context;
     List<ClinicalModel.Datum> clinicalModelList;
 
-    public ClinicServicesAD(Context context, List<ClinicalModel.Datum> clinicalModelList) {
+    public ClinicServicesAdapter(Context context, List<ClinicalModel.Datum> clinicalModelList) {
         this.context = context;
         this.clinicalModelList = clinicalModelList;
     }
@@ -37,28 +37,17 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
     @NonNull
     @NotNull
     @Override
-    public ClinicServicesAD.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ClinicServicesAD.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_clinice,parent,false));
+    public ClinicServicesAdapter.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        return new ClinicServicesAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_clinice,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ClinicServicesAD.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull ClinicServicesAdapter.MyViewHolder holder, int position) {
         holder.clinic_name.setText(clinicalModelList.get(position).getTitle());
         holder.address.setText(clinicalModelList.get(position).getAddress());
         Glide.with(context).load(Constant.Clinic_AVATAR_URL +clinicalModelList.get(position).getLogo())
                 .apply(new RequestOptions().placeholder(R.drawable.ic_patient))
                 .into(holder.circleImageView);
-        holder.booking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context,ClinicBookingActivity.class);
-                intent.putExtra("hospital_name",clinicalModelList.get(position).getTitle());
-                intent.putExtra("hospital_address",clinicalModelList.get(position).getAddress());
-                intent.putExtra("clinic_ID",clinicalModelList.get(position).getId());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
 
     }
 
@@ -80,6 +69,18 @@ public class ClinicServicesAD extends RecyclerView.Adapter<ClinicServicesAD.MyVi
             loveReact=itemView.findViewById(R.id.btn_img);
             booking=itemView.findViewById(R.id.addToCart_btn);
 
+
+            booking.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ClinicBookingActivity.class);
+                    intent.putExtra("hospital_name", clinicalModelList.get(getAdapterPosition()).getTitle());
+                    intent.putExtra("hospital_address", clinicalModelList.get(getAdapterPosition()).getAddress());
+                    intent.putExtra("clinic_ID", clinicalModelList.get(getAdapterPosition()).getId());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            });
 
 
         }

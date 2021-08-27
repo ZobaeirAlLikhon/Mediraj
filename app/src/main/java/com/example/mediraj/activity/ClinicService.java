@@ -4,14 +4,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.ClinicServicesAD;
+import com.example.mediraj.adaptar.ClinicServicesAdapter;
+import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
+import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
@@ -24,9 +28,9 @@ import retrofit2.Response;
 
 public class ClinicService extends AppCompatActivity {
     ApiInterface apiInterface;
-    List<ClinicalModel.Datum> clinicalModelList;
+    ClinicalModel clinicalModelList;
     RecyclerView recyclerView;
-    ClinicServicesAD clinicServicesAD;
+    ClinicServicesAdapter clinicServicesAdapter;
     ImageView toolbarBtn;
     TextView toolbarTxt;
     @Override
@@ -34,7 +38,12 @@ public class ClinicService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         initView();
-       // recyclerView();
+
+        if (ConnectionManager.connection(this)){
+             recyclerView();
+        }else {
+            Toast.makeText(this, R.string.internet_connect_msg, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -44,32 +53,38 @@ public class ClinicService extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(ClinicService.this,LinearLayoutManager.VERTICAL,false));
         toolbarBtn = findViewById(R.id.toolbarBtn);
         toolbarTxt = findViewById(R.id.toolbarText);
-        toolbarTxt.setText("Clinic Services");
+        toolbarTxt.setText(R.string.clinic_service);
 
         toolbarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                overridePendingTransition(0,0);
                 finish();
             }
         });
     }
 
     private void recyclerView() {
+        DataManager.getInstance().showProgressMessage(this,getString(R.string.please_wait));
         apiInterface = APiClient.getClient().create(ApiInterface.class);
         Call<ClinicalModel> clinical_services_call = apiInterface.clinicalServices(Constant.AUTH);
         clinical_services_call.enqueue(new Callback<ClinicalModel>() {
             @Override
-            public void onResponse(Call<ClinicalModel> call, Response<ClinicalModel> response) {
-                clinicalModelList=response.body().getData();
-                clinicServicesAD=new ClinicServicesAD(getApplicationContext(),clinicalModelList);
-                recyclerView.setAdapter(clinicServicesAD);
-               // Log.e("clinicalServices:----",clinicalModelList.toString());
+            public void onResponse(@NonNull Call<ClinicalModel> call, @NonNull Response<ClinicalModel> response) {
+                DataManager.getInstance().hideProgressMessage();
+                try {
+                    clinicalModelList=response.body();
+                    clinicServicesAdapter =new ClinicServicesAdapter(getApplicationContext(),clinicalModelList.getData());
+                    recyclerView.setAdapter(clinicServicesAdapter);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
-            public void onFailure(Call<ClinicalModel> call, Throwable t) {
-
+            public void onFailure(@NonNull Call<ClinicalModel> call, @NonNull Throwable t) {
+                DataManager.getInstance().hideProgressMessage();
+                call.cancel();
             }
         });
     }

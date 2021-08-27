@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/flash_white"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/your_order_is_complete"
+                android:textStyle="bold"
+                android:textColor="@color/battleship_grey"
+                android:textSize="18sp"
+                android:fontFamily="@font/noto_sans"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:lottie_autoPlay="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                app:lottie_rawRes="@raw/complete_one" />
+            <TextView
+                android:id="@+id/orderNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/battleship_grey"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/battleship_grey"
+                android:text="@string/contact_mediraj"
+                android:textAlignment="center"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/backtoHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primaryColor"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="Explore Other Service"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

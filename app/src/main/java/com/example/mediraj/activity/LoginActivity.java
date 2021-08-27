@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     MaskEditText phone;
     MaterialButton loginBtn,signBtn;
     TextView forgotPass;
-    String mobile,token;
+    String mobile=null,token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,20 +127,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void validation() {
         //extract phone number from field
-        if (!phone.getMasked().equals("")) {
-            String raw_phone = phone.getMasked().split(" ")[1];
-            mobile = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+        try {
+            if (!phone.getText().toString().equals("") && phone.getText().length()==16) {
+                String raw_phone = phone.getMasked().split(" ")[1];
+                mobile = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+            }else {
+                phone.setError(getString(R.string.userPhone_error_valid));
+                phone.requestFocus();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
-        if (phone.getMasked().isEmpty()) {
+        if (phone.getText().toString().isEmpty()) {
             phone.setError(getString(R.string.userPhone_error));
             phone.requestFocus();
-        }else if (mobile.length() !=11) {
+        }else if (mobile==null){
+            phone.setError(getString(R.string.userPhone_error_valid));
+            phone.requestFocus();
+        }
+        else if (mobile.length() !=11) {
             phone.setError(getString(R.string.userPhone_error_valid));
             phone.requestFocus();
         }else if (!mobile.startsWith("0")){
             phone.setError(getString(R.string.userPhone_error_number));
+            phone.requestFocus();
         }
         else if (pass.getText().toString().isEmpty()) {
             pass.setError(getString(R.string.userPassword_error));
@@ -157,7 +169,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void userLogin() {
         DataManager.getInstance().showProgressMessage(this,getString(R.string.please_wait));
         Map<String,String> map = new HashMap<>();
-        map.put("mobile",phone.getMasked());
+        map.put("mobile",phone.getText().toString());
         map.put("password",pass.getText().toString());
         map.put("token",token);
 

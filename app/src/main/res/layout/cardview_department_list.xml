@@ -12,14 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+
         <TextView
             android:id="@+id/depart_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/noto_sans"
-            android:text="Depart Name"
             android:padding="10dp"
+            android:text="Depart Name"
             android:textColor="#333333"
             android:textSize="18sp" />
 

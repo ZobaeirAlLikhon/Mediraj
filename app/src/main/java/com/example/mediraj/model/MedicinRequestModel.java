@@ -50,7 +50,7 @@ public class MedicinRequestModel {
     }
 
 
-    public class Data {
+    public static class Data {
 
         @SerializedName("id")
         @Expose

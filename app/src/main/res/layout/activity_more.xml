@@ -172,77 +172,108 @@
                         tools:ignore="TouchTargetSizeCheck" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/mailLay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/notLay"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/mailLay"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/notLay"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_notification" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:src="@drawable/ic_notification" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/noto_sans"
-                        android:text="Mail Notification"
-                        android:textColor="@color/battleship_grey"
-                        android:textSize="16sp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:fontFamily="@font/noto_sans"-->
+<!--                        android:text="Mail Notification"-->
+<!--                        android:textColor="@color/battleship_grey"-->
+<!--                        android:textSize="16sp" />-->
 
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:checked="true"
-                        android:gravity="center_vertical|end"
-                        tools:ignore="TouchTargetSizeCheck" />
-                </LinearLayout>
+<!--                    <androidx.appcompat.widget.SwitchCompat-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:checked="true"-->
+<!--                        android:gravity="center_vertical|end"-->
+<!--                        tools:ignore="TouchTargetSizeCheck" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/smsLay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/mailLay"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/smsLay"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/mailLay"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="1">-->
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_notification" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:src="@drawable/ic_notification" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/noto_sans"
-                        android:text="SMS Notification"
-                        android:textColor="@color/battleship_grey"
-                        android:textSize="16sp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:fontFamily="@font/noto_sans"-->
+<!--                        android:text="SMS Notification"-->
+<!--                        android:textColor="@color/battleship_grey"-->
+<!--                        android:textSize="16sp" />-->
 
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:checked="true"
-                        android:gravity="center_vertical|end"
-                        tools:ignore="TouchTargetSizeCheck" />
-                </LinearLayout>
-
+<!--                    <androidx.appcompat.widget.SwitchCompat-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:checked="true"-->
+<!--                        android:gravity="center_vertical|end"-->
+<!--                        tools:ignore="TouchTargetSizeCheck" />-->
+<!--                </LinearLayout>-->
             </RelativeLayout>
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/historyLay"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:background="@color/white">-->
+<!--                &lt;!&ndash; history&ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:src="@drawable/ic_history" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:fontFamily="@font/noto_sans"-->
+<!--                        android:text="History"-->
+<!--                        android:textColor="@color/battleship_grey"-->
+<!--                        android:textSize="16sp" />-->
+
+<!--                </LinearLayout>-->
+<!--            </RelativeLayout>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"

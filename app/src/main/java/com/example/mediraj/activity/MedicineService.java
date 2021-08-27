@@ -1,6 +1,7 @@
 package com.example.mediraj.activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -235,7 +237,19 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(@NonNull Call<MedicinRequestModel> call, @NonNull Response<MedicinRequestModel> response) {
                 DataManager.getInstance().hideProgressMessage();
-                //TODO go to history page
+
+                try {
+                    MedicinRequestModel medicinRequestModel = response.body();
+                    assert medicinRequestModel != null;
+                    if (medicinRequestModel.getResponse()==200){
+                        Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        confirmAlert(MedicineService.this);
+                    }else{
+                        Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -480,5 +494,34 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
         return strAdd;
+    }
+
+    public void confirmAlert(Activity activity){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().getAttributes().windowAnimations = android.R.style.Widget_Material_ListPopupWindow;
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.order_confirm_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        Window window = dialog.getWindow();
+        lp.copyFrom(window.getAttributes());
+        //This makes the dialog take up the full width
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
+        AppCompatButton homeBtn = dialog.findViewById(R.id.backtoHome);
+        TextView orderNo = dialog.findViewById(R.id.orderNo);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                dialog.dismiss();
+                activity.startActivity(new Intent(activity.getApplicationContext(),HomeActivity.class));
+                activity.finish();
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }

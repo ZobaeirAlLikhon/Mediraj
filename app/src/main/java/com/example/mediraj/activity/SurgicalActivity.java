@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
-import com.example.mediraj.adaptar.Get_SurgicalAD;
+import com.example.mediraj.adaptar.SurgicalAdapter;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
@@ -33,12 +33,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SurgicalActivity extends AppCompatActivity implements Get_SurgicalAD.OnSurgicalClick, View.OnClickListener {
+public class SurgicalActivity extends AppCompatActivity implements SurgicalAdapter.OnSurgicalClick, View.OnClickListener {
     ApiInterface apiInterface;
     RecyclerView recyclerView;
     List<AllSurgicalModel.Datum> allSurgicalModel;
-    Get_SurgicalAD adapter;
-    Get_SurgicalAD.OnSurgicalClick onSurgicalClick;
+    SurgicalAdapter adapter;
+    SurgicalAdapter.OnSurgicalClick onSurgicalClick;
     List<AllSurgicalModel.Datum> dataList=new ArrayList<>();
     AppDatabase db;
     TextView noData;
@@ -106,7 +106,7 @@ public class SurgicalActivity extends AppCompatActivity implements Get_SurgicalA
                         recyclerView.setVisibility(View.VISIBLE);
                         allSurgicalModel = response.body().data;
                         dataList.addAll(response.body().data);
-                        adapter = new Get_SurgicalAD(getApplicationContext(), allSurgicalModel, onSurgicalClick);
+                        adapter = new SurgicalAdapter(getApplicationContext(), allSurgicalModel, onSurgicalClick);
                         recyclerView.setAdapter(adapter);
                         Log.e("getAllDia..", allSurgicalModel.get(0).getTitle());
                     } else {

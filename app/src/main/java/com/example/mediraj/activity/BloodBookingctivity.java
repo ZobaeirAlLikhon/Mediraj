@@ -1,17 +1,25 @@
 package com.example.mediraj.activity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
 import com.example.mediraj.R;
+import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.model.BloodBooking_Model;
@@ -102,9 +110,7 @@ public class BloodBookingctivity extends AppCompatActivity implements View.OnCli
                     assert bloodBooking_model != null;
                     if (bloodBooking_model.getResponse()==200){
                         Toast.makeText(getApplicationContext(),bloodBooking_model.getMessage(),Toast.LENGTH_SHORT).show();
-
-                       //TODO go to history page show product tracking
-
+                        confirmAlert(BloodBookingctivity.this);
                     }else{
                         Toast.makeText(getApplicationContext(),bloodBooking_model.getMessage(),Toast.LENGTH_SHORT).show();
                     }
@@ -141,9 +147,11 @@ public class BloodBookingctivity extends AppCompatActivity implements View.OnCli
         user_ID = DataManager.getInstance().getUserData(this).data.id;
         nameST = DataManager.getInstance().getUserData(this).data.name;
         contractST = DataManager.getInstance().getUserData(this).data.mobile;
-        addressST = DataManager.getInstance().getUserData(this).data.address;
+        if (DataManager.getInstance().getUserData(this).data.address!=null){
+            addressST = DataManager.getInstance().getUserData(this).data.address;
+            bladdress.setText(addressST);
+        }
         blname.setText(nameST);
-        bladdress.setText(addressST);
         contact.setText("+88 "+contractST.substring(0,5)+"-"+contractST.substring(5));
 
         }
@@ -160,7 +168,41 @@ public class BloodBookingctivity extends AppCompatActivity implements View.OnCli
         if (id==R.id.toolbarBtn){
             finish();
         }else if (id==R.id.confirm_btn){
-            validation();
+            if (ConnectionManager.connection(this)){
+                validation();
+            }else {
+                Toast.makeText(this, R.string.internet_connect_msg, Toast.LENGTH_SHORT).show();
+            }
+
         }
+    }
+
+    public void confirmAlert(Activity activity){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().getAttributes().windowAnimations = android.R.style.Widget_Material_ListPopupWindow;
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.order_confirm_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        Window window = dialog.getWindow();
+        lp.copyFrom(window.getAttributes());
+        //This makes the dialog take up the full width
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
+        AppCompatButton homeBtn = dialog.findViewById(R.id.backtoHome);
+        TextView orderNo = dialog.findViewById(R.id.orderNo);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                dialog.dismiss();
+                activity.startActivity(new Intent(activity.getApplicationContext(),HomeActivity.class));
+                activity.finish();
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 }

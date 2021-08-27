@@ -46,17 +46,13 @@
                     android:id="@+id/Tv_clinicname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/cirIM_dia"
-                    android:text="Clinic Name"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/Tv_chekupname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/Tv_clinicname"
-                    android:layout_toEndOf="@+id/cirIM_dia"
-                    android:text="Adress         "
+                    android:text="@string/address"
                     android:textSize="15sp" />
 
 <!--                <TextView-->
@@ -80,14 +76,16 @@
                     android:layout_height="35dp"
                     android:layout_gravity="end"
                     android:padding="5dp"
+                    android:visibility="invisible"
                     android:src="@drawable/ic_baseline_love" />
                 <Button
                     android:id="@+id/addToCart_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light_green"
-                    android:text="Book"
-                    android:textSize="11sp" />
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="@string/book"
+                    android:fontFamily="@font/noto_sans"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
