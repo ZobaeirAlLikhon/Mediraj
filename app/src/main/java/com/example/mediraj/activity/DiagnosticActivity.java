@@ -27,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,6 +47,8 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     FloatingActionButton fab;
     FrameLayout frameLayout;
     int count = 0;
+    Hashtable<Integer,Long> storedIds = new Hashtable<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +136,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void sendOrDeleteData(int position, String opType) {
-
+            long insertionId;
         if (opType != null && opType.equalsIgnoreCase("add")) {
             DiagnosticService diagnosticService = new DiagnosticService();
             diagnosticService.setItem_id(dataList.get(position).getId());
@@ -142,11 +145,14 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
             diagnosticService.setItem_qty("1");
             diagnosticService.setItem_price(dataList.get(position).getPrice());
             diagnosticService.setItem_subtotal(dataList.get(position).getPrice());
-            db.diagnosticServiceDao().insertInfo(diagnosticService);
+            insertionId =  db.diagnosticServiceDao().insertInfo(diagnosticService);
+            storedIds.put(dataList.get(position).getId(),insertionId);
             Toast.makeText(this, getString(R.string.addtocart), Toast.LENGTH_SHORT).show();
             count +=1;
         } else if (opType != null && opType.equalsIgnoreCase("delete")) {
-            db.diagnosticServiceDao().deleteById(dataList.get(position).getId());
+            long id = storedIds.get(dataList.get(position).getId());
+            db.diagnosticServiceDao().deleteByIdOne(id);
+            storedIds.remove(dataList.get(position).getId());
             count -=1;
             Toast.makeText(this, getString(R.string.removecart), Toast.LENGTH_SHORT).show();
         }

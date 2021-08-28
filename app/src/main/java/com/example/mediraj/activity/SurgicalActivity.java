@@ -27,6 +27,7 @@ import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -42,13 +43,12 @@ public class SurgicalActivity extends AppCompatActivity implements SurgicalAdapt
     List<AllSurgicalModel.Datum> dataList=new ArrayList<>();
     AppDatabase db;
     TextView noData;
-
     ImageView ivBack;
     TextView toolBarTxt,itemCount;
     FloatingActionButton fab;
     FrameLayout frameLayout;
     int count = 0;
-
+    Hashtable<Integer,Long> storedIds = new Hashtable<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +131,7 @@ public class SurgicalActivity extends AppCompatActivity implements SurgicalAdapt
 
     @Override
     public void sendOrDeleteData_surgical(int position, String opType) {
+        long insertionId;
         if (opType != null && opType.equalsIgnoreCase("add")) {
             SurgicalService surgicalService = new SurgicalService();
             surgicalService.setItem_id(dataList.get(position).getId());
@@ -139,12 +140,15 @@ public class SurgicalActivity extends AppCompatActivity implements SurgicalAdapt
             surgicalService.setItem_qty("1");
             surgicalService.setItem_price(dataList.get(position).getPrice());
             surgicalService.setItem_subtotal(dataList.get(position).getPrice());
-            db.surgicalServiceDao().insertInfo(surgicalService);
+            insertionId = db.surgicalServiceDao().insertInfo(surgicalService);
+            storedIds.put(dataList.get(position).getId(),insertionId);
             Toast.makeText(this, getString(R.string.addtocart), Toast.LENGTH_SHORT).show();
             count +=1;
 
         } else if (opType != null && opType.equalsIgnoreCase("delete")) {
-            db.surgicalServiceDao().deleteById_Surgical(dataList.get(position).getId());
+            long id = storedIds.get(dataList.get(position).getId());
+            db.surgicalServiceDao().deleteByIdOne(id);
+            storedIds.remove(dataList.get(position).getId());
             count -=1;
             Toast.makeText(this, getString(R.string.removecart), Toast.LENGTH_SHORT).show();
         }

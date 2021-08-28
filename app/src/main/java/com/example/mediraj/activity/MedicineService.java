@@ -90,7 +90,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     ApiInterface apiInterface;
     File output = null;
     private Uri uri;
-    private String str_image_path = "",phone="";
+    private String str_image_path = "",phone=null;
     Double userLat=null, userLong=null;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -178,14 +178,18 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
     private void validateData() {
 
-
         try {
-            String mob = !userCell.getText().toString().isEmpty()?userCell.getText().toString().split(" ")[1]:"11111-111111";
-            phone = mob.split("-")[0]+mob.split("-")[1];
-            Log.e("phone",phone);
+            if (!userCell.getText().toString().equals(" ") && userCell.getText().length() == 16) {
+                String raw_phone = userCell.getText().toString().split(" ")[1];
+                phone = raw_phone.split("-")[0] + raw_phone.split("-")[1];
+            } else {
+                userCell.setError(getString(R.string.userPhone_error_valid));
+                userCell.requestFocus();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
 
         if (userCell.getText().toString().isEmpty()){
@@ -199,8 +203,8 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             userCell.requestFocus();
         } else if (userLocation.getText().toString().isEmpty()){
             userLocation.setError("Please enter address");
-        }else if (str_image_path==null && medName.getText().toString().isEmpty()){
-            Toast.makeText(this, "Plaes enter medicine name or capture prescription picture", Toast.LENGTH_SHORT).show();
+        }else if (str_image_path.equals("") && medName.getText().toString().isEmpty()){
+            Toast.makeText(this, "Please enter medicine name or capture prescription picture", Toast.LENGTH_SHORT).show();
         }
         else {
             if (ConnectionManager.connection(this)){
@@ -243,7 +247,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
                 try {
                     MedicinRequestModel medicinRequestModel = response.body();
-                    assert medicinRequestModel != null;
+                  //  assert medicinRequestModel != null;
                     if (medicinRequestModel.getResponse()==200){
                         Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
                         confirmAlert(MedicineService.this);
@@ -421,7 +425,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_PERMISSION_CONSTANT) {
             if (grantResults.length > 0) {

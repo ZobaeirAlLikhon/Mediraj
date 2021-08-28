@@ -3,6 +3,7 @@ package com.example.mediraj.localdb;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.mediraj.model.checkout.Checkout;
@@ -13,10 +14,14 @@ import java.util.List;
 public interface PathologyServicesDao {
     @Query("SELECT * FROM pathology")
     List<PathologyServices> getAllPathology();
-    @Insert()
-    Void insertInfo(PathologyServices pathologyServices);
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertInfo(PathologyServices pathologyServices);
     @Query("DELETE FROM pathology")
     abstract void deleteAllDataPath();
+
+    @Query("DELETE FROM pathology WHERE id = :id")
+    abstract void deleteByIdOne(long id);
+
     @Query("DELETE FROM pathology WHERE id = :id")
     abstract void deleteByIdPath(int id);
 

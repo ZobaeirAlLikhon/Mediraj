@@ -26,6 +26,7 @@ import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import retrofit2.Call;
@@ -42,12 +43,12 @@ public class HomePathologyActivity extends AppCompatActivity implements View.OnC
     List<AllPathologyModel.Datum> dataList=new ArrayList<>();
     AppDatabase db;
     TextView noData;
-
     FloatingActionButton fab;
     FrameLayout frameLayout;
     int count = 0;
     ImageView ivBack;
     TextView toolBarTxt,itemCount;
+    Hashtable<Integer,Long> storedIds = new Hashtable<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +143,7 @@ public class HomePathologyActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void sendOrDelete(int position, String opType) {
+        long insertionId;
         if (opType != null && opType.equalsIgnoreCase("add")) {
             PathologyServices pathologyServices = new PathologyServices();
             pathologyServices.setItem_id(dataList.get(position).getId());
@@ -150,12 +152,15 @@ public class HomePathologyActivity extends AppCompatActivity implements View.OnC
             pathologyServices.setItem_qty("1");
             pathologyServices.setItem_price(dataList.get(position).getPrice());
             pathologyServices.setItem_subtotal(dataList.get(position).getPrice());
-            db.pathologyServicesDao().insertInfo(pathologyServices);
+            insertionId = db.pathologyServicesDao().insertInfo(pathologyServices);
+            storedIds.put(dataList.get(position).getId(),insertionId);
             Toast.makeText(this, getString(R.string.addtocart), Toast.LENGTH_SHORT).show();
             count +=1;
 
         } else if (opType != null && opType.equalsIgnoreCase("delete")) {
-            db.pathologyServicesDao().deleteByIdPath(dataList.get(position).getId());
+            long id = storedIds.get(dataList.get(position).getId());
+            db.pathologyServicesDao().deleteByIdOne(id);
+            storedIds.remove(dataList.get(position).getId());
             count -=1;
             Toast.makeText(this, getString(R.string.removecart), Toast.LENGTH_SHORT).show();
         }
