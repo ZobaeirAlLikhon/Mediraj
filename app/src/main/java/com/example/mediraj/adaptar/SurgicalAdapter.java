@@ -49,7 +49,7 @@ public class SurgicalAdapter extends RecyclerView.Adapter<SurgicalAdapter.MyView
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
             holder.addToCart_btn.setText("add to cart");
-            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
+            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.primaryColor));
         }
         holder.surgical_name.setText(allSurgicalModels.get(position).getTitle());
         holder.surgical_price.setText(context.getString(R.string.moneySymbol)+" "+String.valueOf(allSurgicalModels.get(position).getPrice()));

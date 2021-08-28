@@ -51,7 +51,7 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
             holder.addToCart_btn.setText("add to cart");
-            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
+            holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.primaryColor));
         }
 
         holder.diagnostic_name.setText(allDiagnosticModels.get(position).getTitle());

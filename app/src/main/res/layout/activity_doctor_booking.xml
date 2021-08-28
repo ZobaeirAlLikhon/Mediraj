@@ -169,6 +169,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_marginBottom="10dp"
+                            android:backgroundTint="@color/primaryColor"
                             android:text="Select Time" />
 
                         <TextView

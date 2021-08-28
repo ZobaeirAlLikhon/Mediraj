@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@null"
-            app:backgroundTint="@color/tabColor"
+            app:backgroundTint="@color/primaryColor"
             app:fabSize="mini"
             app:tint="@null"
             android:elevation="5dp"

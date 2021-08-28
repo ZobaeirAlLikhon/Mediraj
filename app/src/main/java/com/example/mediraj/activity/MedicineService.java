@@ -188,7 +188,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         }
 
 
-        if (Objects.requireNonNull(userCell.getText()).toString().isEmpty()){
+        if (userCell.getText().toString().isEmpty()){
             userCell.setError("Please enter mobile number.");
             userCell.requestFocus();
         }else if (!phone.startsWith("0")){
@@ -197,9 +197,12 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         }else if (phone.length()!=11){
             userCell.setError("Enter your 11 digits phone number.");
             userCell.requestFocus();
-        } else if (Objects.requireNonNull(userLocation.getText()).toString().isEmpty()){
+        } else if (userLocation.getText().toString().isEmpty()){
             userLocation.setError("Please enter address");
-        }else {
+        }else if (str_image_path==null && medName.getText().toString().isEmpty()){
+            Toast.makeText(this, "Plaes enter medicine name or capture prescription picture", Toast.LENGTH_SHORT).show();
+        }
+        else {
             if (ConnectionManager.connection(this)){
                 sendData();
             }else {

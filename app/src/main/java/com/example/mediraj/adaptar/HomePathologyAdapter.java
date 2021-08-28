@@ -48,7 +48,7 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
             holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
             holder.pathology_Cart_btn.setText("add to cart");
-            holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.tabColor));
+            holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.primaryColor));
         }
 
         holder.pathology_name.setText(allPathologyModels.get(position).getTitle());
