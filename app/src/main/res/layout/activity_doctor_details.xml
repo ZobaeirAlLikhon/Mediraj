@@ -235,7 +235,7 @@
         android:id="@+id/bookBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#21987E"
+        android:background="@color/primaryColor"
         android:fontFamily="@font/noto_sans"
         android:text="@string/book_appointment"
         android:textColor="@color/white"

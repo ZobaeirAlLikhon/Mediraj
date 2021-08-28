@@ -13,47 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
-        android:id="@+id/profilePhoto"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/edit_pro"
-            app:shapeAppearanceOverlay="@style/roundedCornersImageViewTwo" />
-
-        <RelativeLayout
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_centerInParent="true">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/ic_profile"
-                app:civ_border_color="@color/light_gray"
-                app:civ_border_width="2dp" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="10dp"
-                android:src="@drawable/ic_camera"
-                app:civ_border_color="@color/white"
-                app:civ_border_width="1dp" />
-        </RelativeLayout>
-    </RelativeLayout>
 
     <ScrollView
         android:layout_width="0dp"
@@ -62,13 +22,52 @@
         app:layout_constraintBottom_toTopOf="@id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profilePhoto">
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/profilePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="10dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/edit_pro"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageViewTwo" />
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerInParent="true">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/userImg"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_profile"
+                        app:civ_border_color="@color/light_gray"
+                        app:civ_border_width="2dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_camera"
+                        app:civ_border_color="@color/white"
+                        app:civ_border_width="1dp" />
+                </RelativeLayout>
+            </RelativeLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -169,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/noto_sans"
-                android:text="Gender"
+                android:text="@string/gender"
                 android:textStyle="bold" />
 
             <RadioGroup
@@ -188,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Male" />
+                    android:text="@string/male" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/checkFemale"
@@ -196,7 +195,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Female" />
+                    android:text="@string/female" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/checkOther"
@@ -204,7 +203,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Other" />
+                    android:text="@string/other" />
             </RadioGroup>
         </LinearLayout>
     </ScrollView>
@@ -213,10 +212,9 @@
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/battleship_grey"
+        android:background="@color/primaryColor"
         android:elevation="8dp"
-        android:text="Save"
-        android:textAllCaps="false"
+        android:text="@string/save"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

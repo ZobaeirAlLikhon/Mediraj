@@ -53,7 +53,7 @@ import retrofit2.Response;
 
 public class DoctorBookingActivity extends AppCompatActivity implements CalAdapter.OnCalDataClick, View.OnClickListener {
     RecyclerView calRec;
-    String docId;
+    String docId,name,speciality,designation,workPlace;
     private final Calendar cal = Calendar.getInstance();
     Spinner month;
     int indexOfMonth, indexOfDay, indexOfYear;
@@ -70,6 +70,8 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
     ImageView toolbarBtn;
     String mobile = null;
 
+    TextView docName,docSpe,docDes,docPlace;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +84,15 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
         if (intent != null) {
             //intent data
             docId = getIntent().getStringExtra("docId");
+            name = getIntent().getStringExtra("docName");
+            speciality = getIntent().getStringExtra("docSpe");
+            designation = getIntent().getStringExtra("docDes");
+            workPlace = getIntent().getStringExtra("place");
+
+            docName.setText(name);
+            docSpe.setText(speciality);
+            docDes.setText(designation);
+            docPlace.setText(workPlace);
         }
 
         //for date operation
@@ -128,6 +139,11 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
         toolbarText = findViewById(R.id.toolbarText);
         toolbarBtn = findViewById(R.id.toolbarBtn);
         timeTxt = findViewById(R.id.timeTxt);
+
+        docName = findViewById(R.id.docName);
+        docSpe = findViewById(R.id.speciality);
+        docDes = findViewById(R.id.desInfo);
+        docPlace = findViewById(R.id.workPlace);
 
         toolbarText.setText(R.string.doctor_appointment);
 
@@ -188,26 +204,19 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
         sendDay = day;
         sendMonth = month;
         sendYear = year;
-
-        Log.e("data from clicked",sendDay+" - "+sendMonth+" - "+sendYear);
-        Log.e("data from clicked",indexOfDay+" - "+indexOfMonth+" - "+indexOfYear);
-
-        Log.e("Data comparison",String.valueOf(sendDay<indexOfDay)+"\nclicked data "+sendDay+
-                "\nstored data "+indexOfDay+"\nother arguments"+String.valueOf(sendMonth==indexOfMonth+1)+"\nyear com "+String.valueOf(sendYear==indexOfYear));
-
         if (sendDay==0 || sendMonth==0 || sendYear==0){
             selectDateFormat = null;
         }else if (sendDay<indexOfDay && sendMonth == (indexOfMonth+1)){
             if (sendYear==indexOfYear){
                 selectDateFormat = null;
-                Toast.makeText(DoctorBookingActivity.this, "Select date from "+indexOfDay +"or above.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DoctorBookingActivity.this, "Select date from "+indexOfDay +" or above.", Toast.LENGTH_SHORT).show();
             }
         }
-        else {
-            selectDateFormat = sendYear+"-"+sendMonth+"-"+sendDay;
+        else if (sendDay < indexOfDay && sendMonth < (indexOfMonth+1)){
+            selectDateFormat = (sendYear+1)+"-"+sendMonth+"-"+sendDay;
             Toast.makeText(DoctorBookingActivity.this, "Your selected date is "+sendDay+"-"+sendMonth+"-"+sendYear, Toast.LENGTH_SHORT).show();
         }
-        Log.e("date data",selectDateFormat+"*");
+        Log.e("date data",selectDateFormat+"");
     }
 
     @Override

@@ -36,6 +36,8 @@ public class ClinicService extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_clinic_service);
+
 
         initView();
 
@@ -48,7 +50,7 @@ public class ClinicService extends AppCompatActivity {
     }
 
     private void initView() {
-        setContentView(R.layout.activity_clinic_service);
+
         recyclerView=findViewById(R.id.recy_view_clinic);
         recyclerView.setLayoutManager(new LinearLayoutManager(ClinicService.this,LinearLayoutManager.VERTICAL,false));
         toolbarBtn = findViewById(R.id.toolbarBtn);

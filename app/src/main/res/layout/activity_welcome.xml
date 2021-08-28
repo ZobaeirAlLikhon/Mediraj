@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/noto_sans"
-        android:text="mediraj"
+        android:text="@string/mediraj"
         android:textColor="@color/battleship_grey"
         android:textSize="54sp"
         android:textStyle="bold" />
