@@ -84,6 +84,11 @@ import retrofit2.Response;
 
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = EditProfileActivity.class.getName();
+    private static final int MY_PERMISSION_CONSTANT = 105;
+    private static final int REQUEST_CAMERA = 1;
+    private static final int SELECT_FILE = 2;
+    File output = null;
     private TextView toolbarText;
     private ImageView toolbarBtn;
     private TextInputEditText userPhone, userName, userEmail, userAddress, edt_date;
@@ -95,12 +100,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private AppCompatButton saveBtn;
     private double userLat, userLong;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private String str_image_path = "",userGender;
-    private static final String TAG = EditProfileActivity.class.getName();
-    private static final int MY_PERMISSION_CONSTANT = 105;
-    private static final int REQUEST_CAMERA = 1;
-    private static final int SELECT_FILE = 2;
-    File output = null;
+    private String str_image_path = "", userGender;
     private Uri uri;
     private ApiInterface apiInterface;
     private ImageView fetchAddress;
@@ -203,8 +203,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         if (!str_image_path.equalsIgnoreCase("")) {
             File file = new File(str_image_path);
             filePart = MultipartBody.Part.createFormData("avatar", file.getName(), RequestBody.create(file, MediaType.parse("image/*")));
-        }
-        else {
+        } else {
             RequestBody attachmentEmpty = RequestBody.create("", MediaType.parse("text/plain"));
             filePart = MultipartBody.Part.createFormData("attachment", "", attachmentEmpty);
         }
@@ -233,12 +232,12 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             mapData.put("dob", birthDay);
         }
 
-        if (userGender != null ) {
+        if (userGender != null) {
             RequestBody gender = RequestBody.create(userGender, MediaType.parse("text/plain"));
             mapData.put("gender", gender);
         }
 
-        Call<UserData> profileUpdateCall = apiInterface.updateProfile(Constant.AUTH,mapData,filePart);
+        Call<UserData> profileUpdateCall = apiInterface.updateProfile(Constant.AUTH, mapData, filePart);
         profileUpdateCall.enqueue(new Callback<UserData>() {
             @Override
             public void onResponse(@NonNull Call<UserData> call, @NonNull Response<UserData> response) {
@@ -246,14 +245,14 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 try {
                     UserData userData = response.body();
                     assert userData != null;
-                    if (userData.response==200){
+                    if (userData.response == 200) {
                         String dataResponse = new Gson().toJson(response.body());
                         Log.e("MapMap", "EDIT PROFILE RESPONSE" + dataResponse);
                         SessionManager.writeString(EditProfileActivity.this, Constant.USER_INFO, dataResponse);
                         Toast.makeText(EditProfileActivity.this, userData.message, Toast.LENGTH_SHORT).show();
-                       // startActivity(new Intent(EditProfileActivity.this,ProfileActivity.class));
+                        // startActivity(new Intent(EditProfileActivity.this,ProfileActivity.class));
                         finish();
-                    }else {
+                    } else {
                         Toast.makeText(EditProfileActivity.this, userData.message, Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
@@ -341,17 +340,18 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         picker.show();
     }
 
+
     //date format
     private void formatDate(String date) throws ParseException {
         DateFormat originalFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-        DateFormat targetFormat = new SimpleDateFormat("d MMM, yyyy");
+        DateFormat targetFormat = new SimpleDateFormat("d MMM, yyyy", Locale.ENGLISH);
         Date date1 = originalFormat.parse(date);
         edt_date.setText(targetFormat.format(date1));
     }
 
     private String formatDateFromApi(String date) throws ParseException {
         DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        DateFormat targetFormat = new SimpleDateFormat("d MMM, yyyy");
+        DateFormat targetFormat = new SimpleDateFormat("d MMM, yyyy", Locale.ENGLISH);
         Date date1 = originalFormat.parse(date);
 
         return targetFormat.format(date1);
@@ -378,6 +378,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                     }
                 }).check();
     }
+
 
     // OPEN SHORTING MENU DIALOG
     public void showImageSelection() {
@@ -448,10 +449,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             );
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("error",e.toString());
+            Log.e("error", e.toString());
         }
         // Save a file: path for use with ACTION_VIEW intents
-        Log.e("data test",image.exists()+" ");
+        Log.e("data test", image.exists() + " ");
         str_image_path = image.getAbsolutePath();
         return image;
     }
@@ -504,7 +505,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                         Log.d(TAG, "onSuccess: Time: " + location.getTime());
                         userLat = location.getLatitude();
                         userLong = location.getLongitude();
-                        String address = getCompleteAddressString(userLat,userLong);
+                        String address = getCompleteAddressString(userLat, userLong);
                         userAddress.setText(address);
                     }
                 }
@@ -578,9 +579,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                     strReturnedAddress.append(returnedAddress.getAddressLine(i));
                 }
                 strAdd = strReturnedAddress.toString();
-                Log.w(TAG,"My Current loction address"+strReturnedAddress.toString());
+                Log.w(TAG, "My Current loction address" + strReturnedAddress.toString());
             } else {
-                Log.w(TAG,"My Current loction address "+"No Address returned!");
+                Log.w(TAG, "My Current loction address " + "No Address returned!");
 
             }
         } catch (Exception e) {
@@ -591,7 +592,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-       // super.onBackPressed();
+        // super.onBackPressed();
         startActivity(new Intent(this, MoreActivity.class));
         overridePendingTransition(0, 0);
         finish();

@@ -1,11 +1,5 @@
 package com.example.mediraj.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -23,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.CalAdapter;
@@ -52,9 +52,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DoctorBookingActivity extends AppCompatActivity implements CalAdapter.OnCalDataClick, View.OnClickListener {
-    RecyclerView calRec;
-    String docId,name,speciality,designation,workPlace;
     private final Calendar cal = Calendar.getInstance();
+    RecyclerView calRec;
+    String docId, name, speciality, designation, workPlace;
     Spinner month;
     int indexOfMonth, indexOfDay, indexOfYear;
     List<DateModel> dateModels = new ArrayList<>();
@@ -70,7 +70,7 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
     ImageView toolbarBtn;
     String mobile = null;
 
-    TextView docName,docSpe,docDes,docPlace;
+    TextView docName, docSpe, docDes, docPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,10 +106,13 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
         month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if (position + 1 == indexOfMonth) {
+
+                if (position + 1 == indexOfMonth + 1) {
                     getDateList(indexOfYear, position + 1, indexOfDay);
-                } else if (indexOfMonth > position + 1) {
+
+                } else if (indexOfMonth + 1 > position + 1) {
                     getDateList(indexOfYear + 1, position + 1, 1);
+
                 } else {
                     getDateList(indexOfYear, position + 1, 1);
                 }
@@ -204,19 +207,21 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
         sendDay = day;
         sendMonth = month;
         sendYear = year;
-        if (sendDay==0 || sendMonth==0 || sendYear==0){
+
+        if (sendDay == 0 || sendMonth == 0 || sendYear == 0) {
             selectDateFormat = null;
-        }else if (sendDay<indexOfDay && sendMonth == (indexOfMonth+1)){
-            if (sendYear==indexOfYear){
+        } else if (sendDay < indexOfDay && sendMonth == (indexOfMonth + 1)) {
+            if (sendYear == indexOfYear) {
                 selectDateFormat = null;
-                Toast.makeText(DoctorBookingActivity.this, "Select date from "+indexOfDay +" or above.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DoctorBookingActivity.this, "Select date from " + indexOfDay + " or above.", Toast.LENGTH_SHORT).show();
             }
+        } else if (sendMonth < (indexOfMonth + 1)) {
+            selectDateFormat = sendYear + "-" + sendMonth + "-" + sendDay;
+            Toast.makeText(DoctorBookingActivity.this, "Your selected date is " + sendDay + "-" + sendMonth + "-" + sendYear, Toast.LENGTH_SHORT).show();
+        } else {
+            selectDateFormat = sendYear + "-" + sendMonth + "-" + sendDay;
+            Toast.makeText(DoctorBookingActivity.this, "Your selected date is " + sendDay + "-" + sendMonth + "-" + sendYear, Toast.LENGTH_SHORT).show();
         }
-        else if (sendDay < indexOfDay && sendMonth < (indexOfMonth+1)){
-            selectDateFormat = (sendYear+1)+"-"+sendMonth+"-"+sendDay;
-            Toast.makeText(DoctorBookingActivity.this, "Your selected date is "+sendDay+"-"+sendMonth+"-"+sendYear, Toast.LENGTH_SHORT).show();
-        }
-        Log.e("date data",selectDateFormat+"");
     }
 
     @Override
@@ -267,33 +272,33 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
             userAddress.setError(getString(R.string.please_enter_your_address));
         } else if (selectDateFormat == null || selectDateFormat.equals("0-0-0")) {
             Toast.makeText(this, R.string.enter_date, Toast.LENGTH_SHORT).show();
-        }else if (timeTxt.getText().toString().isEmpty()){
+        } else if (timeTxt.getText().toString().isEmpty()) {
             Toast.makeText(this, R.string.enter_time, Toast.LENGTH_SHORT).show();
-        }else{
-            DataManager.getInstance().showProgressMessage(this,getString(R.string.please_wait));
-            Map<String,String> map = new HashMap<>();
-            map.put("doctor_id",docId);
-            map.put("user_id",DataManager.getInstance().getUserData(this).data.id);
-            map.put("name",userName.getText().toString());
-            map.put("email","info.mediRaj@test.com");
-            map.put("mobile",userPhone.getText().toString());
-            map.put("address",userAddress.getText().toString());
-            map.put("schedule",selectDateFormat+" "+timeTxt.getText().toString());
+        } else {
+            DataManager.getInstance().showProgressMessage(this, getString(R.string.please_wait));
+            Map<String, String> map = new HashMap<>();
+            map.put("doctor_id", docId);
+            map.put("user_id", DataManager.getInstance().getUserData(this).data.id);
+            map.put("name", userName.getText().toString());
+            map.put("email", "info.mediRaj@test.com");
+            map.put("mobile", userPhone.getText().toString());
+            map.put("address", userAddress.getText().toString());
+            map.put("schedule", selectDateFormat + " " + timeTxt.getText().toString());
 
-            Log.e("api data",map+" ");
+            Log.e("api data", map + " ");
 
-            Call<DoctorBookingModel> call = apiInterface.doctorBooking(Constant.AUTH,map);
+            Call<DoctorBookingModel> call = apiInterface.doctorBooking(Constant.AUTH, map);
             call.enqueue(new Callback<DoctorBookingModel>() {
                 @Override
                 public void onResponse(@NonNull Call<DoctorBookingModel> call, @NonNull Response<DoctorBookingModel> response) {
                     DataManager.getInstance().hideProgressMessage();
                     DoctorBookingModel doctorBookingModel = response.body();
                     assert doctorBookingModel != null;
-                    if (doctorBookingModel.response==200){
+                    if (doctorBookingModel.response == 200) {
                         Toast.makeText(DoctorBookingActivity.this, doctorBookingModel.message, Toast.LENGTH_SHORT).show();
                         confirmAlert(DoctorBookingActivity.this);
 
-                    }else{
+                    } else {
                         Toast.makeText(DoctorBookingActivity.this, doctorBookingModel.message, Toast.LENGTH_SHORT).show();
                     }
                 }

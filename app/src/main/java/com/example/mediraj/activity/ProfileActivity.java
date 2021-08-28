@@ -108,4 +108,10 @@ public class ProfileActivity extends AppCompatActivity {
            }
        }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setUserData();
+    }
 }
