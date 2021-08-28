@@ -592,9 +592,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-        // super.onBackPressed();
-        startActivity(new Intent(this, MoreActivity.class));
-        overridePendingTransition(0, 0);
+         super.onBackPressed();
         finish();
     }
 }
