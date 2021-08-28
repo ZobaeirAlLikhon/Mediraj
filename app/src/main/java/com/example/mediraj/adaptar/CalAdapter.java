@@ -39,7 +39,7 @@ public class CalAdapter extends RecyclerView.Adapter<CalAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         if (dateModels.get(position).isChecked()){
-            holder.card.setCardBackgroundColor(Color.rgb(32,102,35));
+            holder.card.setCardBackgroundColor(ContextCompat.getColor(context,R.color.primaryColor));
             holder.dayString.setTextColor(Color.WHITE);
             holder.dayNumber.setTextColor(Color.WHITE);
         }else {

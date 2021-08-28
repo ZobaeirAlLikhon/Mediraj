@@ -66,7 +66,6 @@
     <string name="contact">Contact</string>
     <string name="user_name">Name</string>
     <string name="br">Blood Request</string>
-    <string name="search">Search&#8230;</string>
     <string name="descripsation">Descripsation</string>
     <string name="doctor_name">Doctor Name</string>
     <string name="place">Place</string>
@@ -99,5 +98,25 @@
     <string name="select_month">Select Month</string>
     <string name="enter_date">Plaese select a date</string>
     <string name="enter_time">Please enter a time Schedule</string>
+    <string name="doctor_information">Doctor information</string>
+    <string name="mediraj">mediraj</string>
+    <string name="notification">Notification</string>
+    <string name="offer">Offer</string>
+    <string name="special_offer">Special Offer</string>
+    <string name="promotional_offer">Promotional Offer</string>
+    <string name="help">Help</string>
+    <string name="about_us">About Us</string>
+    <string name="emergency_call">Emergency Call</string>
+    <string name="development_team">Development Team</string>
+    <string name="log_out">Log out</string>
+    <string name="profile">Profile</string>
+    <string name="account">Account</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="other">Other</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="gender">Gender</string>
+    <string name="blood_request_form">Blood request form:</string>
 
 </resources>

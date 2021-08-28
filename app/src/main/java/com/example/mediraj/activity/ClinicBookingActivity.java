@@ -40,7 +40,7 @@ public class ClinicBookingActivity extends AppCompatActivity implements View.OnC
     String hospi_name, hospi_address, clinic_ID, user_ID, nameST, contractST, addressST, purposeST;
     TextInputEditText name, address, purpose;
     MaskEditText contract;
-    CardView clinic_confirm_btn;
+    AppCompatButton clinic_confirm_btn;
     TextView ctitle, caddress,toolbarText;
     ImageView toolbarBtn;
     ApiInterface apiInterface;

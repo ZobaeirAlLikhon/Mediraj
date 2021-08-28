@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/off_white"
+    android:background="@color/flash_white"
     tools:context=".activity.MedicineService">
 
     <include
@@ -17,109 +16,150 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/include2"
+        android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/include2"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/include2">
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="8dp">
-            <LinearLayout
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="@string/medicine"
-                    android:textColor="@color/battleship_grey"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cameraBtn"
-                    android:layout_width="240dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="10dp"
-                    app:cardBackgroundColor="#fafafa"
-                    android:layout_gravity="center_horizontal"
-                    app:cardCornerRadius="10dp">
-
-                    <TextView
-                        android:id="@+id/imgAdd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/upload_prescription"
-                        android:drawablePadding="2dp"
-                        android:textSize="16sp"
-                        android:textColor="@color/battleship_grey"
-                        android:fontFamily="@font/noto_sans"
-                        android:layout_gravity="center"
-                        app:drawableLeftCompat="@drawable/ic_baseline_camera" />
-
-                    <ImageView
-                        android:id="@+id/imgpres"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:visibility="gone"
-                        android:contentDescription="@string/upload_prescription" />
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="@string/or"
-                    android:textColor="@color/battleship_grey"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="12dp"
-                    android:hint="@string/medicine_name_optional"
-                    app:helperText="Suggest: Tab: Ace Plus -500mg (4 pcs)"
-                    app:endIconMode="clear_text"
-                    app:errorEnabled="false">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/medName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_sans"
-                        android:imeOptions="actionNext"
-                        android:inputType="text|textCapWords|textMultiLine"
-                        tools:ignore="Autofill" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="1"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="@string/medicine"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cameraBtn"
+                        android:layout_width="240dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="#fafafa"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:id="@+id/imgAdd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawablePadding="2dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="@string/upload_prescription"
+                            android:textColor="@color/battleship_grey"
+                            android:textSize="16sp"
+                            app:drawableLeftCompat="@drawable/ic_baseline_camera" />
+
+                        <ImageView
+                            android:id="@+id/imgpres"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/upload_prescription"
+                            android:scaleType="fitXY"
+                            android:visibility="gone" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="@string/or"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
-                        android:layout_weight=".9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:hint="@string/medicine_name_optional"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="false"
+                        app:helperText="Suggest: Tab: Ace Plus -500mg (4 pcs)">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/medName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/noto_sans"
+                            android:imeOptions="actionNext"
+                            android:inputType="text|textCapWords|textMultiLine"
+                            tools:ignore="Autofill" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_weight=".9"
+                            app:endIconMode="clear_text"
+                            app:errorEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/userLocation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/noto_sans"
+                                android:hint="@string/address"
+                                android:imeOptions="actionNext"
+                                android:inputType="text|textCapWords|textMultiLine"
+                                tools:ignore="Autofill" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageView
+                            android:id="@+id/fetchAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_weight=".1"
+                            android:contentDescription="@string/address"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_address" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
@@ -127,88 +167,55 @@
                         app:endIconMode="clear_text"
                         app:errorEnabled="false">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/userLocation"
+                        <com.santalu.maskara.widget.MaskEditText
+                            android:id="@+id/userCell"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
-                            android:hint="@string/address"
+                            android:hint="@string/phone_number"
                             android:imeOptions="actionNext"
-                            android:inputType="text|textCapWords|textMultiLine"
+                            android:inputType="phone"
+                            app:mask="+88 #####-######"
                             tools:ignore="Autofill" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/fetchAddress"
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:layout_weight=".1"
-                        android:padding="5dp"
-                        android:src="@drawable/ic_address"
-                        android:contentDescription="@string/address" />
-                </LinearLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="12dp"
-                    app:endIconMode="clear_text"
-                    app:errorEnabled="false">
-
-                    <com.santalu.maskara.widget.MaskEditText
-                        android:id="@+id/userCell"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_sans"
-                        android:hint="@string/phone_number"
-                        android:imeOptions="actionNext"
-                        android:inputType="phone"
-                        app:mask="+88 #####-######"
-                        tools:ignore="Autofill" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="8dp"
-                    android:orientation="horizontal"
-                    android:padding="4dp"
-                    android:weightSum="2">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/sendBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/primaryColor"
-                        android:drawableLeft="@drawable/ic_baseline_send"
-                        android:drawablePadding="2dp"
-                        android:text="@string/send_now" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/callBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/primaryColor"
-                        android:drawableLeft="@drawable/ic_phone_24"
-                        android:text="@string/call_now" />
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal"
+                        android:padding="4dp"
+                        android:weightSum="2">
 
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/sendBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/primaryColor"
+                            android:drawableLeft="@drawable/ic_baseline_send"
+                            android:drawablePadding="2dp"
+                            android:text="@string/send_now" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/callBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/primaryColor"
+                            android:drawableLeft="@drawable/ic_phone_24"
+                            android:text="@string/call_now" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
 
     </ScrollView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

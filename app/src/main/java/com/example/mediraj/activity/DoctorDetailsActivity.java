@@ -161,7 +161,11 @@ public class DoctorDetailsActivity extends AppCompatActivity implements View.OnC
             finish();
         }else if (id==R.id.bookBtn){
             startActivity(new Intent(this,DoctorBookingActivity.class)
-                                    .putExtra("docId",docId));
+                                    .putExtra("docId",docId)
+                                    .putExtra("docName",singleDoctor.data.fullName)
+                                    .putExtra("docSpe",singleDoctor.data.specialty)
+                                    .putExtra("docDes",singleDoctor.data.degree)
+                                    .putExtra("place",singleDoctor.data.designation+", "+singleDoctor.data.organization));
         }
 
     }

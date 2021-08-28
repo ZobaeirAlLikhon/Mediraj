@@ -19,9 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/noto_sans"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="Depart Name"
-            android:textColor="#333333"
+            android:textColor="@color/battleship_grey"
             android:textSize="18sp" />
 
     </RelativeLayout>

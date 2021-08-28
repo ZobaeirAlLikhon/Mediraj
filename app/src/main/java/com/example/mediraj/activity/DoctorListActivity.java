@@ -47,7 +47,6 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
     ImageView ivBack;
     TextView toolbarTxt,noData;
     GetDepartmentAD.DoctorInterface doctorInterface;
-    //TextView search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +70,9 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
         toolbarTxt.setText(R.string.doctorlist);
         recyclerViewDoctor=findViewById(R.id.recy_view_doc_vertical);
         recyclerView=findViewById(R.id.recy_view_depart_horizontal);
-       // search = findViewById(R.id.searchDoc);
 
 
         ivBack.setOnClickListener(this);
-       // search.setOnClickListener(this);
     }
 
 
@@ -163,9 +160,6 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
         if (id==R.id.toolbarBtn){
             finish();
         }
-//        else if (id==R.id.searchDoc) {
-//            //go to search activity or fragment
-//        }
     }
 
 

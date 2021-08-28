@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -44,11 +45,11 @@ public class GetDepartmentAD extends RecyclerView.Adapter<GetDepartmentAD.MyView
     public void onBindViewHolder(@NonNull @NotNull GetDepartmentAD.MyViewHolder holder, int position) {
 
         if (allDepartmentModel.get(position).getIsChecked()) {
-            holder.card.setCardBackgroundColor(Color.rgb(32,102,35));
+            holder.card.setCardBackgroundColor(ContextCompat.getColor(context,R.color.primaryColor));
             holder.depart_name.setTextColor(Color.WHITE);
         } else {
             holder.card.setCardBackgroundColor(Color.WHITE);
-            holder.depart_name.setTextColor(Color.BLACK);
+            holder.depart_name.setTextColor(ContextCompat.getColor(context,R.color.battleship_grey));
         }
 
         holder.depart_name.setText(allDepartmentModel.get(position).title);

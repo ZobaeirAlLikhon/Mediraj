@@ -14,10 +14,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:scrollbarThumbVertical="@null"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toTopOf="@id/editBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -290,10 +291,9 @@
         android:id="@+id/editBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/battleship_grey"
+        android:background="@color/primaryColor"
         android:elevation="8dp"
-        android:text="Edit Profile"
-        android:textAllCaps="false"
+        android:text="@string/edit_profile"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

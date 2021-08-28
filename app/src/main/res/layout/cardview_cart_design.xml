@@ -41,7 +41,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
                         android:text="Product Title"
-                        android:textColor="@color/purple_200"
+                        android:textColor="@color/battleship_grey_melange"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -51,6 +51,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
                         android:text="Product Details"
+                        android:textColor="@color/battleship_grey"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -60,6 +61,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans"
                         android:text="$ 100"
+                        android:textColor="@color/battleship_grey"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -74,11 +76,11 @@
 
                     <ImageView
                         android:id="@+id/btnminus"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_gravity="center"
                         android:elevation="8dp"
-                        android:src="@drawable/ic_baseline_indeterminate" />
+                        android:src="@drawable/ic_minus" />
 
                     <TextView
                         android:id="@+id/start_quantity"
@@ -89,16 +91,17 @@
                         android:layout_marginRight="8dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="100"
+                        android:textColor="@color/battleship_grey"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/btnplus"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_gravity="center"
                         android:elevation="8dp"
-                        android:src="@drawable/ic_baseline_add_box" />
+                        android:src="@drawable/ic_add" />
                 </LinearLayout>
 
             </LinearLayout>

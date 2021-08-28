@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,7 +37,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans"
-                android:text="Akash Karim"
                 android:textColor="@color/battleship_grey"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -47,7 +46,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans"
-                android:text="01767535372"
                 android:textColor="@color/battleship_grey"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -57,7 +55,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans"
-                android:text="Johny.ice10@gmail.com"
                 android:textColor="@color/battleship_grey"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -70,27 +67,29 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
         app:elevation="8dp"
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextAppearance="@style/Style_TextView"
         app:itemTextAppearanceActive="@style/Style_TextView"
         app:itemTextAppearanceInactive="@style/Style_TextView"
         app:itemTextColor="@color/bottom_nav_color"
-        app:menu="@menu/menu_nav" />
+        app:menu="@menu/menu_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav"
-        android:layout_below="@id/profileInfo"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileInfo"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fillViewport="true"
             android:orientation="vertical">
 
 
@@ -108,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Account"
+                    android:text="@string/account"
                     android:textColor="@color/battleship_grey"
                     android:textStyle="bold" />
 
@@ -132,7 +131,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Profile"
+                        android:text="@string/profile"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -159,7 +158,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Notification"
+                        android:text="@string/notification"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -287,7 +286,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Offer"
+                    android:text="@string/offer"
                     android:textColor="@color/battleship_grey"
                     android:textStyle="bold" />
 
@@ -311,7 +310,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Special Offer"
+                        android:text="@string/special_offer"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -337,7 +336,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Promotional Offer"
+                        android:text="@string/promotional_offer"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -356,7 +355,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Help"
+                    android:text="@string/help"
                     android:textColor="@color/battleship_grey"
                     android:textStyle="bold" />
 
@@ -380,7 +379,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="About Us"
+                        android:text="@string/about_us"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -407,7 +406,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Emergency Call"
+                        android:text="@string/emergency_call"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -440,7 +439,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Development Team"
+                        android:text="@string/development_team"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -473,7 +472,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
-                        android:text="Log out"
+                        android:text="@string/log_out"
                         android:textColor="@color/battleship_grey"
                         android:textSize="16sp" />
 
@@ -491,7 +490,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/noto_sans"
-                    android:text="Version 1.01"
                     android:textColor="@color/battleship_grey"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -502,4 +500,4 @@
     </ScrollView>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

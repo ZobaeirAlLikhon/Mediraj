@@ -58,7 +58,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
     ApiInterface apiInterface;
     String databaseRef = null;
     int price = 0;
-    CardView checkoutConfirmBtn;
+    AppCompatButton checkoutConfirmBtn;
     List<Checkout> newDataList = new ArrayList<>();
     List<DiagnosticService> diagnosticServiceList = new ArrayList<>();
     List<PathologyServices> pathologyServicesList = new ArrayList<>();
