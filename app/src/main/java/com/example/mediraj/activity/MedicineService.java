@@ -65,7 +65,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -79,19 +78,19 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
     private static final int SELECT_FILE = 1;
     private static final int REQUEST_CAMERA = 2;
-    private static final int MY_PERMISSION_CONSTANT =3 ;
+    private static final int MY_PERMISSION_CONSTANT = 3;
     private static final String TAG = MedicineService.class.getName();
+    ApiInterface apiInterface;
+    File output = null;
+    Double userLat = null, userLong = null;
     private MaterialButton send_btn, call_btn;
-    private TextView toolbarTxt,uploadText;
+    private TextView toolbarTxt, uploadText;
     private CardView camera_btn;
     private TextInputEditText medName, userLocation;
     private MaskEditText userCell;
-    private ImageView imageView,fetchAddress,ivBack;
-    ApiInterface apiInterface;
-    File output = null;
+    private ImageView imageView, fetchAddress, ivBack;
     private Uri uri;
-    private String str_image_path = "",phone=null;
-    Double userLat=null, userLong=null;
+    private String str_image_path = "", phone = null;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
@@ -163,14 +162,14 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         } else if (id == R.id.sendBtn) {
             validateData();
-        }else if (id==R.id.fetchAddress){
+        } else if (id == R.id.fetchAddress) {
             //check location permission
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 checkPermissionForLocation();
             } else {
                 getLocation();
             }
-        }else if (id==R.id.toolbarBtn){
+        } else if (id == R.id.toolbarBtn) {
             finish();
         }
 
@@ -191,29 +190,29 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         }
 
 
-
-        if (userCell.getText().toString().isEmpty()){
+        if (userCell.getText().toString().isEmpty()) {
             userCell.setError("Please enter mobile number.");
             userCell.requestFocus();
-        }else if (!phone.startsWith("0")){
+        } else if (phone == null) {
             userCell.setError("Please enter valid mobile number.");
             userCell.requestFocus();
-        }else if (phone.length()!=11){
+        } else if (!phone.startsWith("0")) {
+            userCell.setError("Please enter valid mobile number.");
+            userCell.requestFocus();
+        } else if (phone.length() != 11) {
             userCell.setError("Enter your 11 digits phone number.");
             userCell.requestFocus();
-        } else if (userLocation.getText().toString().isEmpty()){
+        } else if (userLocation.getText().toString().isEmpty()) {
             userLocation.setError("Please enter address");
-        }else if (str_image_path.equals("") && medName.getText().toString().isEmpty()){
+        } else if (str_image_path.equals("") && medName.getText().toString().isEmpty()) {
             Toast.makeText(this, "Please enter medicine name or capture prescription picture", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            if (ConnectionManager.connection(this)){
+        } else {
+            if (ConnectionManager.connection(this)) {
                 sendData();
-            }else {
+            } else {
                 Toast.makeText(MedicineService.this, getString(R.string.internet_connect_msg), Toast.LENGTH_SHORT).show();
             }
         }
-
 
     }
 
@@ -233,10 +232,10 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         map.put("name", RequestBody.create(DataManager.getInstance().getUserData(this).data.name, MediaType.parse("text/plain")));
         map.put("mobile", RequestBody.create(userCell.getText().toString(), MediaType.parse("text/plain")));
         map.put("address", RequestBody.create(userLocation.getText().toString(), MediaType.parse("text/plain")));
-        Log.e("data",map.toString());
+        Log.e("data", map.toString());
 
-        if (!medName.getText().toString().isEmpty()){
-            map.put("medicine",RequestBody.create(medName.getText().toString(), MediaType.parse("text/plain")));
+        if (!medName.getText().toString().isEmpty()) {
+            map.put("medicine", RequestBody.create(medName.getText().toString(), MediaType.parse("text/plain")));
         }
 
         Call<MedicinRequestModel> medCall = apiInterface.medicine_services(Constant.AUTH, map, filePart);
@@ -247,11 +246,11 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
                 try {
                     MedicinRequestModel medicinRequestModel = response.body();
-                  //  assert medicinRequestModel != null;
-                    if (medicinRequestModel.getResponse()==200){
+                    //  assert medicinRequestModel != null;
+                    if (medicinRequestModel.getResponse() == 200) {
                         Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
                         confirmAlert(MedicineService.this);
-                    }else{
+                    } else {
                         Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
@@ -269,12 +268,11 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     }
 
 
-
     private void setUserData() {
-        if (DataManager.getInstance().getUserData(this).data !=null){
-            if (DataManager.getInstance().getUserData(this).data.address !=null){
+        if (DataManager.getInstance().getUserData(this).data != null) {
+            if (DataManager.getInstance().getUserData(this).data.address != null) {
                 userLocation.setText(DataManager.getInstance().getUserData(this).data.address);
-            }else {
+            } else {
                 //check location permission
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     checkPermissionForLocation();
@@ -283,7 +281,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
                 }
             }
 
-            if (DataManager.getInstance().getUserData(this).data.mobile != null){
+            if (DataManager.getInstance().getUserData(this).data.mobile != null) {
                 String phoneNumber = "+88 " + DataManager.getInstance().getUserData(this).data.mobile.substring(0, 5) + "-" + DataManager.getInstance().getUserData(this).data.mobile.substring(5);
                 userCell.setText(phoneNumber);
             }
@@ -461,7 +459,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
                         userLong = location.getLongitude();
 
                         try {
-                            String address = getCompleteAddressString(userLat,userLong);
+                            String address = getCompleteAddressString(userLat, userLong);
                             userLocation.setText(address);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -492,9 +490,9 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
                     strReturnedAddress.append(returnedAddress.getAddressLine(i));
                 }
                 strAdd = strReturnedAddress.toString();
-                Log.w(TAG,"My Current loction address"+strReturnedAddress.toString());
+                Log.w(TAG, "My Current loction address" + strReturnedAddress.toString());
             } else {
-                Log.w(TAG,"My Current location address "+"No Address returned!");
+                Log.w(TAG, "My Current location address " + "No Address returned!");
 
             }
         } catch (Exception e) {
@@ -503,7 +501,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         return strAdd;
     }
 
-    public void confirmAlert(Activity activity){
+    public void confirmAlert(Activity activity) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().getAttributes().windowAnimations = android.R.style.Widget_Material_ListPopupWindow;
@@ -523,7 +521,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             public void onClick(View v) {
                 dialog.cancel();
                 dialog.dismiss();
-                activity.startActivity(new Intent(activity.getApplicationContext(),HomeActivity.class));
+                activity.startActivity(new Intent(activity.getApplicationContext(), HomeActivity.class));
                 activity.finish();
             }
         });
