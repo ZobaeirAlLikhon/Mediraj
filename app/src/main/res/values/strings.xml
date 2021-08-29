@@ -73,8 +73,8 @@
     <string name="upload_prescription">upload Prescription</string>
     <string name="or">OR</string>
     <string name="medicine_name_optional">Medicine Name(optional)</string>
-    <string name="send_now">send now</string>
-    <string name="call_now">call now</string>
+    <string name="send_now">Send now</string>
+    <string name="call_now">Call now</string>
     <string name="online_doctor">Online Doctor</string>
     <string name="contact_mediraj">You will be contacted by Mediraj soon with order details.</string>
     <string name="your_order_is_complete">Your order is complete</string>

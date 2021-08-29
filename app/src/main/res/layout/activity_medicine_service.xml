@@ -199,6 +199,9 @@
                             android:backgroundTint="@color/primaryColor"
                             android:drawableLeft="@drawable/ic_baseline_send"
                             android:drawablePadding="2dp"
+                            android:textAllCaps="false"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/noto_sans"
                             android:text="@string/send_now" />
 
                         <com.google.android.material.button.MaterialButton
@@ -207,6 +210,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
+                            android:fontFamily="@font/noto_sans"
+                            android:textSize="16sp"
+                            android:textAllCaps="false"
                             android:backgroundTint="@color/primaryColor"
                             android:drawableLeft="@drawable/ic_phone_24"
                             android:text="@string/call_now" />

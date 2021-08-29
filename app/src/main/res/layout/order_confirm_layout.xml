@@ -39,7 +39,7 @@
                 app:lottie_autoPlay="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
-                app:lottie_rawRes="@raw/complete_one" />
+                app:lottie_rawRes="@raw/complete" />
             <TextView
                 android:id="@+id/orderNo"
                 android:layout_width="wrap_content"

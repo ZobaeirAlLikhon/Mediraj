@@ -147,7 +147,7 @@
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/primaryColor"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="5dp"
                 app:cardElevation="2dp">
 
                 <TextView
@@ -159,8 +159,8 @@
                     android:text="@string/confirm_request"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/white"
-                    android:textColorHighlight="@color/white"
-                    android:textStyle="bold" />
+                    android:textSize="18dp"
+                    android:textColorHighlight="@color/white" />
             </androidx.cardview.widget.CardView>
 
 

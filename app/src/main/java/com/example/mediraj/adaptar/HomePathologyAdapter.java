@@ -44,10 +44,10 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
     @Override
     public void onBindViewHolder(@NonNull @NotNull HomePathologyAdapter.MyViewHoldr holder, int position) {
         if (allPathologyModels.get(position).isChecked()){
-            holder.pathology_Cart_btn.setText("cart added");
+            holder.pathology_Cart_btn.setText("Cart Added");
             holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
-            holder.pathology_Cart_btn.setText("add to cart");
+            holder.pathology_Cart_btn.setText("Add to Cart");
             holder.pathology_Cart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.primaryColor));
         }
 

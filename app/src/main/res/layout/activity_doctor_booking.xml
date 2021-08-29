@@ -269,8 +269,10 @@
         android:fontFamily="@font/noto_sans"
         android:text="@string/book_appointment"
         android:textColor="@color/white"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="18dp"
         app:layout_constraintRight_toRightOf="parent" />
 
 

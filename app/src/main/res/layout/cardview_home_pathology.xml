@@ -81,8 +81,9 @@
                     android:id="@+id/pathology_Cart_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/light_green"
-                    android:text="add to cart"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="Add to Cart"
+                    android:textAllCaps="false"
                     android:textSize="10sp" />
 
             </LinearLayout>
