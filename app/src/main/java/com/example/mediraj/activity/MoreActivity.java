@@ -160,6 +160,9 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MoreActivity.this,EmergencyNumberActivity.class);
             startActivity(intent);
         } else if (id == R.id.devTeam) {//go to dev team
+            startActivity(new Intent(this, DeveloperTeam.class));
+           // Intent intent = new Intent(MoreActivity.this,DeveloperTeam.class);
+            //startActivity(intent);
         } else if (id == R.id.logoutLay) {
             alertLogout();
         }

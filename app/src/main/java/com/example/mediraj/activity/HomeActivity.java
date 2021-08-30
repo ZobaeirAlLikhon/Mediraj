@@ -18,7 +18,6 @@ import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ServiceAdapter;
 import com.example.mediraj.adaptar.imageslider.ImageSliderAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -27,8 +26,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
 public class HomeActivity extends AppCompatActivity implements ServiceAdapter.ServiceInterface {
     public static final String TAG = HomeActivity.class.getName();
     private RecyclerView ser_rec;

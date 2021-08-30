@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DeveloperTeam">
+
+
+    <include
+        android:id="@+id/includedev"
+        layout="@layout/custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/includedev">
+        <LinearLayout
+            android:id="@+id/mainLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="aDecoder"
+                android:fontFamily="@font/noto_sans"
+                android:textSize="55sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="info.adecoder@gmail.com"
+                android:textSize="20sp"
+                android:drawableStart="@drawable/ic_baseline_mail"
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/member_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="100dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="Member of aDecoder"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_one"
+        tools:ignore="MissingConstraints" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/member_name">
+        <LinearLayout
+            android:id="@+id/mainLay_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cirIM_dia_two"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/roni" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Md. Abdullah Al Mamun"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Web Developer"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_mail"
+                    android:drawablePadding="10dp"
+                    android:text="kabirkhan@gmail.com"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_call"
+                    android:drawablePadding="10dp"
+                    android:text="01740-155577"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/card_two">
+        <LinearLayout
+            android:id="@+id/mainLay_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cirIM_dia_three"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/joney" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Mamunur Rashid Johny"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Android Developer"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_mail"
+                    android:drawablePadding="10dp"
+                    android:text="johny.ice10@gmail.com"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_call"
+                    android:drawablePadding="10dp"
+                    android:text="01765-948847"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/card_three">
+        <LinearLayout
+            android:id="@+id/mainLay_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cirIM_dia_four"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/joney" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Zobaeir Al Likhon"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Android Developer"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_mail"
+                    android:drawablePadding="10dp"
+                    android:text="zobaeirallikhon@gmail.com"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_call"
+                    android:drawablePadding="10dp"
+                    android:text="01762-258297"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/card_four">
+        <LinearLayout
+            android:id="@+id/mainLay_five"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cirIM_dia_five"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/akash" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Md.Tanzidul karim"
+                    android:textSize="22sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Team Leader"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:text="Android Developer"
+                    android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_mail"
+                    android:drawablePadding="10dp"
+                    android:text="info.akashkarim@gmail.com"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Tv_clinicname"
+                    android:layout_toEndOf="@+id/cirIM_dia"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_baseline_call"
+                    android:drawablePadding="10dp"
+                    android:text="01740-155577"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
