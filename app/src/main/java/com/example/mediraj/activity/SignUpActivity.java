@@ -191,7 +191,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     UserData userData = response.body();
-                    assert userData != null;
                     if (userData.response == 200) {
                         Toast.makeText(SignUpActivity.this, userData.message, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SignUpActivity.this, LoginActivity.class));

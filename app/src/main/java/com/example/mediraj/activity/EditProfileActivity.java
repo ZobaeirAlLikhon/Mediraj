@@ -244,7 +244,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     UserData userData = response.body();
-                    assert userData != null;
                     if (userData.response == 200) {
                         String dataResponse = new Gson().toJson(response.body());
                         Log.e("MapMap", "EDIT PROFILE RESPONSE" + dataResponse);

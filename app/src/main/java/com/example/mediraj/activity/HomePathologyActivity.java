@@ -97,7 +97,6 @@ public class HomePathologyActivity extends AppCompatActivity implements View.OnC
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     dataList.clear();
-                    assert response.body() != null;
                     if (response.body().getResponse()==200) {
                         noData.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);

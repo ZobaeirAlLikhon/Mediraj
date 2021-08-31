@@ -95,7 +95,6 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
                 try {
                     AllDiagnosticModel allDiagnosticModel = response.body();
                     dataList.clear();
-                    assert allDiagnosticModel != null;
                     if (allDiagnosticModel.getResponse() == 200) {
                         noData.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);

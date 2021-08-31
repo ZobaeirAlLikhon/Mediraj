@@ -390,7 +390,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/aboutLay"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -411,6 +412,34 @@
                         android:textSize="16sp" />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/contactUsLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/emergencyLay"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_headphone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/noto_sans"
+                        android:text="@string/about_us"
+                        android:textColor="@color/battleship_grey"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+
+
             </RelativeLayout>
 
             <RelativeLayout

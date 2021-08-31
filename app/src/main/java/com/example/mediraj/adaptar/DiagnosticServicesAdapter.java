@@ -47,10 +47,10 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
     public void onBindViewHolder(@NonNull @NotNull MyViewHoldr holder, int position) {
 
         if (allDiagnosticModels.get(position).isChecked()){
-            holder.addToCart_btn.setText("cart added");
+            holder.addToCart_btn.setText(context.getText(R.string.card_added));
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
-            holder.addToCart_btn.setText("add to cart");
+            holder.addToCart_btn.setText(context.getString(R.string.add_to_cart));
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.primaryColor));
         }
 

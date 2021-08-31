@@ -37,7 +37,7 @@ public class DfAdapter extends RecyclerView.Adapter<DfAdapter.ViewHolder> {
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_cart_design, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.mod_layout_design, parent, false));
     }
 
     @Override

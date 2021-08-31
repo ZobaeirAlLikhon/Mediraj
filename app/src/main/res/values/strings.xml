@@ -118,5 +118,8 @@
     <string name="male">Male</string>
     <string name="gender">Gender</string>
     <string name="blood_request_form">Blood request form:</string>
+    <string name="card_added">cart added</string>
+    <string name="add_to_cart">add to cart</string>
+    <string name="adecoder">aDecoder</string>
 
 </resources>

@@ -246,7 +246,6 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
 
                 try {
                     MedicinRequestModel medicinRequestModel = response.body();
-                    //  assert medicinRequestModel != null;
                     if (medicinRequestModel.getResponse() == 200) {
                         Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
                         confirmAlert(MedicineService.this);

@@ -209,7 +209,6 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                         DataManager.getInstance().hideProgressMessage();
                         try {
                             UserData userData = response.body();
-                            assert userData != null;
                             if (userData.response == 200) {
                                 Toast.makeText(getApplicationContext(), userData.message, Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(ForgetPassActivity.this, LoginActivity.class));
@@ -269,7 +268,6 @@ public class ForgetPassActivity extends AppCompatActivity implements View.OnClic
                     DataManager.getInstance().hideProgressMessage();
                     try {
                         UserData userData = response.body();
-                        assert userData != null;
                         if (userData.response == 200) {
                             firstLay.setVisibility(View.GONE);
                             secondLay.setVisibility(View.VISIBLE);

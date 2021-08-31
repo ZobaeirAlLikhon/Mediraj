@@ -18,6 +18,7 @@ import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ServiceAdapter;
 import com.example.mediraj.adaptar.imageslider.ImageSliderAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -46,23 +47,20 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.home) {
-                    return true;
-                } else if (itemId == R.id.cart) {
-                    startActivity(new Intent(getApplicationContext(), CartActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                } else if (itemId == R.id.more) {
-                    startActivity(new Intent(getApplicationContext(), MoreActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-                return false;
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home) {
+                return true;
+            } else if (itemId == R.id.cart) {
+                startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.more) {
+                startActivity(new Intent(getApplicationContext(), MoreActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
             }
+            return false;
         });
 
         //add item to the list

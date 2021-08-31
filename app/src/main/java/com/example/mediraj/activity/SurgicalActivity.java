@@ -100,7 +100,6 @@ public class SurgicalActivity extends AppCompatActivity implements SurgicalAdapt
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     dataList.clear();
-                    assert response.body() != null;
                     if (response.body().response == 200) {
                         noData.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);
@@ -108,7 +107,6 @@ public class SurgicalActivity extends AppCompatActivity implements SurgicalAdapt
                         dataList.addAll(response.body().data);
                         adapter = new SurgicalAdapter(getApplicationContext(), allSurgicalModel, onSurgicalClick);
                         recyclerView.setAdapter(adapter);
-                        Log.e("getAllDia..", allSurgicalModel.get(0).getTitle());
                     } else {
                         noData.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.GONE);

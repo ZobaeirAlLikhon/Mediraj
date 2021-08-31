@@ -183,7 +183,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 try {
                     UserData userData = response.body();
-                    assert userData != null;
                     if (userData.response==200){
                         String dataResponse = new Gson().toJson(response.body());
                         Log.e(TAG,"Login response : "+dataResponse);

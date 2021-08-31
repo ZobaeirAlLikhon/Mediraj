@@ -32,7 +32,7 @@ public class ClinicService extends AppCompatActivity {
     RecyclerView recyclerView;
     ClinicServicesAdapter clinicServicesAdapter;
     ImageView toolbarBtn;
-    TextView toolbarTxt;
+    TextView toolbarTxt,noData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,7 @@ public class ClinicService extends AppCompatActivity {
         toolbarBtn = findViewById(R.id.toolbarBtn);
         toolbarTxt = findViewById(R.id.toolbarText);
         toolbarTxt.setText(R.string.clinic_service);
+        noData = findViewById(R.id.noData);
 
         toolbarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +76,16 @@ public class ClinicService extends AppCompatActivity {
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     clinicalModelList=response.body();
-                    clinicServicesAdapter =new ClinicServicesAdapter(getApplicationContext(),clinicalModelList.getData());
-                    recyclerView.setAdapter(clinicServicesAdapter);
+                    if (clinicalModelList.getResponse()==200){
+                        noData.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                        clinicServicesAdapter =new ClinicServicesAdapter(getApplicationContext(),clinicalModelList.getData());
+                        recyclerView.setAdapter(clinicServicesAdapter);
+                    }else{
+                        recyclerView.setVisibility(View.INVISIBLE);
+                        noData.setVisibility(View.VISIBLE);
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

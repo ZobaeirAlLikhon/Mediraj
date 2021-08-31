@@ -73,7 +73,6 @@ public class DoctorDetailsActivity extends AppCompatActivity implements View.OnC
             public void onResponse(@NonNull Call<SingleDoctor> call, @NonNull Response<SingleDoctor> response) {
 
                 singleDoctor = response.body();
-                assert singleDoctor != null;
                 if (singleDoctor.response==200){
                     noData.setVisibility(View.GONE);
                     scrollView.setVisibility(View.VISIBLE);

@@ -175,7 +175,6 @@ public class ClinicBookingActivity extends AppCompatActivity implements View.OnC
 
                 try {
                     Clinic_add_booking clinic_add_booking = response.body();
-                    assert clinic_add_booking != null;
                     if (clinic_add_booking.getResponse() == 200) {
                         Toast.makeText(getApplicationContext(), clinic_add_booking.getMessage().toString(), Toast.LENGTH_SHORT).show();
                         confirmAlert(ClinicBookingActivity.this);

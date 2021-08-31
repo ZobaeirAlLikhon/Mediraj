@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.CartPageAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
 import org.jetbrains.annotations.NotNull;
@@ -30,24 +31,21 @@ public class CartActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.cart);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.home) {
-                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                } else if (itemId == R.id.cart) {
-                    return true;
-                } else if (itemId == R.id.more) {
-                    startActivity(new Intent(getApplicationContext(), MoreActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                }
-
-                return false;
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.cart) {
+                return true;
+            } else if (itemId == R.id.more) {
+                startActivity(new Intent(getApplicationContext(), MoreActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
             }
+
+            return false;
         });
     }
 

@@ -247,7 +247,6 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                 try {
                     DataManager.getInstance().hideProgressMessage();
                     ProductConfirmation productConfirmation = response.body();
-                    assert productConfirmation != null;
                     if (productConfirmation.response==200){
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.diagnosticServiceDao().deleteByIdList(productId);
@@ -286,7 +285,6 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                 try {
                     DataManager.getInstance().hideProgressMessage();
                     ProductConfirmation productConfirmation = response.body();
-                    assert productConfirmation != null;
                     if (productConfirmation.response==200){
                         Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.pathologyServicesDao().deleteByIdList(productId);
@@ -323,7 +321,6 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
                 try {
                     DataManager.getInstance().hideProgressMessage();
                     ProductConfirmation productConfirmation = response.body();
-                    assert productConfirmation != null;
                     if (productConfirmation.response==200){
                          Toast.makeText(getApplicationContext(),productConfirmation.message,Toast.LENGTH_SHORT).show();
                         db.surgicalServiceDao().deleteByIdList(productId);

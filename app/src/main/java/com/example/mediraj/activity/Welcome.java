@@ -25,12 +25,6 @@ public class Welcome extends AppCompatActivity {
 
         initView();
 
-
-        //check for login in shared preference or RoomDB
-        //if logged in then set flag value to true or change to false
-        //above two for steps for story board if story board is implemented
-
-
         new Handler().postDelayed(() -> {
             if (DataManager.getInstance().getUserData(getApplicationContext()) != null
                     &&

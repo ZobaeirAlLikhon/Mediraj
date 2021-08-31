@@ -72,7 +72,6 @@ public class BloodbankService extends AppCompatActivity implements View.OnClickL
 
                 try {
                     allBloodModel =response.body();
-                    assert allBloodModel != null;
                     if (allBloodModel.getResponse()==200){
                         recyclerView.setVisibility(View.VISIBLE);
                         noData.setVisibility(View.GONE);

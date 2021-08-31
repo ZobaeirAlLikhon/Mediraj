@@ -293,7 +293,6 @@ public class DoctorBookingActivity extends AppCompatActivity implements CalAdapt
                 public void onResponse(@NonNull Call<DoctorBookingModel> call, @NonNull Response<DoctorBookingModel> response) {
                     DataManager.getInstance().hideProgressMessage();
                     DoctorBookingModel doctorBookingModel = response.body();
-                    assert doctorBookingModel != null;
                     if (doctorBookingModel.response == 200) {
                         Toast.makeText(DoctorBookingActivity.this, doctorBookingModel.message, Toast.LENGTH_SHORT).show();
                         confirmAlert(DoctorBookingActivity.this);

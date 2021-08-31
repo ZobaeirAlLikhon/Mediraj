@@ -45,10 +45,10 @@ public class SurgicalAdapter extends RecyclerView.Adapter<SurgicalAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull @NotNull SurgicalAdapter.MyViewHolder holder, int position) {
         if (allSurgicalModels.get(position).getIsChecked()){
-            holder.addToCart_btn.setText("cart added");
+            holder.addToCart_btn.setText(context.getText(R.string.card_added));
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.yellow));
         }else {
-            holder.addToCart_btn.setText("add to cart");
+            holder.addToCart_btn.setText(context.getString(R.string.add_to_cart));
             holder.addToCart_btn.setBackgroundTintList(context.getResources().getColorStateList(R.color.primaryColor));
         }
         holder.surgical_name.setText(allSurgicalModels.get(position).getTitle());

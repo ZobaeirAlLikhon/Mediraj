@@ -1,10 +1,16 @@
 package com.example.mediraj.activity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,8 +32,11 @@ import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
@@ -39,7 +48,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
     private BottomNavigationView bottomNavigationView;
     private TextView userName, userPhone, userEmail,appVersion,emergency;
     private CircleImageView userImg;
-    private LinearLayout profileLay,offerLay,promoLay,logoutLay,devTeam,emergencyLay,aboutLay;
+    private LinearLayout profileLay,offerLay,promoLay,logoutLay,devTeam,emergencyLay,aboutLay,contactUsLay;
     private ApiInterface apiInterface;
     private SwitchCompat toggle;
 
@@ -64,20 +73,17 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         //bottom navigation view and related listener
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.more);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NotNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.home) {
-                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                } else if (itemId == R.id.cart) {
-                    startActivity(new Intent(getApplicationContext(), CartActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                } else return itemId == R.id.more;
-            }
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.home) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (itemId == R.id.cart) {
+                startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else return itemId == R.id.more;
         });
 
         //other views
@@ -95,6 +101,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         toggle = findViewById(R.id.toggle);
         appVersion = findViewById(R.id.appVersion);
         emergency = findViewById(R.id.emer_call);
+        contactUsLay = findViewById(R.id.contactUsLay);
 
         appVersion.setText("Version "+ BuildConfig.VERSION_NAME);
         //lister part
@@ -105,7 +112,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         devTeam.setOnClickListener(this);
         emergencyLay.setOnClickListener(this);
         aboutLay.setOnClickListener(this);
-
+        contactUsLay.setOnClickListener(this);
 
 
         //api interface initialization
@@ -165,6 +172,8 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
             //startActivity(intent);
         } else if (id == R.id.logoutLay) {
             alertLogout();
+        }else if (id==R.id.contactUsLay){
+            contactUsSelection();
         }
     }
 
@@ -232,6 +241,52 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         else {
             super.onBackPressed();
         }
+    }
+
+    // Contact us alert dialog
+    public void contactUsSelection() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().getAttributes().windowAnimations = android.R.style.Widget_Material_ListPopupWindow;
+        dialog.setContentView(R.layout.contact_us_layout);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        Window window = dialog.getWindow();
+        lp.copyFrom(window.getAttributes());
+        //This makes the dialog take up the full width
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
+        LinearLayout layoutCamera = dialog.findViewById(R.id.layoutCemera);
+        LinearLayout layoutGallery = dialog.findViewById(R.id.layoutGallary);
+        layoutCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                    intent.setData(Uri.parse("mailto:jony_edru@gmail.com")); // only email apps should handle this
+                    startActivity(intent);
+                    dialog.dismiss();
+                    dialog.cancel();
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(MoreActivity.this, "There are no email client installed on your device.",Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+        layoutGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:01730-336655"));
+                startActivity(intent);
+                dialog.cancel();
+                dialog.dismiss();
+            }
+        });
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 
 }

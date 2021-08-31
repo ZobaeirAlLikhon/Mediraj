@@ -36,7 +36,7 @@ public class SfAdapter extends RecyclerView.Adapter<SfAdapter.ViewHolder> {
     @NotNull
     @Override
     public SfAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_cart_design, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.mod_layout_design, parent, false));
     }
 
     @Override

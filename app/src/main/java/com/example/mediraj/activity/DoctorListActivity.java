@@ -85,7 +85,6 @@ public class DoctorListActivity extends AppCompatActivity implements View.OnClic
 
                 try {
                     allDepartmentModel = response.body();
-                    assert allDepartmentModel != null;
                     if (allDepartmentModel.response==200){
                         recyclerView.setLayoutManager(new LinearLayoutManager(DoctorListActivity.this,LinearLayoutManager.HORIZONTAL,false));
                         adapter = new GetDepartmentAD(DoctorListActivity.this, allDepartmentModel.data,doctorInterface);

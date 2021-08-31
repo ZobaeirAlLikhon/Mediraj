@@ -107,7 +107,6 @@ public class BloodBookingctivity extends AppCompatActivity implements View.OnCli
                 DataManager.getInstance().hideProgressMessage();
                 try {
                     BloodBooking_Model bloodBooking_model = response.body();
-                    assert bloodBooking_model != null;
                     if (bloodBooking_model.getResponse()==200){
                         Toast.makeText(getApplicationContext(),bloodBooking_model.getMessage(),Toast.LENGTH_SHORT).show();
                         confirmAlert(BloodBookingctivity.this);
