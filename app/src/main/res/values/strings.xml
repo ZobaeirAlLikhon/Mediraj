@@ -108,6 +108,7 @@
     <string name="about_us">About Us</string>
     <string name="emergency_call">Emergency Call</string>
     <string name="development_team">Development Team</string>
+    <string name="dev">Developers</string>
     <string name="log_out">Log out</string>
     <string name="profile">Profile</string>
     <string name="account">Account</string>
@@ -121,5 +122,7 @@
     <string name="card_added">cart added</string>
     <string name="add_to_cart">add to cart</string>
     <string name="adecoder">aDecoder</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="call">Call</string>
 
 </resources>

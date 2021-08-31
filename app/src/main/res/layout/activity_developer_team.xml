@@ -51,6 +51,17 @@
                 android:text="info.adecoder@gmail.com"
                 android:textColor="@color/battleship_grey"
                 android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:drawableStart="@drawable/ic_baseline_call"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="+88 01740-155577"
+                android:textColor="@color/battleship_grey"
+                android:textSize="16sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -139,7 +150,7 @@
                             android:drawableStart="@drawable/ic_baseline_call"
                             android:drawablePadding="5dp"
                             android:padding="5dp"
-                            android:text="+88 01740-155577" />
+                            android:text="+88 01316-440504" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

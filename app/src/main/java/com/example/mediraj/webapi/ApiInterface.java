@@ -12,7 +12,7 @@ import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.model.DoctorBookingModel;
-import com.example.mediraj.model.MedicinRequestModel;
+import com.example.mediraj.model.MedicineRequestModel;
 import com.example.mediraj.model.ProductConfirmation;
 import com.example.mediraj.model.SingleDepartment;
 import com.example.mediraj.model.SingleDoctor;
@@ -126,9 +126,9 @@ public interface ApiInterface {
     //MedicineServices
     @Multipart
     @POST("medicine/add-request")
-    Call<MedicinRequestModel> medicine_services(@Header("Authorization") String auth,
-                                                @PartMap Map<String,RequestBody> params,
-                                                @Part MultipartBody.Part file);
+    Call<MedicineRequestModel> medicine_services(@Header("Authorization") String auth,
+                                                 @PartMap Map<String,RequestBody> params,
+                                                 @Part MultipartBody.Part file);
 
     //api for checkout
     @POST("diagnostic/checkout")

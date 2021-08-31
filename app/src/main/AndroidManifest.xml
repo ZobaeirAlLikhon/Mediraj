@@ -18,6 +18,9 @@
         android:theme="@style/Theme.MediRaj"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.AboutUsActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.DoctorBookingActivity"
             android:exported="true" />
         <activity android:name=".activity.DoctorDetailsActivity" />
@@ -38,7 +41,7 @@
         <activity android:name=".activity.MoreActivity" />
         <activity android:name=".activity.CartActivity" />
         <activity android:name=".activity.DoctorListActivity" />
-        <activity android:name=".activity.DeveloperTeam"/>
+        <activity android:name=".activity.DeveloperTeam" />
         <activity
             android:name=".activity.ForgetPassActivity"
             android:screenOrientation="portrait" />

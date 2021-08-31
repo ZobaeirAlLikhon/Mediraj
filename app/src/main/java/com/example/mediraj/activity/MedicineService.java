@@ -39,7 +39,8 @@ import com.example.mediraj.R;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
-import com.example.mediraj.model.MedicinRequestModel;
+
+import com.example.mediraj.model.MedicineRequestModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -221,7 +222,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         MultipartBody.Part filePart;
         if (!str_image_path.equalsIgnoreCase("")) {
             File file = new File(str_image_path);
-            filePart = MultipartBody.Part.createFormData("avatar", file.getName(), RequestBody.create(file, MediaType.parse("image/*")));
+            filePart = MultipartBody.Part.createFormData("prescription", file.getName(), RequestBody.create(file, MediaType.parse("image/*")));
         } else {
             RequestBody attachmentEmpty = RequestBody.create("", MediaType.parse("text/plain"));
             filePart = MultipartBody.Part.createFormData("image", "image", attachmentEmpty);
@@ -238,19 +239,19 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             map.put("medicine", RequestBody.create(medName.getText().toString(), MediaType.parse("text/plain")));
         }
 
-        Call<MedicinRequestModel> medCall = apiInterface.medicine_services(Constant.AUTH, map, filePart);
-        medCall.enqueue(new Callback<MedicinRequestModel>() {
+        Call<MedicineRequestModel> medCall = apiInterface.medicine_services(Constant.AUTH, map, filePart);
+        medCall.enqueue(new Callback<MedicineRequestModel>() {
             @Override
-            public void onResponse(@NonNull Call<MedicinRequestModel> call, @NonNull Response<MedicinRequestModel> response) {
+            public void onResponse(@NonNull Call<MedicineRequestModel> call, @NonNull Response<MedicineRequestModel> response) {
                 DataManager.getInstance().hideProgressMessage();
 
                 try {
-                    MedicinRequestModel medicinRequestModel = response.body();
-                    if (medicinRequestModel.getResponse() == 200) {
-                        Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    MedicineRequestModel medicinRequestModel = response.body();
+                    if (medicinRequestModel.response == 200) {
+                        Toast.makeText(MedicineService.this, medicinRequestModel.message, Toast.LENGTH_SHORT).show();
                         confirmAlert(MedicineService.this);
                     } else {
-                        Toast.makeText(MedicineService.this, medicinRequestModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MedicineService.this, medicinRequestModel.message, Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -258,7 +259,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             }
 
             @Override
-            public void onFailure(@NonNull Call<MedicinRequestModel> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<MedicineRequestModel> call, @NonNull Throwable t) {
                 DataManager.getInstance().hideProgressMessage();
                 call.cancel();
             }

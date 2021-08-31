@@ -162,7 +162,8 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, ProfileActivity.class));
         } else if (id == R.id.offerLay) {//go to offer page
         } else if (id == R.id.promoLay) {//go to promo page
-        } else if (id == R.id.aboutLay) {//go to about us page
+        } else if (id == R.id.aboutLay) {
+            startActivity(new Intent(this,AboutUsActivity.class));
         } else if (id == R.id.emergencyLay) {
             Intent intent = new Intent(MoreActivity.this,EmergencyNumberActivity.class);
             startActivity(intent);

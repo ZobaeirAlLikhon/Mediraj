@@ -4,16 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import com.example.mediraj.R;
 import com.example.mediraj.adaptar.CartPageAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
-
 import org.jetbrains.annotations.NotNull;
 
 public class CartActivity extends AppCompatActivity {
@@ -107,8 +104,8 @@ public class CartActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        int seletedItemId = bottomNavigationView.getSelectedItemId();
-        if (R.id.home != seletedItemId) {
+        int selectedItemId = bottomNavigationView.getSelectedItemId();
+        if (R.id.home != selectedItemId) {
            bottomNavigationView.setSelectedItemId(R.id.home);
         }
         else {
