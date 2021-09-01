@@ -124,5 +124,13 @@
     <string name="adecoder">aDecoder</string>
     <string name="contact_us">Contact Us</string>
     <string name="call">Call</string>
+    <string name="what_med">1. What is MediRaj?</string>
+    <string name="med_info">Mediraj is an online medical service provider. Where you will get all your medical services.</string>
+    <string name="bel_med">2. Is MediRaj reliable?</string>
+    <string name="bel_info">Mediraj is certainly believable. Because Mediraj is giving 100% guarantee in terms of medical quality. Moreover special discounts from the prescribed list price. So there is no possibility of quality and financial loss.</string>
+    <string name="cost_med">3. Is the cost much higher in MediRaj?</string>
+    <string name="cost_info">Of course not. The cost is much lower in Mediraj. Because there are special discounts on all Mediraj services. So Mediraj is giving 100% guarantee of quality and not being financially damaged.</string>
+    <string name="why_med">4. Why would you take service from Mediraj?</string>
+    <string name="why_info">At this time it has become very difficult to get medical services. Because there are risks to health as well as risks of financial loss. When it comes to financial loss, time, effort and health risks, Mediraj will consider the best.</string>
 
 </resources>
