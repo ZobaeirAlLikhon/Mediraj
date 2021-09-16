@@ -10,18 +10,26 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mediraj.R;
+import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
+import com.example.mediraj.helper.LocaleHelper;
 
 public class Welcome extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN = 2000;
     private TextView appText;
+    String lan_pref = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
+
+        lan_pref =   LocaleHelper.readString(Welcome.this, Constant.LANG_INFO);
+        if (lan_pref !=null){
+            LocaleHelper.setLocale(Welcome.this,lan_pref);
+        }
 
         initView();
 

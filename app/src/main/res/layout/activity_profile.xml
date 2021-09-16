@@ -76,7 +76,10 @@
                     android:id="@+id/phoneTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="Phone Number"
                     android:textColor="@color/battleship_grey"
@@ -123,7 +126,10 @@
                     android:id="@+id/emailTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="Email Address"
                     android:textColor="@color/battleship_grey"
@@ -170,7 +176,10 @@
                     android:id="@+id/addressTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="Address"
                     android:textColor="@color/battleship_grey"
@@ -242,7 +251,6 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/noto_sans"
-                            android:text="Male"
                             android:textColor="@color/battleship_grey" />
                     </LinearLayout>
 
@@ -276,7 +284,6 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/noto_sans"
-                            android:text="10-05-1994"
                             android:textColor="@color/battleship_grey" />
                     </LinearLayout>
                 </RelativeLayout>

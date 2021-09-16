@@ -11,5 +11,9 @@ public class Constant {
     public static final String Pathology_AVATAR_URL = "https://mediraj.com/public/uploads/pathology/";
     public static final String Clinic_AVATAR_URL = "https://mediraj.com/public/uploads/clinic/";
     public static final String SURGICAL_AVATAR_URL = "https://mediraj.com/public/uploads/surgical/";
+
+    //share preference for store user data
     public static final String USER_INFO = "data";
+    //share preference for language
+    public static final String LANG_INFO = "app_lan";
 }

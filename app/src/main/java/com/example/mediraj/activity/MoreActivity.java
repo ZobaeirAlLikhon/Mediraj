@@ -3,10 +3,12 @@ package com.example.mediraj.activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -27,6 +29,7 @@ import com.example.mediraj.BuildConfig;
 import com.example.mediraj.R;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
+import com.example.mediraj.helper.LocaleHelper;
 import com.example.mediraj.helper.SessionManager;
 import com.example.mediraj.model.UserData;
 import com.example.mediraj.webapi.APiClient;
@@ -46,11 +49,12 @@ import retrofit2.Response;
 public class MoreActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MoreActivity.class.getName();
     private BottomNavigationView bottomNavigationView;
-    private TextView userName, userPhone, userEmail,appVersion,emergency;
+    private TextView userName, userPhone, userEmail, appVersion, emergency;
     private CircleImageView userImg;
-    private LinearLayout profileLay,offerLay,promoLay,logoutLay,devTeam,emergencyLay,aboutLay,contactUsLay;
+    private LinearLayout profileLay, offerLay, promoLay, logoutLay, devTeam, emergencyLay, aboutLay, contactUsLay;
     private ApiInterface apiInterface;
-    private SwitchCompat toggle;
+    private SwitchCompat toggle, lanChange;
+    String lan_pref = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +63,39 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         //DataManager.getInstance().showProgressMessage(this,"please wait...");
         initView();
         setUserData();
+
+
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 notificationOffOn(DataManager.getInstance().getUserData(MoreActivity.this).data.id);
             }
         });
+
+
+        lanChange.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    LocaleHelper.writeString(MoreActivity.this, Constant.LANG_INFO, "bn");
+                    LocaleHelper.setLocale(MoreActivity.this, "bn");
+                    recreate();
+                } else {
+                    LocaleHelper.writeString(MoreActivity.this, Constant.LANG_INFO, "en");
+                    LocaleHelper.setLocale(MoreActivity.this, "en");
+                    recreate();
+                }
+                Toast.makeText(MoreActivity.this, getText(R.string.lan_change), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        // LocaleHelper.writeString(this,Constant.LANG_INFO,"bn");
+        //Toast.makeText(this, test+" * ", Toast.LENGTH_SHORT).show();
+        //for language toggle
+        //1.check if lan exits --- then delete or clear data and rewrite data for Bangla
+        //2.if no -- then write data
+        //3. if off then write english default.
     }
 
 
@@ -87,6 +118,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         //other views
+        lanChange = findViewById(R.id.lanChange);
         userName = findViewById(R.id.userName);
         userPhone = findViewById(R.id.userPhone);
         userEmail = findViewById(R.id.userEmail);
@@ -102,8 +134,20 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         appVersion = findViewById(R.id.appVersion);
         emergency = findViewById(R.id.emer_call);
         contactUsLay = findViewById(R.id.contactUsLay);
+        lanChange = findViewById(R.id.lanChange);
 
-        appVersion.setText("Version "+ BuildConfig.VERSION_NAME);
+        lan_pref = LocaleHelper.readString(MoreActivity.this, Constant.LANG_INFO);
+        if (lan_pref == null) {
+            lanChange.setChecked(false);
+        } else {
+            if (lan_pref.equals("bn")) {
+                lanChange.setChecked(true);
+            } else {
+                lanChange.setChecked(false);
+            }
+        }
+
+        appVersion.setText("Version " + BuildConfig.VERSION_NAME);
         //lister part
         profileLay.setOnClickListener(this);
         offerLay.setOnClickListener(this);
@@ -124,31 +168,31 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
                 &&
                 DataManager.getInstance().getUserData(getApplicationContext()).data != null
                 &&
-                DataManager.getInstance().getUserData(getApplicationContext()).data.id != null){
+                DataManager.getInstance().getUserData(getApplicationContext()).data.id != null) {
 
-            if (DataManager.getInstance().getUserData(this).data.name !=null){
+            if (DataManager.getInstance().getUserData(this).data.name != null) {
                 userName.setText(DataManager.getInstance().getUserData(this).data.name);
             }
 
-            if (DataManager.getInstance().getUserData(this).data.mobile !=null){
+            if (DataManager.getInstance().getUserData(this).data.mobile != null) {
                 userPhone.setText(DataManager.getInstance().getUserData(this).data.mobile);
             }
 
-            if (DataManager.getInstance().getUserData(this).data.email !=null){
+            if (DataManager.getInstance().getUserData(this).data.email != null) {
                 userEmail.setText(DataManager.getInstance().getUserData(this).data.email);
             }
 
-            if (DataManager.getInstance().getUserData(getApplicationContext()).data.avatar !=null){
+            if (DataManager.getInstance().getUserData(getApplicationContext()).data.avatar != null) {
                 Glide.with(this)
-                        .load(Constant.USER_AVATAR_URL+DataManager.getInstance().getUserData(this).data.avatar)
+                        .load(Constant.USER_AVATAR_URL + DataManager.getInstance().getUserData(this).data.avatar)
                         .apply(new RequestOptions().placeholder(R.drawable.ic_profile))
                         .centerCrop()
                         .into(userImg);
             }
 
-            if (DataManager.getInstance().getUserData(getApplicationContext()).data.notification.equalsIgnoreCase("on")){
+            if (DataManager.getInstance().getUserData(getApplicationContext()).data.notification.equalsIgnoreCase("on")) {
                 toggle.setChecked(true);
-            }else {
+            } else {
                 toggle.setChecked(false);
             }
 
@@ -163,17 +207,17 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.offerLay) {//go to offer page
         } else if (id == R.id.promoLay) {//go to promo page
         } else if (id == R.id.aboutLay) {
-            startActivity(new Intent(this,AboutUsActivity.class));
+            startActivity(new Intent(this, AboutUsActivity.class));
         } else if (id == R.id.emergencyLay) {
-            Intent intent = new Intent(MoreActivity.this,EmergencyNumberActivity.class);
+            Intent intent = new Intent(MoreActivity.this, EmergencyNumberActivity.class);
             startActivity(intent);
         } else if (id == R.id.devTeam) {//go to dev team
             startActivity(new Intent(this, DeveloperTeam.class));
-           // Intent intent = new Intent(MoreActivity.this,DeveloperTeam.class);
+            // Intent intent = new Intent(MoreActivity.this,DeveloperTeam.class);
             //startActivity(intent);
         } else if (id == R.id.logoutLay) {
             alertLogout();
-        }else if (id==R.id.contactUsLay){
+        } else if (id == R.id.contactUsLay) {
             contactUsSelection();
         }
     }
@@ -212,7 +256,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
                     if (data.response == 200) {
                         Toast.makeText(getApplicationContext(), data.message, Toast.LENGTH_SHORT).show();
 
-                    } else{
+                    } else {
                         Toast.makeText(MoreActivity.this, data.message, Toast.LENGTH_SHORT).show();
                     }
 
@@ -238,8 +282,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         int selectedItemId = bottomNavigationView.getSelectedItemId();
         if (R.id.home != selectedItemId) {
             bottomNavigationView.setSelectedItemId(R.id.home);
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
@@ -270,7 +313,7 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
                     dialog.dismiss();
                     dialog.cancel();
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(MoreActivity.this, "There are no email client installed on your device.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MoreActivity.this, "There are no email client installed on your device.", Toast.LENGTH_SHORT).show();
                 }
 
 

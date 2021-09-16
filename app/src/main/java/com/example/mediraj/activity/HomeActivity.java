@@ -27,6 +27,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 public class HomeActivity extends AppCompatActivity implements ServiceAdapter.ServiceInterface {
     public static final String TAG = HomeActivity.class.getName();
     private RecyclerView ser_rec;
@@ -41,6 +43,8 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         setContentView(R.layout.activity_main);
 
         imageLoader();
+        Locale locale = new Locale("bn");
+        Log.e("testing",locale.getCountry()+" ** ");
 
         serviceInterface = this;
 
@@ -67,14 +71,22 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-        titles.add("Doctor appointment");
-        titles.add("Diagnostic Service");
-        titles.add("Medicine Service");
-        titles.add("Clinic Service");
-        titles.add("BloodBank Service");
-        titles.add("Home Pathology");
-        titles.add("Medical Device");
-        titles.add("Online Doctor");
+       // titles.add("Doctor appointment");
+        titles.add(getString(R.string.da));
+        //titles.add("Diagnostic Service");
+        titles.add(getString(R.string.ds));
+       // titles.add("Medicine Service");
+        titles.add(getString(R.string.medi_service));
+        //titles.add("Clinic Service");
+        titles.add(getString(R.string.clinic_service));
+       // titles.add("BloodBank Service");
+        titles.add(getString(R.string.bb));
+       // titles.add("Home Pathology");
+        titles.add(getString(R.string.hp));
+      //  titles.add("Medical Device");
+        titles.add(getString(R.string.md));
+       // titles.add("Online Doctor");
+        titles.add(getString(R.string.online_doctor));
 
         images.add(R.drawable.ic_doctor1);
         images.add(R.drawable.ic_diagonistic);

@@ -25,6 +25,7 @@ import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 
 public class DataManager {
@@ -91,7 +92,7 @@ public class DataManager {
     public static String convertDateToString(long l) {
         String str = "";
         Date date = new Date(l);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss", Locale.ENGLISH);
         str = dateFormat.format(date);
         return str;
     }
