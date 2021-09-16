@@ -22,11 +22,18 @@
             android:layout_marginEnd="30dp"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_logo"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="center_horizontal"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/share_tech"
                 android:text="@string/sign_up"
                 android:textColor="@color/battleship_grey"

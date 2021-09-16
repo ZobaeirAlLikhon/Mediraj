@@ -5,12 +5,14 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.Window;
@@ -32,11 +34,9 @@ public class DataManager {
 
     private static final DataManager ourInstance = new DataManager();
     private static Snackbar snackbar = null;
-
     public static DataManager getInstance() {
         return ourInstance;
     }
-
     private DataManager() {
     }
 
@@ -87,6 +87,14 @@ public class DataManager {
         UserData userData = new Gson().fromJson(SessionManager.readString(context, Constant.USER_INFO, ""), UserData.class);
         return userData;
     }
+
+
+
+
+
+
+
+
 
 
     public static String convertDateToString(long l) {

@@ -23,8 +23,8 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        initView();
 
+        initView();
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.cart);
@@ -33,17 +33,20 @@ public class CartActivity extends AppCompatActivity {
             if (itemId == R.id.home) {
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 overridePendingTransition(0, 0);
+                finish();
                 return true;
             } else if (itemId == R.id.cart) {
                 return true;
             } else if (itemId == R.id.more) {
                 startActivity(new Intent(getApplicationContext(), MoreActivity.class));
                 overridePendingTransition(0, 0);
+                finish();
                 return true;
             }
 
             return false;
         });
+
     }
 
     private void initView() {
@@ -107,9 +110,7 @@ public class CartActivity extends AppCompatActivity {
         int selectedItemId = bottomNavigationView.getSelectedItemId();
         if (R.id.home != selectedItemId) {
            bottomNavigationView.setSelectedItemId(R.id.home);
-        }
-        else {
-            super.onBackPressed();
+           finish();
         }
     }
 

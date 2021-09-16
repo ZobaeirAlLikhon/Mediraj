@@ -39,7 +39,6 @@ import com.example.mediraj.R;
 import com.example.mediraj.helper.ConnectionManager;
 import com.example.mediraj.helper.Constant;
 import com.example.mediraj.helper.DataManager;
-
 import com.example.mediraj.model.MedicineRequestModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
@@ -177,7 +176,6 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     }
 
     private void validateData() {
-
         try {
             if (!userCell.getText().toString().equals(" ") && userCell.getText().length() == 16) {
                 String raw_phone = userCell.getText().toString().split(" ")[1];
@@ -189,7 +187,6 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         if (userCell.getText().toString().isEmpty()) {
             userCell.setError("Please enter mobile number.");
@@ -205,7 +202,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             userCell.requestFocus();
         } else if (userLocation.getText().toString().isEmpty()) {
             userLocation.setError("Please enter address");
-        } else if (str_image_path.equals("") && medName.getText().toString().isEmpty()) {
+        } else if (str_image_path.equals("") && (medName.getText().toString().trim().length() == 0 || medName.getText().toString().isEmpty())) {
             Toast.makeText(this, "Please enter medicine name or capture prescription picture", Toast.LENGTH_SHORT).show();
         } else {
             if (ConnectionManager.connection(this)) {
@@ -236,7 +233,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
         Log.e("data", map.toString());
 
         if (!medName.getText().toString().isEmpty()) {
-            map.put("medicine", RequestBody.create(medName.getText().toString(), MediaType.parse("text/plain")));
+            map.put("medicine", RequestBody.create(medName.getText().toString().trim(), MediaType.parse("text/plain")));
         }
 
         Call<MedicineRequestModel> medCall = apiInterface.medicine_services(Constant.AUTH, map, filePart);
