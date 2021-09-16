@@ -132,5 +132,10 @@
     <string name="cost_info">Of course not. The cost is much lower in Mediraj. Because there are special discounts on all Mediraj services. So Mediraj is giving 100% guarantee of quality and not being financially damaged.</string>
     <string name="why_med">4. Why would you take service from Mediraj?</string>
     <string name="why_info">At this time it has become very difficult to get medical services. Because there are risks to health as well as risks of financial loss. When it comes to financial loss, time, effort and health risks, Mediraj will consider the best.</string>
+    <string name="en">English</string>
+    <string name="setting">Setting</string>
+    <string name="bn">বাংলা</string>
+    <string name="language">Language</string>
+
 
 </resources>

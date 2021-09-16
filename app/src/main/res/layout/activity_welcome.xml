@@ -8,7 +8,6 @@
     tools:context=".activity.Welcome"
     tools:ignore="MissingClass,MissingConstraints">
 
-
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -24,15 +23,21 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/splash_heart_beat" />
-    <TextView
+<!--    <TextView-->
+<!--        android:id="@+id/animText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:fontFamily="@font/noto_sans"-->
+<!--        android:text="@string/mediraj"-->
+<!--        android:textColor="@color/battleship_grey"-->
+<!--        android:textSize="54sp"-->
+<!--        android:textStyle="bold" />-->
+
+    <ImageView
         android:id="@+id/animText"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/noto_sans"
-        android:text="@string/mediraj"
-        android:textColor="@color/battleship_grey"
-        android:textSize="54sp"
-        android:textStyle="bold" />
+        android:src="@mipmap/spash_logo"/>
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

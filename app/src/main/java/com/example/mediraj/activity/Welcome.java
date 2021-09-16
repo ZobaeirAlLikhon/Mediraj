@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import com.example.mediraj.helper.DataManager;
 public class Welcome extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN = 2000;
-    private TextView appText;
+    private ImageView appText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

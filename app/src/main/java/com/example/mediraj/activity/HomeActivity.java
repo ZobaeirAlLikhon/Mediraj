@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class HomeActivity extends AppCompatActivity implements ServiceAdapter.ServiceInterface {
     public static final String TAG = HomeActivity.class.getName();
-    private RecyclerView ser_rec;
+    RecyclerView ser_rec;
     List<String> titles;
     List<Integer> images;
     ServiceAdapter serviceAdapter;
@@ -40,13 +40,13 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //image loading function
         imageLoader();
 
         serviceInterface = this;
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.home);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
@@ -54,10 +54,12 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
             } else if (itemId == R.id.cart) {
                 startActivity(new Intent(getApplicationContext(), CartActivity.class));
                 overridePendingTransition(0, 0);
+                finish();
                 return true;
             } else if (itemId == R.id.more) {
                 startActivity(new Intent(getApplicationContext(), MoreActivity.class));
                 overridePendingTransition(0, 0);
+                finish();
                 return true;
             }
             return false;
@@ -67,18 +69,18 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
+        titles.add("Medicine Service");
         titles.add("Doctor appointment");
         titles.add("Diagnostic Service");
-        titles.add("Medicine Service");
         titles.add("Clinic Service");
         titles.add("BloodBank Service");
         titles.add("Home Pathology");
         titles.add("Medical Device");
         titles.add("Online Doctor");
 
+        images.add(R.drawable.ic_capsule);
         images.add(R.drawable.ic_doctor1);
         images.add(R.drawable.ic_diagonistic);
-        images.add(R.drawable.ic_capsule);
         images.add(R.drawable.ic_patient);
         images.add(R.drawable.ic_blood_bank);
         images.add(R.drawable.ic_pathology_1);
@@ -152,20 +154,16 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
     }
 
     //section for image slider api call
-
     private void imageLoader(){
         int [] img = {R.drawable.mediraj,R.drawable.mediraj_one,R.drawable.mediraj_two};
-
         SliderView sliderView = findViewById(R.id.imageSlider);
         sliderView.setSliderAdapter(new ImageSliderAdapter(this,img));
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP);
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
-        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.setScrollTimeInSec(4);
         sliderView.startAutoCycle();
-
-
     }
 }
