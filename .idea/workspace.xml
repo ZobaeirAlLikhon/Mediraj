@@ -2,47 +2,154 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <device id="pixel" />
+      </config>
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="54130c3d-29ac-45e5-99fb-86e518789d26" name="Default Changelist" comment="clinic and medicine design ready">
+    <list default="true" id="051b73b1-e6a8-43e3-b34e-012d67f9ef86" name="Default Changelist" comment="about us page added">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/OrderActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/OrderPageAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/history/HistoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/BloodRequestFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/ClinicOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/DeviceOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/DiagnosticOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/DoctorOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/MedicineOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/history/PathologyOrderFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/MedicineOrderModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/edit_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_history_layer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_theme.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tan_drew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_search_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blood_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_clinic_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_device_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_diagnostic_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dictor_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_medicine_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pathology_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/image_show_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/med_history_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_12_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_12_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_2_0_4_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_2_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_3_1_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_common_2_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_2_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_2_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_core_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_core_3_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_idling_resource_3_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_ext_junit_1_1_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_monitor_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_runner_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_versionedparcelable_versionedparcelable_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_mancj_MaterialSearchBar_0_8_5_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_mancj_MaterialSearchBar_0_8_5_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_6.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MediRaj.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/MediRaj.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/mediraj/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/mediraj/ExampleInstrumentedTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/appoiment_informatin_detilas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/appoiment_informatin_detilas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/AboutUsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/AboutUsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/CartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/CartActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/CheckoutInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/CheckoutInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/ClinicBookingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/ClinicBookingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/ClinicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/ClinicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DeveloperTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DeveloperTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DiagnosticActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DiagnosticActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DoctorDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DoctorDetailsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DoctorListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/DoctorListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/HomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/HomePathologyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/HomePathologyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/MedicineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/MedicineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/MoreActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/MoreActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/SurgicalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/SurgicalActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/activity/Welcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/CartPageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/CartPageAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/ClinicServicesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/ClinicServicesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/DiagnosticServicesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/DiagnosticServicesAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/GetDepartmentAD.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/GetDepartmentAD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/HomePathologyAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/HomePathologyAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/ServiceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/ServiceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/SurgicalAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/SurgicalAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/fragadapter/DfAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/fragadapter/DfAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/fragadapter/SfAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/fragadapter/SfAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/imageslider/ImageSliderAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/adaptar/imageslider/ImageSliderAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/cart/DiagnosticFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/cart/DiagnosticFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/cart/PathologyFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/fragment/cart/PathologyFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/LocaleHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/helper/LocaleHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/localdb/DiagnosticServiceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/localdb/DiagnosticServiceDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/localdb/PathologyServicesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/localdb/PathologyServicesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/checkout/CheckoutModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/checkout/CheckoutModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/webapi/APiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/webapi/APiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/webapi/ApiInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mediraj/webapi/ApiInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_blood_bookingctivity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_blood_bookingctivity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_checkout_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_checkout_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_clinic_booking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_clinic_booking.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_clinic_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_clinic_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_developer_team.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_developer_team.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_diagnostic.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_diagnostic.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_booking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_booking.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_doctor_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergency_number.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_emergency_number.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_pathology.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_pathology.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_medicine_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_medicine_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_more.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_more.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_surgical.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_surgical.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_bloodbank.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_bloodbank.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_department_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_department_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_home_pathology.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_home_pathology.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/contact_us_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/contact_us_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/custom_toolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_toolbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_image_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_image_selection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/image_slider_layout_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/image_slider_layout_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/mod_layout_design.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mod_layout_design.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/service_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/service_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_nav.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_nav.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/spash_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/splash_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-bn-rBD/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-bn-rBD/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/provider_paths.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/provider_paths.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/mediraj/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/mediraj/ExampleUnitTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +157,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\cse16\.android\avd\Pixel_2_XL_Edited_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\cse16\.android\avd\Pixel_4_API_29.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -59,9 +166,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
         <option value="layoutResourceFile" />
       </list>
     </option>
@@ -69,73 +177,47 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1qRTdtBm04iiwu2Kc81FvKjB1L6" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1wtVXnlMgTNOQpI1a5IjvAb8h7y" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\cse16\.android\avd\Pixel_2_XL_Edited_API_30.avd" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-25T08:39:27.841473Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="android-custom-view/home/johny/.gradle/caches/modules-2/files-2.1/com.github.smarteist/autoimageslider/1.4.0/51ac1881dd964d4d8fc8fe5fc558c34d6a0897dc/autoimageslider-1.4.0-sources.jar!/com/smarteist/autoimageslider/SliderView.java_SELECTED" value="SliderView" />
+    <property name="android-custom-view/home/johny/.gradle/caches/modules-2/files-2.1/com.github.smarteist/autoimageslider/1.4.0/51ac1881dd964d4d8fc8fe5fc558c34d6a0897dc/autoimageslider-1.4.0-sources.jar!/com/smarteist/autoimageslider/SliderView.java_SliderView_DIMENSIONS" value="1080&#10;1920" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="recommended.upgrade.do.not.ask.for.version" value="4.2.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Suggestions" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recommended.upgrade.do.not.ask.for.version" value="7.0.0" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.-1757273547">
-      <recent name="com.example.mediraj.activity" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.example.mediraj.activity" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/color" />
-    </key>
-    <key name="android.template.471379086">
-      <recent name="com.example.mediraj.activity" />
-    </key>
-    <key name="android.template.1404811419">
-      <recent name="com.example.mediraj.activity" />
-    </key>
-    <key name="android.template.-636620654">
-      <recent name="com.example.mediraj.activity" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/values-night" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/raw" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/font" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
     </key>
-    <key name="android.template.181404884">
+    <key name="android.template.1478439315">
       <recent name="com.example.mediraj.activity" />
     </key>
-    <key name="android.template.-1030143277">
-      <recent name="com.example.mediraj.activity" />
-      <recent name="com.example.mediraj" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
+    <key name="android.template.-203363598">
       <recent name="com.example.mediraj.activity" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
+    <key name="android.template.-663817647">
+      <recent name="com.example.mediraj.activity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.mediraj.fragment.history" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="MediRaj.app" />
       <option name="DEPLOY" value="true" />
@@ -196,107 +278,104 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54130c3d-29ac-45e5-99fb-86e518789d26" name="Default Changelist" comment="" />
-      <created>1617041492275</created>
+      <changelist id="051b73b1-e6a8-43e3-b34e-012d67f9ef86" name="Default Changelist" comment="" />
+      <created>1629277913743</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1617041492275</updated>
+      <updated>1629277913743</updated>
     </task>
-    <task id="LOCAL-00001" summary="some bug fixing on sign_up_fragment and loader added.">
-      <created>1617049198707</created>
+    <task id="LOCAL-00001" summary="21-08-2021">
+      <created>1629545236565</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1617049198707</updated>
+      <updated>1629545236565</updated>
     </task>
-    <task id="LOCAL-00002" summary="some bug fixing on sign_up_fragment and loader added.">
-      <created>1617049388604</created>
+    <task id="LOCAL-00002" summary="22-08-2021">
+      <created>1629630985159</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1617049388604</updated>
+      <updated>1629630985159</updated>
     </task>
-    <task id="LOCAL-00003" summary="some design fixing and login fragment partial">
-      <created>1617138415567</created>
+    <task id="LOCAL-00003" summary="23-08-2021">
+      <created>1629740266285</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1617138415568</updated>
+      <updated>1629740266285</updated>
     </task>
-    <task id="LOCAL-00004" summary="service fragment a kaj korci">
-      <created>1617297863095</created>
+    <task id="LOCAL-00004" summary="finish project release for testing">
+      <created>1630083865197</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1617297863095</updated>
+      <updated>1630083865197</updated>
     </task>
-    <task id="LOCAL-00005" summary="Doctor list a kaj korci">
-      <created>1617900727581</created>
+    <task id="LOCAL-00005" summary="fix app responsiveness all layout">
+      <created>1630138356897</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1617900727582</updated>
+      <updated>1630138356897</updated>
     </task>
-    <task id="LOCAL-00006" summary="Doctor list a kaj korci">
-      <created>1618982294915</created>
+    <task id="LOCAL-00006" summary="fix date format on DoctorBookingActivity">
+      <created>1630145123092</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1618982294915</updated>
+      <updated>1630145123092</updated>
     </task>
-    <task id="LOCAL-00007" summary="fix some error">
-      <created>1619078860103</created>
+    <task id="LOCAL-00007" summary="add onBackPressed on EditProfileActivity">
+      <created>1630145357646</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1619078860103</updated>
+      <updated>1630145357646</updated>
     </task>
-    <task id="LOCAL-00008" summary="login,registration,forgotpass,resetpass all api done;">
-      <created>1620911264825</created>
+    <task id="LOCAL-00008" summary="primary color changed">
+      <created>1630149501842</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1620911264826</updated>
+      <updated>1630149501842</updated>
     </task>
-    <task id="LOCAL-00009" summary="modification with new ux">
-      <created>1621048287385</created>
+    <task id="LOCAL-00009" summary="fix on medicine service booking">
+      <created>1630215155686</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1621048287385</updated>
+      <updated>1630215155686</updated>
     </task>
-    <task id="LOCAL-00010" summary="login ux">
-      <created>1621418435951</created>
+    <task id="LOCAL-00010" summary="fix on some layout file">
+      <created>1630216624938</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1621418435951</updated>
+      <updated>1630216624938</updated>
     </task>
-    <task id="LOCAL-00011" summary="fix profile layout scroll view">
-      <created>1621545007610</created>
+    <task id="LOCAL-00011" summary="developer page added and bug fix">
+      <created>1630408339901</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1621545007610</updated>
+      <updated>1630408339901</updated>
     </task>
-    <task id="LOCAL-00012" summary="fix profile layout scroll view">
-      <created>1621652934565</created>
+    <task id="LOCAL-00012" summary="about us page added">
+      <created>1630477947315</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1621652934565</updated>
+      <updated>1630477947315</updated>
     </task>
-    <task id="LOCAL-00013" summary="clinic and medicine design ready">
-      <created>1621953346546</created>
+    <task id="LOCAL-00013" summary="about us page added">
+      <created>1631817307664</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1621953346546</updated>
+      <updated>1631817307664</updated>
     </task>
     <option name="localTasksCounter" value="14" />
     <servers />
@@ -314,116 +393,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some bug fixing on sign_up_fragment and loader added." />
-    <MESSAGE value="some design fixing and login fragment partial" />
-    <MESSAGE value="service fragment a kaj korci" />
-    <MESSAGE value="Doctor list a kaj korci" />
-    <MESSAGE value="fix some error" />
-    <MESSAGE value="login,registration,forgotpass,resetpass all api done;" />
-    <MESSAGE value="modification with new ux" />
-    <MESSAGE value="login ux" />
-    <MESSAGE value="fix profile layout scroll view" />
-    <MESSAGE value="clinic and medicine design ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="clinic and medicine design ready" />
+    <MESSAGE value="21-08-2021" />
+    <MESSAGE value="22-08-2021" />
+    <MESSAGE value="23-08-2021" />
+    <MESSAGE value="finish project release for testing" />
+    <MESSAGE value="fix app responsiveness all layout" />
+    <MESSAGE value="fix date format on DoctorBookingActivity" />
+    <MESSAGE value="add onBackPressed on EditProfileActivity" />
+    <MESSAGE value="primary color changed" />
+    <MESSAGE value="fix on medicine service booking" />
+    <MESSAGE value="fix on some layout file" />
+    <MESSAGE value="developer page added and bug fix" />
+    <MESSAGE value="about us page added" />
+    <option name="LAST_COMMIT_MESSAGE" value="about us page added" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="580" y="236" key="#Notifications" timestamp="1619194365157">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="580" y="236" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1619194365157" />
-    <state x="768" y="262" width="328" height="488" key="#com.intellij.ide.util.MemberChooser" timestamp="1621403983868">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="1942" y="194" width="328" height="488" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618074221000" />
-    <state x="768" y="262" width="374" height="590" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1621403983868" />
-    <state x="1886" y="228" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1621927078355">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state x="1886" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621927078355" />
-    <state x="693" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1621418004779" />
-    <state x="100" y="127" width="1720" height="853" key="AVDManager" timestamp="1621120705648">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="100" y="127" width="1720" height="853" key="AVDManager/0.27.1920.1053@0.27.1920.1053" timestamp="1621120705648" />
-    <state x="553" y="215" width="824" height="491" key="AndroidCreateResourceDirectoryDialog" timestamp="1621124838540">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="553" y="215" width="824" height="491" key="AndroidCreateResourceDirectoryDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1621124838540" />
-    <state x="1773" y="235" width="824" height="491" key="AndroidCreateResourceFileDialog" timestamp="1621930582794">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state x="1773" y="235" key="AndroidCreateResourceFileDialog/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621930582794" />
-    <state x="676" y="364" width="824" height="491" key="AndroidCreateResourceFileDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1621204142933" />
-    <state x="1154" y="338" width="356" height="493" key="AndroidCreateXmlResourceDialog" timestamp="1621402063805">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="1959" y="260" width="311" height="379" key="AndroidCreateXmlResourceDialog/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1618072467544" />
-    <state x="1154" y="338" width="356" height="493" key="AndroidCreateXmlResourceDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1621402063805" />
-    <state x="535" y="134" width="671" height="491" key="Downloadable.Font.Dialog.Size" timestamp="1621032150352">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="535" y="134" width="671" height="491" key="Downloadable.Font.Dialog.Size/0.27.1920.1053@0.27.1920.1053" timestamp="1621032150352" />
-    <state x="738" y="314" width="424" height="491" key="FileChooserDialogImpl" timestamp="1621287232193">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="738" y="314" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1621287232193" />
-    <state width="1397" height="438" key="GridCell.Tab.0.bottom" timestamp="1621930436708">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state width="1397" height="438" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621930436708" />
-    <state width="1323" height="308" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
-    <state width="1874" height="499" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1621566269424" />
-    <state width="1397" height="438" key="GridCell.Tab.0.center" timestamp="1621930436708">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state width="1397" height="438" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621930436708" />
-    <state width="1323" height="308" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
-    <state width="1874" height="499" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1621566269424" />
-    <state width="1397" height="438" key="GridCell.Tab.0.left" timestamp="1621930436708">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state width="1397" height="438" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621930436708" />
-    <state width="1323" height="308" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
-    <state width="1874" height="499" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1621566269424" />
-    <state width="1397" height="438" key="GridCell.Tab.0.right" timestamp="1621930436708">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state width="1397" height="438" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621930436708" />
-    <state width="1323" height="308" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1619367971647" />
-    <state width="1874" height="499" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1621566269424" />
-    <state x="543" y="299" width="824" height="515" key="IDE.errors.dialog" timestamp="1621127119823">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="543" y="299" width="824" height="515" key="IDE.errors.dialog/0.27.1920.1053@0.27.1920.1053" timestamp="1621127119823" />
-    <state x="129" y="55" key="MergeDialog" timestamp="1617640363244">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="129" y="55" key="MergeDialog/0.0.1366.738/1366.0.1440.870@0.0.1366.738" timestamp="1617640363244" />
-    <state x="449" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1621124953680">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="449" y="188" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1621124953680" />
-    <state x="1782" y="206" width="800" height="562" key="Vcs.Push.Dialog.v2" timestamp="1621953361647">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state x="1782" y="206" key="Vcs.Push.Dialog.v2/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621953361647" />
-    <state x="395" y="175" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1619078864967" />
-    <state x="407" y="204" width="800" height="562" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1621652939324" />
-    <state x="1915" y="253" width="446" height="447" key="chooseDestDirectoryDialog" timestamp="1621929966451">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state x="1915" y="253" key="chooseDestDirectoryDialog/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621929966451" />
-    <state x="732" y="333" width="446" height="447" key="chooseDestDirectoryDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1621441492872" />
-    <state x="754" y="469" width="437" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621418410071">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="536" y="310" width="381" height="171" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738/1366.0.1440.870@0.0.1366.738" timestamp="1617640146355" />
-    <state x="1931" y="365" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1617722151550" />
-    <state x="536" y="310" width="381" height="171" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1618982374702" />
-    <state x="754" y="469" width="437" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1621418410071" />
-    <state x="1857" y="256" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1621929966974">
-      <screen x="1366" y="0" width="1440" height="870" />
-    </state>
-    <state x="1857" y="256" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.738/1366.0.1440.870@1366.0.1440.870" timestamp="1621929966974" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/mediraj/model/checkout/CheckoutModel.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

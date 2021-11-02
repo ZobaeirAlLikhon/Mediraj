@@ -4,8 +4,6 @@ package com.example.mediraj.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class UserData {
     @SerializedName("message")
     @Expose

@@ -61,7 +61,7 @@
                     android:fontFamily="@font/noto_sans"
                     android:gravity="center"
                     android:text="Camera"
-                    android:textColor="@color/battleship_grey"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
             </LinearLayout>
 
@@ -89,7 +89,7 @@
                     android:fontFamily="@font/noto_sans"
                     android:gravity="center"
                     android:text="Gallary"
-                    android:textColor="@color/battleship_grey"
+                    android:textColor="@color/black"
                     android:textSize="15dp" />
             </LinearLayout>
         </LinearLayout>

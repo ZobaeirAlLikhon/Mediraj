@@ -1,5 +1,6 @@
 package com.example.mediraj.adaptar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -84,5 +85,11 @@ public class ClinicServicesAdapter extends RecyclerView.Adapter<ClinicServicesAd
 
 
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchList(List<ClinicalModel.Datum> data){
+        clinicalModelList = data;
+        notifyDataSetChanged();
     }
 }

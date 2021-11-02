@@ -94,7 +94,7 @@
     <string name="visiting_hours">Visiting Hours</string>
     <string name="chamber">Chamber</string>
     <string name="about_doctor">About Doctor</string>
-    <string name="book_appointment">Book Appointment</string>
+    <string name="book_appointment">Book Appointments</string>
     <string name="select_month">Select Month</string>
     <string name="enter_date">Plaese select a date</string>
     <string name="enter_time">Please enter a time Schedule</string>
@@ -141,6 +141,13 @@
     <string name="home">Home</string>
     <string name="cart">Cart</string>
     <string name="more">More</string>
+    <string name="version">Version</string>
+    <string name="intro_logo">intro logo</string>
+    <string name="theme">Dark Theme</string>
+    <string name="order_status">Order Status:</string>
+    <string name="order_date"><b>Ordered Date:</b></string>
+    <string name="med_name"><b>Medicine Name:</b></string>
+
 
 
 </resources>

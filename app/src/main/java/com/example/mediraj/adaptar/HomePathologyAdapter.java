@@ -1,5 +1,6 @@
 package com.example.mediraj.adaptar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,12 @@ public class HomePathologyAdapter extends RecyclerView.Adapter<HomePathologyAdap
     @Override
     public int getItemCount() {
         return allPathologyModels.size();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchList(List<AllPathologyModel.Datum> filteredList) {
+        allPathologyModels = filteredList;
+        notifyDataSetChanged();
     }
 
     public class MyViewHoldr extends RecyclerView.ViewHolder{

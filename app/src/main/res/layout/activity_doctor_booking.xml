@@ -71,6 +71,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
                             android:hint="@string/name"
+                            android:textColor="@color/black"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -96,6 +97,7 @@
                             android:imeOptions="actionNext"
                             android:inputType="text|phone"
                             android:maxLines="1"
+                            android:textColor="@color/black"
                             app:mask="+88 #####-######"
                             tools:ignore="Autofill" />
 
@@ -119,6 +121,7 @@
                             android:fontFamily="@font/noto_sans"
                             android:hint="@string/address"
                             android:imeOptions="actionNext"
+                            android:textColor="@color/black"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -273,6 +276,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="18dp"
+        android:layout_margin="5dp"
         app:layout_constraintRight_toRightOf="parent" />
 
 

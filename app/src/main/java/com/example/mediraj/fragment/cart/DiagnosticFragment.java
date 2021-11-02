@@ -19,19 +19,19 @@ import com.example.mediraj.localdb.DiagnosticService;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.List;
-import java.util.Objects;
 
 
 public class DiagnosticFragment extends Fragment implements DfAdapter.dfItemClick {
 
-    private View view;
-    private RecyclerView cartRec;
-    private TextView noData;
-    private ExtendedFloatingActionButton checkoutBtn;
+    View view;
+    RecyclerView cartRec;
+    TextView noData;
+    ExtendedFloatingActionButton checkoutBtn;
     AppDatabase db;
     List<DiagnosticService> dataList;
     DfAdapter dfAdapter;
     DfAdapter.dfItemClick dfItemClick;
+
     public DiagnosticFragment() {
         // Required empty public constructor
     }
@@ -58,7 +58,7 @@ public class DiagnosticFragment extends Fragment implements DfAdapter.dfItemClic
         getItemList();
 
         checkoutBtn.setOnClickListener(v -> {
-            requireContext().startActivity(new Intent(getContext(), CheckoutInformation.class).putExtra("data","1"));
+            requireContext().startActivity(new Intent(getContext(), CheckoutInformation.class).putExtra("data", "1"));
         });
         return view;
     }
@@ -69,7 +69,7 @@ public class DiagnosticFragment extends Fragment implements DfAdapter.dfItemClic
             noData.setVisibility(View.GONE);
             cartRec.setVisibility(View.VISIBLE);
             checkoutBtn.setVisibility(View.VISIBLE);
-            dfAdapter = new DfAdapter(getContext(), dataList,dfItemClick);
+            dfAdapter = new DfAdapter(getContext(), dataList, dfItemClick);
             cartRec.setAdapter(dfAdapter);
         } else {
             cartRec.setVisibility(View.GONE);
@@ -86,7 +86,7 @@ public class DiagnosticFragment extends Fragment implements DfAdapter.dfItemClic
 
     @Override
     public void sendListSize(int size) {
-        if (size==0){
+        if (size == 0) {
             checkoutBtn.setVisibility(View.GONE);
             noData.setVisibility(View.VISIBLE);
         }

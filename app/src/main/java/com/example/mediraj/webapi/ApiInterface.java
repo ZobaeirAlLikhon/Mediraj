@@ -12,6 +12,7 @@ import com.example.mediraj.model.Clinic_add_booking;
 import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.model.Department;
 import com.example.mediraj.model.DoctorBookingModel;
+import com.example.mediraj.model.MedicineOrderModel;
 import com.example.mediraj.model.MedicineRequestModel;
 import com.example.mediraj.model.ProductConfirmation;
 import com.example.mediraj.model.SingleDepartment;
@@ -159,4 +160,11 @@ public interface ApiInterface {
     @POST("appointment/create")
     Call<DoctorBookingModel> doctorBooking(@Header("Authorization") String auth,@FieldMap Map<String,String> params);
 
+
+
+    //for history
+
+    @FormUrlEncoded
+    @POST("medicine/lists")
+    Call<MedicineOrderModel> getMedicineOrderHistory(@Header("Authorization") String auth,@Field("user_id") String userId);
 }

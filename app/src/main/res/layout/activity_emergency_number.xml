@@ -33,7 +33,7 @@
                 android:fontFamily="@font/noto_sans"
                 android:gravity="center"
                 android:text="@string/emegency_contact"
-                android:textColor="@color/black"
+                android:textColor="@color/battleship_grey"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

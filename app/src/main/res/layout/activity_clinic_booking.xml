@@ -73,6 +73,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
                             android:hint="@string/name"
+                            android:textColor="@color/black"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -95,6 +96,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
                             android:hint="@string/contact"
+                            android:textColor="@color/black"
                             android:imeOptions="actionNext"
                             android:inputType="text|phone"
                             android:maxLines="1"
@@ -120,6 +122,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
                             android:hint="@string/address"
+                            android:textColor="@color/black"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />
@@ -143,6 +146,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/noto_sans"
                             android:hint="@string/purpose_of_clinic_booking"
+                            android:textColor="@color/black"
                             android:imeOptions="actionNext"
                             android:inputType="text|textCapWords|textMultiLine"
                             tools:ignore="Autofill" />

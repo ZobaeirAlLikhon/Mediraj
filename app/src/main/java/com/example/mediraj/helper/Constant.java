@@ -16,4 +16,5 @@ public class Constant {
     public static final String USER_INFO = "data";
     //share preference for language
     public static final String LANG_INFO = "app_lan";
+    public static final String THEME_INFO = "app_theme";
 }

@@ -48,19 +48,8 @@
                     android:layout_toEndOf="@+id/cirIM_dia"
                     android:layout_marginStart="2dp"
                     android:fontFamily="@font/noto_sans"
-                    android:textColor="@color/battleship_grey"
                     android:text="Blood Name"
                     android:textSize="17sp" />
-
-<!--                <TextView-->
-<!--                    android:id="@+id/bloodprice"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@+id/Tv_clinicname"-->
-<!--                    android:layout_toEndOf="@+id/cirIM_dia"-->
-<!--                    android:layout_marginStart="2dp"-->
-<!--                    android:text="price         "-->
-<!--                    android:textSize="15sp" />-->
             </LinearLayout>
 
             <LinearLayout

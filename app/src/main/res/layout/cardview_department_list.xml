@@ -21,7 +21,7 @@
             android:fontFamily="@font/noto_sans"
             android:padding="5dp"
             android:text="Depart Name"
-            android:textColor="@color/battleship_grey"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
     </RelativeLayout>

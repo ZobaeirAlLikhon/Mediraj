@@ -76,6 +76,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="end"
                     android:padding="5dp"
+                    android:visibility="invisible"
                     android:src="@drawable/ic_baseline_love" />
                 <Button
                     android:id="@+id/pathology_Cart_btn"

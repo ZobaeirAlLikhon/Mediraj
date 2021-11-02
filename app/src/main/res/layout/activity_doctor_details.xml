@@ -243,6 +243,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="5dp"
+        android:elevation="8dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -255,7 +257,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/no_data_found"
         android:fontFamily="@font/noto_sans"
-        android:textColor="@color/battleship_grey"
+        android:textColor="@color/black"
         android:visibility="gone"
         android:textSize="18sp"/>
 

@@ -13,7 +13,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +37,6 @@ import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.santalu.maskara.widget.MaskEditText;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +56,7 @@ public class CheckoutInformation extends AppCompatActivity implements View.OnCli
     ApiInterface apiInterface;
     String databaseRef = null;
     int price = 0;
-    AppCompatButton checkoutConfirmBtn;
+    CardView checkoutConfirmBtn;
     List<Checkout> newDataList = new ArrayList<>();
     List<DiagnosticService> diagnosticServiceList = new ArrayList<>();
     List<PathologyServices> pathologyServicesList = new ArrayList<>();

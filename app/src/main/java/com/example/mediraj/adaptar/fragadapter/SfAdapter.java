@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mediraj.R;
 import com.example.mediraj.localdb.AppDatabase;
-import com.example.mediraj.localdb.PathologyServices;
 import com.example.mediraj.localdb.SurgicalService;
 
 import org.jetbrains.annotations.NotNull;

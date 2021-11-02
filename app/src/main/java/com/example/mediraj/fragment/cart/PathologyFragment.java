@@ -2,22 +2,19 @@ package com.example.mediraj.fragment.cart;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mediraj.R;
 import com.example.mediraj.activity.CheckoutInformation;
-import com.example.mediraj.adaptar.fragadapter.DfAdapter;
 import com.example.mediraj.adaptar.fragadapter.PfAdapter;
 import com.example.mediraj.localdb.AppDatabase;
-import com.example.mediraj.localdb.DiagnosticService;
 import com.example.mediraj.localdb.PathologyServices;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 

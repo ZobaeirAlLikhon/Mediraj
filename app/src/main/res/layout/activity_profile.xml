@@ -107,7 +107,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="01767535372"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -157,7 +157,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="Johny.ice10@gmail.com"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -207,7 +207,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="Dewanpara,Shyampur,Rajshahi"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -251,7 +251,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/noto_sans"
-                            android:textColor="@color/battleship_grey" />
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -284,7 +284,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/noto_sans"
-                            android:textColor="@color/battleship_grey" />
+                            android:textColor="@color/black" />
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -304,6 +304,7 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textAllCaps="false"
+        android:layout_margin="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

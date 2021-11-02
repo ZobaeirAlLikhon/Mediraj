@@ -1,7 +1,7 @@
 package com.example.mediraj.adaptar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +67,12 @@ public class DiagnosticServicesAdapter extends RecyclerView.Adapter<DiagnosticSe
     @Override
     public int getItemCount() {
         return allDiagnosticModels.size();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchList(List<AllDiagnosticModel.Datum> filteredList) {
+        allDiagnosticModels = filteredList;
+        notifyDataSetChanged();
     }
 
     public class MyViewHoldr extends RecyclerView.ViewHolder {

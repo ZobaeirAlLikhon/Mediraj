@@ -5,14 +5,12 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.Window;
@@ -22,7 +20,6 @@ import android.widget.TextView;
 
 import com.example.mediraj.R;
 import com.example.mediraj.model.UserData;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
@@ -33,10 +30,11 @@ import java.util.Locale;
 public class DataManager {
 
     private static final DataManager ourInstance = new DataManager();
-    private static Snackbar snackbar = null;
+
     public static DataManager getInstance() {
         return ourInstance;
     }
+
     private DataManager() {
     }
 
@@ -87,14 +85,6 @@ public class DataManager {
         UserData userData = new Gson().fromJson(SessionManager.readString(context, Constant.USER_INFO, ""), UserData.class);
         return userData;
     }
-
-
-
-
-
-
-
-
 
 
     public static String convertDateToString(long l) {

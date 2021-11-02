@@ -2,7 +2,11 @@ package com.example.mediraj.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +24,7 @@ import com.example.mediraj.helper.DataManager;
 import com.example.mediraj.localdb.AppDatabase;
 import com.example.mediraj.localdb.DiagnosticService;
 import com.example.mediraj.model.AllDiagnosticModel;
+import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -39,7 +44,7 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
     RecyclerView recyclerView;
     DiagnosticServicesAdapter adapter;
     ImageView ivBack;
-    TextView toolBarTxt, noData,itemCount;
+    TextView noData,itemCount;
     List<AllDiagnosticModel.Datum> dataList = new ArrayList<>();
     public static final String TAG = DiagnosticActivity.class.getName();
     DiagnosticServicesAdapter.OnDiagnosticClick onDiagnosticClick;
@@ -71,8 +76,8 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
     private void initView() {
         ivBack = findViewById(R.id.toolbarBtn);
-        toolBarTxt = findViewById(R.id.toolbarText);
-        toolBarTxt.setText(getString(R.string.ds));
+//        toolBarTxt = findViewById(R.id.toolbarText);
+//        toolBarTxt.setText(getString(R.string.ds));
         noData = findViewById(R.id.noData);
         recyclerView = findViewById(R.id.recy_view_diagnostic);
         fab = findViewById(R.id.goToCart);
@@ -83,6 +88,37 @@ public class DiagnosticActivity extends AppCompatActivity implements View.OnClic
 
         frameLayout.setVisibility(View.GONE);
 
+        EditText searchBox = findViewById(R.id.searchBox);
+        searchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filterList(s.toString());
+            }
+        });
+
+    }
+
+    private void filterList(String text) {
+        List<AllDiagnosticModel.Datum> filteredList = new ArrayList<>();
+        Log.e("data list 1",dataList.toString()+"\n"+dataList.size());
+        for (AllDiagnosticModel.Datum item:dataList){
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+                Log.e("filter item",filteredList.toString());
+            }
+        }
+
+        adapter.searchList(filteredList);
     }
 
     private void recyclerView() {

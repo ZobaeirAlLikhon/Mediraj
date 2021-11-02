@@ -24,7 +24,10 @@
                 android:layout_width="100dp"
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:contentDescription="@string/category_image"
                 app:srcCompat="@drawable/ic_appoint" />
 
@@ -37,6 +40,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
+                android:textColor="@color/black"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/noto_sans"
                 android:textStyle="bold" />

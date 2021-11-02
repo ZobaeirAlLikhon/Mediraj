@@ -1,8 +1,20 @@
 package com.example.mediraj.activity;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +32,7 @@ import com.example.mediraj.model.ClinicalModel;
 import com.example.mediraj.webapi.APiClient;
 import com.example.mediraj.webapi.ApiInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,7 +45,8 @@ public class ClinicService extends AppCompatActivity {
     RecyclerView recyclerView;
     ClinicServicesAdapter clinicServicesAdapter;
     ImageView toolbarBtn;
-    TextView toolbarTxt,noData;
+    TextView noData;
+    List<ClinicalModel.Datum> dataList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,25 +60,48 @@ public class ClinicService extends AppCompatActivity {
         }else {
             Toast.makeText(this, R.string.internet_connect_msg, Toast.LENGTH_SHORT).show();
         }
-
     }
 
-    private void initView() {
 
+    private void initView() {
         recyclerView=findViewById(R.id.recy_view_clinic);
         recyclerView.setLayoutManager(new LinearLayoutManager(ClinicService.this,LinearLayoutManager.VERTICAL,false));
         toolbarBtn = findViewById(R.id.toolbarBtn);
-        toolbarTxt = findViewById(R.id.toolbarText);
-        toolbarTxt.setText(R.string.clinic_service);
         noData = findViewById(R.id.noData);
+        toolbarBtn.setOnClickListener(v -> finish());
 
-        toolbarBtn.setOnClickListener(new View.OnClickListener() {
+        EditText test = findViewById(R.id.searchBox);
+        test.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filterList(editable.toString());
             }
         });
     }
+
+    private void filterList(String text) {
+        List<ClinicalModel.Datum> filteredList = new ArrayList<>();
+        Log.e("data list 1",dataList.toString()+"\n"+dataList.size());
+        for (ClinicalModel.Datum item:dataList){
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+                Log.e("filter item",filteredList.toString());
+            }
+        }
+
+        clinicServicesAdapter.searchList(filteredList);
+    }
+
 
     private void recyclerView() {
         DataManager.getInstance().showProgressMessage(this,getString(R.string.please_wait));
@@ -77,9 +114,11 @@ public class ClinicService extends AppCompatActivity {
                 try {
                     clinicalModelList=response.body();
                     if (clinicalModelList.getResponse()==200){
+                        dataList.addAll(clinicalModelList.getData());
+                        Log.e("data list",dataList.toString()+"\n"+dataList.size());
                         noData.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);
-                        clinicServicesAdapter =new ClinicServicesAdapter(getApplicationContext(),clinicalModelList.getData());
+                        clinicServicesAdapter =new ClinicServicesAdapter(getApplicationContext(),dataList);
                         recyclerView.setAdapter(clinicServicesAdapter);
                     }else{
                         recyclerView.setVisibility(View.INVISIBLE);

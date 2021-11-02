@@ -243,12 +243,12 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
                 DataManager.getInstance().hideProgressMessage();
 
                 try {
-                    MedicineRequestModel medicinRequestModel = response.body();
-                    if (medicinRequestModel.response == 200) {
-                        Toast.makeText(MedicineService.this, medicinRequestModel.message, Toast.LENGTH_SHORT).show();
+                    MedicineRequestModel medicineRequestModel = response.body();
+                    if (medicineRequestModel.response == 200) {
+                        Toast.makeText(MedicineService.this, medicineRequestModel.message, Toast.LENGTH_SHORT).show();
                         confirmAlert(MedicineService.this);
                     } else {
-                        Toast.makeText(MedicineService.this, medicinRequestModel.message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MedicineService.this, medicineRequestModel.message, Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -356,8 +356,6 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
             Log.e("error", e.toString());
         }
-        // Save a file: path for use with ACTION_VIEW intents
-        Log.e("data test", image.exists() + " ");
         str_image_path = image.getAbsolutePath();
         return image;
     }
@@ -420,7 +418,7 @@ public class MedicineService extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_PERMISSION_CONSTANT) {
             if (grantResults.length > 0) {

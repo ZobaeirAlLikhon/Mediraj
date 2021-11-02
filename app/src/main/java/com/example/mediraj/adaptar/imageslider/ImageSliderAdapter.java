@@ -10,9 +10,6 @@ import com.bumptech.glide.Glide;
 import com.example.mediraj.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ImageSliderAdapter extends SliderViewAdapter<ImageSliderAdapter.ImageAdapterVH> {
     private Context context;
     private int [] img;

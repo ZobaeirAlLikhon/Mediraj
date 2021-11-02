@@ -37,27 +37,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans"
-                android:textColor="@color/battleship_grey"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/userPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans"
-                android:textColor="@color/battleship_grey"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/userEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans"
-                android:textColor="@color/battleship_grey"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:textSize="16sp" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -73,19 +70,19 @@
         app:itemTextAppearanceActive="@style/Style_TextView"
         app:itemTextAppearanceInactive="@style/Style_TextView"
         app:itemTextColor="@color/bottom_nav_color"
-        app:menu="@menu/menu_nav"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:menu="@menu/menu_nav" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileInfo"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileInfo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,9 +108,7 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="@string/setting"
-                    android:textSize="18sp"
-                    android:textColor="@color/battleship_grey"
-                    android:textStyle="bold" />
+                    android:textColor="@color/battleship_grey" />
 
                 <LinearLayout
                     android:id="@+id/profileLay"
@@ -136,7 +131,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/profile"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -163,7 +158,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/notification"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
@@ -199,43 +194,45 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/language"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:fontFamily="@font/noto_sans"
-                    android:text="@string/en"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="@string/en"
+                            android:textColor="@color/black" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/lanChange"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:checked="false"
-                    tools:ignore="TouchTargetSizeCheck" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginStart="2dp"
-                    android:text="@string/bn"/>
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/lanChange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:checked="false"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:text="@string/bn"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
 <!--                <LinearLayout-->
-<!--                    android:id="@+id/smsLay"-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@id/mailLay"-->
+<!--                    android:layout_below="@id/languageLay"-->
 <!--                    android:layout_marginStart="10dp"-->
 <!--                    android:layout_marginEnd="10dp"-->
 <!--                    android:layout_marginBottom="10dp"-->
@@ -246,7 +243,7 @@
 <!--                        android:layout_width="20dp"-->
 <!--                        android:layout_height="20dp"-->
 <!--                        android:layout_gravity="center_vertical"-->
-<!--                        android:src="@drawable/ic_notification" />-->
+<!--                        android:src="@drawable/ic_theme" />-->
 
 <!--                    <TextView-->
 <!--                        android:layout_width="wrap_content"-->
@@ -254,50 +251,29 @@
 <!--                        android:layout_gravity="center_vertical"-->
 <!--                        android:layout_marginStart="10dp"-->
 <!--                        android:fontFamily="@font/noto_sans"-->
-<!--                        android:text="SMS Notification"-->
-<!--                        android:textColor="@color/battleship_grey"-->
+<!--                        android:text="@string/theme"-->
+<!--                        android:textColor="@color/black"-->
 <!--                        android:textSize="16sp" />-->
 
-<!--                    <androidx.appcompat.widget.SwitchCompat-->
+<!--                    <LinearLayout-->
 <!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="30dp"-->
-<!--                        android:checked="true"-->
-<!--                        android:gravity="center_vertical|end"-->
-<!--                        tools:ignore="TouchTargetSizeCheck" />-->
-<!--                </LinearLayout>-->
-            </RelativeLayout>
-
-<!--            <RelativeLayout-->
-<!--                android:id="@+id/historyLay"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:background="@color/white">-->
-<!--                &lt;!&ndash; history&ndash;&gt;-->
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="10dp"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="20dp"-->
-<!--                        android:layout_height="20dp"-->
-<!--                        android:layout_gravity="center_vertical"-->
-<!--                        android:src="@drawable/ic_history" />-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
 <!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center_vertical"-->
-<!--                        android:layout_marginStart="10dp"-->
-<!--                        android:fontFamily="@font/noto_sans"-->
-<!--                        android:text="History"-->
-<!--                        android:textColor="@color/battleship_grey"-->
-<!--                        android:textSize="16sp" />-->
+<!--                        android:gravity="end"-->
+<!--                        android:orientation="horizontal">-->
 
+<!--                        <androidx.appcompat.widget.SwitchCompat-->
+<!--                            android:id="@+id/themeToggle"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:checked="false"-->
+<!--                            android:gravity="center_vertical|end"-->
+<!--                            tools:ignore="TouchTargetSizeCheck" />-->
+
+
+<!--                    </LinearLayout>-->
 <!--                </LinearLayout>-->
-<!--            </RelativeLayout>-->
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -315,9 +291,7 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="@string/offer"
-                    android:textSize="18sp"
-                    android:textColor="@color/battleship_grey"
-                    android:textStyle="bold" />
+                    android:textColor="@color/battleship_grey" />
 
                 <LinearLayout
                     android:id="@+id/offerLay"
@@ -340,7 +314,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/special_offer"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -366,7 +340,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/promotional_offer"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -388,9 +362,7 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/noto_sans"
                     android:text="@string/help"
-                    android:textSize="18sp"
-                    android:textColor="@color/battleship_grey"
-                    android:textStyle="bold" />
+                    android:textColor="@color/battleship_grey" />
 
                 <LinearLayout
                     android:id="@+id/aboutLay"
@@ -413,7 +385,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/about_us"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -442,10 +414,11 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/emergency_call"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/contactUsLay"
                     android:layout_width="wrap_content"
@@ -467,11 +440,10 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/contact_us"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
-
 
 
             </RelativeLayout>
@@ -503,7 +475,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/development_team"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -536,7 +508,7 @@
                         android:layout_marginStart="10dp"
                         android:fontFamily="@font/noto_sans"
                         android:text="@string/log_out"
-                        android:textColor="@color/battleship_grey"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>

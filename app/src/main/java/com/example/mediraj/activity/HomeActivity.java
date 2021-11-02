@@ -4,11 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -18,20 +15,16 @@ import com.example.mediraj.R;
 import com.example.mediraj.adaptar.ServiceAdapter;
 import com.example.mediraj.adaptar.imageslider.ImageSliderAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity implements ServiceAdapter.ServiceInterface {
     public static final String TAG = HomeActivity.class.getName();
-    private RecyclerView ser_rec;
+    RecyclerView ser_rec;
     List<String> titles;
     List<Integer> images;
     ServiceAdapter serviceAdapter;
@@ -43,8 +36,6 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         setContentView(R.layout.activity_main);
 
         imageLoader();
-        Locale locale = new Locale("bn");
-        Log.e("testing",locale.getCountry()+" ** ");
 
         serviceInterface = this;
 
@@ -55,13 +46,20 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
             int itemId = item.getItemId();
             if (itemId == R.id.home) {
                 return true;
+            } else if (itemId == R.id.history) {
+                startActivity(new Intent(this, OrderActivity.class));
+                overridePendingTransition(0, 0);
+                finish();
+                return true;
             } else if (itemId == R.id.cart) {
                 startActivity(new Intent(getApplicationContext(), CartActivity.class));
                 overridePendingTransition(0, 0);
+                finish();
                 return true;
             } else if (itemId == R.id.more) {
                 startActivity(new Intent(getApplicationContext(), MoreActivity.class));
                 overridePendingTransition(0, 0);
+                finish();
                 return true;
             }
             return false;
@@ -71,26 +69,19 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         titles = new ArrayList<>();
         images = new ArrayList<>();
 
-       // titles.add("Doctor appointment");
-        titles.add(getString(R.string.da));
-        //titles.add("Diagnostic Service");
-        titles.add(getString(R.string.ds));
-       // titles.add("Medicine Service");
+
         titles.add(getString(R.string.medi_service));
-        //titles.add("Clinic Service");
+        titles.add(getString(R.string.da));
+        titles.add(getString(R.string.ds));
         titles.add(getString(R.string.clinic_service));
-       // titles.add("BloodBank Service");
         titles.add(getString(R.string.bb));
-       // titles.add("Home Pathology");
         titles.add(getString(R.string.hp));
-      //  titles.add("Medical Device");
         titles.add(getString(R.string.md));
-       // titles.add("Online Doctor");
         titles.add(getString(R.string.online_doctor));
 
+        images.add(R.drawable.ic_capsule);
         images.add(R.drawable.ic_doctor1);
         images.add(R.drawable.ic_diagonistic);
-        images.add(R.drawable.ic_capsule);
         images.add(R.drawable.ic_patient);
         images.add(R.drawable.ic_blood_bank);
         images.add(R.drawable.ic_pathology_1);
@@ -101,9 +92,9 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
         //initialize views
         ser_rec = findViewById(R.id.sec_rec);
         ser_rec.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        ser_rec.setLayoutManager(new GridLayoutManager(this,2));
+        ser_rec.setLayoutManager(new GridLayoutManager(this, 2));
         ser_rec.setHasFixedSize(true);
-        serviceAdapter = new ServiceAdapter(this,titles,images,serviceInterface);
+        serviceAdapter = new ServiceAdapter(this, titles, images, serviceInterface);
         ser_rec.setAdapter(serviceAdapter);
 
 
@@ -112,29 +103,28 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
 
     @Override
     public void onClickInterface(String serName) {
-        Log.e(TAG,serName);
-        if (serName.equalsIgnoreCase("Medicine Service")){
-            Intent intent = new Intent(HomeActivity.this,MedicineService.class);
+        if (serName.equals(getString(R.string.medi_service))) {
+            Intent intent = new Intent(HomeActivity.this, MedicineService.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Clinic Service")){
-            Intent intent = new Intent(HomeActivity.this,ClinicService.class);
+        } else if (serName.equals(getString(R.string.clinic_service))) {
+            Intent intent = new Intent(HomeActivity.this, ClinicService.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("BloodBank Service")){
-            Intent intent = new Intent(HomeActivity.this,BloodbankService.class);
+        } else if (serName.equals(getString(R.string.bb))) {
+            Intent intent = new Intent(HomeActivity.this, BloodbankService.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Diagnostic Service")){
-            Intent intent = new Intent(HomeActivity.this,DiagnosticActivity.class);
+        } else if (serName.equals(getString(R.string.ds))) {
+            Intent intent = new Intent(HomeActivity.this, DiagnosticActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Medical Device")){
-            Intent intent = new Intent(HomeActivity.this,SurgicalActivity.class);
+        } else if (serName.equals(getString(R.string.md))) {
+            Intent intent = new Intent(HomeActivity.this, SurgicalActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Home Pathology")){
-            Intent intent = new Intent(HomeActivity.this,HomePathologyActivity.class);
+        } else if (serName.equals(getString(R.string.hp))) {
+            Intent intent = new Intent(HomeActivity.this, HomePathologyActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Doctor appointment")){
-            Intent intent = new Intent(HomeActivity.this,DoctorListActivity.class);
+        } else if (serName.equals(getString(R.string.da))) {
+            Intent intent = new Intent(HomeActivity.this, DoctorListActivity.class);
             startActivity(intent);
-        }else if (serName.equalsIgnoreCase("Online Doctor")){
+        } else if (serName.equals(getString(R.string.online_doctor))) {
             Intent intent = new Intent(HomeActivity.this, EmergencyDoctorActivity.class);
             startActivity(intent);
         }
@@ -142,7 +132,7 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
 
     @Override
     public void onBackPressed() {
-       // super.onBackPressed();
+        // super.onBackPressed();
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setMessage("Are you sure you want to exit?");
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -164,20 +154,18 @@ public class HomeActivity extends AppCompatActivity implements ServiceAdapter.Se
     }
 
     //section for image slider api call
-
-    private void imageLoader(){
-        int [] img = {R.drawable.mediraj,R.drawable.mediraj_one,R.drawable.mediraj_two};
-
+    private void imageLoader() {
+        int[] img = {R.drawable.mediraj, R.drawable.mediraj_one, R.drawable.mediraj_two};
         SliderView sliderView = findViewById(R.id.imageSlider);
-        sliderView.setSliderAdapter(new ImageSliderAdapter(this,img));
-        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setSliderAdapter(new ImageSliderAdapter(this, img));
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP);
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
-        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.setScrollTimeInSec(4);
         sliderView.startAutoCycle();
-
-
     }
+
+
 }

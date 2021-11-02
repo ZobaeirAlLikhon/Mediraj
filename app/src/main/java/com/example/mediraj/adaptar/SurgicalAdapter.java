@@ -1,5 +1,6 @@
 package com.example.mediraj.adaptar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,12 @@ public class SurgicalAdapter extends RecyclerView.Adapter<SurgicalAdapter.MyView
         return allSurgicalModels.size();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchList(List<AllSurgicalModel.Datum> filteredList) {
+        allSurgicalModels = filteredList;
+        notifyDataSetChanged();
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         CircleImageView circleImageView;
         TextView surgical_name,surgical_price;
@@ -82,6 +89,7 @@ public class SurgicalAdapter extends RecyclerView.Adapter<SurgicalAdapter.MyView
 
 
             addToCart_btn.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onClick(View v) {
                     if (!allSurgicalModels.get(getAdapterPosition()).getIsChecked()) {
@@ -96,10 +104,22 @@ public class SurgicalAdapter extends RecyclerView.Adapter<SurgicalAdapter.MyView
                 }
             });
 
+            circleImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (allSurgicalModels.get(getAdapterPosition()).getLogo() !=null){
+                        onSurgicalClick.sendUrl(allSurgicalModels.get(getAdapterPosition()).getLogo());
+                    }else{
+                        onSurgicalClick.sendUrl("test");
+                    }
+                }
+            });
+
         }
     }
     public interface OnSurgicalClick{
         void sendOrDeleteData_surgical(int position,String opType);
+        void sendUrl(String imageName);
 
     }
 }
